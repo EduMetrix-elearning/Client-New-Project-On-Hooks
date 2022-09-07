@@ -1,9 +1,10 @@
 import React from 'react'
+import NavBar from '../../components/NavBar/NavBar'
 
 export default function index() {
     return (
         <div>
-            <h1>wallet</h1>
+            <NavBar/>
         </div>
     )
 }
