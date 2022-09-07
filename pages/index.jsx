@@ -7,8 +7,8 @@ export default function Home() {
   // const dispatch = useDispatch()
   return (
     <div>
-      <NavBar />
-      <Header />
+      <NavBar currPage={'Home'} />
+      {/* <Header /> */}
     </div>
   )
 }

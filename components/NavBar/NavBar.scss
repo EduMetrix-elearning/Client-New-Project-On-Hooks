@@ -1,9 +1,31 @@
 .NavBar {
-    h1{
-        color: green;
-    }
+    width: 200px;
+    height: 100vh;
+    background-color: blueviolet;
+    padding: 1px;
+    position: fixed;
+
     ul {
-        color: purple;
-        font-size: 20pt;
+        margin: 0;
+        list-style: none;
+
+        li {
+            cursor: pointer;
+            margin-top: 10px;
+
+            img {
+                $image_size: 25px;
+                width: $image_size;
+                height: $image_size;
+            }
+
+            span {
+                position: relative;
+                bottom: 7px;
+                left: 10px;
+                color: var(--color1);
+            }
+        }
+
     }
 }
