@@ -39,8 +39,8 @@ export default function NavBar({ currPage }) {
             menus &&
             menus.map((menu, index) => {
               return (
-                <Link href={menu.path}>
-                  <li key={index}>
+                <Link href={menu.path} key={index}>
+                  <li>
                     <img src={menu.image_src} alt="" />
                     <span>{menu.title}</span>
                   </li>

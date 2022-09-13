@@ -11,6 +11,20 @@ body {
 
 :root {
   --color1: white;
+  --color2: black;
+  --color3: #164e64;
+  --color4: rgb(187, 187, 187);
+  --color5: rgb(180, 180, 180);
+}
+
+.justify-center {
+  display: flex;
+  justify-content: center;
+}
+
+.align-center {
+  display: flex;
+  align-items: center;
 }
 
 // a {
