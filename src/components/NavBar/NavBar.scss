@@ -9,6 +9,7 @@
         margin: 0;
         list-style: none;
 
+
         li {
             cursor: pointer;
             margin-top: 10px;
@@ -21,11 +22,18 @@
 
             span {
                 position: relative;
-                bottom: 7px;
+                bottom: 0px;
                 left: 10px;
                 color: var(--color1);
             }
         }
 
+        .active {
+            background-color: white;
+
+            span {
+                color: blueviolet;
+            }
+        }
     }
 }

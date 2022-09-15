@@ -1,6 +1,6 @@
 class Auth {
     constructor() {
-        const authenticated = false
+        this.authenticated = false
     }
     login(callback) {
         this.authenticated = true

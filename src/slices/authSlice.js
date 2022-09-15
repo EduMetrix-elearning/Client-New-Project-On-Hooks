@@ -42,7 +42,7 @@ export function userLogin(formData) {
             const response = await api.login(formData)
             if (response.data) {
                 response.data.photo = response.data.photo.trim("")
-                // console.log(response.data)
+                console.log(response.data)
                 // localStorage.setItem("userInfo", response.data)
                 localStorage.setItem('token', response.data.token)
             }
