@@ -4,7 +4,7 @@ import NavBar from '../../components/NavBar/NavBar'
 export default function index() {
     return (
         <div>
-            <NavBar />
+            <NavBar currPage={'Live chat'}/>
         </div>
     )
 }

@@ -1,6 +1,25 @@
-.Header{
-    p{
-        color: red;
-        font-size: 140pt;
+.Header {
+    height: 9vh;
+
+    .header_inner_div {
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        background-color: bisque;
+        padding: 5px 0;
+
+        img {
+            $side: 25px;
+            width: $side;
+            height: $side;
+            margin: 0 15px;
+
+            &:last-child {
+                $side: 45px;
+                width: $side;
+                height: $side;
+                border-radius: 50%;
+            }
+        }
     }
 }

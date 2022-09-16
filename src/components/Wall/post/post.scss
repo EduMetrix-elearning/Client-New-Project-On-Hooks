@@ -1,0 +1,75 @@
+.post {
+    margin-top: 20px;
+    padding: 10px 0;
+    border: 2px solid var(--color8);
+    border-radius: 7px;
+
+    .post_inner_div {
+        .account {
+            display: flex;
+
+            img {
+                $side: 30px;
+                width: $side;
+                height: $side;
+                margin: 5px;
+            }
+
+            .title {}
+        }
+
+        .content {
+            p {
+                font-size: 10pt;
+                margin: 6px;
+            }
+
+            img {
+                width: 100%;
+            }
+        }
+
+        .reactions {
+            display: flex;
+            justify-content: space-between;
+
+            .emojies {
+                span {
+                    $side: 20px;
+                    width: $side;
+                    height: $side;
+                    position: relative;
+                    border-radius: 50%;
+                }
+            }
+
+            .actions_count {}
+        }
+
+        .buttons {
+            button {
+                width: 50%;
+                height: 40px;
+                border: none;
+            }
+        }
+
+        .comments {
+            padding: 0 20px;
+
+            img {
+                $side: 30px;
+                width: $side;
+                height: $side;
+            }
+
+            input {
+                width: 500px;
+                margin: 15px 0;
+                margin-left: 20px;
+                border-radius: 20px;
+                padding-left: 20px;
+            }
+        }
+    }
+}

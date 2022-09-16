@@ -1,0 +1,12 @@
+.Wall {
+    height: 91vh;
+    overflow: auto;
+
+    .wall_inner_div {
+        width: 600px;
+        margin-left: 150px;
+        padding-top: 10px;
+
+        .wall_scroll {}
+    }
+}

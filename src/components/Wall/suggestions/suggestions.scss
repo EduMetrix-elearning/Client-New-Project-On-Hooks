@@ -1,0 +1,24 @@
+.suggestions {
+    position: absolute;
+    right: 30px;
+    top: 50px;
+
+    .people {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 250px;
+
+        img {
+            $side: 40px;
+            width: $side;
+            height: $side;
+        }
+
+        p {}
+
+        button {
+            border-radius: 25px;
+        }
+    }
+}

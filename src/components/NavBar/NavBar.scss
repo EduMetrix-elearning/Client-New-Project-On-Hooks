@@ -1,39 +1,74 @@
 .NavBar {
-    width: 200px;
+    width: 15%;
     height: 100vh;
-    background-color: blueviolet;
+    background-color: var(--color6);
     padding: 1px;
     position: fixed;
+    color: var(--color1);
+
+    .network_div {
+        text-align: center;
+        margin: 20px 0;
+
+        div {
+            width: 50%;
+
+            p {
+                margin: 0%;
+            }
+        }
+    }
+
+    .logo {
+
+        img {
+            width: 100px;
+            border-radius: 50%;
+        }
+
+        p {
+            width: 100%;
+            text-align: center;
+        }
+    }
 
     ul {
         margin: 0;
         list-style: none;
+        padding-left: 0%;
 
+        a {
+            text-decoration: none;
 
-        li {
-            cursor: pointer;
-            margin-top: 10px;
+            li {
+                cursor: pointer;
+                padding-left: 2rem;
+                padding-top: 6px;
+                height: 40px;
 
-            img {
-                $image_size: 25px;
-                width: $image_size;
-                height: $image_size;
-            }
+                img {
+                    $image_size: 25px;
+                    width: $image_size;
+                    height: $image_size;
+                }
 
-            span {
-                position: relative;
-                bottom: 0px;
-                left: 10px;
-                color: var(--color1);
+                span {
+                    position: relative;
+                    bottom: 0px;
+                    left: 10px;
+                    color: var(--color1);
+                }
             }
         }
 
         .active {
-            background-color: white;
-
-            span {
-                color: blueviolet;
-            }
+            background-color: var(--color7);
         }
+    }
+
+    &+div {
+        position: absolute;
+        left: 15%;
+        width: 85%;
     }
 }

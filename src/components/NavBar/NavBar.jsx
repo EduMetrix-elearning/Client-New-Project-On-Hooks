@@ -9,8 +9,9 @@ import image_history from '../../images/NavBar/history.png'
 import image_dollar from '../../images/NavBar/dollar.png'
 import image_group from '../../images/NavBar/group.png'
 import image_speech_bubble from '../../images/NavBar/speech-bubble.png'
-import { useEffect } from 'react'
-import { useContext } from 'react'
+import image_user from '../../images/NavBar/profilepic.jpeg'
+
+import { Link } from 'react-router-dom'
 
 
 export default function NavBar({ currPage }) {
@@ -29,9 +30,23 @@ export default function NavBar({ currPage }) {
 
   return (
     <div className='NavBar'>
+      <div className='network_div justify-center'>
+        <div>
+          <p>100</p>
+          <p>Followers</p>
+        </div>
+        <div>
+          <p>100</p>
+          <p>Followings</p>
+        </div>
 
-      <div className='Logo' >
-        EduMetrix.io
+      </div>
+
+      <div className='logo' >
+        <div className='justify-center'>
+          <img src={image_user} alt="" />
+        </div>
+        <p>EduMetrix.io</p>
       </div>
 
       <div>
@@ -40,10 +55,12 @@ export default function NavBar({ currPage }) {
             menus &&
             menus.map((menu, index) => {
               return (
-                <li className={currPage === menu.title ? 'active' : ''}>
-                  <img src={menu.image_src} alt="" />
-                  <span>{menu.title}</span>
-                </li>
+                <Link to={menu.path}>
+                  <li className={currPage === menu.title ? 'active' : ''}>
+                    <img src={menu.image_src} alt="" />
+                    <span>{menu.title}</span>
+                  </li>
+                </Link>
               )
             })
           }
