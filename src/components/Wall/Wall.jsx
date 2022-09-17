@@ -14,7 +14,7 @@ export default function Wall() {
     useEffect(() => {
         async function asyncFuction() {
             const response = await getPost(pageNumber, pageLength)
-            console.log(response.data)
+            // console.log(response.data)
             setPosts(response.data.data)
         }
         asyncFuction()

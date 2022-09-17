@@ -12,9 +12,12 @@ import image_speech_bubble from '../../images/NavBar/speech-bubble.png'
 import image_user from '../../images/NavBar/profilepic.jpeg'
 
 import { Link } from 'react-router-dom'
-
+import { useDispatch } from 'react-redux'
+import { userLogout } from '../../slices/authSlice'
 
 export default function NavBar({ currPage }) {
+
+  const dispatch = useDispatch()
 
   const menus = [
     { title: 'Home', image_src: image_home, path: '/' },
@@ -25,7 +28,7 @@ export default function NavBar({ currPage }) {
     { title: 'Chatbot', image_src: image_chat, path: '/chatbot' },
     { title: 'My profile', image_src: image_setting, path: '/profile' },
     { title: 'Wallet', image_src: image_chat, path: '/wallet' },
-    { title: 'Logout', image_src: image_history, path: '/logout' }
+    { title: 'Logout', image_src: image_history, path: '', onclick: () => dispatch(userLogout()) }
   ]
 
   return (
@@ -55,7 +58,7 @@ export default function NavBar({ currPage }) {
             menus &&
             menus.map((menu, index) => {
               return (
-                <Link to={menu.path} key={index}>
+                <Link to={menu.path} key={index} onClick={menu.onclick}>
                   <li className={currPage === menu.title ? 'active' : ''}>
                     <img src={menu.image_src} alt="" />
                     <span>{menu.title}</span>

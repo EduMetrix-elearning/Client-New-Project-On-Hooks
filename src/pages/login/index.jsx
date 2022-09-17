@@ -1,13 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import './index.scss'
 
 import { useSelector, useDispatch } from 'react-redux'
-import auth from '../../Auth'
+import { useNavigate } from 'react-router-dom'
 
 import image_coin from '../../images/Login/coin.png'
 import image_logo from '../../images/Login/logo.png'
-
-import gif_spinner from '../../images/Login/spinner.gif'
 
 import image_Etherscan from '../../images/Login/Etherscan-logo-removebg-preview.png'
 import image_P2PB2Blogo from '../../images/Login/P2PB2Blogo.png'
@@ -18,16 +16,15 @@ import image_coinmarketcap from '../../images/Login/coinmarketcap.png'
 // import Recaptcha from 'react-recaptcha';
 import { loginValidation } from '../../utils/loginUtils'
 import { userLogin, verifyUser } from '../../slices/authSlice'
-import { Route } from 'react-router-dom'
+import { useEffect } from 'react'
 
 // const TEST_SITE_KEY = '6Lc0EJohAAAAAPe3Zxt6FCQRKOIWqPuNuAqFxoqe';
 
 export default function Login() {
 
-  const user = useSelector((state) => state.authentication)
+  const user = useSelector((state) => state.Authentication)
   const dispatch = useDispatch()
-
-  console.log(user)
+  const navigate = useNavigate()
 
   const [inputError, setInputError] = useState({})
   const [input, setInput] = useState({})
@@ -35,13 +32,9 @@ export default function Login() {
   const [page, setPage] = useState('login')
 
   function inputHandle(event) {
-    if (event.target.name === 'email') {
-      setInput((state) => ({ ...state, email: event.target.value }))
-      setInputError((state) => ({ ...state, email: '' }))
-    } else if (event.target.name === 'password') {
-      setInput((state) => ({ ...state, password: event.target.value }))
-      setInputError((state) => ({ ...state, password: '' }))
-    }
+    const { name, value } = event.target;
+    setInput(state => ({ ...state, [name]: value }));
+    setInputError((state) => ({ ...state, [name]: '' }));
   }
 
   function submitHandle(e) {
@@ -53,11 +46,7 @@ export default function Login() {
           email: input.email,
           password: input.password,
         };
-        console.log(obj)
-        dispatch(userLogin(obj))
-        auth.login(() => {
-          // <Route  path='/'/>
-        });
+        dispatch(userLogin(obj, navigate))
       }
     }
   }

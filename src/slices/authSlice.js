@@ -1,60 +1,83 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import * as api from '../api'
 
 const initialState = {
-    loading: false,
-    error: '',
-    user: '',
+    login: {
+        loading: false,
+        error: ''
+    },
+    logout: {
+        loading: false,
+        error: ''
+    },
+    user: null,
     isAuthenticated: false
 };
 
 export const authSlice = createSlice({
-    name: "userLogin",
+    name: "auth",
     initialState,
     reducers: {
         loginUser(state, action) {
-            state.loading = true
+            state.login.loading = true
         },
         loginUserSuccess(state, action) {
-            state.loading = false
+            state.login.loading = false
+            state.isAuthenticated = true
             state.user = action.payload
         },
         loginUserFailure(state, action) {
-            state.loading = false
+            state.login.loading = false
+            state.isAuthenticated = false
+            state.login.error = action.payload
         },
-        verifyUser(state, action) {
-            const token = localStorage.getItem('token')
-            if (token) {
-                state.isAuthenticated = true
-            }
-            else {
-                state.isAuthenticated = false
-                localStorage.clear('token')
+        logoutUser(state, action) {
+            switch (action.type) {
+                case "start":
+                    state.logout.loading = true
+                    break;
+                case "success":
+                    state.user = null
+                    state.isAuthenticated = false
+                    state.logout.loading = false
+                    break;
+                case "failure":
+                    state.logout.loading = false
+                    break;
+                default:
             }
         }
     }
-});
+})
 
-export function userLogin(formData) {
+export function userLogin(formData, navigate) {
     return async (dispatch) => {
         dispatch(loginUser())
         try {
             const response = await api.login(formData)
-            console.log(response)
             if (response.data) {
                 response.data.photo = response.data.photo.trim("")
-                console.log(response.data)
-                // localStorage.setItem("userInfo", response.data)
-                localStorage.setItem('token', response.data.token)
+                localStorage.setItem('userInfo', JSON.stringify(response.data))
             }
             dispatch(loginUserSuccess(response.data))
-            // console.log(localStorage.getItem('userInfo'))
+            navigate('/')
         } catch (err) {
             dispatch(loginUserFailure(err))
         }
     }
 }
 
-export const { loginUser, loginUserSuccess, loginUserFailure, verifyUser } = authSlice.actions;
+export function userLogout() {
+    return async (dispatch) => {
+        dispatch(logoutUser({ type: "start" }))
+        try {
+            localStorage.clear()
+            dispatch(logoutUser({ type: "success" }))
+        } catch (err) {
+            dispatch(logoutUser({ type: "failure" }))
+        }
+    }
+}
 
+export const { loginUser, loginUserSuccess, loginUserFailure, verifyUser, logoutUser } = authSlice.actions;
 export default authSlice.reducer;
