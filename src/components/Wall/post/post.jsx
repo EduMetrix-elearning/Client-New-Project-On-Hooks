@@ -4,14 +4,16 @@ import './post.scss'
 import image_cat from '../../../images/Wall/cat.jpg'
 import image_user from '../../../images/Wall/profilepic.jpeg'
 
-export default function post() {
+export default function post({ details }) {
     return (
         <div className='post'>
             <div className="post_inner_div">
                 <div className="account">
-                    <img src={image_user} alt="" />
+                    {details.student_photo &&
+                        <img src={details.student_photo} alt="" />
+                    }
                     <div className='title'>
-                        <h6>Muhammed Faisal</h6>
+                        <h6>{details.student_fname && details.student_lname ? details.student_fname + ' ' + details.student_lname : null}</h6>
                         <p>6h ago</p>
                     </div>
                 </div>
@@ -19,7 +21,9 @@ export default function post() {
                     <p>അരണയുടെ ഇംഗ്ലീഷ് വാക്ക് google
                         ചെയ്യാതെ പറയുന്നവന് കുതിരപ്പവൻ!😁
                         ©Dwayne Paterson</p>
-                    <img src={image_cat} alt="" />
+                    {details.post_photo &&
+                        <img src={details.post_photo} alt="" />
+                    }
                 </div>
                 <div className="reactions">
                     <div className='emojies'>

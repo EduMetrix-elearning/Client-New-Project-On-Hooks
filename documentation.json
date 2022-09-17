@@ -1,0 +1,76 @@
+[
+    {
+        "Method": "Post",
+        "URL": "/login",
+        "Request": {
+            "Body": {
+                "email": "String",
+                "password": "String"
+            }
+        },
+        "Response": {
+            "200": {
+                "Id": "Number",
+                "email": "String",
+                "message": "String",
+                "photo": "",
+                "status": "",
+                "token": "",
+                "username": ""
+            }
+        }
+    },
+    {
+        "Method": "Get",
+        "URL": "/getPost",
+        "Request": {
+            "Params": {
+                "pageNumber": "Number",
+                "pageLength": "Number"
+            }
+        },
+        "Response": {
+            "200": {
+                "status": "success",
+                "totalPages": 170,
+                "data": [
+                    {
+                        "student_photo": "",
+                        "student_fname": "",
+                        "student_lname": "",
+                        "student_id": "Number",
+                        "post_title": null,
+                        "post_content": "1",
+                        "post_photo": "",
+                        "post_video": null,
+                        "post_document": null,
+                        "posted_date": "Date",
+                        "like_count": null,
+                        "share_count": null,
+                        "comment_count": null,
+                        "status": null,
+                        "post_id": "Number",
+                        "active": 1,
+                        "archived": 0
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "Method": "Get",
+        "URL": "/getStudentsToFollow",
+        "Request": {},
+        "Response": {
+            "200": {
+                "Id": "Number",
+                "email": "String",
+                "message": "String",
+                "photo": "",
+                "status": "",
+                "token": "",
+                "username": ""
+            }
+        }
+    },
+]

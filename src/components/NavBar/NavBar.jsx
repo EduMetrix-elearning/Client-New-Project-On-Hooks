@@ -55,7 +55,7 @@ export default function NavBar({ currPage }) {
             menus &&
             menus.map((menu, index) => {
               return (
-                <Link to={menu.path}>
+                <Link to={menu.path} key={index}>
                   <li className={currPage === menu.title ? 'active' : ''}>
                     <img src={menu.image_src} alt="" />
                     <span>{menu.title}</span>

@@ -40,6 +40,7 @@ export function userLogin(formData) {
         dispatch(loginUser())
         try {
             const response = await api.login(formData)
+            console.log(response)
             if (response.data) {
                 response.data.photo = response.data.photo.trim("")
                 console.log(response.data)

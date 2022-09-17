@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import './index.scss'
+
 import { useSelector, useDispatch } from 'react-redux'
 import auth from '../../Auth'
 
 import image_coin from '../../images/Login/coin.png'
 import image_logo from '../../images/Login/logo.png'
+
+import gif_spinner from '../../images/Login/spinner.gif'
 
 import image_Etherscan from '../../images/Login/Etherscan-logo-removebg-preview.png'
 import image_P2PB2Blogo from '../../images/Login/P2PB2Blogo.png'
@@ -21,9 +24,10 @@ import { Route } from 'react-router-dom'
 
 export default function Login() {
 
-  // const isAuth = useSelector((state) => state.authentication.isAuthenticated)
+  const user = useSelector((state) => state.authentication)
   const dispatch = useDispatch()
-  // const history = useHistory()
+
+  console.log(user)
 
   const [inputError, setInputError] = useState({})
   const [input, setInput] = useState({})
@@ -151,7 +155,9 @@ export default function Login() {
                     /> */}
                   </div>
                   <div className='login_buttons'>
-                    <button onClick={submitHandle}>Submit</button>
+                    <button onClick={submitHandle}>
+                      {user.loading ? "Loading..." : 'Submit'}
+                    </button>
                     <button onClick={() => setPage('signIn')}>Not yet have an account? Sign In</button>
                   </div>
                 </div>

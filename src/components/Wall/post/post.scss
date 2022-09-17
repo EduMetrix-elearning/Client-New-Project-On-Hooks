@@ -7,21 +7,32 @@
     .post_inner_div {
         .account {
             display: flex;
+            border-bottom: 0.5px solid var(--color8);
 
             img {
-                $side: 30px;
+                $side: 40px;
                 width: $side;
                 height: $side;
                 margin: 5px;
+                border-radius: 50%;
             }
 
-            .title {}
+            .title {
+                h6 {
+                    margin-bottom: 0;
+                    margin-top: 5px;
+                }
+
+                P {
+                    font-size: 10pt;
+                }
+            }
         }
 
         .content {
             p {
                 font-size: 10pt;
-                margin: 6px;
+                margin: 15px 6px;
             }
 
             img {

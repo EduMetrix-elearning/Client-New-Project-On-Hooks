@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import NavBar from '../../components/NavBar/NavBar'
 import Header from '../../components/Header/Header'
 import Wall from '../../components/Wall/Wall'
-import Suggestions from '../../components/Wall/suggestions/suggestions'
+import Suggestions from '../../components/Wall/suggestions/Suggestions'
+import { getPost } from '../../api'
 
 export default function Home() {
 

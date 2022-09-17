@@ -13,10 +13,10 @@ export default function createPost() {
                 <header>
                     <p>Create Post</p>
                 </header>
-                <body>
+                <div className='body'>
                     <img src={image_user} alt="" />
                     <input type="text" placeholder='write something here...' autoFocus/>
-                </body>
+                </div >
                 <footer>
                     <div className="icons">
                         <div className='icon'>
