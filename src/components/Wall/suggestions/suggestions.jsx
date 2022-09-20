@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import './suggestions.scss'
-import image_user from '../../../images/Wall/profilepic.jpeg'
 import { useEffect } from 'react'
 import { getStudentsToFollow } from '../../../api'
 
@@ -10,9 +9,8 @@ export default function Suggestions() {
 
     useEffect(() => {
         async function asyncFuction() {
-            const response = getStudentsToFollow()
-            console.log(response.data)
-            setPeoples(response.data)
+            const response = await getStudentsToFollow()
+            setPeoples(response.data.data)
         }
         asyncFuction()
     }, [])
@@ -21,12 +19,20 @@ export default function Suggestions() {
             <div className="title">
                 <h6>People suggestions</h6>
             </div>
-            <div className='people'>
-                <div>
-                    <img src={image_user} alt="" />
-                    <p>Muhammed Faisal</p>
-                </div>
-                <i className='fa fa-user-plus'></i>
+            <div className="suggestions_inner_div">
+                {peoples &&
+                    peoples.map((people, i) => {
+                        return (
+                            <div className='people' key={i}>
+                                <div>
+                                    <img src={people.student_photo} alt="" />
+                                    <p>{people.student_fname + " " + people.student_lname}</p>
+                                </div>
+                                <i className='fa fa-user-plus'></i>
+                            </div>
+                        )
+                    })
+                }
             </div>
         </div>
     )

@@ -1,10 +1,10 @@
 import React from 'react'
 import NavBar from '../../components/NavBar/NavBar'
 
-export default function index() {
+export default function Wallet() {
     return (
         <div>
-            <NavBar/>
+            <NavBar currPage={'Wallet'} />
         </div>
     )
 }

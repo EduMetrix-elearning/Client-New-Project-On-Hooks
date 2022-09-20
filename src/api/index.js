@@ -4,13 +4,12 @@ import { BACKEND_URL } from '../constants/url'
 const API = axios.create({ baseURL: BACKEND_URL })
 
 let authHeader = {
-    Authorization: (JSON.parse(localStorage.getItem("userInfo"))).token,
-    'Content-Type': 'application/json'
+    authorization: (JSON.parse(localStorage.getItem("userInfo")))?.token,
 }
-console.log(authHeader)
 
 // user endpoints
 
 export const login = (values) => API.post('/login', values)
 export const getPost = (pageNumber, pageLength) => API.get(`/getPost?pageNumber=${pageNumber}&pageLength=${pageLength}`)
-export const getStudentsToFollow = () => API.get('/getStudentsToFollow', { Headers: authHeader })
+export const getStudentsToFollow = () => API.get('/getStudentsToFollow', { headers: authHeader })
+export const getTopPicsForYou = (pageNumber, pageLength) => API.get(`/topicsForU?pageNumber=${pageNumber}&pageLength=${pageLength}`, { headers: authHeader })

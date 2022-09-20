@@ -3,6 +3,7 @@
     right: 30px;
     top: 60px;
 
+
     .title {
         h6 {
             background-color: darkcyan;
@@ -13,33 +14,40 @@
         }
     }
 
-    .people {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 220px;
-        margin: 5px 0;
-        padding-left: 5px;
+    .suggestions_inner_div {
+        height: 80vh;
+        overflow-y: scroll;
 
-        div {
+        .people {
             display: flex;
             align-items: center;
+            justify-content: space-between;
+            width: 220px;
+            margin: 5px 0;
+            padding-left: 5px;
 
-            img {
-                $side: 30px;
-                width: $side;
-                height: $side;
+            div {
+                display: flex;
+                align-items: center;
+
+                img {
+                    $side: 30px;
+                    width: $side;
+                    height: $side;
+                    border-radius: 50%;
+                }
+
+                p {
+                    font-size: 10pt;
+                    margin-left: 5px;
+                }
             }
 
-            p {
+            i {
                 font-size: 10pt;
-                margin-left: 5px;
+                cursor: pointer;
             }
-        }
-
-        i {
-            font-size: 10pt;
-            cursor: pointer;
         }
     }
+
 }

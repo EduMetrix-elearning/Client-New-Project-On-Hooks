@@ -60,16 +60,89 @@
     {
         "Method": "Get",
         "URL": "/getStudentsToFollow",
-        "Request": {},
+        "Request": {
+            "headers": {
+                "authorization": "<token>"
+            }
+        },
         "Response": {
             "200": {
-                "Id": "Number",
-                "email": "String",
-                "message": "String",
-                "photo": "",
-                "status": "",
-                "token": "",
-                "username": ""
+                "data": [
+                    {
+                        "account_approve": 1,
+                        "courseName": "B.Tech",
+                        "courseYear": "2020",
+                        "created_date": "2022-08-12T04:46:11.000Z",
+                        "description": "i am become a programmer.",
+                        "email_otp": 864125,
+                        "email_verified": 1,
+                        "fatherName": "father name",
+                        "gender": "Male",
+                        "hobbies": "playing football",
+                        "lifeAmbition": "Testing",
+                        "login_bonus": null,
+                        "mobile_otp": 523669,
+                        "mobile_verified": 1,
+                        "motherName": "mother name",
+                        "password_hash": "$2b$11$1yYUtwIypZBaJRox3CLG8efmRz83pRskH4i7YJ5bX7ETk.K3SlNzO",
+                        "private_key": "0x235ab2814b846c3d7785b54a56d201cfec90c603ee688a0367d544b2ce1b4739",
+                        "public_key": "0xb3dcb8ecc41335207Fc14c4d7b406a815Bbe9250",
+                        "qrcode": "https://edumetrixblobstorage.blob.core.windows.net/images/1660299435618-qrCode.png",
+                        "refer_count": 0,
+                        "referal_earnings": null,
+                        "reference_by": "12345",
+                        "reference_id": "Edumetrix05423",
+                        "school": "wxyz",
+                        "skills": "programmer",
+                        "specification": "C.S",
+                        "student_address": "hulimu gate",
+                        "student_country": "India",
+                        "student_dob": "1996-10-12T18:30:00.000Z",
+                        "student_email": "junaid@gmail.com",
+                        "student_fname": "junaid",
+                        "student_id": 1,
+                        "student_idback": "https://edumetrixblobstorage.blob.core.windows.net/images/3-registration_student_idback.jpeg",
+                        "student_idfront": "https://edumetrixblobstorage.blob.core.windows.net/images/3-registration_student_idfront.jpeg",
+                        "student_lname": "testing",
+                        "student_phone": "+918090749097",
+                        "student_photo": "https://edumetrixblobstorage.blob.core.windows.net/images/3-registration_student_photo.jpeg",
+                        "student_state": "Karnataka",
+                        "studentid": null,
+                        "university": "abcd",
+                        "user_name": "junaidtesting"
+                    }
+                ],
+                "status": "success",
+                "total": 86
+            }
+        }
+    },
+    {
+        "Method": "Get",
+        "URL": "/topicsForU",
+        "Request": {
+            "headers": {
+                "authorization": "<token>"
+            },
+            "Query": {
+                "pageNumber": "Number",
+                "pageLength": "Number"
+            }
+        },
+        "Response": {
+            "200": {
+                "data": [
+                    {
+                        "adminPicture_uploaded": "https://edumetrixblobstorage.blob.core.windows.net/images/33-whatsNewPicture.jpeg",
+                        "adminVideo": null,
+                        "entryCreatedTime": "2022-09-16 11:12:09.726",
+                        "id": 33,
+                        "linkUploaded": "",
+                        "message": "1"
+                    }
+                ],
+                "success": true,
+                "totalPages": 4
             }
         }
     }

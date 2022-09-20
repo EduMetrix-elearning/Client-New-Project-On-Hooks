@@ -42,16 +42,13 @@ export default function NavBar({ currPage }) {
           <p>100</p>
           <p>Followings</p>
         </div>
-
       </div>
-
       <div className='logo' >
         <div className='justify-center'>
           <img src={image_user} alt="" />
         </div>
         <p>EduMetrix.io</p>
       </div>
-
       <div>
         <ul>
           {
