@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './suggestions.scss'
 import { useEffect } from 'react'
-import { getStudentsToFollow } from '../../../api'
+import { getStudentsToFollow } from '../../api'
 
 export default function Suggestions() {
 

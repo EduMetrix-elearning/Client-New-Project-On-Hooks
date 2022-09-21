@@ -1,8 +1,8 @@
 import React from 'react'
 import './post.scss'
 
-import image_cat from '../../../images/Wall/cat.jpg'
-import image_user from '../../../images/Wall/profilepic.jpeg'
+import image_cat from '../../../asset/images/Wall/cat.jpg'
+import image_user from '../../../asset/images/Wall/profilepic.jpeg'
 
 export default function post({ details }) {
     return (

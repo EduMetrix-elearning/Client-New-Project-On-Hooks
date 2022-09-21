@@ -1,3 +1,28 @@
 .TopPics {
-    .TopPics_content {}
+    grid-area: main;
+
+    .TopPics_content {
+        display: flex;
+        justify-content: center;
+
+        .center_platform {
+            height: 90vh;
+            overflow-y: scroll;
+
+            &::-webkit-scrollbar {
+                display: none
+            }
+
+            ;
+
+            .TopPic_element {
+
+                img {
+                    $side: 500px;
+                    width: $side;
+                    margin: 20px 0;
+                }
+            }
+        }
+    }
 }

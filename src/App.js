@@ -6,7 +6,7 @@ import ProtectedRouter from './protectedRouter.js';
 
 import Login from './pages/login'
 import Home from './pages/Home/Home.jsx'
-import Chat from './pages/chat'
+import Chat from './pages/chat/chat'
 import TopPics from './pages/pics/TopPics.jsx';
 import FindFriends from './pages/find_friends/index.jsx';
 import Earnings from './pages/earnings/index.jsx';

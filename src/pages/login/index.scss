@@ -1,5 +1,5 @@
 .Login {
-    background: url('../../images/Login/login-bg.jpg');
+    background: url('../../asset/images/Login/login-bg.jpg');
     background-size: cover;
     height: 100vh;
     display: flex;
@@ -16,7 +16,7 @@
         $br: 15px;
 
         .image_sky_div {
-            background: url('../../images/Login/login-img.jpg');
+            background: url('../../asset/images/Login/login-img.jpg');
             background-size: cover;
             background-position: 0 bottom;
             border-radius: $br 0 0 $br;

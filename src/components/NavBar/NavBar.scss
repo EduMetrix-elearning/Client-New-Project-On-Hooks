@@ -1,9 +1,7 @@
 .NavBar {
-    width: 15%;
-    height: 100vh;
+    grid-area: navbar;
     background-color: var(--color6);
     padding: 1px;
-    position: fixed;
     color: var(--color1);
 
     .network_div {
@@ -64,11 +62,5 @@
         .active {
             background-color: var(--color7);
         }
-    }
-
-    &+div {
-        position: absolute;
-        left: 15%;
-        width: 85%;
     }
 }

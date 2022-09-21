@@ -1,8 +1,8 @@
 .suggestions {
+    grid-area: side;
     position: absolute;
     right: 30px;
     top: 60px;
-
 
     .title {
         h6 {
@@ -17,12 +17,14 @@
     .suggestions_inner_div {
         height: 80vh;
         overflow-y: scroll;
+        &::-webkit-scrollbar{
+            display: none;
+        }
 
         .people {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            width: 220px;
             margin: 5px 0;
             padding-left: 5px;
 

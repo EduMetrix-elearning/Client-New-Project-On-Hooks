@@ -1,10 +1,10 @@
 import React from 'react'
 import './createPost.scss'
 
-import image_user from '../../../images/Wall/profilepic.jpeg'
-import image_photo from '../../../images/Wall/image.png'
-import image_video from '../../../images/Wall/video-camera.png'
-import image_doc from '../../../images/Wall/files.png'
+import image_user from '../../../asset/images/Wall/profilepic.jpeg'
+import image_photo from '../../../asset/images/Wall/image.png'
+import image_video from '../../../asset/images/Wall/video-camera.png'
+import image_doc from '../../../asset/images/Wall/files.png'
 
 export default function createPost() {
     return (
@@ -15,7 +15,7 @@ export default function createPost() {
                 </header>
                 <div className='body'>
                     <img src={image_user} alt="" />
-                    <input type="text" placeholder='write something here...' autoFocus/>
+                    <input type="text" placeholder='write something here...' autoFocus />
                 </div >
                 <footer>
                     <div className="icons">

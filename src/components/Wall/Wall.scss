@@ -1,10 +1,15 @@
 .Wall {
-    height: 91vh;
+    grid-area: main;
     overflow: auto;
+    display: flex;
+    justify-content: center;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
 
     .wall_inner_div {
         width: 700px;
-        margin-left: 100px;
         padding-top: 10px;
 
     }

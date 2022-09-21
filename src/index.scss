@@ -76,3 +76,14 @@ p {
   margin: 0%;
 }
 
+.grid {
+  display: grid;
+  width: 100%;
+  height: 100vh;
+  grid-template-areas:
+    "navbar header header"
+    "navbar main side"
+  ;
+  grid-template-columns: 15% 65% 20%;
+  grid-template-rows: 8vh 1fr;
+}

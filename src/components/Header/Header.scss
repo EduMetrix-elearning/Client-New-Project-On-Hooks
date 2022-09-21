@@ -1,11 +1,11 @@
 .Header {
-    height: 9vh;
+    grid-area: header;
+    background-color: bisque;
 
     .header_inner_div {
         display: flex;
         justify-content: right;
         align-items: center;
-        background-color: bisque;
         padding: 5px 0;
 
         img {

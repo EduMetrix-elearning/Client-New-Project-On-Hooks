@@ -1,9 +1,9 @@
 import React from 'react'
 import './Header.scss'
 
-import image_bell from '../../images/Header/AppBarNotification.png'
-import image_message from '../../images/Header/AppBarChat.png'
-import image_user from '../../images/Header/profilepic.jpeg'
+import image_bell from '../../asset/images/Header/AppBarNotification.png'
+import image_message from '../../asset/images/Header/AppBarChat.png'
+import image_user from '../../asset/images/Header/profilepic.jpeg'
 
 export default function Header() {
     return (

@@ -4,14 +4,14 @@ import './index.scss'
 import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
-import image_coin from '../../images/Login/coin.png'
-import image_logo from '../../images/Login/logo.png'
+import image_coin from '../../asset/images/Login/coin.png'
+import image_logo from '../../asset/images/Login/logo.png'
 
-import image_Etherscan from '../../images/Login/Etherscan-logo-removebg-preview.png'
-import image_P2PB2Blogo from '../../images/Login/P2PB2Blogo.png'
-import image_COINECKO from '../../images/Login/COINECKO.png'
-import image_coincodexjpe from '../../images/Login/coincodexjpe.png'
-import image_coinmarketcap from '../../images/Login/coinmarketcap.png'
+import image_Etherscan from '../../asset/images/Login/Etherscan-logo-removebg-preview.png'
+import image_P2PB2Blogo from '../../asset/images/Login/P2PB2Blogo.png'
+import image_COINECKO from '../../asset/images/Login/COINECKO.png'
+import image_coincodexjpe from '../../asset/images/Login/coincodexjpe.png'
+import image_coinmarketcap from '../../asset/images/Login/coinmarketcap.png'
 
 // import Recaptcha from 'react-recaptcha';
 import { loginValidation } from '../../utils/loginUtils'
