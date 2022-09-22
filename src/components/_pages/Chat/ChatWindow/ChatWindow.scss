@@ -1,0 +1,39 @@
+.ChatWindow {
+    grid-area: main;
+    background-color: rebeccapurple;
+
+    header {
+        background-color: darkgoldenrod;
+        height: 10%;
+    }
+
+    .chat_screen {
+        background-color: gainsboro;
+        height: 80%;
+    }
+
+    .chat_input {
+        background-color: darkgoldenrod;
+        height: 10%;
+        display: flex;
+
+        input {
+            width: 80%;
+            height: 40px;
+            margin-top: 10px;
+            margin-left: 18px;
+            border-radius: 25px;
+            border: none;
+        }
+
+        .icons {
+            padding-top: 8px;
+
+            i {
+                font-size: 20pt;
+                margin: 10px;
+                cursor: pointer;
+            }
+        }
+    }
+}

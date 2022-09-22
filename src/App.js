@@ -8,7 +8,7 @@ import Login from './pages/login'
 import Home from './pages/Home/Home.jsx'
 import Chat from './pages/chat/chat'
 import TopPics from './pages/pics/TopPics.jsx';
-import FindFriends from './pages/find_friends/index.jsx';
+import FindFriends from './pages/find_friends/find_friends.jsx';
 import Earnings from './pages/earnings/index.jsx';
 import ChatBot from './pages/chatbot/index.jsx';
 import Profile from './pages/profile/index.jsx';
