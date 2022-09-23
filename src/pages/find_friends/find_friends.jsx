@@ -13,7 +13,15 @@ export default function FindFriends() {
             <NavBar currPage={'Find friends'} />
             <div className='findFriends_content'>
                 <SearchFriends />
-                <DisplayFriends />
+                <div className="display_friends">
+                    <DisplayFriends />
+                    <DisplayFriends />
+                    <DisplayFriends />
+                    <DisplayFriends />
+                    <DisplayFriends />
+                    <DisplayFriends />
+                    <DisplayFriends />
+                </div>
             </div>
         </div>
     )

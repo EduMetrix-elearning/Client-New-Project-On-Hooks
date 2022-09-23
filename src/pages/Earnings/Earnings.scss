@@ -1,0 +1,19 @@
+.Earnings {
+    .earnings_content {
+        grid-area: 2 / 2 / 2 / 4;
+
+        .topRow {
+            display: flex;
+            justify-content: space-around;
+
+            .CurrencyExchange, .SocialMarketContent, .ReferYourFriend {
+                width: 370px;
+                height: 210px;
+                padding: 20px;
+                border-radius: 20px;
+                margin: 20px 0;
+                box-shadow: 1px 1px 5px 0px;
+            }
+        }
+    }
+}

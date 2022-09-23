@@ -1,6 +1,19 @@
 .FindFriends {
     .findFriends_content {
         grid-area: 2 / 2 / 3 / 4;
-        background-color: darkorange;
+
+        .display_friends {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            gap: 20px;
+            overflow-y: scroll;
+            height: 500px;
+            padding: 20px 70px;
+
+            &::-webkit-scrollbar{
+                display: none;
+            }
+        }
     }
 }

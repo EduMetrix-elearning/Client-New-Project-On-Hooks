@@ -10,6 +10,7 @@ import image_dollar from '../../asset/images/NavBar/dollar.png'
 import image_group from '../../asset/images/NavBar/group.png'
 import image_speech_bubble from '../../asset/images/NavBar/speech-bubble.png'
 import image_user from '../../asset/images/NavBar/profilepic.jpeg'
+import image_coin from '../../asset/images/NavBar/coin.png'
 
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
@@ -45,7 +46,7 @@ export default function NavBar({ currPage }) {
       </div>
       <div className='logo' >
         <div className='justify-center'>
-          <img src={image_user} alt="" />
+          <img src={image_coin} alt="" />
         </div>
         <p>EduMetrix.io</p>
       </div>
