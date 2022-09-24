@@ -1,0 +1,30 @@
+.BotIcon {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    cursor: pointer;
+
+    .chat_window {
+        height: 400px;
+        width: 300px;
+        background-color: white;
+        border: 1px solid black;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        border-radius:15px;
+        i{
+            position: absolute;
+            right:10px;
+            top:10px;
+        }
+    }
+
+    .image_div {
+        img {
+            $side: 50px;
+            width: $side;
+            height: $side;
+        }
+    }
+}

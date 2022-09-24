@@ -6,13 +6,39 @@
             display: flex;
             justify-content: space-around;
 
-            .CurrencyExchange, .SocialMarketContent, .ReferYourFriend {
+            .CurrencyExchange,
+            .SocialMarketContent,
+            .ReferYourFriend {
                 width: 370px;
                 height: 210px;
                 padding: 20px;
                 border-radius: 20px;
                 margin: 20px 0;
                 box-shadow: 1px 1px 5px 0px;
+            }
+        }
+
+        .downrow {
+            .tables {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+
+                header {
+                    width: 100%;
+                    height: 70px;
+                    background-color: var(--color9);
+                    color: white;
+                    display: flex;
+                    justify-content: space-evenly;
+                    align-items: center;
+                    font-size: 25pt;
+                    font-weight: bold;
+                }
+
+                .Table {
+                    width: 500px;
+                }
             }
         }
     }

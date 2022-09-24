@@ -10,7 +10,7 @@ import Chat from './pages/chat/chat'
 import TopPics from './pages/pics/TopPics.jsx';
 import FindFriends from './pages/find_friends/find_friends.jsx';
 import Earnings from './pages/Earnings/Earnings';
-import ChatBot from './pages/chatbot/index.jsx';
+import ChatBot from './pages/Chatbot/Chatbot';
 import Profile from './pages/profile/index.jsx';
 import Wallet from './pages/wallet/index.jsx';
 
