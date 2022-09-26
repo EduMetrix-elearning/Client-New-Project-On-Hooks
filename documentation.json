@@ -204,5 +204,45 @@
                 "success": true
             }
         }
+    },
+    {
+        "Method": "Get",
+        "URL": "/profilePosts",
+        "Request": {
+            "headers": {
+                "authorization": "<token>"
+            },
+            "Query": {
+                "pageNumber": "Number",
+                "pageLength": "Number"
+            }
+        },
+        "Response": {
+            "200": {
+                "status": "success",
+                "totalPages": 2,
+                "data": [
+                    {
+                        "student_photo": "",
+                        "student_fname": "mohd",
+                        "student_lname": "junaid",
+                        "student_id": 3,
+                        "post_title": null,
+                        "post_content": "",
+                        "post_photo": "",
+                        "post_video": null,
+                        "post_document": null,
+                        "posted_date": "2022-08-17 07:57:16.461",
+                        "like_count": null,
+                        "share_count": null,
+                        "comment_count": null,
+                        "status": null,
+                        "post_id": 65,
+                        "active": 1,
+                        "archived": 0
+                    }
+                ]
+            }
+        }
     }
 ]

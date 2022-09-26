@@ -1,0 +1,42 @@
+.Wallet {
+    .wallet_content {
+        grid-area: 2 / 2 / 2 / 4;
+        display: grid;
+        grid-template-rows: 10vh auto;
+        grid-template-columns: repeat(6, 1fr);
+        row-gap: 10px;
+
+        p {
+            text-align: center;
+            padding: 10px 0;
+            font-size: 20pt;
+            font-weight: 700;
+            background-color: var(--color3);
+            color: white;
+
+            &:first-child {
+                grid-column: 1 / span 3;
+            }
+
+            &:last-of-type {
+                grid-column: 4 / span 3;
+            }
+        }
+
+        .transactions {
+            grid-column: 1 / span 4;
+            background-color: blueviolet
+        }
+
+        .qrcode {
+            grid-column: 5 / span 2;
+            background-color: lightcoral
+        }
+    }
+}
+
+faisal {
+    color: white;
+    font-weight: 1000;
+    font-size: 30pt;
+}

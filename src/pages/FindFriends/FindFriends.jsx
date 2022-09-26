@@ -1,5 +1,5 @@
 import React from 'react'
-import './find_friends.scss'
+import './FindFriends.scss'
 
 import Header from '../../components/Header/Header'
 import NavBar from '../../components/NavBar/NavBar'

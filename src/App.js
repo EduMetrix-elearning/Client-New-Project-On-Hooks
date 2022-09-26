@@ -2,17 +2,16 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { store } from './store.js'
 import { Provider } from 'react-redux'
 
-import ProtectedRouter from './protectedRouter.js';
-
-import Login from './pages/login'
-import Home from './pages/Home/Home.jsx'
-import Chat from './pages/chat/chat'
-import TopPics from './pages/pics/TopPics.jsx';
-import FindFriends from './pages/find_friends/find_friends.jsx';
+import ProtectedRouter from './ProtectedRouter.js';
+import Login from './pages/Login/Login'
+import Home from './pages/Home/Home'
+import Chat from './pages/Chat/Chat'
+import TopPics from './pages/TopPics/TopPics';
+import FindFriends from './pages/FindFriends/FindFriends';
 import Earnings from './pages/Earnings/Earnings';
 import ChatBot from './pages/Chatbot/Chatbot';
-import Profile from './pages/profile/index.jsx';
-import Wallet from './pages/wallet/index.jsx';
+import Profile from './pages/Profile/Profile';
+import Wallet from './pages/Wallet/Wallet';
 
 function App() {
   return (

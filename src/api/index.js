@@ -14,3 +14,4 @@ export const getPost = (pageNumber, pageLength) => API.get(`/getPost?pageNumber=
 export const getStudentsToFollow = () => API.get('/getStudentsToFollow', { headers: authHeader })
 export const getTopPicsForYou = (pageNumber, pageLength) => API.get(`/topicsForU?pageNumber=${pageNumber}&pageLength=${pageLength}`, { headers: authHeader })
 export const getAllStudents = () => API.get('/getAllStudents', { headers: authHeader })
+export const getProfilePosts = (pageNumber, pageLength) => API.get(`/profilePosts?pageNumber=${pageNumber}&pageLength=${pageLength}`, { headers: authHeader })
