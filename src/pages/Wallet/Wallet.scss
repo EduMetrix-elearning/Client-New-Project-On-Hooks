@@ -3,10 +3,10 @@
         grid-area: 2 / 2 / 2 / 4;
         display: grid;
         grid-template-rows: 10vh auto;
-        grid-template-columns: repeat(6, 1fr);
+        grid-template-columns: repeat(4, 1fr);
         row-gap: 10px;
 
-        p {
+        p[data-content="heading"] {
             text-align: center;
             padding: 10px 0;
             font-size: 20pt;
@@ -15,28 +15,101 @@
             color: white;
 
             &:first-child {
-                grid-column: 1 / span 3;
+                grid-column: 1 / span 2;
             }
 
             &:last-of-type {
-                grid-column: 4 / span 3;
+                grid-column: 3 / span 2;
             }
         }
 
         .transactions {
-            grid-column: 1 / span 4;
-            background-color: blueviolet
+            grid-column: 1 / span 3;
+
+            h3 {
+                background-color: var(--color3);
+                color: white;
+                width: 90%;
+                height: fit-content;
+                padding: 10px;
+                border-radius: 10px 10px 0 0;
+                margin: auto;
+                margin-top: 20px;
+            }
+
+            p {
+                text-align: center;
+                margin-top: 20px;
+            }
         }
 
         .qrcode {
-            grid-column: 5 / span 2;
-            background-color: lightcoral
+            grid-column: 4 / span 1;
+            background-color: var(--color3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            margin: 10px 30px;
+            padding: 20px 0;
+            border-radius: 7px;
+
+            .qr {
+                padding: 15px;
+                background-color: white;
+                border-radius: 20px;
+
+                img {
+                    $side: 150px;
+                    width: $side;
+                    height: $side;
+                }
+            }
+
+            .wallet_address {
+                color: white;
+                width: 170px;
+                text-align: center;
+
+                p {
+                    word-wrap: break-word;
+                }
+            }
+
+            .send_to {
+                text-align: center;
+                padding: 10px;
+                background-color: white;
+                width: 80%;
+                height: 130px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                border-radius: 7px;
+
+                p {
+                    font-size: 10pt;
+                    font-weight: 700;
+                }
+
+                input {
+                    width: 100%;
+                    border: none;
+                    text-align: center;
+
+                    &:focus-visible {
+                        outline: none;
+                    }
+                }
+
+                button {
+                    width: 100%;
+                    border: none;
+                    background-color: var(--color3);
+                    color: white;
+                    border-radius: 7px;
+                }
+            }
         }
     }
-}
-
-faisal {
-    color: white;
-    font-weight: 1000;
-    font-size: 30pt;
 }
