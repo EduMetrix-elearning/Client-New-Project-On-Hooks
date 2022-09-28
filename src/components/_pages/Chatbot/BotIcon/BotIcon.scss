@@ -8,15 +8,31 @@
         height: 400px;
         width: 300px;
         background-color: white;
-        border: 1px solid black;
         position: absolute;
         right: 0;
         bottom: 0;
-        border-radius:15px;
-        i{
-            position: absolute;
-            right:10px;
-            top:10px;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 1px 1px 10px -4px;
+
+        .header {
+            height: 50px;
+            background-color: blueviolet;
+            padding: 1px;
+            color: white;
+
+            span {
+                display: block;
+                margin-left: 10px;
+                margin-top: 10px;
+            }
+
+            svg {
+                position: absolute;
+                right: 10px;
+                top: 10px;
+                fill: white;
+            }
         }
     }
 
@@ -25,6 +41,8 @@
             $side: 50px;
             width: $side;
             height: $side;
+            background-color: white;
+            border-radius: 50%;
         }
     }
 }

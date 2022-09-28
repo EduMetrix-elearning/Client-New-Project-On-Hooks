@@ -9,7 +9,7 @@ import Chat from './pages/Chat/Chat'
 import TopPics from './pages/TopPics/TopPics';
 import FindFriends from './pages/FindFriends/FindFriends';
 import Earnings from './pages/Earnings/Earnings';
-import ChatBot from './pages/Chatbot/Chatbot';
+import Chatbot from './pages/Chatbot/Chatbot';
 import Profile from './pages/Profile/Profile';
 import Wallet from './pages/Wallet/Wallet';
 
@@ -25,7 +25,7 @@ function App() {
             <Route path="/pics" element={<ProtectedRouter children={<TopPics />} />} />
             <Route path="/find_friends" element={<ProtectedRouter children={<FindFriends />} />} />
             <Route path="/earnings" element={<ProtectedRouter children={<Earnings />} />} />
-            <Route path="/chatbot" element={<ProtectedRouter children={<ChatBot />} />} />
+            <Route path="/chatbot" element={<ProtectedRouter children={<Chatbot />} />} />
             <Route path="/profile" element={<ProtectedRouter children={<Profile />} />} />
             <Route path="/wallet" element={<ProtectedRouter children={<Wallet />} />} />
           </Routes>

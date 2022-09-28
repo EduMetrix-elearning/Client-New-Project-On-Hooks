@@ -1,0 +1,47 @@
+.Chatbot {
+    .chatbot_content {
+        grid-area: 2 / 2 / 2 / 4;
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        overflow-y: auto;
+
+        .new_today {
+            grid-column-start: 1;
+            grid-column-end: 4;
+            grid-row-start: 1;
+            grid-row-end: 4;
+            overflow-y: auto;
+            height: 80%;
+
+            .heading {
+                h1 {
+                    text-align: center;
+                }
+            }
+
+            .news {
+                border: 1px solid rgb(201, 201, 201);
+                margin: 20px;
+                display: flex;
+                border-radius: 7px;
+                padding: 5px;
+
+                img {
+                    border: 1px solid black;
+                    $side: 70px;
+                    width: $side;
+                    height: $side;
+                    margin: 5px;
+                    border-radius: 7px;
+                }
+            }
+        }
+
+        .carousel {
+            grid-column-start: 4;
+            grid-column-end: 8;
+            background-color: khaki;
+            height: 300px;
+        }
+    }
+}
