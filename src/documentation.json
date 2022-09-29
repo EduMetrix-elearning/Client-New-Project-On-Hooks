@@ -244,5 +244,28 @@
                 ]
             }
         }
+    },
+    {
+        "Method": "Post",
+        "URL": "/getStarted",
+        "Request": {
+            "Body": {
+                "user_name": "faisal",
+                "email": "faisal@gmail.com",
+                "password": "12345678",
+                "contact_number": "+918891707974",
+                "country": "India",
+                "name": "faisal",
+                "surname": "faisal",
+                "terms": true
+            }
+        },
+        "Response": {
+            "201": {
+                "status": "success",
+                "message": "Data saved successfully",
+                "student_id": 206
+            }
+        }
     }
 ]

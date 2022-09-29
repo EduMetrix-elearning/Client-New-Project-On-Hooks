@@ -26,9 +26,6 @@ export default function Chatbot() {
         })()
     }, [])
 
-    console.log(data)
-
-
     return (
         <div className='Chatbot grid'>
             <Header />
@@ -39,9 +36,9 @@ export default function Chatbot() {
                         <h1>What's new today</h1>
                     </div>
                     {data?.whats?.result &&
-                        data.whats.result.map((obj) => {
+                        data.whats.result.map((obj,i) => {
                             return (
-                                <div className='news'>
+                                <div className='news' key={i}>
                                     <img src={obj.adminPicture_uploaded} alt="" />
                                     <p>{obj.message}</p>
                                 </div>

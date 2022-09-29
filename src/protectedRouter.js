@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux"
 import { Navigate, useLocation } from "react-router-dom"
-import { loginUserSuccess } from "./slices/authSlice"
+import { loginUser } from "./slices/authSlice"
 
 export default function ProtectedRouter({ children }) {
 
@@ -11,14 +11,14 @@ export default function ProtectedRouter({ children }) {
 
     if (pathname === '/login') {
         if (user) {
-            dispatch(loginUserSuccess(user))
-            return <Navigate to="/" replace />
+            dispatch(loginUser({ type: "success", payload: user }))
+            return <Navigate to="/" />
         } else { return children }
     } else {
         if (user) {
-            dispatch(loginUserSuccess(user))
+            dispatch(loginUser({ type: "success", payload: user }))
             return children
         }
-        else { return <Navigate to="/login" replace /> }
+        else { return <Navigate to="/login" /> }
     }
 }

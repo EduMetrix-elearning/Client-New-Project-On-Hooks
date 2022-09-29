@@ -2,6 +2,10 @@ import { createSlice } from "@reduxjs/toolkit";
 import * as api from '../api'
 
 const initialState = {
+    signUp: {
+        loading: false,
+        error: ''
+    },
     login: {
         loading: false,
         error: ''
@@ -18,18 +22,44 @@ export const authSlice = createSlice({
     name: "auth",
     initialState,
     reducers: {
+
+        signUpUser(state, action) {
+            switch (action.payload.type) {
+                case "start":
+                    state.signUp.loading = true
+                    state.signUp.error = ''
+                    break;
+                case "success":
+                    state.signUp.loading = false
+                    break;
+                case "failure":
+                    state.signUp.loading = false
+                    state.signUp.error = action.payload.payload
+                    state.isAuthenticated = false
+                    break;
+                default:
+            }
+        },
+
         loginUser(state, action) {
-            state.login.loading = true
-        },
-        loginUserSuccess(state, action) {
-            state.login.loading = false
-            state.isAuthenticated = true
-            state.user = action.payload
-        },
-        loginUserFailure(state, action) {
-            state.login.loading = false
-            state.isAuthenticated = false
-            state.login.error = action.payload
+            switch (action.payload.type) {
+                case "start":
+                    state.login.loading = true
+                    state.login.error = ''
+                    break;
+                case "success":
+                    state.login.loading = false
+                    state.isAuthenticated = true
+                    state.user = action.payload.payload
+                    break;
+                case "failure":
+                    state.login.loading = false
+                    state.isAuthenticated = false
+                    state.login.error = action.payload.payload
+                    break;
+                default:
+            }
+
         },
         logoutUser(state, action) {
             switch (action.type) {
@@ -50,19 +80,34 @@ export const authSlice = createSlice({
     }
 })
 
+export function userSignUp(formData, navigate) {
+    return async (dispatch) => {
+        dispatch(signUpUser({ type: "start" }))
+        try {
+            const response = await api.getStarted(formData)
+            if (response.data.status === "success") {
+                dispatch(signUpUser({ type: "success"}))
+                navigate('/')
+            }
+        } catch (err) {
+            dispatch(signUpUser({ type: "failure", payload: err.response.data.message }))
+        }
+    }
+}
+
 export function userLogin(formData, navigate) {
     return async (dispatch) => {
-        dispatch(loginUser())
+        dispatch(loginUser({ type: "start" }))
         try {
             const response = await api.login(formData)
             if (response.data) {
                 response.data.photo = response.data.photo.trim("")
                 localStorage.setItem('userInfo', JSON.stringify(response.data))
             }
-            dispatch(loginUserSuccess(response.data))
+            dispatch(loginUser({ type: "success", payload: response.data }))
             navigate('/')
         } catch (err) {
-            dispatch(loginUserFailure(err))
+            dispatch(loginUser({ type: "failure", payload: err.response.data.message }))
         }
     }
 }
@@ -79,5 +124,5 @@ export function userLogout() {
     }
 }
 
-export const { loginUser, loginUserSuccess, loginUserFailure, verifyUser, logoutUser } = authSlice.actions;
+export const { loginUser, logoutUser, signUpUser } = authSlice.actions;
 export default authSlice.reducer;

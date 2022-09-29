@@ -12,6 +12,7 @@ import Earnings from './pages/Earnings/Earnings';
 import Chatbot from './pages/Chatbot/Chatbot';
 import Profile from './pages/Profile/Profile';
 import Wallet from './pages/Wallet/Wallet';
+import Doc from './pages/Doc/Doc';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             <Route path="/chatbot" element={<ProtectedRouter children={<Chatbot />} />} />
             <Route path="/profile" element={<ProtectedRouter children={<Profile />} />} />
             <Route path="/wallet" element={<ProtectedRouter children={<Wallet />} />} />
+            <Route path="/documentation" element={<Doc />} />
           </Routes>
         </Router>
       </Provider>
