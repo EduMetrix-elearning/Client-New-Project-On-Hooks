@@ -1,6 +1,6 @@
 .Header {
     grid-area: header;
-    background-color: bisque;
+    background-color: var(--color4);
 
     .header_inner_div {
         display: flex;

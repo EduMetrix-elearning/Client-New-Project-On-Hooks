@@ -1,23 +1,28 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useRef, useCallback } from 'react'
 import './Wall.scss'
 
-import CreatePost from './createPost/createPost'
+import CreatePost from './CreatePost/CreatePost'
 import Post from './post/post'
-import { getPost } from '../../api'
+import useInfiniteLoading from '../../utils/infiniteLoadingUtil'
 
 export default function Wall() {
 
     const [pageNumber, setPageNumber] = useState(1)
-    const [pageLength, setPageLength] = useState(5)
-    const [posts, setPosts] = useState([])
 
-    useEffect(() => {
-        async function asyncFuction() {
-            const response = await getPost(pageNumber, pageLength)
-            setPosts(response.data.data)
-        }
-        asyncFuction()
-    }, [])
+    const { loading, error, posts, hasMore } = useInfiniteLoading(pageNumber)
+
+    const observer = useRef()
+    console.log(observer)
+    const lastPostElement = useCallback(node => {
+        if (loading) return
+        if (observer.current) observer.current.disconnect()
+        observer.current = new IntersectionObserver(entries => {
+            if (entries[0].isIntersecting && hasMore) {
+                setPageNumber(prev => prev + 1)
+            }
+        })
+        if (node) observer.current.observe(node)
+    }, [loading, hasMore])
 
     return (
         <div className='Wall'>
@@ -25,14 +30,14 @@ export default function Wall() {
                 <div className="wall_scroll">
                     <CreatePost />
                     {posts && posts.map((post, i) => {
-                        return (
-                            <Post key={i} details={post} />
-                        )
-                    })
-                    }
+                        if (posts.length === i + 1) return <div ref={lastPostElement} key={i}><Post details={post} /></div>
+                        else return <div key={i} ><Post details={post} /></div>
+                    })}
+                    {loading && <div>Loading ...</div>}
+                    {error && <div>Error ...</div>}
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 

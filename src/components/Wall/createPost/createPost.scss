@@ -1,14 +1,18 @@
 .CreatePost {
-    background-color: aqua;
+    background-color: white;
     $br: 7px;
     border-radius: $br;
     border: 1px solid var(--color8);
+    box-shadow: 1px 1px 10px -5px;
+    padding-bottom: 10px;
 
     .createPost_inner_div {
         header {
-            padding: 5px;
-            background-color: var(--color8);
+            padding: 10px;
+            padding-left: 20px;
+            background-color: var(--color6);
             border-radius: $br $br 0 0;
+            color: white;
         }
 
         .body {
@@ -30,10 +34,18 @@
                 border-radius: 20px;
                 padding-left: 20px;
                 padding-bottom: 5px;
-                border: 1px solid var(--color8);
-                &::placeholder{
+                border: 1px solid var(--color4);
+                padding-top:5px;
+
+
+                &::placeholder {
                     color: var(--color8);
                 }
+
+                &:focus {
+                    outline: none;
+                }
+
             }
         }
 
@@ -46,6 +58,7 @@
                 display: flex;
                 justify-content: space-around;
                 margin-top: 3px;
+                margin-left: 20px;
 
                 .icon {
                     display: flex;
@@ -64,10 +77,12 @@
                     }
                 }
             }
-            button{
+
+            button {
                 border-radius: 25px;
                 width: 100px;
                 border: 1px solid var(--color8);
+                margin-right:20px;
             }
         }
     }

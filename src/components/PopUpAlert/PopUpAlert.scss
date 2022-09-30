@@ -1,0 +1,39 @@
+.PopUpAlert {
+    position: fixed;
+    bottom: -40px;
+    width: 100%;
+    animation: popup 3s ease forwards;
+
+    .frame {
+        width: fit-content;
+        height: 40px;
+        padding: 0 20px;
+        background-color: #3EC761;
+        background-color: #c73e3e;
+        margin: auto;
+        border-radius: 5px;
+        border: 1px solid black;
+
+        p {
+            text-align: center;
+            margin-top: 6px;
+            color: white;
+        }
+    }
+}
+
+@keyframes popup {
+    0% {}
+
+    20% {
+        transform: translateY(-50px)
+    }
+
+    80% {
+        transform: translateY(-50px)
+    }
+
+    100% {
+        transform: translateY(0)
+    }
+}

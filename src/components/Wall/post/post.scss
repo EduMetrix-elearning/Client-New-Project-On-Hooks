@@ -1,8 +1,10 @@
 .post {
     margin-top: 20px;
     padding: 10px 0;
-    border: 2px solid var(--color8);
-    border-radius: 7px;
+    border: 1px solid var(--color8);
+    border-radius: 15px;
+    background-color: white;
+    box-shadow: 1px 1px 10px -5px;
 
     .post_inner_div {
         .account {
@@ -76,10 +78,16 @@
 
             input {
                 width: 500px;
+                height: 40px;
                 margin: 15px 0;
                 margin-left: 20px;
                 border-radius: 20px;
                 padding-left: 20px;
+                border: 1px solid var(--color4);
+
+                &:focus {
+                    outline: none;
+                }
             }
         }
     }

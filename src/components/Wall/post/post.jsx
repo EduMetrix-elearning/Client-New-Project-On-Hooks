@@ -18,9 +18,7 @@ export default function post({ details }) {
                     </div>
                 </div>
                 <div className="content">
-                    <p>അരണയുടെ ഇംഗ്ലീഷ് വാക്ക് google
-                        ചെയ്യാതെ പറയുന്നവന് കുതിരപ്പവൻ!😁
-                        ©Dwayne Paterson</p>
+                    <p>{details.post_content}</p>
                     {details.post_photo &&
                         <img src={details.post_photo} alt="" />
                     }
