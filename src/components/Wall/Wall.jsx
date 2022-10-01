@@ -2,7 +2,7 @@ import React, { useState, useRef, useCallback } from 'react'
 import './Wall.scss'
 
 import CreatePost from './CreatePost/CreatePost'
-import Post from './post/post'
+import Post from './Post/Post'
 import useInfiniteLoading from '../../utils/infiniteLoadingUtil'
 
 export default function Wall() {
@@ -12,7 +12,7 @@ export default function Wall() {
     const { loading, error, posts, hasMore } = useInfiniteLoading(pageNumber)
 
     const observer = useRef()
-    console.log(observer)
+    // console.log(observer)
     const lastPostElement = useCallback(node => {
         if (loading) return
         if (observer.current) observer.current.disconnect()
@@ -23,6 +23,8 @@ export default function Wall() {
         })
         if (node) observer.current.observe(node)
     }, [loading, hasMore])
+
+    console.log(posts)
 
     return (
         <div className='Wall'>

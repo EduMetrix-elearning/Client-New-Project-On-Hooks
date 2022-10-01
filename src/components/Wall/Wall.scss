@@ -1,11 +1,11 @@
 .Wall {
     grid-area: main;
-    overflow: auto;
+    overflow-y: overlay ;
     display: flex;
     justify-content: center;
 
     &::-webkit-scrollbar {
-        display: none;
+        // display: none;
     }
 
     .wall_inner_div {

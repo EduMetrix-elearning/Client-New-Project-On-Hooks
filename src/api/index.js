@@ -15,7 +15,12 @@ export const forgotPassword = (values) => API.post('/forgotPassword', values)
 // home endpoints
 export const getPost = (pageNumber, pageLength) => API.get(`/getPost?pageNumber=${pageNumber}&pageLength=${pageLength}`)
 export const getStudentsToFollow = () => API.get('/getStudentsToFollow', { headers: authHeader })
-export const createPost = (values) => API.post('/createPost', values, { headers: authHeader })
+export const createPost = (values) => API.post('/createPost', values,)
+
+// posts endpoints
+export const getLikeStatus = (values) => API.post('/getLikeStatus', values, { headers: authHeader })
+export const postLike = (values) => API.post('/postLike', values, { headers: authHeader })
+export const CommentsCount = (values) => API.post('/CommentsCount', values, { headers: authHeader })
 
 // topPics endpoints
 export const getTopPicsForYou = (pageNumber, pageLength) => API.get(`/topicsForU?pageNumber=${pageNumber}&pageLength=${pageLength}`, { headers: authHeader })

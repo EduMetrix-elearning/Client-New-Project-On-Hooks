@@ -8,7 +8,7 @@ import image_photo from '../../../asset/images/Wall/image.png'
 import image_video from '../../../asset/images/Wall/video-camera.png'
 import image_doc from '../../../asset/images/Wall/files.png'
 import { getNowDate } from '../../../utils/dateUtils'
-import * as local_storage from '../../../utils/localStorageUtils'
+import { userInfo } from '../../../utils/localStorageUtils'
 import { createPost } from '../../../api'
 
 export default function CreatePost() {
@@ -23,7 +23,7 @@ export default function CreatePost() {
         else {
             let obj = {
                 post_content: post.text,
-                student_id: local_storage.id,
+                student_id: userInfo.id,
                 posted_date: getNowDate()
             }
             console.log(obj)

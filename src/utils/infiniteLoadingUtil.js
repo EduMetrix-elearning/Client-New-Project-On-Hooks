@@ -22,7 +22,7 @@ export default function InfiniteLoading(pageNumber) {
         }).then((res) => {
             setPosts((state) => [...state, ...res.data.data])
             setHasMore(res.data.data.length > 0)
-            console.log(res.data.data.length)
+            // console.log(res.data.data.length)
             setLoading(false)
         }).catch((err) => {
             setError(true)

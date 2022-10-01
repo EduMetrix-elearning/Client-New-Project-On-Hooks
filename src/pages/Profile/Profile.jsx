@@ -4,7 +4,7 @@ import './Profile.scss'
 import Header from '../../components/Header/Header'
 import NavBar from '../../components/NavBar/NavBar'
 import ProfileView from '../../components/_pages/Profile/ProfileView/ProfileView'
-import Post from '../../components/Wall/post/post'
+import Post from '../../components/Wall/Post/Post'
 import { getProfilePosts } from '../../api'
 
 export default function Profile() {
