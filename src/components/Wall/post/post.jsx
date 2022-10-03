@@ -1,37 +1,68 @@
 import React, { useState, useEffect } from 'react'
 import './Post.scss'
 
-import { getAgoDate } from '../../../utils/dateUtils'
+import { getAgoDate, getNowDate } from '../../../utils/dateUtils'
 import { userInfo } from '../../../utils/localStorageUtils'
-import { CommentsCount, getLikeStatus, postLike } from '../../../api'
+import { CommentsCount, getAllComments, getAllLikes, getLikeStatus, postComment, postLike } from '../../../api'
+import { useDispatch } from 'react-redux'
+import { popUp } from '../../../slices/popUpSlice'
 
 export default function Post({ details }) {
 
+    const dispatch = useDispatch()
+
     const [likeStatus, setLikeStatus] = useState(false)
-    const [likeCount, setLikeCount] = useState(details.like_count)
-    const [commentsShow, setCommentsShow] = useState(false)
-    const [commentsCount, setCommentsCount] = useState()
+    const [likeCount, setLikeCount] = useState(0)
+    const [commentsCount, setCommentsCount] = useState(0)
+    const [showComments, setShowComments] = useState(false)
+    const [comments, setComments] = useState([])
+    const [commentInput, setCommentInput] = useState('')
+    const [showPostSettings, setShowPostSettings] = useState(false)
 
     useEffect(() => {
         (async function () {
-            // console.log(details.post_id, userInfo.id)
-            const res = await getLikeStatus({ post_id: details.post_id, student_id: userInfo.id })
-            // setLikeStatus(res.data.status)
-            const res1 = await CommentsCount({ post_id: details.post_id })
-            // setCommentsCount(res1.data.count)
-            // console.log(res.data)
+            // const res = await getLikeStatus({ post_id: details.post_id, student_id: userInfo.id })
+            // setLikeStatus(res.data.result[0].count > 0)
+
+            const res1 = await getAllLikes({ post_id: details.post_id })
+            setLikeCount(res1.data.result[0].count)
         })()
+
+        getCommentsCount()
     }, [])
+
+    console.log(showPostSettings)
+
+    async function getCommentsCount() {
+        const res1 = await CommentsCount({ post_id: details.post_id })
+        setCommentsCount(res1.data.result[0].count)
+    }
+
+    async function getComments() {
+        const res = await getAllComments({ post_id: details.post_id })
+        setComments(res.data.result)
+    }
+
+    async function commentPostHandle() {
+        if (!commentInput) { dispatch(popUp("Comment box is empty, please write down your comments")); return }
+        const res = await postComment({
+            post_id: details.post_id,
+            student_id: userInfo.id,
+            comments: commentInput,
+            creation_date: getNowDate()
+        })
+        getCommentsCount()
+        setCommentInput('')
+    }
 
     async function likeHandle() {
         setLikeStatus(!likeStatus)
-        likeStatus ? setLikeCount(c => c + 1) : setLikeCount(c => c - 1)
+        likeStatus ? setLikeCount(c => c - 1) : setLikeCount(c => c + 1)
         const res = await postLike({
             post_id: details.post_id,
             student_id: userInfo.id,
             like_status: likeStatus,
         })
-        console.log(res.data)
     }
 
     return (
@@ -42,11 +73,17 @@ export default function Post({ details }) {
                         <img src={details.student_photo} alt="" />
                     }
                     <div className='title'>
-                        <h6>{details.student_fname && details.student_lname ? details.student_fname + ' ' + details.student_lname : null}</h6>
+                        <h6>{details.student_fname && details.student_lname ? details.student_fname + ' ' + details.student_lname : null} {details.post_id}</h6>
                         <p>{getAgoDate(details.posted_date)}</p>
                     </div>
                     <div className="post_settings">
-                        <i className='fa fa-ellipsis-h fa-lg'></i>
+                        <i className='fa fa-ellipsis-h fa-lg' onClick={() => setShowPostSettings(!showPostSettings)} />
+                        <div className={'popUp ' + (showPostSettings ? 'show' : 'hide')}
+                            onBlur={() => setShowPostSettings(false)} tabIndex='0' >
+                            <ul>
+                                <li>Report</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <div className="content">
@@ -73,17 +110,37 @@ export default function Post({ details }) {
                 </div>
                 <div className='buttons'>
                     <button onClick={likeHandle}>
-                        <i className='fa fa-thumbs-up' >{likeCount} Liked  {likeStatus} </i>
+                        <i className={(likeStatus ? 'fa' : 'far') + ' fa-thumbs-up'} >{likeCount} </i>
                     </button>
-                    {/* <button><i className="fa">&#xf087;</i> like</button> */}
-                    <button><i className='fas fa-comment'></i>Comment</button>
+                    <button onClick={() => (setShowComments(!showComments), getComments())}>
+                        <i className='fas fa-comment'>{commentsCount}Comment</i>
+                    </button>
                 </div>
-                <div className="comments">
+                <div className="commentInput">
                     <img src={userInfo.photo} alt="" />
-                    <input type="text" placeholder='write your comments here...' />
-                    <i></i>
+                    <input type="text" placeholder='write your comments here...' value={commentInput}
+                        onChange={(e) => setCommentInput(e.target.value)} />
+                    <i className='fa fa-paper-plane' onClick={commentPostHandle}></i>
                 </div>
+                {showComments &&
+                    <div className='comments'>
+                        {comments &&
+                            comments.map((comment, index) => {
+                                return (
+                                    <div className='person' key={index}>
+                                        <div className='person_details'>
+                                            <img src={comment.student_photo} alt="" />
+                                            <p className='student_name'>{comment.student_fname + " " + comment.student_lname}</p>
+                                        </div>
+                                        <div className="comment">
+                                            <p className='comment_text'>{comment.comments}</p>
+                                        </div>
+                                    </div>
+                                )
+                            })}
+                    </div>
+                }
             </div>
-        </div>
+        </div >
     )
 }

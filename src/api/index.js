@@ -21,6 +21,9 @@ export const createPost = (values) => API.post('/createPost', values,)
 export const getLikeStatus = (values) => API.post('/getLikeStatus', values, { headers: authHeader })
 export const postLike = (values) => API.post('/postLike', values, { headers: authHeader })
 export const CommentsCount = (values) => API.post('/CommentsCount', values, { headers: authHeader })
+export const getAllComments = (values) => API.post('/allComments', values, { headers: authHeader })
+export const postComment = (values) => API.post('/commentPost', values, { headers: authHeader })
+export const getAllLikes = (values) => API.post('/getAllLikes', values, { headers: authHeader })
 
 // topPics endpoints
 export const getTopPicsForYou = (pageNumber, pageLength) => API.get(`/topicsForU?pageNumber=${pageNumber}&pageLength=${pageLength}`, { headers: authHeader })

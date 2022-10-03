@@ -12,6 +12,8 @@ import Earnings from './pages/Earnings/Earnings';
 import Chatbot from './pages/Chatbot/Chatbot';
 import Profile from './pages/Profile/Profile';
 import Wallet from './pages/Wallet/Wallet';
+import FillUpForm from './pages/FillUpForm/FillUpForm.jsx';
+
 import Doc from './pages/Doc/Doc';
 
 function App() {
@@ -29,6 +31,8 @@ function App() {
             <Route path="/chatbot" element={<ProtectedRouter children={<Chatbot />} />} />
             <Route path="/profile" element={<ProtectedRouter children={<Profile />} />} />
             <Route path="/wallet" element={<ProtectedRouter children={<Wallet />} />} />
+            <Route path="/sign_up_form_details" element={<ProtectedRouter children={<FillUpForm />} />} />
+
             <Route path="/documentation" element={<Doc />} />
           </Routes>
         </Router>

@@ -45,7 +45,7 @@ code {
   align-items: center;
 }
 
-.align-end{
+.align-end {
   display: flex;
   align-items: flex-end;
 }
@@ -94,6 +94,18 @@ p {
   grid-template-rows: 8vh 1fr;
 }
 
-hr{
+hr {
   margin: 5px;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+ul {
+  list-style: none;
 }

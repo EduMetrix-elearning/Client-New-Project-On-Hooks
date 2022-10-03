@@ -24,7 +24,7 @@ export default function Wall() {
         if (node) observer.current.observe(node)
     }, [loading, hasMore])
 
-    console.log(posts)
+    // console.log(posts)
 
     return (
         <div className='Wall'>
