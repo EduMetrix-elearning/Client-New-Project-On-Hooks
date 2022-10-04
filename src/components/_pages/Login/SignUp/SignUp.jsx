@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { userSignUp } from '../../../../slices/authSlice';
+import { popUp } from '../../../../slices/popUpSlice';
 import { signUpValidation } from '../../../../utils/loginUtils';
 import './SignUp.scss'
 
@@ -10,8 +12,14 @@ export default function SignUp({ setPage }) {
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
+    const signUp = useSelector((state) => state.Authentication.signUp)
+
     const [inputError, setInputError] = useState({})
     const [input, setInput] = useState({})
+
+    useEffect(() => {
+        signUp.error && dispatch(popUp(signUp.error))
+    }, [signUp])
 
     function inputHandle(event) {
         const { name, value } = event.target;
@@ -57,30 +65,22 @@ export default function SignUp({ setPage }) {
                             className={inputError.username ? "error" : ""}
                             onChange={(event) => inputHandle(event)}
                             autoFocus />
-                        {inputError.username &&
-                            <p>{inputError.username}</p>
-                        }
+                        {inputError.username && <p>{inputError.username}</p>}
                         <input type="text" placeholder='Email' name='email'
                             className={inputError.email ? "error" : ""}
                             onChange={(event) => inputHandle(event)}
                         />
-                        {inputError.email &&
-                            <p>{inputError.email}</p>
-                        }
+                        {inputError.email && <p>{inputError.email}</p>}
                         <input type="password" placeholder='Password' name='password'
                             className={inputError.password ? "error" : ""}
                             onChange={(event) => inputHandle(event)}
                         />
-                        {inputError.password &&
-                            <p>{inputError.password}</p>
-                        }
+                        {inputError.password && <p>{inputError.password}</p>}
                         <input type="text" placeholder='Mobile no' name='mobile'
                             className={inputError.mobile ? "error" : ""}
                             onChange={(event) => inputHandle(event)}
                         />
-                        {inputError.mobile &&
-                            <p>{inputError.mobile}</p>
-                        }
+                        {inputError.mobile && <p>{inputError.mobile}</p>}
                     </div>
                     <div className='checkbox_and_label'>
                         <input type="checkbox" name='checkbox'

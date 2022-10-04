@@ -1,0 +1,71 @@
+.SignUpDetailsForm {
+    width: 65%;
+    padding: 30px;
+
+    input {
+        border-radius: 1000px;
+        border: 2px solid rgb(200, 200, 200);
+        height: 30px;
+        padding: 0 20px;
+    }
+
+    .otp_section {
+        margin-top: 16px;
+
+        .otp_inputs {
+
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            row-gap: 10px;
+
+            input {
+                width: 250px;
+            }
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: flex-end;
+
+            button {
+                margin: 5px 10px;
+                margin-top: 15px;
+                border-radius: 10px;
+                border: none;
+                background-color: var(--color3);
+                color: white;
+                padding: 5px 15px;
+            }
+        }
+    }
+
+    .details_form {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 5px;
+        column-gap: 10px;
+        margin: 10px 0;
+
+        &>div {
+            display: grid;
+        }
+
+        input {
+            border-radius: 10px;
+        }
+    }
+
+    .submit_button {
+        display: flex;
+        justify-content: center;
+
+        button {
+            width: 50%;
+            border: none;
+            background-color: var(--color3);
+            color: white;
+            border-radius: 10px;
+            height: 40px;
+        }
+    }
+}

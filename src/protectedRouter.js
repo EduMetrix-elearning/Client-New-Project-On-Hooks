@@ -9,7 +9,7 @@ export default function ProtectedRouter({ children }) {
 
     const user = JSON.parse(localStorage.getItem('userInfo'))
 
-    if (pathname === '/login' || '/sign_up_form_details') {
+    if (pathname === ('/login' || '/sign_up_form_details')) {
         if (user) {
             dispatch(loginUser({ type: "success", payload: user }))
             return <Navigate to="/" />
@@ -19,6 +19,8 @@ export default function ProtectedRouter({ children }) {
             dispatch(loginUser({ type: "success", payload: user }))
             return children
         }
-        else { return <Navigate to="/login" /> }
+        else {
+            return <Navigate to="/login" />
+        }
     }
 }

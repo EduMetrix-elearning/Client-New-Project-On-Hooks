@@ -12,6 +12,12 @@ export const login = (values) => API.post('/login', values)
 export const getStarted = (values) => API.post('/getStarted', values)
 export const forgotPassword = (values) => API.post('/forgotPassword', values)
 
+// signUp endpoints
+export const submitSignUpDetails = (FormData) => API.post('/submit', FormData)
+export const imageToDB = (FormData) => API.post('/imageToDB', FormData)
+export const verifyOtp = (values) => API.post('/verifyOtp', values)
+export const resendOTP = (values) => API.post('/resendOTP', values)
+
 // home endpoints
 export const getPost = (pageNumber, pageLength) => API.get(`/getPost?pageNumber=${pageNumber}&pageLength=${pageLength}`)
 export const getStudentsToFollow = () => API.get('/getStudentsToFollow', { headers: authHeader })

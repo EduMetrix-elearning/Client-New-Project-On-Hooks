@@ -42,3 +42,7 @@ export const signUpValidation = (input, setInputError) => {
         return { validated: true }
     }
 }
+
+export const signUpDetailsFormValidation = (inputs) => {
+    
+}

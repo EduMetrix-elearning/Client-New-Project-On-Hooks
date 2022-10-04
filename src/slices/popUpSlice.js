@@ -22,6 +22,7 @@ export const popUpSlice = createSlice({
 
 export function popUp(text) {
     return async (dispatch) => {
+        console.log(text)
         dispatch(invokePopUp(text))
         setTimeout(() => {
             dispatch(hidePopUp())

@@ -1,0 +1,20 @@
+.UploadDocuments {
+    width: 65%;
+    padding: 30px;
+
+    .item {
+        display: flex;
+        justify-content: space-between;
+        width: 50%;
+
+        label {
+            cursor: pointer;
+        }
+
+        img {
+            $side: 100px;
+            width: $side;
+            height: $side;
+        }
+    }
+}

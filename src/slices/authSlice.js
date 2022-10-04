@@ -86,10 +86,12 @@ export function userSignUp(formData, navigate) {
         try {
             const response = await api.getStarted(formData)
             if (response.data.status === "success") {
-                dispatch(signUpUser({ type: "success"}))
-                navigate('/')
+                dispatch(signUpUser({ type: "success" }))
+                localStorage.setItem("userId", response.data.student_id)
+                navigate('/sign_up_user_authentication')
             }
         } catch (err) {
+            console.log(err)
             dispatch(signUpUser({ type: "failure", payload: err.response.data.message }))
         }
     }
