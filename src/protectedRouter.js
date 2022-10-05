@@ -8,6 +8,7 @@ export default function ProtectedRouter({ children }) {
     const { pathname } = useLocation()
 
     const user = JSON.parse(localStorage.getItem('userInfo'))
+    // const userId = localStorage.getItem('userId')
 
     if (pathname === ('/login' || '/sign_up_form_details')) {
         if (user) {

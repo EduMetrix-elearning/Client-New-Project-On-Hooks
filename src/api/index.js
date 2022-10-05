@@ -42,3 +42,6 @@ export const getInstaData = () => API.get('/getInstaData', { headers: authHeader
 export const getFacebookData = () => API.get('/getFacebookData', { headers: authHeader })
 export const getTwitterData = () => API.get('/getTwitterData', { headers: authHeader })
 export const getSlides = () => API.get('/getSlides', { headers: authHeader })
+
+// live-chat endpoints
+export const getConversation = (req) => API.get(`/conversation/${req.senderId}/${req.receiverId}?pageNumber=1&rowsOfPage=1000`, { headers: authHeader }) 

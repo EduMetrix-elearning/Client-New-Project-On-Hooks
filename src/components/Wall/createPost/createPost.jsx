@@ -3,12 +3,11 @@ import './CreatePost.scss'
 import { useDispatch } from 'react-redux'
 import { popUp } from '../../../slices/popUpSlice'
 
-import image_user from '../../../asset/images/Wall/profilepic.jpeg'
 import image_photo from '../../../asset/images/Wall/image.png'
 import image_video from '../../../asset/images/Wall/video-camera.png'
 import image_doc from '../../../asset/images/Wall/files.png'
-import { getNowDate } from '../../../utils/dateUtils'
-import { userInfo } from '../../../utils/localStorageUtils'
+import { getNowDate } from '../../../utils/date_Utils'
+import { userInfo } from '../../../utils/localStorage_Utils'
 import { createPost } from '../../../api'
 
 export default function CreatePost() {
@@ -39,7 +38,7 @@ export default function CreatePost() {
                     <p>Create Post</p>
                 </header>
                 <div className='body'>
-                    <img src={image_user} alt="" />
+                    <img src={userInfo.photo} alt="" />
                     <input type="text" placeholder='write something here...'
                         onChange={(e) => setPost((state) => ({ ...state, text: e.target.value }))}
                         autoFocus />

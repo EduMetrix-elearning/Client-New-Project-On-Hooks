@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import './SignIn.scss'
 
-import { signInValidation } from '../../../../utils/loginUtils'
+import { signInValidation } from '../../../../utils/login_Utils'
 import { userLogin } from '../../../../slices/authSlice'
 
 export default function SignIn({ setPage }) {

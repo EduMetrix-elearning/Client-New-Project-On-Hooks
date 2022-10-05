@@ -39,10 +39,28 @@ export const signUpValidation = (input, setInputError) => {
     } else if (!input.checkbox) {
         setInputError((state) => ({ ...state, checkbox: 'please check this box if you want to proceed' }))
     } else {
-        return { validated: true }
+
     }
 }
 
 export const signUpDetailsFormValidation = (inputs) => {
-    
+    if (inputs.dob) {
+        console.log(inputs.dob)
+        if (new Date(inputs.dob) >= new Date()) {
+            inputs.dob.error = "Not a valid 'Date of Birth'"
+        }
+    }
+    // if(inputs.gender)
+    // if(inputs.address)
+    // if(inputs.state)
+    // if(inputs.country)
+    // if(inputs.school)
+    // if(inputs.university)
+
+    console.log(inputs)
+}
+
+export const otpsRegulation = (input) => {
+    const result = (new RegExp(/^[\d]+$/).test(input) && input.length <= 6) || input === "" && true
+    return result
 }

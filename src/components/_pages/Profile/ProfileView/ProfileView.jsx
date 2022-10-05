@@ -1,16 +1,15 @@
 import React from 'react'
 import './ProfileView.scss'
-
-import image_user from '../../../../asset/images/profilepic.jpeg'
+import { userInfo } from '../../../../utils/localStorage_Utils'
 
 export default function ProfileView() {
     return (
         <div className='ProfileView'>
             <div className='image justify-center align-center'>
-                <img src={image_user} alt="" />
+                <img src={userInfo.photo} alt="" />
             </div>
             <div className='personal'>
-                <h5>Muhammed Faisal</h5>
+                <h5>{userInfo.user_name}</h5>
                 <div className='id'>
                     <p>Edumetrix56934 <i className='fa fa-copy' /></p>
                     <p>score : 100%</p>

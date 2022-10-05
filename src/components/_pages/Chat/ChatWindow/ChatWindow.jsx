@@ -1,7 +1,7 @@
 import React from 'react'
 import './ChatWindow.scss'
 
-export default function ChatWindow() {
+export default function ChatWindow({ send }) {
     return (
         <div className='ChatWindow'>
             <header>
@@ -15,7 +15,7 @@ export default function ChatWindow() {
                 <div className='icons'>
                     <i className='far fa-grin'></i>
                     <i className='fa fa-paperclip'></i>
-                    <i className='fa fa-paper-plane'></i>
+                    <i className='fa fa-paper-plane' onClick={send}></i>
                 </div>
             </div>
         </div>

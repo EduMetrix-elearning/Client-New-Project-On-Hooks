@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { userSignUp } from '../../../../slices/authSlice';
 import { popUp } from '../../../../slices/popUpSlice';
-import { signUpValidation } from '../../../../utils/loginUtils';
+import { signUpValidation } from '../../../../utils/login_Utils';
 import './SignUp.scss'
 
 export default function SignUp({ setPage }) {

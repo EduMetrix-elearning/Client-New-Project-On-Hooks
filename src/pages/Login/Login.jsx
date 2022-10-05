@@ -4,11 +4,11 @@ import './Login.scss'
 import image_coin from '../../asset/images/Login/coin.png'
 import image_logo from '../../asset/images/Login/logo.png'
 
-import image_Etherscan from '../../asset/images/Login/Etherscan-logo-removebg-preview.png'
-import image_P2PB2Blogo from '../../asset/images/Login/P2PB2Blogo.png'
-import image_COINECKO from '../../asset/images/Login/COINECKO.png'
-import image_coincodexjpe from '../../asset/images/Login/coincodexjpe.png'
-import image_coinmarketcap from '../../asset/images/Login/coinmarketcap.png'
+// import image_Etherscan from '../../asset/images/Login/Etherscan-logo-removebg-preview.png'
+// import image_P2PB2Blogo from '../../asset/images/Login/P2PB2Blogo.png'
+// import image_COINECKO from '../../asset/images/Login/COINECKO.png'
+// import image_coincodexjpe from '../../asset/images/Login/coincodexjpe.png'
+// import image_coinmarketcap from '../../asset/images/Login/coinmarketcap.png'
 
 // import Recaptcha from 'react-recaptcha';
 

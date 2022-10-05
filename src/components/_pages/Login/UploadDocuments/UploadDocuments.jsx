@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './UploadDocuments.scss'
 
-import { userInfo } from '../../../../utils/localStorageUtils'
+import { userInfo } from '../../../../utils/localStorage_Utils'
 import { imageToDB } from '../../../../api'
 import { useNavigate } from 'react-router-dom'
 

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import './Post.scss'
 
-import { getAgoDate, getNowDate } from '../../../utils/dateUtils'
-import { userInfo } from '../../../utils/localStorageUtils'
+import { getAgoDate, getNowDate } from '../../../utils/date_Utils'
+import { userInfo } from '../../../utils/localStorage_Utils'
 import { CommentsCount, getAllComments, getAllLikes, getLikeStatus, postComment, postLike } from '../../../api'
 import { useDispatch } from 'react-redux'
 import { popUp } from '../../../slices/popUpSlice'
@@ -30,8 +30,6 @@ export default function Post({ details }) {
 
         getCommentsCount()
     }, [])
-
-    console.log(showPostSettings)
 
     async function getCommentsCount() {
         const res1 = await CommentsCount({ post_id: details.post_id })
@@ -117,7 +115,7 @@ export default function Post({ details }) {
                     </button>
                 </div>
                 <div className="commentInput">
-                    <img src={userInfo.photo} alt="" />
+                    <img src={userInfo?.photo} alt="" />
                     <input type="text" placeholder='write your comments here...' value={commentInput}
                         onChange={(e) => setCommentInput(e.target.value)} />
                     <i className='fa fa-paper-plane' onClick={commentPostHandle}></i>
