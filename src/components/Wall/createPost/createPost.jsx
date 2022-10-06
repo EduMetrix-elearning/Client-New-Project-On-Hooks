@@ -38,7 +38,7 @@ export default function CreatePost() {
                     <p>Create Post</p>
                 </header>
                 <div className='body'>
-                    <img src={userInfo.photo} alt="" />
+                    <img src={userInfo?.photo} alt="" />
                     <input type="text" placeholder='write something here...'
                         onChange={(e) => setPost((state) => ({ ...state, text: e.target.value }))}
                         autoFocus />

@@ -12,7 +12,7 @@ export default function Header() {
             <div className="header_inner_div">
                 <img src={image_bell} alt="" />
                 <img src={image_message} alt="" />
-                <img src={userInfo.photo} alt="" />
+                <img src={userInfo?.photo} alt="" />
             </div>
         </div>
     )

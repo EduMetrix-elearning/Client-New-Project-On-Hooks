@@ -1,6 +1,6 @@
 .FriendsList {
     grid-area: side;
-    background-color: darkcyan;
+    // background-color: darkcyan;
 
     .search_input {
         display: flex;
@@ -12,7 +12,7 @@
             background: transparent;
             border: none;
             padding-left: 10px;
-            color: white;
+            // color: white;
             width: 125px;
 
             &::placeholder {
@@ -38,6 +38,7 @@
             margin: 5px;
             margin-left: 20px;
             cursor: pointer;
+            position: relative;
 
             img {
                 $side: 40px;
@@ -49,7 +50,18 @@
             p {
                 margin-top: 5px;
                 margin-left: 10px;
-                color: white;
+                // color: white;
+            }
+
+            span {
+                $side: 10px;
+                width: $side;
+                height: $side;
+                background-color: green;
+                border-radius: 50%;
+                position: absolute;
+                right: 18px;
+                top: 15px;
             }
         }
     }

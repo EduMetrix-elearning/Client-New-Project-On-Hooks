@@ -2,11 +2,14 @@ import React, { useState, useEffect } from 'react'
 import './FriendsList.scss'
 
 import { getAllStudents } from '../../../../api'
+import socket from '../../../../utils/socketIO_Util'
+import { userInfo } from '../../../../utils/localStorage_Utils'
 
-export default function FriendsList() {
+export default function FriendsList({ setCurrentChat }) {
 
     const [allStudents, setAllStudents] = useState([])
     const [searchKey, setSearchKey] = useState('')
+    const [activeFriends, setActiveFriends] = useState()
 
     useEffect(() => {
         async function asyncFunction() {
@@ -14,7 +17,15 @@ export default function FriendsList() {
             setAllStudents(response.data.data)
         }
         asyncFunction()
+
+        socket.on('checkOnlineUsers', (users) => {
+            // console.log(users)
+            setActiveFriends(state => ({ ...state, ...users }))
+        })
+
     }, [])
+
+    // console.log(activeFriends)
 
     return (
         <div className='FriendsList'>
@@ -29,13 +40,15 @@ export default function FriendsList() {
                         .filter((student) => {
                             const key = searchKey.toLowerCase()
                             const name = student.student_fname.toLowerCase() + " " + student.student_lname.toLowerCase()
-                            return name.startsWith(key)
+                            return name.startsWith(key) && student.student_id !== userInfo.id
                         })
                         .map((student, i) => {
+                            // console.log(student)
                             return (
-                                <div className="friend" key={i}>
+                                <div className="friend" key={i} onClick={() => setCurrentChat(student)}>
                                     <img src={student.student_photo} alt="" />
                                     <p>{student.student_fname} {student.student_lname}</p>
+                                    {activeFriends?.[student.student_id] && <span />}
                                 </div>
                             )
                         })

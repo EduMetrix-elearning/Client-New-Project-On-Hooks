@@ -52,6 +52,7 @@ code {
 
 .platform {
   margin: auto;
+  overflow: overlay;
 
   // @media (min-width: 576px) {
   //   width: 540px;
@@ -91,7 +92,7 @@ p {
     "navbar main side"
   ;
   grid-template-columns: 15% 65% 20%;
-  grid-template-rows: 8vh 1fr;
+  grid-template-rows: 8vh 92vh;
 }
 
 hr {

@@ -61,6 +61,6 @@ export const signUpDetailsFormValidation = (inputs) => {
 }
 
 export const otpsRegulation = (input) => {
-    const result = (new RegExp(/^[\d]+$/).test(input) && input.length <= 6) || input === "" && true
+    const result = (new RegExp(/^[\d]+$/).test(input) && input.length <= 6) || (input === "" && true)
     return result
 }
