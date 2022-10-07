@@ -18,14 +18,18 @@ export default function ChatWindow({ currentChat }) {
     }, [currentChat])
 
     socket.on('REFRESH_CONVERSATION', () => {
-        setChats([])
+        setChats()
         fetchConversations()
     })
 
     async function fetchConversations() {
+        setChats([])
         const response = await getConversation({ senderId: userInfo.id, receiverId: currentChat?.student_id })
+        console.log(response.data.responseResult.result)
         setChats((state) => ([...state, ...response.data.responseResult.result]))
     }
+
+    console.log(chats)
 
     function sendMessage() {
         let message = {

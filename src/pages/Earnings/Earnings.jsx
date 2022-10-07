@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Earnings.scss'
 
 import NavBar from '../../components/NavBar/NavBar'
@@ -7,6 +7,7 @@ import CurrencyExchange from '../../components/_pages/Earnings/CurrencyExchange/
 import SocialMarketContent from '../../components/_pages/Earnings/SocialMarketContent/SocialMarketContent'
 import ReferYourFriend from '../../components/_pages/Earnings/ReferYourFriend/ReferYourFriend'
 import Table from '../../components/_pages/Earnings/Table/Table'
+import { getAllEarningLikes, getCurrency, getDetails, getReferralData } from '../../api'
 
 export default function Earnings() {
 
@@ -61,13 +62,27 @@ export default function Earnings() {
         ]
     }
 
+    const [userDetails, setUserDetails] = useState()
+    const [likeData, setLikeData] = useState()
+    const [referalData, setReferalData] = useState()
+
+
+    useEffect(() => {
+        getDetails().then((res) => setUserDetails(res.data.result[0]))
+
+        getAllEarningLikes().then((res) => setLikeData(res.data))
+        getReferralData().then((res) => setReferalData(res.data))
+    }, [])
+
+    console.log(userDetails)
+
     return (
         <div className='Earnings grid'>
             <Header />
             <NavBar currPage={'Earnings'} />
             <div className="earnings_content">
                 <div className='topRow'>
-                    <CurrencyExchange />
+                    <CurrencyExchange userDetails={userDetails} />
                     <SocialMarketContent />
                     <ReferYourFriend />
                 </div>

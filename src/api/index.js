@@ -44,4 +44,30 @@ export const getTwitterData = () => API.get('/getTwitterData', { headers: authHe
 export const getSlides = () => API.get('/getSlides', { headers: authHeader })
 
 // live-chat endpoints
-export const getConversation = (req) => API.get(`/conversation/${req.senderId}/${req.receiverId}?pageNumber=1&rowsOfPage=1000`, { headers: authHeader }) 
+export const getConversation = (req) => API.get(`/conversation/${req.senderId}/${req.receiverId}?pageNumber=1&rowsOfPage=1000`, { headers: authHeader })
+
+// earnings endpoints
+export const getAllEarningLikes = () => API.get('/earnings/likeStats', { headers: authHeader })
+export const getShareData = () => API.get('/earnings/shareStats', { headers: authHeader })
+export const getReferralData = () => API.get('/earnings/referralStats', { headers: authHeader })
+export const getBounsData = () => API.get('/earnings/bonusStats', { headers: authHeader })
+export const getLikes = () => API.get('/totalLikes', { headers: authHeader })
+export const likesEarning = () => API.get('/totalLikesEarning', { headers: authHeader })
+export const getDetails = () => API.get('/earningDetails', { headers: authHeader })
+export const getCurrency = () => API.get('/currency', { headers: authHeader })
+export const getAdditionalBonus = () => API.get('/getAdditionalBonus', { headers: authHeader })
+export const getSocialMediaSharingContent = () => API.get('/socialMarketingContents', { headers: authHeader })
+export const withdrawRequest = () => API.get('/withdrawEmc', { headers: authHeader })
+export const sendWithdrawRequest = (data) => API.post('/withdraws', data, { headers: authHeader })
+export const getSocialShareStatus = (values) => API.post('/getSocialShareStatus', values, { headers: authHeader })
+export const createSocialShare = () => API.post('/createSocialShare', { headers: authHeader })
+export const getTotalCounters = () => API.post('/getTotalCounters', { headers: authHeader })
+
+// wallet endpoints
+export const fetchPublicKeyForQRCode = () => API.get('/walletQRcode', { headers: authHeader })
+export const fetchLatestPrice = () => API.get('/https://api.coingecko.com/api/v3/coins/edumetrix-coin', { headers: authHeader })
+export const getTotalEarnings = () => API.get('/totalEarnings', { headers: authHeader })
+export const sendKeyTo = (values) => API.get('/walletSend', values, { headers: authHeader })
+export const walletCoinConfirm = (values) => API.post('/walletCoinConfirm', values, { headers: authHeader })
+export const walletOTPVerify = (values) => API.post('/walletOtpVerify', values, { headers: authHeader })
+export const walletOTPConfirm = (values) => API.post('/walletOtpConfirm', values, { headers: authHeader })
