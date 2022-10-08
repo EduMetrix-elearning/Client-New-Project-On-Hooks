@@ -68,8 +68,13 @@
 
             .wallet_address {
                 color: white;
-                width: 170px;
+                width: 210px;
                 text-align: center;
+
+                i {
+                    cursor: pointer;
+                    margin-left: 10px;
+                }
 
                 p {
                     word-wrap: break-word;

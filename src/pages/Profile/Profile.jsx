@@ -5,7 +5,7 @@ import Header from '../../components/Header/Header'
 import NavBar from '../../components/NavBar/NavBar'
 import ProfileView from '../../components/_pages/Profile/ProfileView/ProfileView'
 import Post from '../../components/Wall/Post/Post'
-import { getProfilePosts } from '../../api'
+import { getDetails, getProfilePosts } from '../../api'
 
 export default function Profile() {
 
@@ -13,13 +13,11 @@ export default function Profile() {
     const [pageLength, setPageLength] = useState(5)
     const [posts, setPosts] = useState([])
 
+
     useEffect(() => {
-        async function asyncFuction() {
-            const response = await getProfilePosts(pageNumber, pageLength)
-            setPosts(response.data.data)
-        }
-        asyncFuction()
+        getProfilePosts(pageNumber, pageLength).then((res) => setPosts(res.data.data))
     }, [])
+
 
     return (
         <div className='Profile grid'>

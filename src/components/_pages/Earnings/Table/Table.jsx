@@ -1,7 +1,7 @@
 import React from 'react'
 import './Table.scss'
 
-export default function Table({ data }) {
+export default function Table({ data}) {
     return (
         <div className='Table'>
             <table>

@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { BACKEND_URL } from '../constants/url'
+import { userInfo } from '../utils/localStorage_Utils'
 
 const API = axios.create({ baseURL: BACKEND_URL })
 
@@ -65,9 +66,13 @@ export const getTotalCounters = () => API.post('/getTotalCounters', { headers: a
 
 // wallet endpoints
 export const fetchPublicKeyForQRCode = () => API.get('/walletQRcode', { headers: authHeader })
-export const fetchLatestPrice = () => API.get('/https://api.coingecko.com/api/v3/coins/edumetrix-coin', { headers: authHeader })
+export const fetchLatestPrice = () => API.get('https://api.coingecko.com/api/v3/coins/edumetrix-coin', { headers: authHeader })
 export const getTotalEarnings = () => API.get('/totalEarnings', { headers: authHeader })
 export const sendKeyTo = (values) => API.get('/walletSend', values, { headers: authHeader })
 export const walletCoinConfirm = (values) => API.post('/walletCoinConfirm', values, { headers: authHeader })
 export const walletOTPVerify = (values) => API.post('/walletOtpVerify', values, { headers: authHeader })
 export const walletOTPConfirm = (values) => API.post('/walletOtpConfirm', values, { headers: authHeader })
+
+// profile endpoints
+export const getFollowers = (values) => API.post('/followers', values, { headers: authHeader })
+export const getFollowings = (values) => API.post('/following', values, { headers: authHeader })
