@@ -76,3 +76,10 @@ export const walletOTPConfirm = (values) => API.post('/walletOtpConfirm', values
 // profile endpoints
 export const getFollowers = (values) => API.post('/followers', values, { headers: authHeader })
 export const getFollowings = (values) => API.post('/following', values, { headers: authHeader })
+export const insertDescription = (values) => API.post('/profileDescription', values, { headers: authHeader })
+export const insertFamily = (values) => API.post('/profileFamily', values, { headers: authHeader })
+export const insertHobbies = (values) => API.post('/userHobbies', values, { headers: authHeader })
+export const insertSkills = (values) => API.post('/userSkills', values, { headers: authHeader })
+export const insertEducationalDetails = (values) => API.post('/educationsDetails', values, { headers: authHeader })
+export const insertLifeAmbition = (values) => API.post('/lifeAmbition', values, { headers: authHeader })
+export const updateProfileData = (values) => API.post('/updateProfile', values, { headers: authHeader })

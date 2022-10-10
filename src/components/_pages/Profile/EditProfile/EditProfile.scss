@@ -1,0 +1,31 @@
+.EditProfile {
+    .title {
+        h6 {
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        i {
+            float: right;
+            margin-right: 30px;
+            font-size: 21px;
+        }
+
+        .inputs {
+            div {
+                width: 90%;
+                margin: 10px 0;
+                margin-left: 20px;
+
+                label {
+                    width: 25%;
+                }
+
+                input {
+                    width: 74%;
+
+                }
+            }
+        }
+    }
+}

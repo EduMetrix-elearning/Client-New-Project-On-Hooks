@@ -45,11 +45,43 @@
         height: 130px;
         width: .2%;
         background-color: white;
-        margin-right: 10px;
     }
 
     .professional {
+        position: relative;
         width: 50%;
+        height: 100%;
 
+        .titles {
+            display: flex;
+            justify-content: space-around;
+
+            p {
+                cursor: pointer;
+            }
+        }
+
+        .details {
+            padding-left: 20px;
+
+            p {
+                font-size: 12pt;
+
+                span {
+                    margin-right: 40px;
+                }
+            }
+        }
+
+        .edit_button {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+    }
+    .Modal{
+        .edit_profile{
+            
+        }
     }
 }
