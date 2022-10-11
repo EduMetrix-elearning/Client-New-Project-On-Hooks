@@ -1,7 +1,9 @@
 .EditProfile {
     .title {
+        border-top: 1px solid #e7e4e4;
+        cursor: pointer;
+
         h6 {
-            cursor: pointer;
             display: inline-block;
         }
 

@@ -99,7 +99,7 @@ export default function ProfileView() {
 
             </div>
             <Modal show={showModal} setShow={setShowModal}>
-                <EditProfile />
+                <EditProfile currentDetails={profileDetails} />
             </Modal>
         </div>
     )
