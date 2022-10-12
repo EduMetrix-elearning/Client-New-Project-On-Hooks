@@ -2,6 +2,7 @@ import React from 'react'
 import './SocialMediaPosts.scss'
 
 export default function SocialMediaPosts({ media, start, end, color, data }) {
+    // console.log({ media, data })
     return (
         <div className='SocialMediaPosts' style={{ 'gridColumnStart': (start), 'gridColumnEnd': (end) }}>
             <div className='inner_div'>

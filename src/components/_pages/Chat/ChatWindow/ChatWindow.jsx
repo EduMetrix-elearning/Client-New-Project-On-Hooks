@@ -29,7 +29,7 @@ export default function ChatWindow({ currentChat }) {
         setChats((state) => ([...state, ...response.data.responseResult.result]))
     }
 
-    console.log(chats)
+    // console.log(chats)
 
     function sendMessage() {
         let message = {

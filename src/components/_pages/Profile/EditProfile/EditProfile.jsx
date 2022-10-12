@@ -70,7 +70,7 @@ export default function EditProfile({ currentDetails }) {
     }
 
     // console.log(inputs)
-    console.log(currentDetails)
+    // console.log(currentDetails)
 
     return (
         <div className='EditProfile'>
@@ -84,37 +84,37 @@ export default function EditProfile({ currentDetails }) {
                             <label htmlFor="">State</label>
                             <input type="text"
                                 onChange={(e) => setInputs(s => ({ ...s, About: { ...s.About, state: e.target.value } }))}
-                                placeholder={currentDetails.student_state} />
+                                placeholder={currentDetails?.student_state} />
                         </div>
                         <div>
                             <label htmlFor="">Country</label>
                             <input type="text"
                                 onChange={(e) => setInputs(s => ({ ...s, About: { ...s.About, country: e.target.value } }))}
-                                placeholder={currentDetails.student_country} />
+                                placeholder={currentDetails?.student_country} />
                         </div>
                         <div>
                             <label htmlFor="">Date of Birth </label>
                             <input type="date"
                                 onChange={(e) => setInputs(s => ({ ...s, About: { ...s.About, dob: e.target.value } }))}
-                                placeholder={currentDetails.student_dob} />
+                                placeholder={currentDetails?.student_dob} />
                         </div>
                         <div>
                             <label htmlFor="">Father 's name</label>
                             <input type="text"
                                 onChange={(e) => setInputs(s => ({ ...s, About: { ...s.About, fatherName: e.target.value } }))}
-                                placeholder={currentDetails.student_fatherName} />
+                                placeholder={currentDetails?.student_fatherName} />
                         </div>
                         <div>
                             <label htmlFor="">Mother 's name</label>
                             <input type="text"
                                 onChange={(e) => setInputs(s => ({ ...s, About: { ...s.About, motherName: e.target.value } }))}
-                                placeholder={currentDetails.student_motherName} />
+                                placeholder={currentDetails?.student_motherName} />
                         </div>
                         <div>
                             <label htmlFor="">Description</label>
                             <input type="text"
                                 onChange={(e) => setInputs(s => ({ ...s, About: { ...s.About, description: e.target.value } }))}
-                                placeholder={currentDetails.description} />
+                                placeholder={currentDetails?.description} />
                         </div>
                         <button onClick={aboutUpdateHandle} >Update About</button>
                     </div>
@@ -160,31 +160,31 @@ export default function EditProfile({ currentDetails }) {
                             <label htmlFor="">University</label>
                             <input type="text"
                                 onChange={(e) => setInputs(s => ({ ...s, Qualifications: { ...s.Qualifications, university: e.target.value } }))}
-                                placeholder={currentDetails.university} />
+                                placeholder={currentDetails?.university} />
                         </div>
                         <div>
                             <label htmlFor="">College</label>
                             <input type="text"
                                 onChange={(e) => setInputs(s => ({ ...s, Qualifications: { ...s.Qualifications, collage: e.target.value } }))}
-                                placeholder={currentDetails.university} />
+                                placeholder={currentDetails?.university} />
                         </div>
                         <div>
                             <label htmlFor="">Course Name</label>
                             <input type="text"
                                 onChange={(e) => setInputs(s => ({ ...s, Qualifications: { ...s.Qualifications, courseName: e.target.value } }))}
-                                placeholder={currentDetails.university} />
+                                placeholder={currentDetails?.university} />
                         </div>
                         <div>
                             <label htmlFor="">Specialization</label>
                             <input type="text"
                                 onChange={(e) => setInputs(s => ({ ...s, Qualifications: { ...s.Qualifications, specialization: e.target.value } }))}
-                                placeholder={currentDetails.university} />
+                                placeholder={currentDetails?.university} />
                         </div>
                         <div>
                             <label htmlFor="">CourseYear</label>
                             <input type="text"
                                 onChange={(e) => setInputs(s => ({ ...s, Qualifications: { ...s.Qualifications, courseYear: e.target.value } }))}
-                                placeholder={currentDetails.university} />
+                                placeholder={currentDetails?.university} />
                         </div>
                         <button onClick={QualificationsInputHandle} >Update Qualifications</button>
                     </div>
@@ -195,6 +195,7 @@ export default function EditProfile({ currentDetails }) {
                 <i className={'fa fa-angle-' + (toggle.LifeGoals ? 'down' : 'right')}></i>
                 {toggle.LifeGoals &&
                     <div>
+                        <p>{currentDetails.lifeAmbition && currentDetails.lifeAmbition}</p>
                         <input ref={LifeGoalsInput} type="text" />
                         <button onClick={(e) => (setInputs(s => ({ ...s, LifeGoals: [...s.LifeGoals, LifeGoalsInput.current.value] })), LifeGoalsInputHandle())}>&#x2713;</button>
                     </div>

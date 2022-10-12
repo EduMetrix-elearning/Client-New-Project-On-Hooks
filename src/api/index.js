@@ -43,6 +43,7 @@ export const getInstaData = () => API.get('/getInstaData', { headers: authHeader
 export const getFacebookData = () => API.get('/getFacebookData', { headers: authHeader })
 export const getTwitterData = () => API.get('/getTwitterData', { headers: authHeader })
 export const getSlides = () => API.get('/getSlides', { headers: authHeader })
+export const botQueries = (values) => API.post('/queries', values, { headers: authHeader })
 
 // live-chat endpoints
 export const getConversation = (req) => API.get(`/conversation/${req.senderId}/${req.receiverId}?pageNumber=1&rowsOfPage=1000`, { headers: authHeader })
@@ -83,3 +84,8 @@ export const insertSkills = (values) => API.post('/userSkills', values, { header
 export const insertEducationalDetails = (values) => API.post('/educationsDetails', values, { headers: authHeader })
 export const insertLifeAmbition = (values) => API.post('/lifeAmbition', values, { headers: authHeader })
 export const updateProfileData = (values) => API.post('/updateProfile', values, { headers: authHeader })
+
+// find friends endpoints
+export const followFriend = (values) => API.post('/follow', values, { headers: authHeader })
+export const searchFriends = (values) => API.post('/searchFriends', values, { headers: authHeader })
+export const filterStudents = (obj) => API.get(`/getStudentsToFollow?student_country=${obj.student_country}&university=${obj.university}&school=${obj.school}`, { headers: authHeader })

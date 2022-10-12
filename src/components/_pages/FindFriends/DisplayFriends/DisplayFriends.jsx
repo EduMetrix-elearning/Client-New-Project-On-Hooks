@@ -1,26 +1,34 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useEffect } from 'react'
+import { getFollowers } from '../../../../api'
 import './DisplayFriends.scss'
 
-import image_user from '../../../../asset/images/profilepic.jpeg'
+export default function DisplayFriends({ details, followButton }) {
 
-export default function DisplayFriends() {
+    const [followersCount, setFollowersCount] = useState()
+
+    useEffect(() => {
+        getFollowers(details?.student_id).then((res) => setFollowersCount(res.data.result[0]))
+    }, [])
+
+    // console.log(details)
+    // console.log(followersCount)
+
     return (
         <div className='DisplayFriends'>
             <div className=''>
-                <img src={image_user} alt="" />
+                <img src={details?.student_photo} alt="" />
             </div>
             <div className='details'>
-                <h6>Muhammed Faisal</h6>
-                <p>India</p>
-                <p>University</p>
+                <h6>{details?.student_fname} {details?.student_lname}</h6>
+                <p>{details?.student_country}</p>
+                <p>{details?.student_university}</p>
                 <p>College</p>
-                <p>0 Followers</p>
+                <p>{followersCount?.followers} Followers</p>
                 <p>Date</p>
             </div>
             <div className='align-end'>
-                <button>
-                    follow
-                </button>
+                <button onClick={() => followButton(details)}>follow</button>
             </div>
         </div>
     )
