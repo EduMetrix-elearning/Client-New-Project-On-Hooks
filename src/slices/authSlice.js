@@ -81,10 +81,12 @@ export const authSlice = createSlice({
 })
 
 export function userSignUp(formData, navigate) {
+    console.log(formData)
     return async (dispatch) => {
         dispatch(signUpUser({ type: "start" }))
         try {
             const response = await api.getStarted(formData)
+            console.log(response.data)
             if (response.data.status === "success") {
                 dispatch(signUpUser({ type: "success" }))
                 localStorage.setItem("userId", response.data.student_id)

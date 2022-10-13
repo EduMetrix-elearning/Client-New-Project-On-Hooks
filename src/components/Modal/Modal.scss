@@ -1,4 +1,4 @@
-.Modal {
+.Modal_platform {
     position: fixed;
     width: 100%;
     height: 100vh;
@@ -10,7 +10,7 @@
     align-items: center;
     z-index: 1000;
 
-    .Modal_body {
+    .Modal {
         height: 500px;
         width: 600px;
         background-color: white;

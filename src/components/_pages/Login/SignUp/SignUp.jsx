@@ -19,7 +19,7 @@ export default function SignUp({ setPage }) {
 
     useEffect(() => {
         signUp.error && dispatch(popUp(signUp.error))
-    }, [signUp])
+    }, [signUp, dispatch])
 
     function inputHandle(event) {
         const { name, value } = event.target;
@@ -31,7 +31,9 @@ export default function SignUp({ setPage }) {
         if (e.code === "Enter" || e.type === 'click') {
             e.preventDefault();
             const response = signUpValidation(input, setInputError)
+            console.log(response)
             if (response?.validated) {
+                console.log('submit handle')
                 let obj = {
                     user_name: input.username,
                     email: input.email,

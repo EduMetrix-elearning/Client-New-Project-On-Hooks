@@ -67,12 +67,13 @@ export const getTotalCounters = () => API.post('/getTotalCounters', { headers: a
 
 // wallet endpoints
 export const fetchPublicKeyForQRCode = () => API.get('/walletQRcode', { headers: authHeader })
-export const fetchLatestPrice = () => API.get('https://api.coingecko.com/api/v3/coins/edumetrix-coin', { headers: authHeader })
+export const fetchLatestPrice = () => axios.get('https://api.coingecko.com/api/v3/coins/edumetrix-coin')
 export const getTotalEarnings = () => API.get('/totalEarnings', { headers: authHeader })
-export const sendKeyTo = (values) => API.get('/walletSend', values, { headers: authHeader })
+export const sendKeyTo = (values) => API.post('/walletSend', values, { headers: authHeader })
 export const walletCoinConfirm = (values) => API.post('/walletCoinConfirm', values, { headers: authHeader })
 export const walletOTPVerify = (values) => API.post('/walletOtpVerify', values, { headers: authHeader })
 export const walletOTPConfirm = (values) => API.post('/walletOtpConfirm', values, { headers: authHeader })
+export const fetchAllTransactions = (values) => axios.get(`https://api.etherscan.io/api?module=account&action=txlist&address=${values.publicKey}&startblock=0&endblock=99999999&sort=asc&apikey=${values.apiKey}`)
 
 // profile endpoints
 export const getFollowers = (values) => API.post('/followers', values, { headers: authHeader })

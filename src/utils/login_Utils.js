@@ -23,7 +23,7 @@ export const signInValidation = (input, captcha, setInputError, setCaptcha) => {
 
 
 export const signUpValidation = (input, setInputError) => {
-    // console.log(input)
+    console.log(input)
     if (input.username === '' || !input.username) {
         setInputError((state) => ({ ...state, username: 'Please enter valid username' }))
     } else if (input.username?.length < 6) {
@@ -39,7 +39,7 @@ export const signUpValidation = (input, setInputError) => {
     } else if (!input.checkbox) {
         setInputError((state) => ({ ...state, checkbox: 'please check this box if you want to proceed' }))
     } else {
-
+        return { validated: true }
     }
 }
 

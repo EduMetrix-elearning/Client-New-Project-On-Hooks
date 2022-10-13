@@ -6,9 +6,12 @@ import { popUp } from '../../../slices/popUpSlice'
 import image_photo from '../../../asset/images/Wall/image.png'
 import image_video from '../../../asset/images/Wall/video-camera.png'
 import image_doc from '../../../asset/images/Wall/files.png'
+
 import { getNowDate } from '../../../utils/date_Utils'
 import { userInfo } from '../../../utils/localStorage_Utils'
 import { createPost } from '../../../api'
+
+import Modal from '../../Modal/Modal'
 
 export default function CreatePost() {
 
@@ -16,6 +19,7 @@ export default function CreatePost() {
 
     const [post, setPost] = useState({})
     const [error, setError] = useState()
+    const [modalShow, setModalShow] = useState(true)
 
     async function submitPost() {
         if (!post.text) dispatch(popUp("Cannot post with empty field ..."))
@@ -61,6 +65,9 @@ export default function CreatePost() {
                     <button onClick={submitPost}>Post</button>
                 </footer>
             </div>
+            <Modal show={modalShow} setShow={setModalShow}>
+                <p>hai hellow</p>
+            </Modal>
         </div>
     )
 }

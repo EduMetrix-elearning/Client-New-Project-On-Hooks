@@ -21,13 +21,14 @@ export default function UploadDocuments() {
 
     async function submitHandle() {
         const formData = new FormData()
-        formData.append("student_id", userInfo.id);
+        formData.append("student_id", localStorage.getItem("userId"));
         formData.append("student_photo", images.photo);
         formData.append("student_idfront", images.identity_card_front);
         formData.append("student_idback", images.identity_card_back);
-        const res = imageToDB(formData)
-        console.log(res)
-        res.status === 200 && navigate('/login')
+        imageToDB(formData).then((res) => {
+            console.log(res.data)
+            res.status === 200 && navigate('/login')
+        })
     }
 
     return (

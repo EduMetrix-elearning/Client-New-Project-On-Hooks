@@ -17,7 +17,7 @@ export default function SocialMarketContent() {
                 <h6>Social market sharing content</h6>
             </div>
             <div>
-                <iframe src={socialShareContent} frameborder="0"></iframe>
+                <iframe src={socialShareContent} frameBorder="0"></iframe>
             </div>
         </div>
     )

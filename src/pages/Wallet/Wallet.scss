@@ -117,4 +117,43 @@
             }
         }
     }
+
+    .Modal {
+        height: 220px;
+
+        h3 {
+            color: darkcyan;
+            font-size: 18pt;
+            margin: 15px;
+        }
+
+        div {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 10px 0;
+
+            input {
+                width: 300px;
+                border: 1px solid gainsboro;
+                padding: 6px;
+                border-radius: 5px;
+            }
+
+            button {
+                border: none;
+                border-radius: 5px;
+                padding: 0 25px;
+                color: white;
+            }
+
+            .sms {
+                background-color: var(--color3);
+            }
+
+            .email {
+                background-color: var(--color7);
+            }
+        }
+    }
 }
