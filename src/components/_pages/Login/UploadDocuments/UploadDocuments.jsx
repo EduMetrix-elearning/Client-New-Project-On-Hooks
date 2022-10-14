@@ -31,6 +31,8 @@ export default function UploadDocuments() {
         })
     }
 
+    console.log(images)
+
     return (
         <div className='UploadDocuments'>
             <h5>Upload the following documents and complete your registration</h5>

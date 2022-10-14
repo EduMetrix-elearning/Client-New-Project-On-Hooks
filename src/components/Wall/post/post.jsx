@@ -63,6 +63,8 @@ export default function Post({ details }) {
         })
     }
 
+    // console.log(details)
+
     return (
         <div className='Post'>
             <div className="post_inner_div">

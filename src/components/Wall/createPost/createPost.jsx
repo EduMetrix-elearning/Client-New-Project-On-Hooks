@@ -1,15 +1,17 @@
 import React, { useState } from 'react'
-import './CreatePost.scss'
 import { useDispatch } from 'react-redux'
+import './CreatePost.scss'
+
 import { popUp } from '../../../slices/popUpSlice'
 
 import image_photo from '../../../asset/images/Wall/image.png'
 import image_video from '../../../asset/images/Wall/video-camera.png'
 import image_doc from '../../../asset/images/Wall/files.png'
 
-import { getNowDate } from '../../../utils/date_Utils'
+import { getFormattedDate, getNowDate } from '../../../utils/date_Utils'
+import { GeneratePostId, toBase64 } from '../../../utils/home_Utils'
 import { userInfo } from '../../../utils/localStorage_Utils'
-import { createPost } from '../../../api'
+import { createPost, postDocPost, postImagePost, postVideoPost } from '../../../api'
 
 import Modal from '../../Modal/Modal'
 
@@ -19,7 +21,8 @@ export default function CreatePost() {
 
     const [post, setPost] = useState({})
     const [error, setError] = useState()
-    const [modalShow, setModalShow] = useState(true)
+    const [modalShow, setModalShow] = useState(false)
+    const [fileInput, setFileInput] = useState({ type: "" })
 
     async function submitPost() {
         if (!post.text) dispatch(popUp("Cannot post with empty field ..."))
@@ -35,6 +38,48 @@ export default function CreatePost() {
         }
     }
 
+    async function fileInputHandle(e) {
+        setFileInput((s) => ({ ...s, file: e.target.files[0] }))
+    }
+
+    async function submitFilePost() {
+        if (fileInput.type === "image") {
+            let obj = {
+                "student_id": userInfo.id,
+                "post_photo": await toBase64(fileInput.file),
+                "post_content": fileInput.text || "",
+                "posted_date": getFormattedDate(),
+                "post_id": GeneratePostId()
+            }
+            console.log(obj)
+            postImagePost(obj).then((res) => console.log(res.data)).catch((err) => console.log(err))
+        }
+        if (fileInput.type === "video") {
+            let postVideo = new FormData();
+            postVideo.append("student_id", userInfo.id)
+            postVideo.append("post_video", fileInput.file)
+            postVideo.append("post_content", fileInput.text || "")
+            postVideo.append("posted_date", getFormattedDate())
+            postVideo.append("post_id", GeneratePostId())
+            console.log(postVideo)
+            postVideoPost(postVideo).then((res) => console.log(res.data)).catch((err) => console.log(err))
+        }
+        if (fileInput.type === "document") {
+            var postDoc = new FormData();
+            postDoc.append("student_id", userInfo.id)
+            postDoc.append("post_document", fileInput.file)
+            postDoc.append("post_content", fileInput.text || "")
+            postDoc.append("posted_date", getFormattedDate())
+            postDoc.append("post_id", GeneratePostId())
+
+            console.log(postDoc)
+            postDocPost(postDoc).then((res) => console.log(res.data)).catch((err) => console.log(err))
+        }
+    }
+
+    // console.log(post)
+    console.log(fileInput)
+
     return (
         <div className='CreatePost'>
             <div className='createPost_inner_div'>
@@ -49,25 +94,54 @@ export default function CreatePost() {
                 </div >
                 <footer>
                     <div className="icons">
-                        <div className='icon'>
+                        <div className='icon' onClick={() => (setModalShow(true), setFileInput({ type: 'image' }))}>
                             <img src={image_photo} alt="" />
                             <p>Images</p>
                         </div>
-                        <div className='icon'>
+                        <div className='icon' onClick={() => (setModalShow(true), setFileInput({ type: 'video' }))}>
                             <img src={image_video} alt="" />
                             <p>Videos</p>
                         </div>
-                        <div className='icon'>
+                        <div className='icon' onClick={() => (setModalShow(true), setFileInput({ type: 'document' }))}>
                             <img src={image_doc} alt="" />
                             <p>Documents</p>
                         </div>
-                    </div>
+                    </div >
                     <button onClick={submitPost}>Post</button>
-                </footer>
-            </div>
+                </footer >
+            </div >
             <Modal show={modalShow} setShow={setModalShow}>
-                <p>hai hellow</p>
+                <h5>Create Post</h5>
+                <div className='fileUploadInterface'>
+                    <h6>Drop your file here</h6>
+                    <p>OR</p>
+                    <label htmlFor={fileInput.type + "InputUpload"} >Upload file</label>
+                </div>
+                {fileInput.type === "image" &&
+                    <div className='fileUploadButton'>
+                        <input id='imageInputUpload' type="file" name={fileInput.type} accept="image/*" onChange={fileInputHandle} />
+                        {fileInput.file && <img src={URL.createObjectURL(fileInput.file)} alt="" />}
+                    </div>
+                }
+                {fileInput.type === "video" &&
+                    <div className='fileUploadButton'>
+                        <input id='videoInputUpload' type="file" name={fileInput.type} accept="video/*" onChange={fileInputHandle} />
+                        {fileInput.file && console.log(URL.createObjectURL(fileInput.file))}
+                        {fileInput.file && <video src={URL.createObjectURL(fileInput.file)} controls={true}></video>}
+                    </div>
+                }
+                {fileInput.type === "document" &&
+                    <div className='fileUploadButton'>
+                        <input id='documentInputUpload' type="file" name={fileInput.type} accept=".pdf" onChange={fileInputHandle} />
+                        {fileInput.file && <object data={URL.createObjectURL(fileInput.file)} type="application/pdf"></object>}
+                    </div>
+                }
+                <div className='fileUploadText'>
+                    <input type="text" onChange={(e) => setFileInput((s) => ({ ...s, text: e.target.value }))}
+                        placeholder="Write something about your post here ..." />
+                    <button onClick={submitFilePost}>Post</button>
+                </div>
             </Modal>
-        </div>
+        </div >
     )
 }

@@ -39,7 +39,7 @@ export function getAgoDate(date) {
 export function getFormattedDate(date) {
     let mlist = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 
-    let currentDate = new Date(date)
+    let currentDate = new Date(date || new Date())
     var hours = currentDate.getHours();
     var minutes = currentDate.getMinutes();
     var ampm = hours >= 12 ? 'pm' : 'am';

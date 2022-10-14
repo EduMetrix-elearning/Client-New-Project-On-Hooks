@@ -22,7 +22,10 @@ export const resendOTP = (values) => API.post('/resendOTP', values)
 // home endpoints
 export const getPost = (pageNumber, pageLength) => API.get(`/getPost?pageNumber=${pageNumber}&pageLength=${pageLength}`)
 export const getStudentsToFollow = () => API.get('/getStudentsToFollow', { headers: authHeader })
-export const createPost = (values) => API.post('/createPost', values,)
+export const createPost = (values) => API.post('/createPost', values, { headers: authHeader })
+export const postImagePost = (values) => API.post('/postImagePost', values, { headers: authHeader })
+export const postDocPost = (values) => API.post('/postDocPost', values, { headers: authHeader })
+export const postVideoPost = (values) => API.post('/postVideoPost', values, { headers: authHeader })
 
 // posts endpoints
 export const getLikeStatus = (values) => API.post('/getLikeStatus', values, { headers: authHeader })

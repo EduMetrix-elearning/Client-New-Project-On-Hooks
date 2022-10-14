@@ -63,6 +63,7 @@
                 .icon {
                     display: flex;
                     margin: 0 10px;
+                    cursor: pointer;
 
                     img {
                         $side: 20px;
@@ -89,10 +90,81 @@
 
     .Modal {
 
-        height: 200px;
+        height: 300px !important;
+        display: flex;
+        flex-direction: column;
+        padding: 0 !important;
+        overflow: hidden;
 
-        p {
-            color: red;
+        svg {
+            fill: white;
         }
+
+        h5 {
+            background-color: var(--color6);
+            color: white;
+            padding: 10px;
+            margin: 0;
+        }
+
+        .fileUploadInterface {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            border: 2px dashed grey;
+            margin: 20px;
+            padding: 20px;
+
+            label {
+                background-color: darkgray;
+                cursor: pointer;
+                padding: 5px 15px;
+                margin-top: 10px;
+                border-radius: 7px;
+            }
+        }
+
+        .fileUploadButton {
+            input {
+                display: none;
+            }
+
+            img {
+                $side: 50px;
+                height: $side;
+                width: $side;
+            }
+
+            video {
+                height: 100px;
+            }
+        }
+
+        .fileUploadText {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+
+            input {
+                width: 70%;
+                border-radius: 1000px;
+                border: 1px solid gainsboro;
+                height: 40px;
+                padding-left: 20px;
+
+                &::placeholder {
+                    font-style: italic;
+                }
+            }
+
+            button {
+                border: 1px solid gainsboro;
+                border-radius: 25px;
+                width: 100px;
+                height: 40px;
+            }
+        }
+
+
     }
 }
