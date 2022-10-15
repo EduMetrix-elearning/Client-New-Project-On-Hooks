@@ -78,7 +78,7 @@ export default function CreatePost() {
     }
 
     // console.log(post)
-    console.log(fileInput)
+    // console.log(fileInput)
 
     return (
         <div className='CreatePost'>
@@ -112,11 +112,14 @@ export default function CreatePost() {
             </div >
             <Modal show={modalShow} setShow={setModalShow}>
                 <h5>Create Post</h5>
-                <div className='fileUploadInterface'>
-                    <h6>Drop your file here</h6>
-                    <p>OR</p>
-                    <label htmlFor={fileInput.type + "InputUpload"} >Upload file</label>
-                </div>
+                {fileInput.file && <i className='fa fa-edit' onClick={() => setFileInput(({ file, ...rest }) => rest)} />}
+                {!fileInput.file &&
+                    <div className='fileUploadInterface'>
+                        <h6>Drop your file here</h6>
+                        <p>OR</p>
+                        <label htmlFor={fileInput.type + "InputUpload"} >Upload file</label>
+                    </div>
+                }
                 {fileInput.type === "image" &&
                     <div className='fileUploadButton'>
                         <input id='imageInputUpload' type="file" name={fileInput.type} accept="image/*" onChange={fileInputHandle} />
@@ -125,8 +128,7 @@ export default function CreatePost() {
                 }
                 {fileInput.type === "video" &&
                     <div className='fileUploadButton'>
-                        <input id='videoInputUpload' type="file" name={fileInput.type} accept="video/*" onChange={fileInputHandle} />
-                        {fileInput.file && console.log(URL.createObjectURL(fileInput.file))}
+                        <input id='videoInputUpload' type="file" name={fileInput.type} accept="video/*" onChange={(e) => fileInputHandle(e)} />
                         {fileInput.file && <video src={URL.createObjectURL(fileInput.file)} controls={true}></video>}
                     </div>
                 }

@@ -90,7 +90,7 @@
 
     .Modal {
 
-        height: 300px !important;
+        min-height: 300px !important;
         display: flex;
         flex-direction: column;
         padding: 0 !important;
@@ -105,6 +105,18 @@
             color: white;
             padding: 10px;
             margin: 0;
+        }
+
+        .fa-edit {
+            position: absolute;
+            top: 48px;
+            left: 5px;
+            font-size: 14pt;
+            cursor: pointer;
+
+            &:hover {
+                opacity: .7;
+            }
         }
 
         .fileUploadInterface {
@@ -125,18 +137,18 @@
         }
 
         .fileUploadButton {
+            display: flex;
+            justify-content: center;
+
             input {
                 display: none;
             }
 
-            img {
-                $side: 50px;
-                height: $side;
-                width: $side;
-            }
-
-            video {
-                height: 100px;
+            img,
+            video,
+            object {
+                max-height: 200px;
+                margin: 15px 0;
             }
         }
 
@@ -144,6 +156,7 @@
             display: flex;
             justify-content: center;
             gap: 20px;
+            padding-bottom: 15px;
 
             input {
                 width: 70%;

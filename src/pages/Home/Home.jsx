@@ -8,10 +8,12 @@ import Suggestions from '../../components/Suggestions/Suggestions'
 import ChatBox from '../../components/ChatBox/ChatBox'
 import PopUpAlert from '../../components/PopUpAlert/PopUpAlert'
 import { useSelector } from 'react-redux'
+import { useState } from 'react'
 
 export default function Home() {
 
   const PopUp = useSelector((state) => state.PopUp)
+
 
   return (
     <div className='Home grid'>
@@ -19,7 +21,7 @@ export default function Home() {
       <Header />
       <Wall />
       <Suggestions />
-      <ChatBox />
+      <ChatBox/>
       {
         PopUp.show &&
         <PopUpAlert text={PopUp.text} />
