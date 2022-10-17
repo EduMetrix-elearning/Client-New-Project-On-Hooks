@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import { useEffect } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { getAllStudents, getConversation } from '../../api'
 import { userInfo } from '../../utils/localStorage_Utils'
 import socket from '../../utils/socketIO_Util'
@@ -7,18 +6,29 @@ import './ChatBox.scss'
 
 export default function ChatBox() {
 
+    const pageBottom = useRef()
+
     const [show, setShow] = useState(true)
     const [allStudents, setAllStudents] = useState([])
     const [activeUsers, setActiveUsers] = useState([])
     const [currentChats, setCurrentChats] = useState([])
 
     useEffect(() => {
+        pageBottom.current?.scrollIntoView({ behavior: "smooth" })
+    }, [pageBottom.current, currentChats])
+
+
+    useEffect(() => {
         socket.on('checkOnlineUsers', (activeUsers) => {
             setActiveUsers(allStudents.filter((student) => {
-                return activeUsers[student.student_id]
+                return activeUsers[student.student_id] && student.student_id !== userInfo.id
             }))
         })
     }, [allStudents])
+
+    useEffect(() => {
+        getAllStudents().then((res) => setAllStudents(res.data.data)).catch((err) => console.log(err))
+    }, [])
 
     function fetchConversations(receiver) {
         getConversation({ senderId: userInfo.id, receiverId: receiver })
@@ -26,12 +36,20 @@ export default function ChatBox() {
             .catch((err) => { console.log(err) })
     }
 
-    useEffect(() => {
-        getAllStudents().then((res) => setAllStudents(res.data.data)).catch((err) => console.log(err))
-    }, [])
+    function sendMessage() {
+        let message = {
+            message: input,
+            senderID: userInfo.id,
+            receiverID: currentChat?.student_id,
+            sender_name: userInfo.user_name,
+            receiver_name: currentChat?.student_fname + currentChat?.student_lname,
+            message_time: new Date()
+        };
+        socket.emit("CONVERSATION", message)
+    }
 
     // console.log(activeUsers)
-    console.log(currentChats)
+    // console.log(currentChats)
 
     return (
         <div className='ChatBox'>
@@ -41,17 +59,31 @@ export default function ChatBox() {
             {show &&
                 <main>
                     <div className='chat_list'>
-                        {activeUsers.map((user, i) => {
-                            return (
-                                <div key={i} className="user" onClick={() => fetchConversations(user.student_id)}>
-                                    <img src={user.student_photo} alt="" />
-                                    <p>{user.student_fname} {user.student_lname}</p>
+                        {!currentChats.length ?
+                            activeUsers.map((user, i) => {
+                                return (
+                                    <div key={i} className="user" onClick={() => fetchConversations(user.student_id)}>
+                                        <img src={user.student_photo} alt="" />
+                                        <p>{user.student_fname} {user.student_lname}</p>
+                                    </div>
+                                )
+                            }) :
+                            <div className='chatting_box'>
+                                <div className='chats'>
+                                    {currentChats.map((chat, i) => {
+                                        return (
+                                            <p key={i} className={' message ' + (userInfo.id === chat.senderID ? 'right' : 'left')}>{chat.message}</p>
+                                        )
+                                    })}
+                                    <span ref={pageBottom}></span>
                                 </div>
-                            )
-                        })}
-                    </div>
-                    <div className='input_area'>
-                        <input type="text" />
+                                <div className='footer'>
+                                    <span className='fa fa-angle-left' onClick={() => setCurrentChats([])}></span>
+                                    <input type="text" />
+                                    <span className='fa fa-paper-plane' onClick={(e) => sendMessage()}></span>
+                                </div>
+                            </div>
+                        }
                     </div>
                 </main>
             }
