@@ -28,7 +28,7 @@ export default function Profile() {
                 <div className="profile_wall">
                     {posts && posts.map((post, i) => {
                         return (
-                            <Post key={i} details={post} />
+                            <Post key={i} details={post} page={'myProfile'}/>
                         )
                     })
                     }

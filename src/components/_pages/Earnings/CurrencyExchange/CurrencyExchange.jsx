@@ -5,8 +5,9 @@ import './CurrencyExchange.scss'
 export default function CurrencyExchange({ userDetails }) {
 
     function withdrawHandle() {
-        sendWithdrawRequest({}).then((res) => console.log(res.data))
+        sendWithdrawRequest({}).then((res) => alert(res.data)).catch((err) => alert(err.response.data.message))
     }
+
 
     return (
         <div className='CurrencyExchange'>

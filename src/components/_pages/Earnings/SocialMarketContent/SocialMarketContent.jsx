@@ -8,8 +8,10 @@ export default function SocialMarketContent() {
     const [socialShareContent, setSocialShareContent] = useState()
 
     useEffect(() => {
-        getSocialMediaSharingContent().then((res) => res.data.length > 0 && setSocialShareContent(res.data[0].video))
+        getSocialMediaSharingContent().then((res) => setSocialShareContent(res.data.data[0].video))
     }, [])
+
+    // console.log(socialShareContent)
 
     return (
         <div className='SocialMarketContent'>

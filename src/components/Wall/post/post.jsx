@@ -7,7 +7,10 @@ import { CommentsCount, getAllComments, getAllLikes, getLikeStatus, postComment,
 import { useDispatch } from 'react-redux'
 import { popUp } from '../../../slices/popUpSlice'
 
-export default function Post({ details }) {
+import ToolTip from '../../ToolTip/ToolTip'
+import Modal from '../../Modal/Modal'
+
+export default function Post({ details, page }) {
 
     const dispatch = useDispatch()
 
@@ -17,7 +20,9 @@ export default function Post({ details }) {
     const [showComments, setShowComments] = useState(false)
     const [comments, setComments] = useState([])
     const [commentInput, setCommentInput] = useState('')
-    const [showPostSettings, setShowPostSettings] = useState(false)
+    const [showToolTip, setShowToolTip] = useState(false)
+    const [showModal, setShowModal] = useState(false)
+    const [postUpdateText, setPostUpdateText] = useState(details.post_content)
 
     useEffect(() => {
         (async function () {
@@ -29,6 +34,7 @@ export default function Post({ details }) {
         })()
 
         getCommentsCount()
+        // setPostUpdateText(details.post_content)
     }, [])
 
     async function getCommentsCount() {
@@ -64,26 +70,55 @@ export default function Post({ details }) {
     }
 
     // console.log(details)
+    // console.log(showToolTip)
 
     return (
         <div className='Post'>
             <div className="post_inner_div">
                 <div className="account">
-                    {details.student_photo &&
-                        <img src={details.student_photo} alt="" />
-                    }
+                    <div className='profilePic'>
+                        {details.student_photo &&
+                            <img src={details.student_photo} alt="" />
+                        }
+                    </div>
                     <div className='title'>
                         <h6>{details.student_fname && details.student_lname ? details.student_fname + ' ' + details.student_lname : null} {details.post_id}</h6>
                         <p>{getAgoDate(details.posted_date)}</p>
                     </div>
                     <div className="post_settings">
-                        <i className='fa fa-ellipsis-h fa-lg' onClick={() => setShowPostSettings(!showPostSettings)} />
-                        <div className={'popUp ' + (showPostSettings ? 'show' : 'hide')}
-                            onBlur={() => setShowPostSettings(false)} tabIndex='0' >
-                            <ul>
-                                <li>Report</li>
-                            </ul>
-                        </div>
+                        <i className='fa fa-ellipsis-h fa-lg' id='ToolTipButton' onClick={() => setShowToolTip(true)} />
+                        <ToolTip show={showToolTip} setShow={setShowToolTip} button={'ToolTipButton'}>
+                            {page === 'myProfile' ?
+                                <div>
+                                    <p onClick={() => setShowModal(true)}><i className='fa fa-edit' /> Edit post</p>
+                                    <p><i className='fa fa-trash' /> Delete post</p>
+                                </div>
+                                :
+                                <p><i className='fa fa-flag' />Report</p>
+                            }
+                        </ToolTip>
+                        <Modal show={showModal} setShow={setShowModal}>
+                            <h3>Update post</h3>
+                            <div className='post_file'>
+                                <div className='file_div'>
+                                    {details.post_photo &&
+                                        <img src={details.post_photo} alt="" /> ||
+                                        details.post_video &&
+                                        <video src={details.post_video} controls controlsList='nodownload'></video> ||
+                                        details.post_document &&
+                                        <object data={details.post_document + "?#zoom=80&scrollbar=0&toolbar=0&navpanes=1&statusbar=1&view=fit"} type="application/pdf"></object>
+                                    }
+                                </div>
+                                <label className='upload_icon' htmlFor="post_update_file">
+                                    <i className='fa fa-upload'></i>
+                                    <input type="file" hidden id='post_update_file' />
+                                </label>
+                            </div>
+                            <div className='footer'>
+                                <input type="text" value={postUpdateText} onChange={(e) => setPostUpdateText(e.target.value)} />
+                                <button>Save changes</button>
+                            </div>
+                        </Modal>
                     </div>
                 </div>
                 <div className="content">
