@@ -26,6 +26,7 @@ export const createPost = (values) => API.post('/createPost', values, { headers:
 export const postImagePost = (values) => API.post('/postImagePost', values, { headers: authHeader })
 export const postDocPost = (values) => API.post('/postDocPost', values, { headers: authHeader })
 export const postVideoPost = (values) => API.post('/postVideoPost', values, { headers: authHeader })
+export const reportPost = (values) => API.post('/report', values, { headers: authHeader })
 
 // posts endpoints
 export const getLikeStatus = (values) => API.post('/getLikeStatus', values, { headers: authHeader })
@@ -88,6 +89,8 @@ export const insertSkills = (values) => API.post('/userSkills', values, { header
 export const insertEducationalDetails = (values) => API.post('/educationsDetails', values, { headers: authHeader })
 export const insertLifeAmbition = (values) => API.post('/lifeAmbition', values, { headers: authHeader })
 export const updateProfileData = (values) => API.post('/updateProfile', values, { headers: authHeader })
+export const deletePost = (values) => API.post('/deletePost', values, { headers: authHeader })
+export const editPost = (values) => API.post('/editPost', values, { headers: authHeader })
 
 // find friends endpoints
 export const followFriend = (values) => API.post('/follow', values, { headers: authHeader })

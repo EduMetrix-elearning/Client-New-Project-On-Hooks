@@ -3,7 +3,7 @@ import './Post.scss'
 
 import { getAgoDate, getNowDate } from '../../../utils/date_Utils'
 import { userInfo } from '../../../utils/localStorage_Utils'
-import { CommentsCount, getAllComments, getAllLikes, getLikeStatus, postComment, postLike } from '../../../api'
+import { CommentsCount, deletePost, editPost, getAllComments, getAllLikes, getLikeStatus, postComment, postLike, reportPost } from '../../../api'
 import { useDispatch } from 'react-redux'
 import { popUp } from '../../../slices/popUpSlice'
 
@@ -21,8 +21,13 @@ export default function Post({ details, page }) {
     const [comments, setComments] = useState([])
     const [commentInput, setCommentInput] = useState('')
     const [showToolTip, setShowToolTip] = useState(false)
+
     const [showModal, setShowModal] = useState(false)
+    const [showReportModal, setShowReportModal] = useState(false)
+
     const [postUpdateText, setPostUpdateText] = useState(details.post_content)
+    const [postUpdateFile, setPostUpdateFile] = useState()
+    const [reportInput, setReportInput] = useState()
 
     useEffect(() => {
         (async function () {
@@ -69,8 +74,36 @@ export default function Post({ details, page }) {
         })
     }
 
+    function reportHandle() {
+        let obj = {
+            reported_by: userInfo.id,
+            post_id: details.post_id,
+            message: reportInput,
+        }
+        reportPost(obj).then((res) => console.log(res.data)).catch((err) => console.log(err))
+    }
+
+    function deletePostHandle() {
+        let obj = {
+            post_id: details.post_id,
+            delete: true
+        }
+        deletePost(obj).then((res) => console.log(res.data)).catch((err) => console.log(err))
+    }
+
+    function updatesSaveHandle() {
+        const data = new FormData();
+        data.append("post_id", details.post_id);
+        data.append("post_content", postUpdateText);
+        data.append("file", postUpdateFile);
+        // console.log(data.get('post_id'), data.get('post_content'), data.get('file'))
+        editPost(data).then((res) => console.log(res.data)).catch((err) => console.log(err))
+    }
+
     // console.log(details)
     // console.log(showToolTip)
+    // console.log(reportInput)
+    console.log(postUpdateFile?.type)
 
     return (
         <div className='Post'>
@@ -86,37 +119,72 @@ export default function Post({ details, page }) {
                         <p>{getAgoDate(details.posted_date)}</p>
                     </div>
                     <div className="post_settings">
-                        <i className='fa fa-ellipsis-h fa-lg' id='ToolTipButton' onClick={() => setShowToolTip(true)} />
-                        <ToolTip show={showToolTip} setShow={setShowToolTip} button={'ToolTipButton'}>
+                        <i className='fa fa-ellipsis-h fa-lg' id={'ToolTipButton' + details.post_id} onClick={() => setShowToolTip(true)} />
+                        <ToolTip show={showToolTip} setShow={setShowToolTip} button={'ToolTipButton' + details.post_id}>
                             {page === 'myProfile' ?
                                 <div>
                                     <p onClick={() => setShowModal(true)}><i className='fa fa-edit' /> Edit post</p>
-                                    <p><i className='fa fa-trash' /> Delete post</p>
+                                    <p onClick={() => deletePostHandle()}><i className='fa fa-trash' /> Delete post</p>
                                 </div>
                                 :
-                                <p><i className='fa fa-flag' />Report</p>
+                                <p onClick={() => setShowReportModal(true)}><i className='fa fa-flag' />Report</p>
                             }
                         </ToolTip>
-                        <Modal show={showModal} setShow={setShowModal}>
-                            <h3>Update post</h3>
-                            <div className='post_file'>
-                                <div className='file_div'>
-                                    {details.post_photo &&
-                                        <img src={details.post_photo} alt="" /> ||
-                                        details.post_video &&
-                                        <video src={details.post_video} controls controlsList='nodownload'></video> ||
-                                        details.post_document &&
-                                        <object data={details.post_document + "?#zoom=80&scrollbar=0&toolbar=0&navpanes=1&statusbar=1&view=fit"} type="application/pdf"></object>
-                                    }
+                        <Modal show={showReportModal} setShow={setShowReportModal}>
+                            <div className='report_modal'>
+                                <h3>Report post</h3>
+                                <div className='report_inputs'>
+                                    <label htmlFor=""><input type="radio" name='report' onChange={(e) => setReportInput(e.target.value)} value={'Violent or repulsive content'} />Violent or repulsive content</label>
+                                    <label htmlFor=""><input type="radio" name='report' onChange={(e) => setReportInput(e.target.value)} value={'Sexual Content'} />Sexual Content</label>
+                                    <label htmlFor=""><input type="radio" name='report' onChange={(e) => setReportInput(e.target.value)} value={'Hateful or abusive content'} />Hateful or abusive content</label>
+                                    <label htmlFor=""><input type="radio" name='report' onChange={(e) => setReportInput(e.target.value)} value={'Harmful or dangerous acts'} />Harmful or dangerous acts</label>
+                                    <label htmlFor=""><input type="radio" name='report' onChange={(e) => setReportInput(e.target.value)} value={'Spam or misleading'} />Spam or misleading</label>
+                                    <label htmlFor=""><input type="radio" name='report' onChange={(e) => setReportInput(e.target.value)} value={'Child abuse'} />Child abuse</label>
+                                    <label htmlFor=""><input type="radio" name='report' onChange={(e) => setReportInput(e.target.value)} value={'Other : '} />Other
+                                        <input type="text" disabled={(reportInput?.slice(0, 5) === 'Other') ? false : true} placeholder='describe...'
+                                            onChange={(e) => setReportInput((s) => ('Other : ' + e.target.value))}
+                                            value={(reportInput?.slice(0, 5) !== 'Other') ? "" : reportInput?.slice(8)} /></label>
                                 </div>
-                                <label className='upload_icon' htmlFor="post_update_file">
-                                    <i className='fa fa-upload'></i>
-                                    <input type="file" hidden id='post_update_file' />
-                                </label>
+                                <div className="buttons">
+                                    <button onClick={() => setShowReportModal(false)}>Cancel</button>
+                                    <button onClick={reportHandle}>Report</button>
+                                </div>
                             </div>
-                            <div className='footer'>
-                                <input type="text" value={postUpdateText} onChange={(e) => setPostUpdateText(e.target.value)} />
-                                <button>Save changes</button>
+                        </Modal>
+                        <Modal show={showModal} setShow={setShowModal}>
+                            <div className="edit_post_modal">
+                                <h3>Update post</h3>
+                                <div className='post_file'>
+                                    <div className='file_div'>
+                                        {
+                                            (
+                                                (/^image\/().*$/).test(postUpdateFile?.type) &&
+                                                <img src={URL.createObjectURL(postUpdateFile)} alt="" /> ||
+                                                (/^video\/().*$/).test(postUpdateFile?.type) &&
+                                                <video src={URL.createObjectURL(postUpdateFile)} controls controlsList='nodownload'></video> ||
+                                                (/^application\/().*$/).test(postUpdateFile?.type) &&
+                                                <object data={URL.createObjectURL(postUpdateFile)} type="application/pdf"></object>
+                                            )
+                                            ||
+                                            (
+                                                details.post_photo &&
+                                                <img src={details.post_photo} alt="" /> ||
+                                                details.post_video &&
+                                                <video src={details.post_video} controls controlsList='nodownload'></video> ||
+                                                details.post_document &&
+                                                <object data={details.post_document + "?#zoom=80&scrollbar=0&toolbar=0&navpanes=1&statusbar=1&view=fit"} type="application/pdf"></object>
+                                            )
+                                        }
+                                    </div>
+                                    <label className='upload_icon' htmlFor="post_update_file">
+                                        <i className='fa fa-upload'></i>
+                                        <input type="file" hidden id='post_update_file' onChange={(e) => setPostUpdateFile(e.target.files[0])} />
+                                    </label>
+                                </div>
+                                <div className='footer'>
+                                    <input type="text" value={postUpdateText} onChange={(e) => setPostUpdateText(e.target.value)} />
+                                    <button onClick={updatesSaveHandle} >Save changes</button>
+                                </div>
                             </div>
                         </Modal>
                     </div>
@@ -157,7 +225,8 @@ export default function Post({ details, page }) {
                         onChange={(e) => setCommentInput(e.target.value)} />
                     <i className='fa fa-paper-plane' onClick={commentPostHandle}></i>
                 </div>
-                {showComments &&
+                {
+                    showComments &&
                     <div className='comments'>
                         {comments &&
                             comments.map((comment, index) => {
@@ -175,7 +244,7 @@ export default function Post({ details, page }) {
                             })}
                     </div>
                 }
-            </div>
+            </div >
         </div >
     )
 }

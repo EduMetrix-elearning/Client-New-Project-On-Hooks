@@ -43,11 +43,44 @@
 
                 .ToolTip {
                     width: 150px;
-                    left: 0px;
+                    right: 0px;
                     top: 8px;
                 }
 
-                .Modal {
+                .report_modal {
+                    .report_inputs {
+                        display: flex;
+                        flex-direction: column;
+                        padding-left: 30px;
+
+                        input {
+                            margin-right: 20px;
+                        }
+
+                        input[type=text] {
+                            border: none;
+                            border-bottom: 1px solid black;
+                            text-align: center;
+
+                            &:focus {
+                                outline: none;
+                            }
+                        }
+                    }
+
+                    .buttons {
+                        margin-top: 15px;
+                        display: flex;
+                        gap: 10px;
+
+                        button {
+                            border-radius: 5px;
+                            border: 1px solid rgb(197, 197, 197);
+                        }
+                    }
+                }
+
+                .edit_post_modal {
                     .post_file {
                         position: relative;
 
@@ -55,11 +88,14 @@
                             width: 100%;
                             min-height: 300px;
                             border: 1px solid var(--color4);
+                            display: flex;
+                            justify-content: center;
 
                             img,
                             video,
                             object {
                                 max-width: 100%;
+                                max-height: 500px;
                                 opacity: .4;
 
                             }

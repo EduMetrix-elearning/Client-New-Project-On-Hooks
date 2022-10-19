@@ -32,7 +32,7 @@ export default function Wall() {
                 <div className="wall_scroll">
                     <CreatePost />
                     {posts && posts.map((post, i) => {
-                        if (posts.length === i + 1) return <div ref={lastPostElement} key={i}><Post details={post} /></div>
+                        if (posts.length === i + 1) return <div ref={lastPostElement} key={post.post_id}><Post details={post} /></div>
                         else return <div key={i} ><Post details={post} /></div>
                     })}
                     {loading && <div>Loading ...</div>}

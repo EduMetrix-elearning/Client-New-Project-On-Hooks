@@ -4,7 +4,7 @@ import './ToolTip.scss'
 
 export default function ToolTip({ show, setShow, button, children }) {
 
-    let key = new Date().getTime();
+    const key = new Date().getTime();
 
     useEffect(() => {
         let ToolTip = document.getElementById('ToolTip' + key)
@@ -13,7 +13,6 @@ export default function ToolTip({ show, setShow, button, children }) {
                 setShow(false)
             }
         })
-        key++;
     }, [])
 
     return (
