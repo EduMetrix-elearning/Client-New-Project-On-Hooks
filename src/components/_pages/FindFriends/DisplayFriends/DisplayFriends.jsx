@@ -8,7 +8,7 @@ export default function DisplayFriends({ details, followButton }) {
     const [followersCount, setFollowersCount] = useState()
 
     useEffect(() => {
-        getFollowers(details?.student_id).then((res) => setFollowersCount(res.data.result[0]))
+        getFollowers({ "student_id": details?.student_id }).then((res) => setFollowersCount(res.data.result[0]))
     }, [])
 
     // console.log(details)

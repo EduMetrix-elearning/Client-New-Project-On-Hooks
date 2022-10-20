@@ -8,10 +8,11 @@ export default function ChatBox() {
 
     const pageBottom = useRef()
 
-    const [show, setShow] = useState(true)
+    const [show, setShow] = useState(false)
     const [allStudents, setAllStudents] = useState([])
     const [activeUsers, setActiveUsers] = useState([])
     const [currentChats, setCurrentChats] = useState([])
+    const [input, setInput] = useState('')
 
     useEffect(() => {
         pageBottom.current?.scrollIntoView({ behavior: "smooth" })
@@ -40,9 +41,9 @@ export default function ChatBox() {
         let message = {
             message: input,
             senderID: userInfo.id,
-            receiverID: currentChat?.student_id,
+            receiverID: currentChats?.student_id,
             sender_name: userInfo.user_name,
-            receiver_name: currentChat?.student_fname + currentChat?.student_lname,
+            receiver_name: currentChats?.student_fname + currentChats?.student_lname,
             message_time: new Date()
         };
         socket.emit("CONVERSATION", message)
@@ -79,7 +80,7 @@ export default function ChatBox() {
                                 </div>
                                 <div className='footer'>
                                     <span className='fa fa-angle-left' onClick={() => setCurrentChats([])}></span>
-                                    <input type="text" />
+                                    <input type="text" onChange={(e) => setInput(e.target.value)} />
                                     <span className='fa fa-paper-plane' onClick={(e) => sendMessage()}></span>
                                 </div>
                             </div>

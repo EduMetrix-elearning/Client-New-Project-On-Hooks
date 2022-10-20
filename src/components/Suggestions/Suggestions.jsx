@@ -1,19 +1,31 @@
 import React, { useState } from 'react'
 import './suggestions.scss'
 import { useEffect } from 'react'
-import { getStudentsToFollow } from '../../api'
+import { followFriend, getStudentsToFollow } from '../../api'
+import { userInfo } from '../../utils/localStorage_Utils'
 
 export default function Suggestions() {
 
     const [peoples, setPeoples] = useState([])
+    const [update, setUpdate] = useState(false)
 
     useEffect(() => {
-        async function asyncFuction() {
+        async function asyncFunction() {
             const response = await getStudentsToFollow()
             setPeoples(response.data.data)
         }
-        asyncFuction()
-    }, [])
+        asyncFunction()
+    }, [update])
+
+    function followButtonHandle(people) {
+        let obj = {
+            user_name: people.user_name,
+            follower_id: userInfo.id,
+        }
+        console.log(obj)
+        followFriend(obj).then((res) => (console.log(res.data), setUpdate(!update))).catch((err) => console.log(err))
+    }
+
     return (
         <div className='suggestions'>
             <div className="title">
@@ -28,7 +40,7 @@ export default function Suggestions() {
                                     <img src={people.student_photo} alt="" />
                                     <p>{people.student_fname + " " + people.student_lname}</p>
                                 </div>
-                                <i className='fa fa-user-plus'></i>
+                                <i className='fa fa-user-plus' onClick={() => followButtonHandle(people)} />
                             </div>
                         )
                     })

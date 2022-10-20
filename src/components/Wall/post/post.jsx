@@ -103,7 +103,7 @@ export default function Post({ details, page }) {
     // console.log(details)
     // console.log(showToolTip)
     // console.log(reportInput)
-    console.log(postUpdateFile?.type)
+    // console.log(postUpdateFile?.type)
 
     return (
         <div className='Post'>
