@@ -4,6 +4,8 @@ import { userInfo } from '../../../../utils/localStorage_Utils'
 import socket from '../../../../utils/socketIO_Util'
 import './ChatWindow.scss'
 
+import image_chat from '../../../../asset/images/Chat/chat.png'
+
 export default function ChatWindow({ currentChat }) {
 
     const [chats, setChats] = useState([])
@@ -47,32 +49,42 @@ export default function ChatWindow({ currentChat }) {
     }
     return (
         <div className='ChatWindow'>
-            <header>
-                <img src={currentChat?.student_photo} alt="" />
-                <p>{currentChat?.student_fname}{currentChat?.student_lname}</p>
-            </header>
-            <div className='chat_screen'>
-                {
-                    chats.map((chat, i) => {
-                        return (
-                            <div key={i} className={`chat ${userInfo.id === chat.senderID ? 'self' :
-                                currentChat.student_id === chat.senderID && 'other'}`} >
-                                <p>{chat.message}</p>
-                                <p>{chat.sender_name}</p>
-                            </div>
-                        )
-                    })
-                }
-            </div>
-            <div className='chat_input'>
-                <input type="text" value={input}
-                    onChange={(e) => setInput(e.target.value)} />
-                <div className='icons'>
-                    <i className='far fa-grin'></i>
-                    <i className='fa fa-paperclip'></i>
-                    <i className='fa fa-paper-plane' onClick={sendMessage}></i>
+            {currentChat ?
+                <div className='chat_window_inner_div'>
+                    <header>
+                        <img src={currentChat?.student_photo} alt="" />
+                        <p>{currentChat?.student_fname}{currentChat?.student_lname}</p>
+                    </header>
+                    <div className='chat_screen'>
+                        {
+                            chats.map((chat, i) => {
+                                return (
+                                    <div key={i} className={`chat ${userInfo.id === chat.senderID ? 'self' :
+                                        currentChat.student_id === chat.senderID && 'other'}`} >
+                                        <p>{chat.message}</p>
+                                        <p>{chat.sender_name}</p>
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
+                    <div className='chat_input'>
+                        <input type="text" value={input}
+                            onChange={(e) => setInput(e.target.value)} />
+                        <div className='icons'>
+                            <i className='far fa-grin'></i>
+                            <i className='fa fa-paperclip'></i>
+                            <i className='fa fa-paper-plane' onClick={sendMessage}></i>
+                        </div>
+                    </div>
                 </div>
-            </div>
+                :
+                <div className='landing'>
+                    <img src={image_chat} alt="" />
+                    <h5>Chat with you friends</h5>
+                    <p>Here you can chat with your friends. Select a friend to start your chat.</p>
+                </div>
+            }
         </div >
     )
 }

@@ -6,6 +6,7 @@ import Header from '../../components/Header/Header'
 import Suggestions from '../../components/Suggestions/Suggestions'
 
 import { getTopPicsForYou } from '../../api'
+import Grid from '../../components/_pages/TopPics/Grid/Grid'
 
 export default function TopPics() {
 
@@ -27,20 +28,10 @@ export default function TopPics() {
 
             <div className='TopPics_body'>
                 <div className="TopPics_content">
-                    <div className="center_platform">
-                        {topPics &&
-                            topPics.map((topPic) => {
-                                return (
-                                    <div className='TopPic_element'>
-                                        <img src={topPic.adminPicture_uploaded} alt="" />
-                                    </div>
-                                )
-                            })
-                        }
-                    </div>
+                    {topPics && <Grid items={topPics} />}
                 </div>
             </div>
-            
+
             <Suggestions />
         </div>
     )

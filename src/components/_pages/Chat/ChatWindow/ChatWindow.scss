@@ -1,74 +1,96 @@
 .ChatWindow {
     grid-area: main;
-    background-color: rebeccapurple;
+    background-color: gainsboro;
 
-    header {
-        background-color: darkgoldenrod;
-        height: 10%;
+    .chat_window_inner_div {
+        height: 100%;
+
+        header {
+            background-color: darkgoldenrod;
+            height: 10%;
+            display: flex;
+            align-items: center;
+            flex-grow: grow;
+            gap: 15px;
+            padding-left: 20px;
+
+            img {
+                $side: 50px;
+                width: $side;
+                height: $side;
+                border-radius: 50%;
+            }
+        }
+
+        .chat_screen {
+            background-color: gainsboro;
+            height: 80%;
+            padding: 1px;
+            position: relative;
+            overflow-y: overlay;
+
+            .chat {
+                background-color: white;
+                min-width: 50%;
+                min-height: 50px;
+                width: fit-content;
+                padding: 15px;
+                border-radius: 10px;
+                margin: 10px 30px;
+            }
+
+            .self {
+                right: 1px;
+                margin-left: auto;
+            }
+
+            .other {
+                left: 1px;
+            }
+        }
+
+        .chat_input {
+            background-color: darkgoldenrod;
+            height: 10%;
+            display: flex;
+
+            input {
+                width: 80%;
+                height: 40px;
+                margin-top: 10px;
+                margin-left: 18px;
+                border-radius: 25px;
+                border: none;
+                padding: 0 20px;
+            }
+
+            .icons {
+                padding-top: 8px;
+
+                i {
+                    font-size: 20pt;
+                    margin: 10px;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    .landing {
         display: flex;
+        justify-content: center;
         align-items: center;
-        flex-grow: grow;
-        gap: 15px;
-        padding-left: 20px;
+        flex-direction: column;
+        height: 100%;
 
         img {
-            $side: 50px;
+            $side: 300px;
             width: $side;
-            height: $side;
-            border-radius: 50%;
-        }
-    }
-
-    .chat_screen {
-        background-color: gainsboro;
-        height: 80%;
-        padding: 1px;
-        position: relative;
-        overflow-y: overlay;
-
-        .chat {
-            background-color: white;
-            min-width: 50%;
-            min-height: 50px;
-            width: fit-content;
-            padding: 15px;
-            border-radius: 10px;
-            margin: 10px 30px;
         }
 
-        .self {
-            right: 1px;
-            margin-left: auto;
-        }
-
-        .other {
-            left: 1px;
-        }
-    }
-
-    .chat_input {
-        background-color: darkgoldenrod;
-        height: 10%;
-        display: flex;
-
-        input {
-            width: 80%;
-            height: 40px;
-            margin-top: 10px;
-            margin-left: 18px;
-            border-radius: 25px;
-            border: none;
-            padding: 0 20px;
-        }
-
-        .icons {
-            padding-top: 8px;
-
-            i {
-                font-size: 20pt;
-                margin: 10px;
-                cursor: pointer;
-            }
+        p {
+            width: 400px;
+            text-align: center;
         }
     }
 }

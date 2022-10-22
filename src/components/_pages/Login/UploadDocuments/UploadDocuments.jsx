@@ -5,6 +5,10 @@ import { userInfo } from '../../../../utils/localStorage_Utils'
 import { imageToDB } from '../../../../api'
 import { useNavigate } from 'react-router-dom'
 
+import image_dummy_idcard_front from '../../../../asset/images/SignUp/idcard_front.jpg'
+import image_dummy_idcard_back from '../../../../asset/images/SignUp/idcard_back.jpg'
+import image_dummy_user from '../../../../asset/images/SignUp/user_dummy.png'
+
 export default function UploadDocuments() {
 
     const navigate = useNavigate()
@@ -36,37 +40,39 @@ export default function UploadDocuments() {
     return (
         <div className='UploadDocuments'>
             <h5>Upload the following documents and complete your registration</h5>
-            <div>
-                <div className='item'>
-                    <p>Photo</p>
-                    <label htmlFor="photo">
-                        <i className='fa fa-upload' aria-hidden="true"></i>
-                    </label>
-                    <input type="file" name="photo" id="photo" onChange={inputHandle} hidden />
-                    {images?.photo_URL && <img src={images.photo_URL} alt="" />}
+            <div className='items'>
+                <div className='row1'>
+                    <div className='item'>
+                        <label htmlFor="photo">
+                            <i className='fa fa-upload' aria-hidden="true"></i>
+                        </label>
+                        <input type="file" name="photo" id="photo" onChange={inputHandle} hidden />
+                        <img src={images?.photo_URL || image_dummy_user} alt="" />
+                        <figcaption>Photo</figcaption>
+                    </div>
                 </div>
-                <div className='item'>
-                    <p>Identity Card - front</p>
-                    <label htmlFor="identity_card_front">
-                        <i className='fa fa-upload' aria-hidden="true"></i>
-                    </label>
-                    <input type="file" name="identity_card_front" id="identity_card_front"
-                        onChange={inputHandle} hidden />
-                    {images?.identity_card_front_URL &&
-                        <img src={images?.identity_card_front_URL} alt="" />}
-                </div>
-                <div className='item'>
-                    <p>Identity Card - back</p>
-                    <label htmlFor="identity_card_back">
-                        <i className='fa fa-upload' aria-hidden="true"></i>
-                    </label>
-                    <input type="file" name="identity_card_back" id="identity_card_back"
-                        onChange={inputHandle} hidden />
-                    {images?.identity_card_back_URL &&
-                        <img src={images?.identity_card_back_URL} alt="" />}
+                <div className='row2'>
+                    <div className='item'>
+                        <label htmlFor="identity_card_front">
+                            <i className='fa fa-upload' aria-hidden="true"></i>
+                        </label>
+                        <input type="file" name="identity_card_front" id="identity_card_front"
+                            onChange={inputHandle} hidden />
+                        <img src={images?.identity_card_front_URL || image_dummy_idcard_front} alt="" />
+                        <figcaption>Identity Card - front</figcaption>
+                    </div>
+                    <div className='item'>
+                        <label htmlFor="identity_card_back">
+                            <i className='fa fa-upload' aria-hidden="true"></i>
+                        </label>
+                        <input type="file" name="identity_card_back" id="identity_card_back"
+                            onChange={inputHandle} hidden />
+                        <img src={images?.identity_card_back_URL || image_dummy_idcard_back} alt="" />
+                        <figcaption>Identity Card - back</figcaption>
+                    </div>
                 </div>
             </div>
-            <div>
+            <div className='buttons'>
                 <button onClick={submitHandle}>submit</button>
             </div>
         </div>
