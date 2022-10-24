@@ -7,7 +7,7 @@ import SignUpDetailsForm from '../../components/_pages/Login/SignUpDetailsForm/S
 
 export default function SignUpVerification() {
 
-    const [page, setPage] = useState("uploadDocuments")
+    const [page, setPage] = useState("fillUpForm")
 
     return (
         <div className='SignUpVerification'>
@@ -20,10 +20,12 @@ export default function SignUpVerification() {
                     <img src={image_coin} alt="" />
                     <h3>EduMetrix.io</h3>
                     <hr />
-                    {/* {page === "fillUpForm" && */}
-                        <input type="text" placeholder='Reference id (optional)' />
-                    {/* } */}
                 </div>
+                {page === "fillUpForm" &&
+                    <div className="refer">
+                        <input type="text" placeholder='Referal code (optional)' />
+                    </div>
+                }
             </div>
         </div>
     )

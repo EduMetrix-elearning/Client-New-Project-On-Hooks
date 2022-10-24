@@ -43,8 +43,7 @@ export default function UploadDocuments() {
             <div className='items'>
                 <div className='row1'>
                     <div className='item'>
-                        <label htmlFor="photo">
-                            <i className='fa fa-upload' aria-hidden="true"></i>
+                        <label htmlFor="photo" className='fa'>
                         </label>
                         <input type="file" name="photo" id="photo" onChange={inputHandle} hidden />
                         <img src={images?.photo_URL || image_dummy_user} alt="" />
@@ -53,17 +52,15 @@ export default function UploadDocuments() {
                 </div>
                 <div className='row2'>
                     <div className='item'>
-                        <label htmlFor="identity_card_front">
-                            <i className='fa fa-upload' aria-hidden="true"></i>
+                        <label htmlFor="identity_card_front" className='fa'>
                         </label>
+                        <img src={images?.identity_card_front_URL || image_dummy_idcard_front} alt="" />
                         <input type="file" name="identity_card_front" id="identity_card_front"
                             onChange={inputHandle} hidden />
-                        <img src={images?.identity_card_front_URL || image_dummy_idcard_front} alt="" />
                         <figcaption>Identity Card - front</figcaption>
                     </div>
                     <div className='item'>
-                        <label htmlFor="identity_card_back">
-                            <i className='fa fa-upload' aria-hidden="true"></i>
+                        <label htmlFor="identity_card_back" className='fa'>
                         </label>
                         <input type="file" name="identity_card_back" id="identity_card_back"
                             onChange={inputHandle} hidden />
@@ -73,7 +70,7 @@ export default function UploadDocuments() {
                 </div>
             </div>
             <div className='buttons'>
-                <button onClick={submitHandle}>submit</button>
+                <button onClick={submitHandle}>Submit</button>
             </div>
         </div>
     )

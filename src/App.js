@@ -14,6 +14,8 @@ import Profile from './pages/Profile/Profile';
 import Wallet from './pages/Wallet/Wallet';
 import SignUpVerification from './pages/SignUpVerification/SignUpVerification.jsx';
 
+import AboutUs from './pages/AboutUs/AboutUs/AboutUs.jsx';
+
 import Doc from './pages/Doc/Doc';
 
 function App() {
@@ -32,6 +34,7 @@ function App() {
             <Route path="/profile" element={<ProtectedRouter children={<Profile />} />} />
             <Route path="/wallet" element={<ProtectedRouter children={<Wallet />} />} />
             <Route path="/sign_up_user_authentication" element={<SignUpVerification />} />
+            <Route path="/About_us" element={<AboutUs />} />
 
             <Route path="/documentation" element={<Doc />} />
           </Routes>

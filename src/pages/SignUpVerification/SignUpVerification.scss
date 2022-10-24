@@ -15,14 +15,15 @@
         border-radius: 25px;
         display: flex;
         overflow: hidden;
+        position: relative;
 
         .company {
             width: 35%;
             height: 100%;
             display: flex;
-            justify-content: center;
             align-items: center;
             flex-direction: column;
+            margin-top: 100px;
 
             img {
                 background-color: white;
@@ -43,16 +44,24 @@
                 opacity: 1;
             }
 
+        }
+
+        .refer {
             input {
+                position: absolute;
                 background-color: inherit;
                 border: none;
                 text-align: center;
                 margin-top: 180px;
                 border-bottom: 1px solid white;
                 width: fit-content;
+                bottom: 24px;
+                right: 74px;
 
                 &::placeholder {
                     text-decoration: wavy;
+                    font-style: italic;
+                    // color: white;
                 }
 
                 &:focus {
