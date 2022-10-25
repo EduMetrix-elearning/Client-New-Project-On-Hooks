@@ -1,3 +1,63 @@
-.AboutUs{
-    
+.AboutUs {
+    display: flex;
+    $first_element_width: 70%;
+
+    section:first-of-type {
+        flex-basis: $first_element_width;
+        padding: 20px;
+
+        article {
+            .video {
+                iframe {
+                    width: 100%;
+                    height: 300px;
+                }
+            }
+        }
+    }
+
+    section:last-of-type {
+        flex-basis: calc(100% - $first_element_width);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h6{
+            background-color: fuchsia;
+            width: 100%;
+            height: 40px;
+        }
+
+        .active_users {
+
+        }
+
+        .team {
+            text-align: center;
+
+            figure {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                img {
+                    $side: 150px;
+                    width: $side;
+                    height: $side;
+                }
+
+                figcaption {
+                    display: block;
+                }
+
+                p {
+                    display: block;
+                }
+
+
+            }
+        }
+
+    }
+
 }

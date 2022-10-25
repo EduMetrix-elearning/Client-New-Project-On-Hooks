@@ -35,14 +35,6 @@ export default function NavBar({ currPage }) {
   return (
     <div className='NavBar'>
       <div className='network_div justify-center'>
-        {/* <div>
-          <p>100</p>
-          <p>Followers</p>
-        </div>
-        <div>
-          <p>100</p>
-          <p>Followings</p>
-        </div> */}
       </div>
       <div className='logo' >
         <div className='justify-center'>

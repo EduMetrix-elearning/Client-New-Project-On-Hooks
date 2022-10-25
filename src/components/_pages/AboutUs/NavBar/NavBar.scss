@@ -1,6 +1,43 @@
 .NavBar {
-    width: 15%;
+    width: 20%;
     height: 100vh;
     background-color: var(--color3);
     position: fixed;
+
+    nav {
+        ul {
+            margin-top: 100px;
+
+            li {
+                margin-top: 20px;
+                margin-left: 20px;
+                cursor: pointer;
+
+                a {
+                    display: flex;
+                    align-items: center;
+                    text-decoration: none;
+                    color: white;
+
+                    span {
+                        background-color: mediumorchid;
+                        border-radius: 50%;
+                        $side: 40px;
+                        width: $side;
+                        height: $side;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        margin-right: 20px;
+
+                        img {
+                            $side: 20px;
+                            width: $side;
+                            height: $side;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
