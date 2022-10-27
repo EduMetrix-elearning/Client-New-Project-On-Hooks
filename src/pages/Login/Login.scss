@@ -92,6 +92,12 @@
                 text-align: right;
                 margin-right: 10px;
                 font-weight: bold;
+
+                a {
+                    text-decoration: none;
+                    color: var(--color3);
+                    cursor: pointer;
+                }
             }
 
             .login_company_logo_div {

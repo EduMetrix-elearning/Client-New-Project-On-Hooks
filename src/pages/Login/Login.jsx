@@ -71,8 +71,8 @@ export default function Login() {
             </div>
           </div>
           <div className='login_input_div'>
-            <div>
-              <p data-content={'About us'}>About Us</p>
+            <div className='about_page'>
+              <p data-content={'About us'}><a href='About_us'> About Us</a></p>
             </div>
             <div className='login_company_logo_div justify-center'>
               <div className='login_company_logo_inner_div'>

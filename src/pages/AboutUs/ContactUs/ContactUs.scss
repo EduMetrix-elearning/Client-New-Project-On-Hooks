@@ -1,39 +1,33 @@
 .ContactUs {
     display: flex;
     height: 90vh;
-    // text-align: center;
-
-
-    column {
-        // display: block;
-    }
 
     .contact {
         flex-basis: 30%;
-        // background-color: greenyellow;
         padding: 20px;
 
-        h5{
-            text-align: center;
+        h5 {
+            margin-bottom: 20px;
         }
 
-        .address {
-            // margin-top: 30px;
-            div{
-                // margin-left: 10px;
-                p{
-                    margin-left: 40px;
-                }
-            }
+        p {
+            margin-left: 40px;
+            color: blue;
         }
 
         .email {
-            margin-top: 30px;
+            margin-top: 80px;
+
+            a {
+                display: block;
+                text-align: right;
+                margin-bottom: 10px;
+            }
         }
     }
 
     .location {
         flex-basis: 70%;
-        background-color: khaki;
+        padding: 40px;
     }
 }

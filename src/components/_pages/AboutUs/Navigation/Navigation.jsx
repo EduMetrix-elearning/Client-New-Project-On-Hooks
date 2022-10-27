@@ -1,5 +1,5 @@
 import React from 'react'
-import './NavBar.scss'
+import './Navigation.scss'
 
 import { Link } from 'react-router-dom'
 
@@ -10,9 +10,16 @@ import image_terms from '../../../../asset/images/AboutUs/Navbar/list.png'
 import image_white_paper from '../../../../asset/images/AboutUs/Navbar/whitepaper.svg'
 import image_contact from '../../../../asset/images/AboutUs/Navbar/phone.png'
 
-export default function NavBar() {
+import image_coin from '../../../../asset/images/coin.png'
+
+export default function Navigation() {
     return (
-        <div className='NavBar'>
+        <div className='Navigation'>
+            <a className='backButton' href='/login'><i className='fa fa-angle-left' /> Back to login</a>
+            <div className="logo">
+                <img src={image_coin} alt="" />
+                <h3>EduMetrix</h3>
+            </div>
             <nav>
                 <ul>
                     <li><Link to={''}><span><img src={image_about_us} alt="" /></span><p>About Us</p></Link></li>

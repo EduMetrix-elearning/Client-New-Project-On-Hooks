@@ -40,7 +40,7 @@ export default function AboutUs() {
                         </p>
                     </div>
 
-                    <div>
+                    <div className='edumetrix_network'>
                         <h5>The EduMetrix Network</h5>
                         <p>
                             There are five critical stakeholders in the entire EduMetrix network and they are:
