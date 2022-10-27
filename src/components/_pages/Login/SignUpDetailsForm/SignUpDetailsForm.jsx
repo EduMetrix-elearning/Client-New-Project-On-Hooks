@@ -8,7 +8,7 @@ export default function SignUpDetailsForm({ setPage }) {
 
     const [OTPs, setOTPs] = useState({ email: "", mobile: "" })
     const [input, setInput] = useState()
-    const [isVerified, setIsVerified] = useState(true)
+    const [isVerified, setIsVerified] = useState(false)
 
     function OtpInputHandle(e) {
         const isNumber = otpsRegulation(e.target.value)

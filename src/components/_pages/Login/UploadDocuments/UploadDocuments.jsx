@@ -4,6 +4,7 @@ import './UploadDocuments.scss'
 import { userInfo } from '../../../../utils/localStorage_Utils'
 import { imageToDB } from '../../../../api'
 import { useNavigate } from 'react-router-dom'
+import Modal from '../../../Modal/Modal'
 
 import image_dummy_idcard_front from '../../../../asset/images/SignUp/idcard_front.jpg'
 import image_dummy_idcard_back from '../../../../asset/images/SignUp/idcard_back.jpg'
@@ -14,6 +15,7 @@ export default function UploadDocuments() {
     const navigate = useNavigate()
 
     const [images, setImages] = useState()
+    const [showModal, setShowModal] = useState(false)
 
     function inputHandle(e) {
         setImages((state) => ({
@@ -31,11 +33,11 @@ export default function UploadDocuments() {
         formData.append("student_idback", images.identity_card_back);
         imageToDB(formData).then((res) => {
             console.log(res.data)
-            res.status === 200 && navigate('/login')
+            res.status === 200 && setShowModal(true)
         })
     }
 
-    console.log(images)
+    // console.log(images)
 
     return (
         <div className='UploadDocuments'>
@@ -72,6 +74,11 @@ export default function UploadDocuments() {
             <div className='buttons'>
                 <button onClick={submitHandle}>Submit</button>
             </div>
-        </div>
+            <Modal setShow={setShowModal} show={showModal}>
+                <h4>Registration completed</h4>
+                <p>The registration process has been completed successfully. We will respond to your email within 24 hours after evaluating your application. You will be able to access the EduMetrix platform once you have been approved. </p>
+                <button onClick={() => navigate('/login')}>Go back to login</button>
+            </Modal>
+        </div >
     )
 }

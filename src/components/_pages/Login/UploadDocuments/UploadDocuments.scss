@@ -57,7 +57,7 @@
 
         .row1 {
             .item {
-                
+
                 img {
                     height: 150px;
                     border-radius: 15px;
@@ -96,6 +96,23 @@
             background-color: var(--color9);
             color: white;
             font-weight: bold;
+        }
+    }
+
+    .Modal {
+        h4 {
+            text-align: center;
+        }
+
+        button {
+            margin: 0 auto;
+            display: block;
+            margin-top: 25px;
+            border: none;
+            border-radius: 25px;
+            padding: 10px 40px;
+            color: white;
+            background-color: var(--color9);
         }
     }
 }
