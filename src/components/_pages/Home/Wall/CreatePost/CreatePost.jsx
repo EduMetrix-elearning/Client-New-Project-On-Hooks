@@ -2,18 +2,18 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import './CreatePost.scss'
 
-import { popUp } from '../../../slices/popUpSlice'
+import { popUp } from '../../../../../slices/popUpSlice'
 
-import image_photo from '../../../asset/images/Wall/image.png'
-import image_video from '../../../asset/images/Wall/video-camera.png'
-import image_doc from '../../../asset/images/Wall/files.png'
+import image_photo from '../../../../../asset/images/Wall/image.png'
+import image_video from '../../../../../asset/images/Wall/video-camera.png'
+import image_doc from '../../../../../asset/images/Wall/files.png'
 
-import { getFormattedDate, getNowDate } from '../../../utils/date_Utils'
-import { GeneratePostId, toBase64 } from '../../../utils/home_Utils'
-import { userInfo } from '../../../utils/localStorage_Utils'
-import { createPost, postDocPost, postImagePost, postVideoPost } from '../../../api'
+import { getFormattedDate, getNowDate } from '../../../../../utils/date_Utils'
+import { GeneratePostId, toBase64 } from '../../../../../utils/home_Utils'
+import { userInfo } from '../../../../../utils/localStorage_Utils'
+import { createPost, postDocPost, postImagePost, postVideoPost } from '../../../../../api'
 
-import Modal from '../../Modal/Modal'
+import Modal from '../../../../Modal/Modal'
 
 export default function CreatePost() {
 

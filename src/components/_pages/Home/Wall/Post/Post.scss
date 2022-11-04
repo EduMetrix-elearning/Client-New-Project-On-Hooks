@@ -249,6 +249,11 @@
                     .comment_text {}
                 }
             }
+
+            .show_more {
+                cursor: pointer;
+                margin-left: 20px;
+            }
         }
     }
 }

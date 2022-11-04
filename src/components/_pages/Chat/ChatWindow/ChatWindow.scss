@@ -6,7 +6,7 @@
         height: 100%;
 
         header {
-            background-color: darkgoldenrod;
+            background-color: whitesmoke;
             height: 10%;
             display: flex;
             align-items: center;
@@ -31,12 +31,20 @@
 
             .chat {
                 background-color: white;
-                min-width: 50%;
+                min-width: 25%;
+                max-width: 50%;
                 min-height: 50px;
                 width: fit-content;
                 padding: 15px;
                 border-radius: 10px;
                 margin: 10px 30px;
+                display: block;
+
+                img,
+                video {
+                    width: 100%;
+                    padding: 10px;
+                }
             }
 
             .self {
@@ -50,27 +58,107 @@
         }
 
         .chat_input {
-            background-color: darkgoldenrod;
+            background-color: whitesmoke;
             height: 10%;
             display: flex;
+            // justify-content: space;
 
-            input {
-                width: 80%;
-                height: 40px;
-                margin-top: 10px;
-                margin-left: 18px;
-                border-radius: 25px;
+            .message_input {
+                width: 85%;
+                border-radius: 1000px;
                 border: none;
                 padding: 0 20px;
+                background-color: gainsboro;
+                margin: 1.2% 0;
+                margin-left: 1%;
+
+                &:focus {
+                    outline: white;
+                }
+
+                &::placeholder {
+                    font-style: italic;
+                }
             }
 
             .icons {
-                padding-top: 8px;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                width: 15%;
+                margin: 1% 1%;
 
                 i {
-                    font-size: 20pt;
-                    margin: 10px;
+                    font-size: 1.8rem;
+                    margin: 1%;
                     cursor: pointer;
+                    position: relative;
+                }
+
+                #attach_button {
+
+                    .Popper {
+                        padding: 15px;
+                        z-index: 100;
+
+                        label {
+                            font-size: 1.3rem;
+                            white-space: nowrap;
+                            margin: 1%;
+                            cursor: pointer;
+
+                            i {
+                                font-size: 1rem;
+                            }
+                        }
+                    }
+
+                    .Modal {
+
+                        h4 {
+                            border-bottom: 1px solid gainsboro;
+                            padding-bottom: 8px;
+                        }
+
+                        .view {
+                            display: flex;
+                            justify-content: center;
+                            padding: 15px;
+
+                            img {
+                                width: 80%;
+                            }
+
+                            video {
+                                width: 80%;
+                            }
+                        }
+
+                        .file_message_input {
+                            display: flex;
+
+                            input {
+                                flex-grow: 1;
+                                margin: 10px;
+                                border-radius: 1000px;
+                                border: 1px solid grey;
+                                padding-left: 15px;
+                                font-size: 1rem;
+
+                                &:focus {
+                                    outline: grey
+                                }
+
+                                &::placeholder {
+                                    font-style: italic;
+                                }
+                            }
+
+                            i {
+                                margin: 10px;
+                            }
+                        }
+                    }
                 }
             }
         }

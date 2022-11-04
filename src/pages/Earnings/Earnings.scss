@@ -1,6 +1,9 @@
 .Earnings {
+
     .earnings_content {
         grid-area: 2 / 2 / 2 / 4;
+        height: 100%;
+        overflow-y: auto;
 
         .topRow {
             display: flex;

@@ -51,6 +51,8 @@ export const botQueries = (values) => API.post('/queries', values, { headers: au
 
 // live-chat endpoints
 export const getConversation = (req) => API.get(`/conversation/${req.senderId}/${req.receiverId}?pageNumber=1&rowsOfPage=1000`, { headers: authHeader })
+export const chatVideoUpload = (values) => API.post('/chatVideoUpload/', values, { headers: authHeader })
+export const liveChatmessage = (values) => API.post('/liveChatmessage/', values, { headers: authHeader })
 
 // earnings endpoints
 export const getAllEarningLikes = () => API.get('/earnings/likeStats', { headers: authHeader })

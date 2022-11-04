@@ -3,12 +3,20 @@
     .profile_content {
         grid-area: 2 / 2 / 3 / 4;
         display: flex;
-        flex-direction: column;
+        // flex-direction: column;
         align-items: center;
         overflow-y: auto;
 
         .profile_wall {
-            width: 60%;
+            width: 50%;
+            height: 100%;
+            overflow-y: scroll;
+        }
+
+        .advertisement {
+            height: 92vh;
+            width: 15%;
+            // background-color: greenyellow;
         }
     }
 }

@@ -5,6 +5,7 @@ import './SignIn.scss'
 
 import { signInValidation } from '../../../../utils/login_Utils'
 import { userLogin } from '../../../../slices/authSlice'
+import Recaptcha from 'react-recaptcha'
 
 export default function SignIn({ setPage }) {
 
@@ -15,7 +16,9 @@ export default function SignIn({ setPage }) {
 
     const [inputError, setInputError] = useState({})
     const [input, setInput] = useState({})
-    const [captcha, setCaptcha] = useState({ verified: true })
+    const [captcha, setCaptcha] = useState({ verified: false })
+
+    const TEST_SITE_KEY = '6Lc0EJohAAAAAPe3Zxt6FCQRKOIWqPuNuAqFxoqe';
 
     function inputHandle(event) {
         const { name, value } = event.target;
@@ -34,6 +37,16 @@ export default function SignIn({ setPage }) {
                 };
                 dispatch(userLogin(obj, navigate))
             }
+        }
+    }
+
+    function recaptchaLoad(e) {
+        console.log(e)
+    }
+    function verifyCallback(e) {
+        console.log(e)
+        if (e) {
+            setCaptcha({ verified: true, error: '' })
         }
     }
 
@@ -72,15 +85,16 @@ export default function SignIn({ setPage }) {
                         <span data-content="forgot-password" onClick={() => setPage('forgetPwd')}>Forgot password?</span>
                     </div>
                     <div className="Login_robot_verification">
-                        {/* <Recaptcha
-                      // style={{ display: 'inline-block', width: 'auto' }}
-                      sitekey={process.env.TEST_SITE_KEY}
-                      theme="light"
-                      render="explicit"
-                      onloadCallback={recaptchaLoad}
-                      verifyCallback={verifyCallback}
-                      fullWidth
-                    /> */}
+                        <Recaptcha
+                            style={{ display: 'inline-block', width: 'auto' }}
+                            sitekey={TEST_SITE_KEY}
+                            theme="light"
+                            render="explicit"
+                            onloadCallback={recaptchaLoad}
+                            verifyCallback={verifyCallback}
+                            fullWidth
+                        />
+                        {captcha.error && <p className='error_tag'>{captcha.error}</p>}
                     </div>
                     {user.login.error &&
                         <p className='error_tag'>{user.login.error}</p>

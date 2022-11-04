@@ -4,7 +4,7 @@ import './Profile.scss'
 import Header from '../../components/Header/Header'
 import NavBar from '../../components/NavBar/NavBar'
 import ProfileView from '../../components/_pages/Profile/ProfileView/ProfileView'
-import Post from '../../components/Wall/Post/Post'
+import Post from '../../components/_pages/Home/Wall/Post/Post'
 import { getProfilePosts } from '../../api'
 
 export default function Profile() {
@@ -28,10 +28,13 @@ export default function Profile() {
                 <div className="profile_wall">
                     {posts && posts.map((post, i) => {
                         return (
-                            <Post key={i} details={post} page={'myProfile'}/>
+                            <Post key={i} details={post} page={'myProfile'} />
                         )
                     })
                     }
+                </div>
+                <div className='advertisement'>
+
                 </div>
             </div>
         </div>

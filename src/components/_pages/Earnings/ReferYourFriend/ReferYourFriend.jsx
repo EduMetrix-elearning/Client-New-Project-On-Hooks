@@ -16,6 +16,7 @@ export default function ReferYourFriend() {
     const [modalShow, setModalShow] = useState(false)
     const [userDetails, setUserDetails] = useState({})
     const [socialShareContent, setSocialShareContent] = useState()
+    const [copyBtnStatus, setCopyBtnStatus] = useState('Copy')
 
     useEffect(() => {
         getDetails().then((res) => setUserDetails(res.data.result[0])).catch((err) => console.log(err))
@@ -52,6 +53,14 @@ export default function ReferYourFriend() {
         window.FB.login((res) => console.log(res))
     }
 
+    function copyBtnHandle() {
+        navigator.clipboard.writeText(userDetails.reference_id)
+        setCopyBtnStatus('Copied')
+        setTimeout(() => {
+            setCopyBtnStatus('Copy')
+        }, 2000)
+    }
+
     // console.log(userDetails)
     // console.log(socialShareContent)
 
@@ -61,10 +70,11 @@ export default function ReferYourFriend() {
                 <h6>Refer your friend and earn more coins!</h6>
             </div>
             <div className="referal">
-                <p>Edumetrix56934</p>
+                <p>{userDetails.reference_id}</p>
                 <div className="buttons">
-                    <button>Copy</button>
-                    <button onClick={() => setModalShow(true)}>Share</button>
+                    <button onClick={() => copyBtnHandle()}
+                        title="Copy reference id">{copyBtnStatus}</button>
+                    <button onClick={() => setModalShow(true)} title="Share your referal">Share</button>
                 </div>
             </div>
             <div className="socialMedia">

@@ -40,8 +40,52 @@
         .carousel {
             grid-column-start: 4;
             grid-column-end: 8;
-            background-color: khaki;
+            background-color: var(--color4);
             height: 300px;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+
+            .slideImage {
+                height: 100%;
+            }
+
+            span {
+                position: absolute;
+                font-size: 22pt;
+                background-color: rgba(black, 0.5);
+                height: 100%;
+                width: 30px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                &:first-of-type {
+                    right: 1px;
+                }
+
+                &:last-of-type {
+                    left: 1px;
+                }
+
+                i {
+                    background-color: white;
+                    opacity: 0.5;
+                    border-radius: 50%;
+                    color: black;
+                    $side: 25px;
+                    width: $side;
+                    height: $side;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    cursor: pointer;
+
+                    &:hover {
+                        opacity: 1;
+                    }
+                }
+            }
         }
     }
 }

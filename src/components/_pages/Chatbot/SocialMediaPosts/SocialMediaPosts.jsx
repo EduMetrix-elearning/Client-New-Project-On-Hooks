@@ -11,13 +11,15 @@ export default function SocialMediaPosts({ media, start, end, color, data }) {
                 </div>
                 <div className='messages'>
                     {
-                        data?.result &&
+                        data?.result && !data.error &&
                         data.result?.map((obj, i) => {
                             return (
                                 <p key={i}>{obj.text}</p>
                             )
-                        }
-                        )
+                        })
+                    }
+                    {
+                        data?.error && <p>{data.error.text}</p>
                     }
                 </div>
             </div>

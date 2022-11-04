@@ -3,7 +3,7 @@ import './TopPics.scss'
 
 import NavBar from '../../components/NavBar/NavBar'
 import Header from '../../components/Header/Header'
-import Suggestions from '../../components/Suggestions/Suggestions'
+import Suggestions from '../../components/_pages/Home/Suggestions/Suggestions'
 
 import { getTopPicsForYou } from '../../api'
 import Grid from '../../components/_pages/TopPics/Grid/Grid'

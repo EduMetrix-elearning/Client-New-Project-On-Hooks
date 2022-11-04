@@ -3,12 +3,11 @@ import './Home.scss'
 
 import NavBar from '../../components/NavBar/NavBar'
 import Header from '../../components/Header/Header'
-import Wall from '../../components/Wall/Wall'
-import Suggestions from '../../components/Suggestions/Suggestions'
+import Wall from '../../components/_pages/Home/Wall/Wall'
+import Suggestions from '../../components/_pages/Home/Suggestions/Suggestions'
 import ChatBox from '../../components/ChatBox/ChatBox'
 import PopUpAlert from '../../components/PopUpAlert/PopUpAlert'
 import { useSelector } from 'react-redux'
-import { useState } from 'react'
 
 export default function Home() {
 
@@ -17,11 +16,11 @@ export default function Home() {
 
   return (
     <div className='Home grid'>
-      <NavBar currPage={'Home'} />
       <Header />
+      <NavBar currPage={'Home'} />
       <Wall />
       <Suggestions />
-      <ChatBox/>
+      <ChatBox />
       {
         PopUp.show &&
         <PopUpAlert text={PopUp.text} />

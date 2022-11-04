@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import './suggestions.scss'
 import { useEffect } from 'react'
-import { followFriend, getStudentsToFollow } from '../../api'
-import { userInfo } from '../../utils/localStorage_Utils'
+import { followFriend, getStudentsToFollow } from '../../../../api'
+import { userInfo } from '../../../../utils/localStorage_Utils'
 
 export default function Suggestions() {
 

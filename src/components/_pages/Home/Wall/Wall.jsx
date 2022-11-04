@@ -3,7 +3,7 @@ import './Wall.scss'
 
 import CreatePost from './CreatePost/CreatePost'
 import Post from './Post/Post'
-import useInfiniteLoading from '../../utils/infiniteLoading_Util'
+import useInfiniteLoading from '../../../../utils/infiniteLoading_Util'
 
 export default function Wall() {
 

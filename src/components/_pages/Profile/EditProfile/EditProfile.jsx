@@ -10,7 +10,7 @@ export default function EditProfile({ currentDetails }) {
     const LifeGoalsInput = useRef()
 
     const [toggle, setToggle] = useState({ "About": true })
-    const [inputs, setInputs] = useState({ About: null, Skills: [], Hobbies: [], Qualifications: {}, LifeGoals: [] })
+    const [inputs, setInputs] = useState({ About: null, Skills: [], Hobbies: [], Qualifications: {}, LifeGoals: '' })
 
     function aboutUpdateHandle() {
         insertFamily({
@@ -63,7 +63,7 @@ export default function EditProfile({ currentDetails }) {
     function LifeGoalsInputHandle() {
         insertLifeAmbition({
             student_id: userInfo.id,
-            lifeAmbition: inputs.LifeGoals()
+            lifeAmbition: inputs.LifeGoals
         })
             .then((res) => console.log(res.data))
             .catch((err) => console.log(err))
@@ -75,131 +75,149 @@ export default function EditProfile({ currentDetails }) {
     return (
         <div className='EditProfile'>
             <h4>Edit Profile</h4>
-            <div className='title' onClick={() => setToggle({ "About": true })}>
-                <h6>About</h6>
-                <i className={'fa fa-angle-' + (toggle.About ? 'down' : 'right')}></i>
-                {toggle.About &&
-                    <div className='inputs'>
-                        <div>
-                            <label htmlFor="">State</label>
-                            <input type="text"
-                                onChange={(e) => setInputs(s => ({ ...s, About: { ...s.About, state: e.target.value } }))}
-                                placeholder={currentDetails?.student_state} />
-                        </div>
-                        <div>
-                            <label htmlFor="">Country</label>
-                            <input type="text"
-                                onChange={(e) => setInputs(s => ({ ...s, About: { ...s.About, country: e.target.value } }))}
-                                placeholder={currentDetails?.student_country} />
-                        </div>
-                        <div>
-                            <label htmlFor="">Date of Birth </label>
-                            <input type="date"
-                                onChange={(e) => setInputs(s => ({ ...s, About: { ...s.About, dob: e.target.value } }))}
-                                placeholder={currentDetails?.student_dob} />
-                        </div>
-                        <div>
-                            <label htmlFor="">Father 's name</label>
-                            <input type="text"
-                                onChange={(e) => setInputs(s => ({ ...s, About: { ...s.About, fatherName: e.target.value } }))}
-                                placeholder={currentDetails?.student_fatherName} />
-                        </div>
-                        <div>
-                            <label htmlFor="">Mother 's name</label>
-                            <input type="text"
-                                onChange={(e) => setInputs(s => ({ ...s, About: { ...s.About, motherName: e.target.value } }))}
-                                placeholder={currentDetails?.student_motherName} />
-                        </div>
-                        <div>
-                            <label htmlFor="">Description</label>
-                            <input type="text"
-                                onChange={(e) => setInputs(s => ({ ...s, About: { ...s.About, description: e.target.value } }))}
-                                placeholder={currentDetails?.description} />
-                        </div>
-                        <button onClick={aboutUpdateHandle} >Update About</button>
+            <div className='body'>
+                <div className="navigation">
+                    <ul>
+                        <li onClick={() => setToggle({ "About": true })}>About</li>
+                        <li onClick={() => setToggle({ "Hobbies": true })}>Hobbies</li>
+                        <li onClick={() => setToggle({ "Skills": true })}>Skills</li>
+                        <li onClick={() => setToggle({ "Qualifications": true })}>Qaulificaitons</li>
+                        <li onClick={() => setToggle({ "LifeGoals": true })}>Life Goals</li>
+                    </ul>
+                </div>
+                <div className='edit_area'>
+                    <div className='title' >
+                        {/* <i className={'fa fa-angle-' + (toggle.About ? 'down' : 'right')}></i> */}
+                        {toggle.About &&
+                            <div className='inputs'>
+                                <h6>About</h6>
+                                <div>
+                                    <label htmlFor="">State</label>
+                                    <input type="text"
+                                        onChange={(e) => setInputs(s => ({ ...s, About: { ...s.About, state: e.target.value } }))}
+                                        placeholder={currentDetails?.student_state} />
+                                </div>
+                                <div>
+                                    <label htmlFor="">Country</label>
+                                    <input type="text"
+                                        onChange={(e) => setInputs(s => ({ ...s, About: { ...s.About, country: e.target.value } }))}
+                                        placeholder={currentDetails?.student_country} />
+                                </div>
+                                <div>
+                                    <label htmlFor="">Date of Birth </label>
+                                    <input type="date"
+                                        onChange={(e) => setInputs(s => ({ ...s, About: { ...s.About, dob: e.target.value } }))}
+                                        placeholder={currentDetails?.student_dob} />
+                                </div>
+                                <div>
+                                    <label htmlFor="">Father 's name</label>
+                                    <input type="text"
+                                        onChange={(e) => setInputs(s => ({ ...s, About: { ...s.About, fatherName: e.target.value } }))}
+                                        placeholder={currentDetails?.student_fatherName} />
+                                </div>
+                                <div>
+                                    <label htmlFor="">Mother 's name</label>
+                                    <input type="text"
+                                        onChange={(e) => setInputs(s => ({ ...s, About: { ...s.About, motherName: e.target.value } }))}
+                                        placeholder={currentDetails?.student_motherName} />
+                                </div>
+                                <div>
+                                    <label htmlFor="">Description</label>
+                                    <input type="text"
+                                        onChange={(e) => setInputs(s => ({ ...s, About: { ...s.About, description: e.target.value } }))}
+                                        placeholder={currentDetails?.description} />
+                                </div>
+                                <button onClick={aboutUpdateHandle} >Update About</button>
+                            </div>
+                        }
                     </div>
-                }
-            </div>
-            <div className='title' onClick={() => setToggle({ "Hobbies": true })}>
-                <h6>Hobbies</h6>
-                <i className={'fa fa-angle-' + (toggle.Hobbies ? 'down' : 'right')}></i>
-                {toggle.Hobbies &&
-                    <div>
-                        <p>{currentDetails.hobbies && currentDetails.hobbies}</p>
-                        <input ref={HobbiesInput} type="text" />
-                        <button onClick={(e) => (setInputs(s => ({ ...s, Hobbies: [...s.Hobbies, HobbiesInput.current.value] })), HobbiesInputHandle())}>&#x2713;</button>
+                    <div className='title'>
+                        {/* <i className={'fa fa-angle-' + (toggle.Hobbies ? 'down' : 'right')}></i> */}
+                        {toggle.Hobbies &&
+                            <div>
+                                <h6>Hobbies</h6>
+                                <p>{currentDetails.hobbies && currentDetails.hobbies}</p>
+                                <input ref={HobbiesInput} type="text" />
+                                <button onClick={(e) => (setInputs(s => ({ ...s, Hobbies: [...s.Hobbies, HobbiesInput.current.value] })), HobbiesInputHandle())}>&#x2713;</button>
+                            </div>
+                        }
                     </div>
-                }
-            </div>
-            <div className='title' onClick={() => setToggle({ "Skills": true })}>
-                <h6>Skills</h6>
-                <i className={'fa fa-angle-' + (toggle.Skills ? 'down' : 'right')}></i>
-                {toggle.Skills &&
-                    <div>
-                        <p>{currentDetails.skills && currentDetails.skills}</p>
-                        <input ref={SkillsInput} type="text" />
-                        <button onClick={(e) => (setInputs(s => ({ ...s, Skills: [...s.Skills, SkillsInput.current.value] })), SkillsInputHandle())}>&#x2713;</button>
+                    <div className='title'>
+                        {/* <i className={'fa fa-angle-' + (toggle.Skills ? 'down' : 'right')}></i> */}
+                        {toggle.Skills &&
+                            <div>
+                                <h6>Skills</h6>
+                                <p>{currentDetails.skills && currentDetails.skills}</p>
+                                <input ref={SkillsInput} type="text" />
+                                <button onClick={(e) => (setInputs(s => ({ ...s, Skills: [...s.Skills, SkillsInput.current.value] })), SkillsInputHandle())}>&#x2713;</button>
+                            </div>
+                        }
                     </div>
-                }
-            </div>
-            <div className='title' onClick={() => setToggle({ "Qualifications": true })}>
-                <h6>Qualifications</h6>
-                <i className={'fa fa-angle-' + (toggle.Qualifications ? 'down' : 'right')}></i>
-                {toggle.Qualifications &&
-                    // <div>
-                    //     <input ref={QualificationsInput} type="text" />
-                    //     <button onClick={(e) => (setInputs(s => ({ ...s, Qualifications: [...s.Qualifications, QualificationsInput.current.value] })), QualificationsInputHandle())}>&#x2713;</button>
-                    // </div>
+                    <div className='title'>
+                        {/* <i className={'fa fa-angle-' + (toggle.Qualifications ? 'down' : 'right')}></i> */}
+                        {toggle.Qualifications &&
+                            // <div>
+                            //     <input ref={QualificationsInput} type="text" />
+                            //     <button onClick={(e) => (setInputs(s => ({ ...s, Qualifications: [...s.Qualifications, QualificationsInput.current.value] })), QualificationsInputHandle())}>&#x2713;</button>
+                            // </div>
 
-                    // collage
-                    // courseName
-                    // specialization
-                    // courseYear
-                    <div className="inputs">
-                        <div>
-                            <label htmlFor="">University</label>
-                            <input type="text"
-                                onChange={(e) => setInputs(s => ({ ...s, Qualifications: { ...s.Qualifications, university: e.target.value } }))}
-                                placeholder={currentDetails?.university} />
-                        </div>
-                        <div>
-                            <label htmlFor="">College</label>
-                            <input type="text"
-                                onChange={(e) => setInputs(s => ({ ...s, Qualifications: { ...s.Qualifications, collage: e.target.value } }))}
-                                placeholder={currentDetails?.university} />
-                        </div>
-                        <div>
-                            <label htmlFor="">Course Name</label>
-                            <input type="text"
-                                onChange={(e) => setInputs(s => ({ ...s, Qualifications: { ...s.Qualifications, courseName: e.target.value } }))}
-                                placeholder={currentDetails?.university} />
-                        </div>
-                        <div>
-                            <label htmlFor="">Specialization</label>
-                            <input type="text"
-                                onChange={(e) => setInputs(s => ({ ...s, Qualifications: { ...s.Qualifications, specialization: e.target.value } }))}
-                                placeholder={currentDetails?.university} />
-                        </div>
-                        <div>
-                            <label htmlFor="">CourseYear</label>
-                            <input type="text"
-                                onChange={(e) => setInputs(s => ({ ...s, Qualifications: { ...s.Qualifications, courseYear: e.target.value } }))}
-                                placeholder={currentDetails?.university} />
-                        </div>
-                        <button onClick={QualificationsInputHandle} >Update Qualifications</button>
+                            // collage
+                            // courseName
+                            // specialization
+                            // courseYear
+                            <div className="inputs">
+                                <h6>Qualifications</h6>
+                                <div>
+                                    <label htmlFor="">University</label>
+                                    <input type="text"
+                                        onChange={(e) => setInputs(s => ({ ...s, Qualifications: { ...s.Qualifications, university: e.target.value } }))}
+                                        placeholder={currentDetails?.university} />
+                                </div>
+                                <div>
+                                    <label htmlFor="">College</label>
+                                    <input type="text"
+                                        onChange={(e) => setInputs(s => ({ ...s, Qualifications: { ...s.Qualifications, collage: e.target.value } }))}
+                                        placeholder={currentDetails?.university} />
+                                </div>
+                                <div>
+                                    <label htmlFor="">Course Name</label>
+                                    <input type="text"
+                                        onChange={(e) => setInputs(s => ({ ...s, Qualifications: { ...s.Qualifications, courseName: e.target.value } }))}
+                                        placeholder={currentDetails?.university} />
+                                </div>
+                                <div>
+                                    <label htmlFor="">Specialization</label>
+                                    <input type="text"
+                                        onChange={(e) => setInputs(s => ({ ...s, Qualifications: { ...s.Qualifications, specialization: e.target.value } }))}
+                                        placeholder={currentDetails?.university} />
+                                </div>
+                                <div>
+                                    <label htmlFor="">CourseYear</label>
+                                    <input type="text"
+                                        onChange={(e) => setInputs(s => ({ ...s, Qualifications: { ...s.Qualifications, courseYear: e.target.value } }))}
+                                        placeholder={currentDetails?.university} />
+                                </div>
+                                <button onClick={QualificationsInputHandle} >Update Qualifications</button>
+                            </div>
+                        }
                     </div>
-                }
-            </div>
-            <div className='title' onClick={() => setToggle({ "LifeGoals": true })}>
-                <h6>Life Goals</h6>
-                <i className={'fa fa-angle-' + (toggle.LifeGoals ? 'down' : 'right')}></i>
-                {toggle.LifeGoals &&
-                    <div>
-                        <p>{currentDetails.lifeAmbition && currentDetails.lifeAmbition}</p>
-                        <input ref={LifeGoalsInput} type="text" />
-                        <button onClick={(e) => (setInputs(s => ({ ...s, LifeGoals: [...s.LifeGoals, LifeGoalsInput.current.value] })), LifeGoalsInputHandle())}>&#x2713;</button>
+                    <div className='title'>
+                        {/* <i className={'fa fa-angle-' + (toggle.LifeGoals ? 'down' : 'right')}></i> */}
+                        {toggle.LifeGoals &&
+                            <div>
+                                <h6>Life Goals</h6>
+                                <p>{currentDetails.lifeAmbition && currentDetails.lifeAmbition}</p>
+                                <input ref={LifeGoalsInput} type="text" />
+                                <button
+                                    onClick={(e) => (setInputs(s => (
+                                        {
+                                            LifeGoals: LifeGoalsInput.current.value
+                                        })), LifeGoalsInputHandle())}
+                                >&#x2713;</button>
+                            </div>
+                        }
                     </div>
-                }
+                </div>
             </div>
         </div >
     )

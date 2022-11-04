@@ -15,10 +15,16 @@ import image_coin from '../../asset/images/NavBar/coin.png'
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { userLogout } from '../../slices/authSlice'
+import { useEffect } from 'react'
+import { getFollowers, getFollowings } from '../../api'
+import { useState } from 'react'
+import { userInfo } from '../../utils/localStorage_Utils'
 
 export default function NavBar({ currPage }) {
 
   const dispatch = useDispatch()
+
+  const [network, setNetwork] = useState({})
 
   const menus = [
     { title: 'Home', image_src: image_home, path: '/' },
@@ -32,9 +38,18 @@ export default function NavBar({ currPage }) {
     { title: 'Logout', image_src: image_history, path: '', onclick: () => dispatch(userLogout()) }
   ]
 
+  useEffect(() => {
+    getFollowers({ "student_id": userInfo?.id }).then((res) => setNetwork((s) => ({ ...s, followers: res.data.result[0].followers })))
+    getFollowings({ "student_id": userInfo?.id }).then((res) => setNetwork((s) => ({ ...s, followings: res.data.result[0].following })))
+  }, [])
+
+  // console.log(network)
+
   return (
     <div className='NavBar'>
-      <div className='network_div justify-center'>
+      <div className='network'>
+        <span><p>{network.followers}</p> Followers</span>
+        <span><p>{network.followings}</p> Followings</span>
       </div>
       <div className='logo' >
         <div className='justify-center'>

@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import './Post.scss'
 
-import { getAgoDate, getNowDate } from '../../../utils/date_Utils'
-import { userInfo } from '../../../utils/localStorage_Utils'
-import { CommentsCount, deletePost, editPost, getAllComments, getAllLikes, getLikeStatus, postComment, postLike, reportPost } from '../../../api'
+import { getAgoDate, getNowDate } from '../../../../../utils/date_Utils'
+import { userInfo } from '../../../../../utils/localStorage_Utils'
+import { CommentsCount, deletePost, editPost, getAllComments, getAllLikes, getLikeStatus, postComment, postLike, reportPost } from '../../../../../api'
 import { useDispatch } from 'react-redux'
-import { popUp } from '../../../slices/popUpSlice'
+import { popUp } from '../../../../../slices/popUpSlice'
 
-import ToolTip from '../../ToolTip/ToolTip'
-import Modal from '../../Modal/Modal'
+import ToolTip from '../../../../ToolTip/ToolTip'
+import Modal from '../../../../Modal/Modal'
 
 export default function Post({ details, page }) {
 
@@ -28,6 +28,7 @@ export default function Post({ details, page }) {
     const [postUpdateText, setPostUpdateText] = useState(details.post_content)
     const [postUpdateFile, setPostUpdateFile] = useState()
     const [reportInput, setReportInput] = useState()
+    const [commentLimit, setCommentLimit] = useState(5)
 
     useEffect(() => {
         (async function () {
@@ -51,6 +52,10 @@ export default function Post({ details, page }) {
         const res = await getAllComments({ post_id: details.post_id })
         setComments(res.data.result)
     }
+
+    // function sliceComments(){
+    //     comments.splice()
+    // }
 
     async function commentPostHandle() {
         if (!commentInput) { dispatch(popUp("Comment box is empty, please write down your comments")); return }
@@ -199,7 +204,7 @@ export default function Post({ details, page }) {
                         <object data={details.post_document + "?#zoom=80&scrollbar=0&toolbar=0&navpanes=1&statusbar=1&view=fit"} type="application/pdf"></object>
                     }
                 </div>
-                <div className="reactions">
+                {/* <div className="reactions">
                     <div className='emojies'>
                         <span>&#x1F600;</span>
                         <span>&#x1F490;</span>
@@ -210,12 +215,12 @@ export default function Post({ details, page }) {
                     <div className='actions_count'>
                         <p>comments 123 share 506</p>
                     </div>
-                </div>
+                </div> */}
                 <div className='buttons'>
                     <button onClick={likeHandle}>
                         <i className={(likeStatus ? 'fa' : 'far') + ' fa-thumbs-up'} >{likeCount} </i>
                     </button>
-                    <button onClick={() => (setShowComments(!showComments), getComments())}>
+                    <button onClick={() => (setShowComments(!showComments), getComments(), setCommentLimit(5))}>
                         <i className='fas fa-comment'>{commentsCount}Comment</i>
                     </button>
                 </div>
@@ -229,7 +234,7 @@ export default function Post({ details, page }) {
                     showComments &&
                     <div className='comments'>
                         {comments &&
-                            comments.map((comment, index) => {
+                            comments.slice(0, commentLimit).map((comment, index) => {
                                 return (
                                     <div className='person' key={index}>
                                         <div className='person_details'>
@@ -242,6 +247,9 @@ export default function Post({ details, page }) {
                                     </div>
                                 )
                             })}
+                        {comments.length > commentLimit &&
+                            <p className='show_more' onClick={() => setCommentLimit((s) => s + 5)}>Show more comments</p>
+                        }
                     </div>
                 }
             </div >
