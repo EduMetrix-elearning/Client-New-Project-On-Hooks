@@ -172,6 +172,12 @@
                 width: 50%;
                 height: 40px;
                 border: none;
+
+                svg {
+                    $side: 20px;
+                    width: $side;
+                    height: $side;
+                }
             }
         }
 

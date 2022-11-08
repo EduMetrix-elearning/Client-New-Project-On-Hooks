@@ -1,10 +1,10 @@
 import React from 'react'
 import './SocialMediaPosts.scss'
 
-export default function SocialMediaPosts({ media, start, end, color, data }) {
+export default function SocialMediaPosts({ media, color, data }) {
     // console.log({ media, data })
     return (
-        <div className='SocialMediaPosts' style={{ 'gridColumnStart': (start), 'gridColumnEnd': (end) }}>
+        <div className='SocialMediaPosts' id={media + "_media"}>
             <div className='inner_div'>
                 <div className='title' style={{ 'backgroundColor': (color) }}>
                     <h6>Follow us on {media}</h6>

@@ -4,12 +4,11 @@
     height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
 
     .content {
+        margin: 5vh;
         width: 70%;
-        height: 80vh;
-        margin-top: 55px;
         border: 2px solid gray;
         background: linear-gradient(90deg, rgba(white, .6) 50%, #35A2C1);
         border-radius: 25px;
@@ -17,55 +16,117 @@
         overflow: hidden;
         position: relative;
 
-        .company {
+        section {
             width: 35%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-            margin-top: 100px;
 
-            img {
-                background-color: white;
-                border-radius: 50%;
-                $side: 100px;
-                width: $side;
-                height: $side;
-            }
+            .company {
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                margin-top: 100px;
 
-            h3 {
-                color: white
-            }
-
-            hr {
-                color: rgba(white, 1);
-                width: 50%;
-                height: 3px;
-                opacity: 1;
-            }
-
-        }
-
-        .refer {
-            input {
-                position: absolute;
-                background-color: inherit;
-                border: none;
-                text-align: center;
-                margin-top: 180px;
-                border-bottom: 1px solid white;
-                width: fit-content;
-                bottom: 24px;
-                right: 74px;
-
-                &::placeholder {
-                    text-decoration: wavy;
-                    font-style: italic;
-                    // color: white;
+                img {
+                    background-color: white;
+                    border-radius: 50%;
+                    $side: 100px;
+                    width: $side;
+                    height: $side;
                 }
 
-                &:focus {
-                    outline: none;
+                h3 {
+                    color: white
+                }
+
+                hr {
+                    color: rgba(white, 1);
+                    width: 50%;
+                    height: 3px;
+                    opacity: 1;
+                }
+
+            }
+
+            .refer {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                input {
+                    background-color: inherit;
+                    border: none;
+                    text-align: center;
+                    margin-top: 180px;
+                    border-bottom: 1px solid white;
+                    width: fit-content;
+                    bottom: 24px;
+                    right: 74px;
+
+                    &::placeholder {
+                        text-decoration: wavy;
+                        font-style: italic;
+                    }
+
+                    &:focus {
+                        outline: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:1292px) {
+    .SignUpVerification {
+        .content {
+            width: 75%;
+        }
+    }
+}
+
+@media screen and (max-width:1200px) {
+    .SignUpVerification {
+        .content {
+            width: 80%;
+        }
+    }
+}
+
+@media screen and (max-width:1125px) {
+    .SignUpVerification {
+        .content {
+            width: 85%;
+        }
+    }
+}
+
+@media screen and (max-width:1060px) {
+    .SignUpVerification {
+        .content {
+            width: 90%;
+        }
+    }
+}
+
+@media screen and (max-width:862px) {
+    .SignUpVerification {
+        height: auto;
+
+        .content {
+            margin: 5vh;
+            flex-direction: column;
+            background: linear-gradient(0deg, rgba(white, .6) 50%, #35A2C1);
+
+            section {
+                width: 100%;
+
+                .company {
+                    margin-top: 30px;
+                }
+
+                .refer {
+                    input{
+                        margin-top: 10px;
+                    }
                 }
             }
         }

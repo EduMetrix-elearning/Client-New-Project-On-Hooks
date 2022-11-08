@@ -1,24 +1,45 @@
 .SocialMediaPosts {
-    height: 200px;
+    min-height: 200px;
 
     .inner_div {
-        border: 1px solid gainsboro;
-        margin: 5px;
-        padding: 5px;
-        height: 95%;
+        border: 1px solid var(--color4);
+        background-color: rgb(235, 235, 235);
         border-radius: 7px;
+        padding: 5px;
+        height: 100%;
+
+
         .title {
             text-align: center;
             border-radius: 7px;
             color: white;
             padding: 4px;
-            h6{
-                margin-top:3px;
+
+            h6 {
+                margin-top: 3px;
             }
         }
-        .messages{
+
+        .messages {
             overflow-y: auto;
             height: 80%;
         }
     }
+}
+
+#instagram_media {
+    grid-column-start: 4;
+    grid-column-end: 6;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+#twitter_media {
+    grid-column-start: 6;
+    grid-column-end: 8;
+}
+
+#linkedin_media {
+    grid-column-start: 6;
+    grid-column-end: 8;
 }

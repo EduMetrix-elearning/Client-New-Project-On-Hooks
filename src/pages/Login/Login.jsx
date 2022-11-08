@@ -10,38 +10,17 @@ import image_logo from '../../asset/images/Login/logo.png'
 // import image_coincodexjpe from '../../asset/images/Login/coincodexjpe.png'
 // import image_coinmarketcap from '../../asset/images/Login/coinmarketcap.png'
 
-// import Recaptcha from 'react-recaptcha';
-
 import SignUp from '../../components/_pages/Login/SignUp/SignUp'
 import ForgotPassword from '../../components/_pages/Login/ForgotPassword/ForgotPassword'
 import SignIn from '../../components/_pages/Login/SignIn/SignIn'
 import { useSelector } from 'react-redux'
 import PopUpAlert from '../../components/PopUpAlert/PopUpAlert'
 
-// const TEST_SITE_KEY = '6Lc0EJohAAAAAPe3Zxt6FCQRKOIWqPuNuAqFxoqe';
-
 export default function Login() {
 
   const [page, setPage] = useState('login')
 
   const PopUp = useSelector((state) => state.PopUp)
-
-
-
-  // function recaptchaLoad() {
-  //   console.log('getting event in captcha loaded successfully!');
-  // }
-
-  // function verifyCallback(response) {
-  //   if (response) {
-  //     this.setState({
-  //       captchaVerified: true,
-  //       errorCaptcha: '',
-  //     });
-  //   }
-  // }
-
-
 
   return (
     <>
@@ -71,6 +50,9 @@ export default function Login() {
             </div>
           </div>
           <div className='login_input_div'>
+            <div>
+              
+            </div>
             <div className='about_page'>
               <p data-content={'About us'}><a href='About_us'> About Us</a></p>
             </div>

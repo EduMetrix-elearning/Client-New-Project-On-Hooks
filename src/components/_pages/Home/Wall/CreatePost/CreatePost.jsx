@@ -45,7 +45,7 @@ export default function CreatePost() {
     async function submitFilePost() {
         if (fileInput.type === "image") {
             let obj = {
-                "student_id": userInfo.id,
+                "student_id": userInfo?.id,
                 "post_photo": await toBase64(fileInput.file),
                 "post_content": fileInput.text || "",
                 "posted_date": getFormattedDate(),

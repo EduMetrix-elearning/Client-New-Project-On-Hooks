@@ -105,7 +105,7 @@ export default function ChatWindow({ currentChat }) {
         }
     }
 
-    console.log(chats)
+    // console.log(chats)
     // console.log(attachmentFile)
 
     return (

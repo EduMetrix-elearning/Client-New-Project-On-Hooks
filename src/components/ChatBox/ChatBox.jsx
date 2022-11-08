@@ -55,7 +55,7 @@ export default function ChatBox() {
     return (
         <div className='ChatBox'>
             <header onClick={() => setShow(!show)}>
-                <i className='fas fa-comment' />Messages
+                <i className='fa fa-comment' />Messages
             </header>
             {show &&
                 <main>

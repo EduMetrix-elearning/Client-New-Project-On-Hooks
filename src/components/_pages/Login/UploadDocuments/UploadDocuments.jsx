@@ -45,8 +45,7 @@ export default function UploadDocuments() {
             <div className='items'>
                 <div className='row1'>
                     <div className='item'>
-                        <label htmlFor="photo" className='fa'>
-                        </label>
+                        <label htmlFor="photo" className='fa'></label>
                         <input type="file" name="photo" id="photo" onChange={inputHandle} hidden />
                         <img src={images?.photo_URL || image_dummy_user} alt="" />
                         <figcaption>Photo</figcaption>
