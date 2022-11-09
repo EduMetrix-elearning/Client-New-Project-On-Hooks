@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Navigation.scss'
 
 import { Link } from 'react-router-dom'
@@ -13,14 +13,30 @@ import image_contact from '../../../../asset/images/AboutUs/Navbar/phone.png'
 import image_coin from '../../../../asset/images/coin.png'
 
 export default function Navigation() {
+
+    const [showNav, setShowNav] = useState(false)
+
+    useEffect(() => {
+        let navDrop = document.getElementById('navDrop')
+        document.body.addEventListener('click', (e) => {
+            if (!(navDrop?.contains(e.target) || e.target.id === 'hamburger')) {
+                setShowNav(false)
+            }
+        })
+    }, [showNav])
+
     return (
         <div className='Navigation'>
-            <a className='backButton' href='/login'><i className='fa fa-angle-left' /> Back to login</a>
-            <div className="logo">
-                <img src={image_coin} alt="" />
-                <h3>EduMetrix</h3>
+            <div className='header'>
+                <a className='backButton' href='/login'><i className='fa fa-angle-left' /> Back to login</a>
+                <a title='Back to login' href='/login'><i className='fa fa-angle-left' /></a>
+                <i className='fa fa-bars' id='hamburger' onClick={() => setShowNav(!showNav)} />
+                <div className="logo">
+                    <img src={image_coin} alt="" />
+                    <h3>EduMetrix</h3>
+                </div>
             </div>
-            <nav>
+            <nav className={showNav ? 'show' : null} id={showNav ? 'navDrop' : null}>
                 <ul>
                     <li><Link to={''}><span><img src={image_about_us} alt="" /></span><p>About Us</p></Link></li>
                     <li><Link to={'disclaimer'}><span><img src={image_disclaimer} alt="" /></span><p>Disclaimer</p></Link></li>

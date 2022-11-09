@@ -1,28 +1,32 @@
 .Navigation {
     width: 20%;
     height: 100vh;
-    background-color: var(--color3);
     position: fixed;
+    background-color: var(--color3);
 
-    .backButton {
-        margin: 20px;
-        display: block;
-        text-underline-offset: 3px;
-        color: white;
-        cursor: pointer;
-    }
-
-    .logo {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-top: 50px;
-        img{
-            background-color: white;
-            border-radius: 50%;
-        }
-        h3{
+    .header {
+        .backButton {
+            margin: 20px;
+            display: block;
+            text-underline-offset: 3px;
             color: white;
+            cursor: pointer;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+
+            img {
+                background-color: white;
+                border-radius: 50%;
+            }
+
+            h3 {
+                color: white;
+            }
         }
     }
 
@@ -61,5 +65,138 @@
                 }
             }
         }
+    }
+}
+
+
+@media screen and (max-width:1284px) {
+    .Navigation {
+        nav {
+            ul {
+                li {
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:1150px) {
+    .Navigation {
+        nav {
+            ul {
+                padding-left: 1rem;
+
+                li {
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width:1050px) {
+    .Navigation {
+
+        i.fa-bars,
+        a[title='Back to login'] i.fa-angle-left {
+            display: none;
+        }
+    }
+}
+
+@media screen and (max-width:1050px) {
+    .Navigation {
+        width: 100%;
+        height: fit-content;
+
+        .header {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            padding: 10px;
+            color: white;
+
+            a.backButton {
+                display: none !important;
+            }
+
+            a:has(i.fa-angle-left) {
+                text-decoration: none;
+            }
+
+            i {
+                cursor: pointer;
+            }
+
+            i.fa-angle-left {
+                background-color: white;
+                color: var(--color3);
+                $side: 30px;
+                width: $side;
+                height: $side;
+                display: grid;
+                place-items: center;
+                border-radius: 50%;
+                font-weight: 900;
+                font-size: large;
+            }
+
+            i.fa-bars {
+                font-size: larger;
+            }
+
+            .logo {
+                flex-direction: row;
+                margin-top: 0;
+
+                img {
+                    $side: 30px;
+                    width: $side;
+                    height: $side;
+                    margin-right: 5px;
+                }
+
+                h3 {
+                    margin: 0;
+                }
+            }
+        }
+
+        nav {
+            display: block;
+            overflow: hidden;
+            height: 0px;
+            transition: all .5s linear;
+            width: 300px;
+            background-color: var(--color3);
+            border-top: 2px solid white;
+            position: absolute;
+            margin-left: 10px;
+            border-radius: 0 0 25px 25px;
+            
+            ul {
+                margin: 0;
+                padding-left: 60px;
+                padding-bottom: 20px;
+            }
+        }
+        
+        nav.show {
+            height: 400px;
+            margin-left: 60px;
+
+
+        }
+
+        // @keyframes navShow {
+        //    from {
+        //         height: 0px;
+        //     }
+
+        //     to {
+        //         height: 400px;
+        //     }
+        // }
     }
 }

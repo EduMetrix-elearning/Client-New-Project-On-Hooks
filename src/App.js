@@ -4,10 +4,10 @@ import { store } from './store.js'
 import { Provider } from 'react-redux'
 
 
-import ProtectedRouter from "./protectedRouter.js";
+import ProtectedRouter from "./ProtectedRouter.js";
 import Login from './pages/Login/Login'
 import Home from './pages/Home/Home'
-import Chat from "./pages/chat/chat.scss"
+import Chat from "./pages/Chat/Chat"
 import TopPics from './pages/TopPics/TopPics';
 import FindFriends from './pages/FindFriends/FindFriends';
 import Earnings from './pages/Earnings/Earnings';
