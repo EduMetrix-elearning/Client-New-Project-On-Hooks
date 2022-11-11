@@ -1,0 +1,44 @@
+.single-courses-topics{
+    width:100%;
+    display: grid;
+    grid-template-columns: auto auto;
+    gap:20px;
+    padding:30px 60px
+}
+.single-courses-topics .Topic-card{
+    width:100%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 20px 30px;
+}
+.topic-details{
+    text-align: justify;
+    display: block;
+}
+.tech-stacks{
+    text-align: justify;
+    display: block;
+}
+.topic-level{
+    width:50%;
+    text-align: center;
+    padding: 20px 40px;
+    border-radius: 10px;
+    background-color: rgb(196, 241, 226);
+}
+.tech-skills-tags{
+    display: flex;
+    gap:20px;
+}
+.tech-skills-tags div{
+    width:20%;
+    text-align: center;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: rgb(196, 241, 226);
+}
+@media screen and (max-width:500px)  {
+    .single-courses-topics{
+        display: grid;
+        grid-template-columns: auto;
+    }
+}

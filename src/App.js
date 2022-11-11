@@ -26,6 +26,12 @@ import TermsOfServices from './pages/AboutUs/TermsOfServices/TermsOfServices.jsx
 import WhitePaper from './pages/AboutUs/WhitePaper/WhitePaper.jsx';
 import ContactUs from './pages/AboutUs/ContactUs/ContactUs'
 
+import {EduMetrixHomepage} from './frontpage/Homepage/Homepage.jsx';
+import {Aboutus} from "./frontpage/Aboutus/Aboutus.jsx"
+import {TermOfservices} from "./frontpage/TermOfCondition/TermOfservices.jsx"
+import {Privacypolicy} from "./frontpage/Privacypolicy/PrivacyPolicy.jsx"
+import { SingleCoursePage } from './frontpage/SingleCoursePage/SingleCoursePage.jsx';
+
 function App() {
   return (
     <div className='platform'>
@@ -53,6 +59,14 @@ function App() {
             {/* <Route path='*' element={<ErrorPage />} /> */}
 
             <Route path="/documentation" element={<Doc />} />
+           
+
+            {/* Edumetrix Front Courses Page */}
+            <Route path="/homepage" element={<EduMetrixHomepage/>} ></Route>
+            <Route path="/Courses" element={<SingleCoursePage/>}></Route>
+            <Route path="/AboutUs" element={<Aboutus/>}></Route>
+            <Route path="/TermOfservices" element={<TermOfservices/>}></Route>
+            <Route path="/PrivacyPolicy" element={<Privacypolicy/>}></Route>
           </Routes>
         </Router>
       </Provider>
