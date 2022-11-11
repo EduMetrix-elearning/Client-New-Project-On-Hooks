@@ -111,6 +111,20 @@ ul {
   list-style: none;
 }
 
+header {
+  position: sticky;
+  top: 0;
+  height: 8vh;
+  z-index: 10;
+}
+
+main {
+  // width: 64%;
+  margin-left: 200px;
+  height: 92vh;
+
+}
+
 // html {
 //   @media(min-width:2732px) {font-size: 28px;}
 //   @media(max-width:2732px) {font-size: 26px;}

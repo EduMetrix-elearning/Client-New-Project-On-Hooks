@@ -1,6 +1,6 @@
 .ContactUs {
     display: flex;
-    height: 90vh;
+    height: 100vh;
 
     .contact {
         flex-basis: 30%;
@@ -11,7 +11,8 @@
         }
 
         p {
-            margin-left: 40px;
+            display: block;
+            margin-left: auto;
             color: blue;
         }
 
@@ -29,5 +30,22 @@
     .location {
         flex-basis: 70%;
         padding: 40px;
+    }
+}
+
+@media screen and (max-width:700px) {
+    .ContactUs {
+        flex-direction: column;
+        overflow-y: auto;
+        .contact{
+            width: 70%;
+            margin-left: 10%;
+        }
+    }
+}
+
+@media screen and (max-width:1050px) {
+    .ContactUs {
+        height: calc(100vh - 50px);
     }
 }

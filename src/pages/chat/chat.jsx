@@ -12,10 +12,14 @@ export default function Chat() {
     const [currentChat, setCurrentChat] = useState()
 
     return (
-        <div className='Chat grid'>
-            <Header />
+        <div className='Chat'>
+            <header>
+                <Header />
+            </header>
+            <main>
+                <ChatWindow currentChat={currentChat} />
+            </main>
             <NavBar currPage={'Live chat'} />
-            <ChatWindow currentChat={currentChat} />
             <FriendsList setCurrentChat={setCurrentChat} />
         </div>
     )

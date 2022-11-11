@@ -20,23 +20,27 @@ export default function Profile() {
 
 
     return (
-        <div className='Profile grid'>
-            <Header />
+        <div className='Profile'>
+            <header>
+                <Header />
+            </header>
+            <main>
+                <div className='profile_content'>
+                    <ProfileView />
+                    <div className="profile_wall">
+                        {posts && posts.map((post, i) => {
+                            return (
+                                <Post key={i} details={post} page={'myProfile'} />
+                            )
+                        })
+                        }
+                    </div>
+                    <div className='advertisement'>
+                        <p>Ads</p>
+                    </div>
+                </div>
+            </main>
             <NavBar currPage={'My profile'} />
-            <div className='profile_content'>
-                <ProfileView />
-                <div className="profile_wall">
-                    {posts && posts.map((post, i) => {
-                        return (
-                            <Post key={i} details={post} page={'myProfile'} />
-                        )
-                    })
-                    }
-                </div>
-                <div className='advertisement'>
-
-                </div>
-            </div>
         </div>
     )
 }

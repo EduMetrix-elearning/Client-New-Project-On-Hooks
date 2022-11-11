@@ -86,11 +86,16 @@
                     display: block;
                     font-weight: bold;
                 }
-
-
             }
         }
-
     }
+}
 
+@media screen and (max-width:550px) {
+    .AboutUs {
+        flex-direction: column;
+        .team{
+            margin-bottom: 50px;
+        }
+    }
 }

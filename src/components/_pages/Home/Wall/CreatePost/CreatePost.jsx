@@ -83,9 +83,9 @@ export default function CreatePost() {
     return (
         <div className='CreatePost'>
             <div className='createPost_inner_div'>
-                <header>
+                <div className='header'>
                     <p>Create Post</p>
-                </header>
+                </div>
                 <div className='body'>
                     <img src={userInfo?.photo} alt="" />
                     <input type="text" placeholder='write something here...'

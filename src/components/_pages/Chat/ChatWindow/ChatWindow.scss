@@ -1,11 +1,13 @@
 .ChatWindow {
-    grid-area: main;
+    // grid-area: main;
     background-color: gainsboro;
+    overflow: auto;
+    height: 100%;
 
     .chat_window_inner_div {
         height: 100%;
 
-        header {
+        div.header {
             background-color: whitesmoke;
             height: 10%;
             display: flex;

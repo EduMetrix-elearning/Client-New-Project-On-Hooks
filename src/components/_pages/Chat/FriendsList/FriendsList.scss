@@ -1,6 +1,10 @@
 .FriendsList {
-    grid-area: side;
+    // grid-area: side;
     // background-color: darkcyan;
+    position: fixed;
+    right: 30px;
+    top: 60px;
+    width: 250px;
 
     .search_input {
         display: flex;

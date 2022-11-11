@@ -27,82 +27,86 @@ export default function Earnings() {
     }, [])
 
     return (
-        <div className='Earnings grid'>
-            <Header />
-            <NavBar currPage={'Earnings'} />
-            <div className="earnings_content">
-                <div className='topRow'>
-                    <CurrencyExchange userDetails={userDetails} />
-                    <SocialMarketContent />
-                    <ReferYourFriend />
-                </div>
-                <div className="downrow">
-                    <div className='tables'>
-                        <header>
-                            <p> Earning Details</p>
-                            <p> Lifetime Earning:
-                                {
-                                    likeData?.totalLikesEarning +
-                                    referalData?.totalReferralsEarning +
-                                    shareData?.totalSharesEarning +
-                                    bounsData?.totalBonusesEarning
-                                }
-                            </p>
-                        </header>
-                        <Table data={{
-                            title: 'Like Counters',
-                            details: [
-                                { text: 'Total Likes', value: likeData?.totalLikes || 0 },
-                                { text: 'Paid Likes', value: likeData?.totalPaidLikes || 0 },
-                                { text: 'Payble Likes', value: likeData?.totalPayableLikes || 0 },
-                                { text: 'Lifetime earning coins', value: likeData?.totalLikesEarning || 0 },
-                                { text: 'Payble coins', value: likeData?.totalPayableLikesEarning || 0 }
-                            ]
-                        }} />
-                        <Table data={{
-                            title: 'Referral Counters',
-                            details: [
-                                { text: 'Total Referral', value: referalData?.totalReferrals || 0 },
-                                { text: 'Paid Referral', value: referalData?.totalPaidReferrals || 0 },
-                                { text: 'Payble Referral', value: referalData?.totalPayableReferrals || 0 },
-                                { text: 'Lifetime earning coins', value: referalData?.totalReferralsEarning || 0 },
-                                { text: 'Payble coins', value: referalData?.totalPayableReferralsEarning || 0 }
-                            ]
-                        }} />
-                        <Table data={{
-                            title: 'Share Counters',
-                            details: [
-                                { text: 'Total Shares', value: shareData?.totalShares || 0 },
-                                { text: 'Paid Shares', value: shareData?.totalPaidShares || 0 },
-                                { text: 'Payble Shares', value: shareData?.totalPayableShares || 0 },
-                                { text: 'Lifetime earning coins', value: shareData?.totalSharesEarning || 0 },
-                                { text: 'Payble coins', value: shareData?.totalPayableSharesEarning || 0 }
-                            ]
-                        }} />
-                        <Table data={{
-                            title: 'Bonus Counters',
-                            details: [
-                                { text: 'Total Bonus', value: bounsData?.totalBonuses || 0 },
-                                { text: 'Paid Bonus', value: bounsData?.totalPaidBonuses || 0 },
-                                { text: 'Payble Bonus', value: bounsData?.totalPayableBonuses || 0 },
-                                { text: 'Lifetime earning coins', value: bounsData?.totalBonusesEarning || 0 },
-                                { text: 'Payble coins', value: bounsData?.totalPayableBonusesEarning || 0 }
-                            ]
-                        }} />
-                        <header>Total Payable</header>
-                        <Table data={{
-                            title: 'Total Payable',
-                            details: [
-                                { text: 'Total Likes', value: likeData?.totalPayableLikes || 0 },
-                                { text: 'Total Referrals', value: referalData?.totalPayableReferrals || 0 },
-                                { text: 'Total Shares', value: shareData?.totalPayableShares || 0 },
-                                { text: 'Total Additional Bonus', value: bounsData?.totalPayableBonuses || 0 },
-                                { text: 'Total Payble Amount', value: likeData?.totalPayableLikesEarning || 0 }
-                            ]
-                        }} />
+        <div className='Earnings'>
+            <header>
+                <Header />
+            </header>
+            <main>
+                <div className="earnings_content">
+                    <div className='topRow'>
+                        <CurrencyExchange userDetails={userDetails} />
+                        <SocialMarketContent />
+                        <ReferYourFriend />
+                    </div>
+                    <div className="downrow">
+                        <div className='tables'>
+                            <div className='header'>
+                                <p> Earning Details</p>
+                                <p> Lifetime Earning:
+                                    {
+                                        likeData?.totalLikesEarning +
+                                        referalData?.totalReferralsEarning +
+                                        shareData?.totalSharesEarning +
+                                        bounsData?.totalBonusesEarning
+                                    }
+                                </p>
+                            </div>
+                            <Table data={{
+                                title: 'Like Counters',
+                                details: [
+                                    { text: 'Total Likes', value: likeData?.totalLikes || 0 },
+                                    { text: 'Paid Likes', value: likeData?.totalPaidLikes || 0 },
+                                    { text: 'Payble Likes', value: likeData?.totalPayableLikes || 0 },
+                                    { text: 'Lifetime earning coins', value: likeData?.totalLikesEarning || 0 },
+                                    { text: 'Payble coins', value: likeData?.totalPayableLikesEarning || 0 }
+                                ]
+                            }} />
+                            <Table data={{
+                                title: 'Referral Counters',
+                                details: [
+                                    { text: 'Total Referral', value: referalData?.totalReferrals || 0 },
+                                    { text: 'Paid Referral', value: referalData?.totalPaidReferrals || 0 },
+                                    { text: 'Payble Referral', value: referalData?.totalPayableReferrals || 0 },
+                                    { text: 'Lifetime earning coins', value: referalData?.totalReferralsEarning || 0 },
+                                    { text: 'Payble coins', value: referalData?.totalPayableReferralsEarning || 0 }
+                                ]
+                            }} />
+                            <Table data={{
+                                title: 'Share Counters',
+                                details: [
+                                    { text: 'Total Shares', value: shareData?.totalShares || 0 },
+                                    { text: 'Paid Shares', value: shareData?.totalPaidShares || 0 },
+                                    { text: 'Payble Shares', value: shareData?.totalPayableShares || 0 },
+                                    { text: 'Lifetime earning coins', value: shareData?.totalSharesEarning || 0 },
+                                    { text: 'Payble coins', value: shareData?.totalPayableSharesEarning || 0 }
+                                ]
+                            }} />
+                            <Table data={{
+                                title: 'Bonus Counters',
+                                details: [
+                                    { text: 'Total Bonus', value: bounsData?.totalBonuses || 0 },
+                                    { text: 'Paid Bonus', value: bounsData?.totalPaidBonuses || 0 },
+                                    { text: 'Payble Bonus', value: bounsData?.totalPayableBonuses || 0 },
+                                    { text: 'Lifetime earning coins', value: bounsData?.totalBonusesEarning || 0 },
+                                    { text: 'Payble coins', value: bounsData?.totalPayableBonusesEarning || 0 }
+                                ]
+                            }} />
+                            <div className='header'>Total Payable</div>
+                            <Table data={{
+                                title: 'Total Payable',
+                                details: [
+                                    { text: 'Total Likes', value: likeData?.totalPayableLikes || 0 },
+                                    { text: 'Total Referrals', value: referalData?.totalPayableReferrals || 0 },
+                                    { text: 'Total Shares', value: shareData?.totalPayableShares || 0 },
+                                    { text: 'Total Additional Bonus', value: bounsData?.totalPayableBonuses || 0 },
+                                    { text: 'Total Payble Amount', value: likeData?.totalPayableLikesEarning || 0 }
+                                ]
+                            }} />
+                        </div>
                     </div>
                 </div>
-            </div>
+            </main>
+            <NavBar currPage={'Earnings'} />
         </div>
     )
 }

@@ -1,5 +1,11 @@
 .NavBar {
-    grid-area: navbar;
+    // grid-area: navbar;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 12;
+    width: 200px;
+    height: 100vh;
     background-color: var(--color6);
     padding: 1px;
     color: var(--color1);

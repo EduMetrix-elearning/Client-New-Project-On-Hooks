@@ -1,3 +1,9 @@
 .WhitePaper {
     height: 100vh;
 }
+
+@media screen and (max-width:1050px) {
+    .WhitePaper {
+        height: calc(100vh - 50px);
+    }
+}

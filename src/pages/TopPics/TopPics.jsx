@@ -22,16 +22,20 @@ export default function TopPics() {
     }, [])
 
     return (
-        <div className='TopPics grid'>
-            <Header />
-            <NavBar currPage={"Top pics for you"} />
+        <div className='TopPics'>
 
-            <div className='TopPics_body'>
-                <div className="TopPics_content">
-                    {topPics && <Grid items={topPics} />}
+            <header>
+                <Header />
+            </header>
+            <main>
+                <div className='TopPics_body'>
+                    <div className="TopPics_content">
+                        {topPics && <Grid items={topPics} />}
+                    </div>
                 </div>
-            </div>
+            </main>
 
+            <NavBar currPage={"Top pics for you"} />
             <Suggestions />
         </div>
     )

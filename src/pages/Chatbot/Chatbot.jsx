@@ -59,44 +59,48 @@ export default function Chatbot() {
     // console.log(slideRoll)
 
     return (
-        <div className='Chatbot grid'>
-            <Header />
-            <NavBar currPage={'Chatbot'} />
-            <div className='chatbot_content'>
-                <div className='new_today'>
-                    <div className='heading'>
-                        <h1>What's new today</h1>
+        <div className='Chatbot'>
+            <header>
+                <Header />
+            </header>
+            <main>
+                <div className='chatbot_content'>
+                    <div className='new_today'>
+                        <div className='heading'>
+                            <h1>What's new today</h1>
+                        </div>
+                        {data?.whats?.result &&
+                            data.whats.result.map((obj, i) => {
+                                return (
+                                    <div className='news' key={i}>
+                                        <img src={obj.adminPicture_uploaded} alt="" />
+                                        <p>{obj.message}</p>
+                                    </div>
+                                )
+                            })
+                        }
                     </div>
-                    {data?.whats?.result &&
-                        data.whats.result.map((obj, i) => {
-                            return (
-                                <div className='news' key={i}>
-                                    <img src={obj.adminPicture_uploaded} alt="" />
-                                    <p>{obj.message}</p>
+                    <SocialMediaPosts media={'instagram'} color={'#E8247B'} data={data.insta} />
+                    <SocialMediaPosts media={'linkedin'} color={'#0E76A8'} />
+                    <SocialMediaPosts media={'twitter'} color={'#00ACEE'} data={data.twitter} />
+                    {data.slides &&
+                        <div className="carousel">
+                            {(data.slides[slideRoll].slideVideo) ?
+                                <div className="each-slide" title="Click to See">
+                                    <video src={data.slides[slideRoll].slideVideo}></video>
                                 </div>
-                            )
-                        })
+                                :
+                                <div className="each-slide" title="Click to See">
+                                    <img className='slideImage' src={data.slides[slideRoll].slideImage} id="slide-img" alt="" />
+                                </div>
+                            }
+                            <span><i className='fa fa-angle-right' onClick={() => sliderAction(1)} /></span>
+                            <span><i className='fa fa-angle-left' onClick={() => sliderAction(-1)} /></span>
+                        </div>
                     }
                 </div>
-                <SocialMediaPosts media={'instagram'} color={'#E8247B'} data={data.insta} />
-                <SocialMediaPosts media={'linkedin'} color={'#0E76A8'} />
-                <SocialMediaPosts media={'twitter'} color={'#00ACEE'} data={data.twitter} />
-                {data.slides &&
-                    <div className="carousel">
-                        {(data.slides[slideRoll].slideVideo) ?
-                            <div className="each-slide" title="Click to See">
-                                <video src={data.slides[slideRoll].slideVideo}></video>
-                            </div>
-                            :
-                            <div className="each-slide" title="Click to See">
-                                <img className='slideImage' src={data.slides[slideRoll].slideImage} id="slide-img" alt="" />
-                            </div>
-                        }
-                        <span><i className='fa fa-angle-right' onClick={() => sliderAction(1)} /></span>
-                        <span><i className='fa fa-angle-left' onClick={() => sliderAction(-1)} /></span>
-                    </div>
-                }
-            </div>
+            </main>
+            <NavBar currPage={'Chatbot'} />
             <BotIcon />
         </div >
     )

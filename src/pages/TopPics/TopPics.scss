@@ -1,20 +1,26 @@
 .TopPics {
-    grid-area: main;
+    // grid-area: main;
+    overflow: auto;
+    height: 100vh;
 
-    .TopPics_body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow-y: scroll;
+    main {
+        width: 65%;
 
-        &::-webkit-scrollbar {
-            display: none;
-        }
+        .TopPics_body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-y: scroll;
 
-        .TopPics_content {
-            height: 90%;
-            width: 90%;
+            &::-webkit-scrollbar {
+                display: none;
+            }
 
+            .TopPics_content {
+                height: 90%;
+                width: 90%;
+
+            }
         }
     }
 }
