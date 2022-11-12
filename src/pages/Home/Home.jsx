@@ -29,8 +29,6 @@ export default function Home() {
         PopUp.show &&
         <PopUpAlert text={PopUp.text} />
       }
-
-
     </div>
   )
 }
