@@ -1,138 +1,133 @@
- .main-background-image {
-     margin-top: 150px;
-     width: 50%;
- }
 
- .auto-video-play {
-     width: 90%;
-     box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 10px 0px ;;
-     cursor: pointer;
- }
+.main-background-image {
+    margin-top: 150px;
+    width: 50%;
+}
 
- .below-navbar {
-     display: flex;
-     margin: auto;
-     width: 90%;
-     justify-content: space-around;
- }
+.auto-video-play {
+    width: 90%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 10px 0px ;;
+    cursor: pointer;
+}
 
- .edumetrix-header {
-     width: 40%;
-     flex-direction: row;
-     text-align: left;
-     display: block
- }
+.below-navbar {
+    display: flex;
+    margin: auto;
+    width: 90%;
+    justify-content: space-around;
+}
 
- .primary-header {
-     margin-top: 150px;
-     font-weight: bold;
-     font-size: 50px;
-     color: #164e64;
- }
+.edumetrix-header {
+    width: 40%;
+    flex-direction: row;
+    text-align: left;
+    display: block
+}
 
- .edumetrix-header .secondary-header {
-     font-weight: bold;
-     font-size: 30px;
-     color: rgb(113, 113, 113);
-     text-align: left;
- }
+.primary-header {
+    margin-top: 150px;
+    font-weight: bold;
+    font-size: 50px;
+    color: #164e64;
+}
 
- .edumetrix-header .ternary-header {
-     text-align: left;
-     margin-top: 20px;
-     font-weight: bold;
-     font-size: 16px;
-     color: rgb(113, 113, 113)
- }
+.edumetrix-header .secondary-header {
+    font-weight: bold;
+    font-size: 30px;
+    color: rgb(113, 113, 113);
+    text-align: left;
+}
 
- .services-btn {
-     display: flex;
-     gap: 20px
- }
+.edumetrix-header .ternary-header {
+    text-align: left;
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 16px;
+    color: rgb(113, 113, 113)
+}
 
- .apply-btn {
-     margin-top: 20px;
-     padding: 15px 30px;
-     border-radius: 15px;
-     border: 0;
-     background-color: #164e64;
-     color: white
- }
- @media screen  and (max-width:1100) and (min-width:900px){
-    .auto-video-play{
-        border: 1px solid;
-        margin-top: 20%;
+.services-btn {
+    display: flex;
+    gap: 20px
+}
+
+.apply-btn {
+    margin-top: 20px;
+    padding: 15px 30px;
+    border-radius: 15px;
+    border: 0;
+    background-color: #164e64;
+    color: white
+}
+@media screen  and (max-width:1100) and (min-width:900px){
+   .auto-video-play{
+       border: 1px solid;
+       margin-top: 20%;
+   }
+}
+
+@media screen and (max-width:900px) and (min-width:250px) {
+    .below-navbar {
+        flex-direction: column;
+        margin: auto;
+        text-align: center;
+        justify-content: center;
     }
- }
 
- @media screen and (max-width:900px) and (min-width:250px) {
-     .below-navbar {
-         flex-direction: column;
-         margin: auto;
-         text-align: center;
-         justify-content: center;
-     }
+    .edumetrix-header {
+        width: 100%;
+        margin: auto;
+        text-align: center;
+    }
 
-     .edumetrix-header {
-         width: 100%;
-         margin: auto;
-         text-align: center;
-     }
+    .edumetrix-header .secondary-header , .edumetrix-header .ternary-header {
+        text-align: center;
+        word-break: normal;
+    }
 
-     .edumetrix-header p {
-         text-align: center;
-         word-break: normal;
-     }
+    
 
-     
+}
 
- }
+.all-courses-heading .modernwork-heading,
+.all-courses-heading .edumetrix-headline {
+    text-align: center;
+    margin-top: 30px;
+    text-decoration: double;
+}
 
- .all-courses-heading h1,
- p {
-     text-align: center;
-     margin-top: 30px;
-     text-decoration: double;
- }
+.all-cards {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    width: 74%;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 20px 40px;
+    margin-top: 20px;
+}
 
- .all-courses-heading h3:hover {
-     text-decoration: underline;
-     cursor: pointer;
-     color: blue
- }
+@media screen and (max-width:900px) and (min-width:300px) {
+    .all-cards {
+        width: 90%
+    }
+    .main-background-image {
+                width: 80%;
+                margin: auto;
+                margin-top: 20px;
+            }
 
- .all-cards {
-     display: flex;
-     margin: auto;
-     justify-content: center;
-     width: 74%;
-     gap: 20px;
-     overflow-x: auto;
-     padding: 20px 40px;
-     margin-top: 20px;
- }
-
- @media screen and (max-width:900px) and (min-width:300px) {
-     .all-cards {
-         width: 90%
-     }
-     .main-background-image {
-                 width: 80%;
-                 margin: auto;
-                 margin-top: 20px;
-             }
-
- }
+}
 
 
 
- .all-cards::-webkit-scrollbar {
-     width: 0;
-     display: none;
- }
+.all-cards::-webkit-scrollbar {
+    width: 0;
+    display: none;
+}
 
 
- 
+
 //  .all-cards div {
 //     box-shadow: #164e64 0px 5px 5px;
 //     background-color: rgb(245, 246, 245);
@@ -142,35 +137,36 @@
 //     transform: scale(0.1);
 //     z-index:0
 //  }
- .single-card{
-    box-shadow: #164e64 0px 15px 10px;
-    background-color: rgb(229, 250, 250);
-     transition: 1s;
- }
- .single-card:hover{
-    transform : scale(1.1);
-    z-index: 0;
- }
- 
+.single-card{
+   box-shadow: #164e64 0px 15px 10px;
+   background-color: rgb(229, 250, 250);
+    transition: 1s;
+}
+.single-card:hover{
+   transform : scale(1.1);
+   z-index: 0;
+}
 
- .card-title {
-     font-size: 20px;
-     background-color: #164e64;
-     border-radius: 20px;
-     color: white
- }
 
- .card-details {
-     font-size: 15px;
-     text-align: center;
-     line-break: auto
- }
+.card-title {
+    font-size: 20px;
+    background-color: #164e64;
+    border-radius: 20px;
+    color: white;
+    text-align: center;
+}
 
- .course-card {
-     margin-top: 20px;
-     width: 300px;
- }
+.card-details {
+    font-size: 15px;
+    text-align: center;
+    line-break: auto
+}
 
- .Card-div {
-     position: static;
- }
+.course-card {
+    margin-top: 20px;
+    width: 300px;
+}
+
+.Card-div {
+    position: static;
+}

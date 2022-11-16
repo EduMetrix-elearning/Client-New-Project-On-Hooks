@@ -1,73 +1,71 @@
 
-div .rsc {
-    overflow-x: hidden;
-    position: fixed;
-   top:50px;
-   right:30px
-}
-div .fVSrDx ,div .esVEgI,div .crxXKj{
-    background-color:#164e64 ;
-}
-.FAQ{
-    width:50%;
-    border: 3px solid red;
-}
-.float {
-    position:absolute;
-    right:0;
-    top:0;
-    width: 30%;
-    height:100vh;
-    border-radius: 20px;
-    overflow:scroll;
-    padding: 20px;
-    background-color: white;
-    overflow: scroll;
-}
-.question{
-    background-color: #5792b9;
-    width: 70%;
-    font-size: 16px;
-    border-radius: 20px;
-    margin-top: 20px;
-    padding: 10px;
-    color:white;
-    text-align: left;
-}
 
-.answer {
-    margin-left: auto;
-    width: 70%;
-    font-size: 15px;
-    background-color: rgb(217, 217, 217);
-    border-radius: 20px;
-    padding: 10px;
-    text-align: left;
-    color:black
+.FAQs{
+    width:100%;
+    
+    .float {
+        position:absolute;
+        right:0;
+        top:0;
+        width: 30%;
+        height:100vh;
+        border-radius: 20px;
+        overflow:scroll;
+        padding: 20px;
+        background-color: white;
+        overflow: scroll;
+    }
+    .question{
+        background-color: #5792b9;
+        width: 70%;
+        font-size: 16px;
+        border-radius: 20px;
+        margin-top: 20px;
+        padding: 10px;
+        color:white;
+        text-align: left;
+    }
+    
+    .answer {
+        margin-left: auto;
+        width: 70%;
+        font-size: 15px;
+        background-color: rgb(217, 217, 217);
+        border-radius: 20px;
+        padding: 10px;
+        text-align: left;
+        color:black
+    }
+
+    .faq-header{
+        margin: 0;
+        color: white;
+        background-color: #164667;
+        padding: 15px;
+    }
+    
+    @keyframes slidein {
+        from {
+            margin-right: 50%;
+        }
+    
+        to {
+            margin-right: 0%;
+        }
+    }
+
 }
 @media screen and (max-width:700px){
-    .question , .answer{
-        font-size: 10px;
-    }
-    .float{
-        width:50%
+    .FAQs{
+
+        .question , .answer{
+            font-size: 10px;
+        }
+        .float{
+            width:50%
+        }
     }
 
 }
 
-.faq-header{
-    margin: 0;
-    color: white;
-    background-color: #164667;
-    padding: 15px;
-}
 
-@keyframes slidein {
-    from {
-        margin-right: 50%;
-    }
-
-    to {
-        margin-right: 0%;
-    }
-}

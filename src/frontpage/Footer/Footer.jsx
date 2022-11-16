@@ -1,5 +1,5 @@
 import React from 'react'
-import "./footer.scss"
+import "./Footer.scss"
 import { Link } from 'react-router-dom'
 import { ChatboxManager } from '../ChatboxManage/ChatboxManager';
 import Button from '@mui/material/Button';
@@ -42,10 +42,10 @@ export const Footer = () => {
                         <h4>company</h4>
                         <ul>
                             <li><Link to="/homepage">Home</Link></li>
-                            <li><Link to="/AboutUs">about us</Link></li>
+                            <li><Link to="/AboutUs">About us</Link></li>
                             <li><Link to="/TermOfservices">Terms of services</Link></li>
-                            <li><Link to="/PrivacyPolicy">privacy policy</Link></li>
-                            <li><a href="#">affiliate program</a></li>
+                            <li><Link to="/PrivacyPolicy">Privacy policy</Link></li>
+                            <li><a href="#">Affiliate program</a></li>
                         </ul>
                     </div>
                     <div className="footer-col">

@@ -1,6 +1,6 @@
 import React from 'react'
 import whitepaperPdf from "../../asset/docs/Whitepapernew.pdf"
-import "./whitepaper.scss"
+import "./WhitePaper.scss"
 
 export const WhitePaperPage = () => {
   return (

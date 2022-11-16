@@ -1,5 +1,5 @@
 import React from 'react'
-import "./chatbox.scss"
+import "./Chatbox.scss"
 
 export const ChatboxManager = () => {  
 

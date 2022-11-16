@@ -1,7 +1,7 @@
 import { Card, CardContent, TextField, Box, FormControl, InputLabel, Input, FormHelperText, Typography, Grid, Modal } from '@material-ui/core'
 import React from 'react'
 import Button from '@mui/material/Button';
-import "./internship.scss"
+import "./Internship.scss"
 import ClearIcon from '@mui/icons-material/Clear';
 
 
@@ -45,7 +45,7 @@ export const Internship = (props) => {
           <TextField fullWidth sx={{ m: 1 }} id="standard-basic" label="10  digits Mobile No *" variant="standard" style={{marginBottom:"10px"}} />
           <TextField fullWidth sx={{ m: 1 }} id="standard-basic" label="Email *" variant="standard" style={{marginBottom:"10px"}} />
           <TextField fullWidth sx={{ m: 1 }} id="standard-basic" label="Place *" variant="standard" style={{marginBottom:"10px"}} />
-          <div className='select-gender-employee'>
+          <div className='select-gender-employee' style={{marginBottom:"10px",gap:"20px"}}>
           <select>
             <option value="">Gender</option>
             <option value="male">Male</option>

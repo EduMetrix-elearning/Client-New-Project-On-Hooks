@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import { Typewriter } from "react-simple-typewriter"
 import courseImage from "../../asset/images/Courses/Backend.png"
 import "./singlecourse.scss"
-import "../Courses/courses.scss"
+import "../Courses/Courses.scss"
 import { Footer } from '../Footer/Footer'
-import { Navbarpage } from '../Navbar/Navbarpage'
+import { Navbarpage } from '../Navbar/NavbarPage'
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import SignalCellularAltIcon from '@mui/icons-material/SignalCellularAlt';
 

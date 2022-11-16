@@ -27,7 +27,6 @@ import WhitePaper from './pages/AboutUs/WhitePaper/WhitePaper.jsx';
 import ContactUs from './pages/AboutUs/ContactUs/ContactUs'
 
 import {EduMetrixHomepage} from './frontpage/Homepage/Homepage.jsx';
-import {Aboutus} from "./frontpage/Aboutus/Aboutus.jsx"
 import {TermOfservices} from "./frontpage/TermOfCondition/TermOfservices.jsx"
 import {Privacypolicy} from "./frontpage/Privacypolicy/PrivacyPolicy.jsx"
 import {WhitePaperPage} from "./frontpage/WhitePaper/WhitePaperPage.jsx"
@@ -36,7 +35,8 @@ import ScrollToTop from './ScrollTotop.js';
 import { Frontend } from './frontpage/SingleCoursePage/Frontend.jsx';
 import { Backend } from './frontpage/SingleCoursePage/Backend.jsx';
 import { Fullstack } from './frontpage/SingleCoursePage/Fullstack.jsx';
-import { Hrform } from './frontpage/HrForm/Hrform.jsx';
+import { Hrform } from './frontpage/HrForm/HrForm.jsx';
+import { Aboutus } from './frontpage/Aboutus/AboutUs.jsx';
 
 function App() {
   return (

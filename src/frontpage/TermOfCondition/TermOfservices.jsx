@@ -1,11 +1,11 @@
 import React from 'react'
 import { Footer } from '../Footer/Footer'
-import { Navbarpage } from '../Navbar/Navbarpage'
+import { Navbarpage } from '../Navbar/NavbarPage'
 import './TermOfservices.scss'
 
 export  const TermOfservices=()=> {
     return (
-    <>
+    <div className='termsofcondition-whole-div'>
             <Navbarpage/>
         <div className='TermsOfServices'>
             <div className='article'>
@@ -187,6 +187,6 @@ export  const TermOfservices=()=> {
             </div>
         </div >
             <Footer/>
-        </>
+        </div>
     )
 }

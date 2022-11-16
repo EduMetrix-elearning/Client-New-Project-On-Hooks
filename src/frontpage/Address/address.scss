@@ -5,52 +5,52 @@
     width:90%;
     border-radius: 20px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-}
-.city-heading{
-    margin-top: 30px;
-}
-.city-heading h4{
-    margin-bottom: 15px;
-}
-.city-heading p{
-    margin-top: 0;
-}
-.contact {
-    flex-basis: 30%;
-    padding: 20px;
-    width:50%;
-    border-radius: 20px;
-    background-color: rgb(222, 236, 237);
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-}
-
-.email-header {
-    margin-bottom: 20px;
-}
-
-
-.address p {
-    text-align: justify;
-}
-
-.email {
-    margin-top: 60px;
-}
-
-.email-anchor{
-    display: block;
-    margin-top: 10px;
-}
-.google-map-iframe{
-    margin-bottom: 30px;
-}
-
-
-
-.location {
-    flex-basis: 70%;
-    padding: 40px;
-    display: block;
+    .city-heading{
+        margin-top: 30px;
+    }
+    .city-heading h4{
+        margin-bottom: 15px;
+    }
+    .city-heading p{
+        margin-top: 0;
+    }
+    .contact {
+        flex-basis: 30%;
+        padding: 20px;
+        width:50%;
+        border-radius: 20px;
+        background-color: rgb(222, 236, 237);
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+    
+    .email-header {
+        margin-bottom: 20px;
+    }
+    
+    
+    .address p {
+        text-align: justify;
+    }
+    
+    .email {
+        margin-top: 60px;
+    }
+    
+    .email-anchor{
+        display: block;
+        margin-top: 10px;
+    }
+    .google-map-iframe{
+        margin-bottom: 30px;
+    }
+    
+    
+    
+    .location {
+        flex-basis: 70%;
+        padding: 40px;
+        display: block;
+    }
 }
 @media  screen and (max-width:700px) {
     .address-main-div {
@@ -61,9 +61,10 @@
         padding: 30px;
         border-radius: 20px;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    }
-    .contact{
-        border: 0;
+        
+        .contact{
+            border: 0;
+        }
     }
     
 }

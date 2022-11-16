@@ -1,5 +1,5 @@
 import React from 'react'
-import { Navbarpage } from "../Navbar/Navbarpage.jsx"
+import { Navbarpage } from "../Navbar/NavbarPage.jsx"
 import { Footer } from "../Footer/Footer.jsx"
 import image1 from "../../asset/images/HrpageImage/hrpage1.jpeg"
 import image2 from "../../asset/images/HrpageImage/hrpage2.jpeg"
@@ -11,7 +11,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { TextField } from '@material-ui/core';
 import ClearIcon from '@mui/icons-material/Clear';
-import "./Hrform.scss"
+import "./HrForm.scss"
 
 const style = {
   position: 'absolute',
@@ -31,7 +31,7 @@ export const Hrform = () => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   return (
-    <div>
+    <div className="full-hr-page">
       <Navbarpage />
 
       <div className='hr-image-slider'>
