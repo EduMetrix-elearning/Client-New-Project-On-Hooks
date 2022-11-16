@@ -1,0 +1,89 @@
+.single-courses-topics{
+    width:90%;
+    display: grid;
+    grid-template-columns: auto auto;
+    gap:10px;
+    margin-top: 50px;
+    margin: auto;
+    margin-top: 30px;
+    padding:20px 30px;
+    background-color: #164e64;
+}
+.single-courses-topics .Topic-card{
+    width:100%;
+    height:100%;
+    margin: auto;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 20px 30px;
+    background-color: white;
+}
+.topic-details{
+    text-align: justify;
+    display: block;
+    margin-bottom: 20px;
+}
+.tech-stacks{
+
+    text-align: justify;
+    display: block;
+}
+.topic-level{
+    width:50%;
+    text-align: center;
+    padding: 20px 40px;
+    border-radius: 10px;
+    color:white;
+    margin-bottom: 10px;
+    background-color: #164e64;
+}
+.tech-skills-tags{
+    display: flex;
+    gap:20px;
+}
+.tech-skills-tags div{
+    width:30%;
+    text-align: center;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color:white;
+    background-color: #164e64;
+}
+@media screen and (max-width:1300px) {
+    .single-courses-topics .Topic-card{
+        width:95%;
+        height:100%
+    }
+    .tech-skills-tags div{
+        width:20%;
+    }
+    .tech-skills-tags div{
+        width:70%;  
+        margin-bottom: 10px;
+    }
+    .topic-level{
+        width:70%;
+    }
+}
+@media screen and (max-width:800px)  and (min-width:300px) {
+    .single-courses-topics{
+        display: grid;
+        grid-template-columns: auto;
+        width:100%;
+        justify-content: center;
+        padding:10px 20px
+    }
+    .single-courses-topics .Topic-card{
+        width:95%;
+    }
+    .tech-skills-tags{
+        display: block;
+        gap:20px;
+    }
+    .tech-skills-tags div{
+        width:70%;  
+        margin-bottom: 10px;
+    }
+    .topic-level{
+        width:70%;
+    }
+}
