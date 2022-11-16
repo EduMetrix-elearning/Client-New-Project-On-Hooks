@@ -1,11 +1,11 @@
 import React from 'react'
 import { Footer } from '../Footer/Footer'
-import { Navbarpage } from '../Navbar/Navbarpage'
-import './privacypolicy.scss'
+import { Navbarpage } from '../Navbar/NavbarPage'
+import './PrivacyPolicy.scss'
 
 export const Privacypolicy=()=> {
     return (
-        <>
+        <div className='privacy-policy-whole-div'>
         <Navbarpage/>
         <div className='PrivacyPolicy'>
             <div>
@@ -108,6 +108,6 @@ export const Privacypolicy=()=> {
             </div>
         </div >
         <Footer/>
-        </>
+        </div>
     )
 }

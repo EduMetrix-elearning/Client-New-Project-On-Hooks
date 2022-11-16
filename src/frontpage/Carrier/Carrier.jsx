@@ -1,5 +1,5 @@
 import React from 'react'
-import "./carrier.scss"
+import "./Carrier.scss"
 import Button from '@mui/material/Button';
 import { Card, CardContent, TextField, Box, FormControl, InputLabel, Input, FormHelperText, Typography, Grid ,Modal } from '@material-ui/core'
 import ClearIcon from '@mui/icons-material/Clear';

@@ -1,12 +1,7 @@
 import React from 'react'
-import './aboutus.scss'
-
-import image_ceo from '../../asset/images/AboutUs/About us/Shafan.png'
-import image_coo from '../../asset/images/AboutUs/About us/Fiyas.png'
-import image_director1 from '../../asset/images/AboutUs/About us/Mubarak.png'
-import image_director2 from '../../asset/images/AboutUs/About us/Suchismitha.png'
+import './AboutUs.scss'
 import { Footer } from '../Footer/Footer'
-import { Navbarpage } from '../Navbar/Navbarpage'
+import { Navbarpage } from '../Navbar/NavbarPage'
 
 export const Aboutus=()=> {
     return (

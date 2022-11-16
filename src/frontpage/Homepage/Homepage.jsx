@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Courses } from '../Courses/Courses.jsx';
-import "./homepage.scss"
+import "./Homepage.scss"
 import { BussinessPartner } from '../Bussiness/BussinessPartner.jsx';
 import { Footer } from '../Footer/Footer.jsx';
 import { Link } from 'react-router-dom';
@@ -11,7 +11,7 @@ import ChatIcon from '@material-ui/icons/Chat';
 import SpeakerNotesOffRoundedIcon from '@material-ui/icons/SpeakerNotesOffRounded';
 import Modal from '@mui/material/Modal';
 import { ChatboxManager } from '../ChatboxManage/ChatboxManager.jsx';
-import { Navbarpage } from '../Navbar/Navbarpage.jsx';
+import { Navbarpage } from '../Navbar/NavbarPage.jsx';
 
 
 const style = {
@@ -43,7 +43,7 @@ export const EduMetrixHomepage = () => {
     const handleChatclose=()=>setChatopen(false)
     
     return (
-        <div>
+        <div className='main-edumetrix-homepage'>
             <Navbarpage handleinternship={handleinternship} handleCarrier={handleCarrier}/>
             <Courses />
             {internshipOpen ? <Internship   handleClose={handleInternshipClose} handleinternship={handleinternship} internshipOpen={internshipOpen} /> : ""}

@@ -16,7 +16,7 @@ import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Button from '@mui/material/Button';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-import "./courses.scss"
+import "./Courses.scss"
 import { Box, Grid } from '@material-ui/core';
 import homepagehero from "../../asset/images/Homepagevdo.mp4"
 import { Typewriter } from "react-simple-typewriter"
@@ -105,13 +105,13 @@ export const Courses = () => {
         title: "Edumetrix Courses"
     })
     return (
-        <div >
+        <div className='courses-typewritter-cards-main-div'>
 
             {/* Below Navbar  */}
             <div className='below-navbar'>
                 <div className="edumetrix-header">
                     <h1 className='primary-header' ><Typewriter
-                        words={['EduMetrix ', 'Full stack Enginner']}
+                        words={['EduMetrix ', 'Full Stack Enginner']}
                         loop={10}
                         cursor
                         cursorStyle='_'
@@ -161,11 +161,11 @@ export const Courses = () => {
             {/* All Coursess */}
             <div className='Card-div'>
                 <div className='all-courses-heading'>
-                    <h1>Modern Work <br />
+                    <h1 className="modernwork-heading">Modern Work <br />
                         Experience-Based <br />
                         Learning Approach</h1>
 
-                    <p>At EduMetrix, you learn and grow exactly how you would on a real job. You will start from the <br />
+                    <p className="edumetrix-headline">At EduMetrix, you learn and grow exactly how you would on a real job. You will start from the <br />
                         fundamentals, receive support from our mentors and community, and build your way to the top <br />
                         - through professional work-like Full-stack and Backend web development projects.</p>
                 </div>
@@ -213,7 +213,7 @@ export const Courses = () => {
                                         </Typography>
                                     </CardContent>
                                     <CardContent>
-                                        <Typography className="card-details">Become a skilled frontend developer with hands-on experience in MERN stack . Tech stack used in Frontend := React , HTML5 , CSS3 , Javascript</Typography>
+                                        <Typography className="card-details">Become a skilled frontend developer with hands-on experience in MERN stack And MEAN stack. Tech stack used in Frontend := React , HTML5 , CSS3 , Javascript</Typography>
                                     </CardContent>
                                 </Card></Link> </div>
 

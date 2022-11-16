@@ -1,12 +1,12 @@
 import React from 'react'
 import { Nav,Navbar,Container, } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import "./navbar.scss"
+import "./Navbar.scss"
 import EdumetrixImage from "../../asset/images/coin.png"
 
 export const Navbarpage = ({handleCarrier,handleinternship}) => {
   return (
-    <div>
+    <div className='navbar-whole-div'>
         <Navbar className='frontend-navbar' bg="light" expand="lg">
                 <Container >
                     <Navbar.Brand href="" style={{ fontSize: "30px" }}>

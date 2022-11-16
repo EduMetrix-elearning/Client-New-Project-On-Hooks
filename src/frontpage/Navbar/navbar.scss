@@ -1,25 +1,45 @@
-.frontend-navbar {
-    background-color: white;
-    color: black;
-    font-weight: bold;
-    display: flex;
-    justify-content: space-between;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    margin-bottom: 0px;
+.navbar-whole-div{
+    .frontend-navbar {
+        background-color: white;
+        color: black;
+        font-weight: bold;
+        display: flex;
+        justify-content: space-between;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        margin-bottom: 0px;
+    
+    }
+    
+    .navbar-items {
+        display: flex;
+        gap: 30px;
+    }
+    
+    .navbar-items .all-items:hover {
+        width: 150px;
+        text-align: center;
+        background-color: #d6dbd9;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    .edu-image {
+            width: 60px;
+            margin-right: 13px;
+        }
+        
+        .contact-number {
+            position: fixed;
+            background-color: black;
+            color: #d6dbd9;
+            top: 80px;
+            width: 100%;
+        }
+        
+        .contact-number p {
+            margin: auto;
+        }
 
-}
-
-.navbar-items {
-    display: flex;
-    gap: 30px;
-}
-
-.navbar-items .all-items:hover {
-    width: 150px;
-    text-align: center;
-    background-color: #d6dbd9;
-    border-radius: 5px;
-    cursor: pointer;
-}
+}    
