@@ -35,8 +35,8 @@ import ScrollToTop from './ScrollTotop.js';
 import { Frontend } from './frontpage/SingleCoursePage/Frontend.jsx';
 import { Backend } from './frontpage/SingleCoursePage/Backend.jsx';
 import { Fullstack } from './frontpage/SingleCoursePage/Fullstack.jsx';
-import { Hrform } from './frontpage/HrForm/HrForm.jsx';
-import { Aboutus } from './frontpage/Aboutus/AboutUs.jsx';
+import { Hrform } from './frontpage/HrForm/Hrform.jsx';
+import { Aboutus } from './frontpage/Aboutus/Aboutus.jsx';
 
 function App() {
   return (

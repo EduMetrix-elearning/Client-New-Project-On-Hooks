@@ -22,7 +22,7 @@ import homepagehero from "../../asset/images/Homepagevdo.mp4"
 import { Typewriter } from "react-simple-typewriter"
 import { Modal, TextField } from '@material-ui/core';
 import ClearIcon from '@mui/icons-material/Clear';
-import ReactPlayer from 'react-player'
+// import ReactPlayer from 'react-player'
 import { Link } from 'react-router-dom';
 import fullstack from "../../asset/images/Courses/fullstack.jpg"
 import frontend from "../../asset/images/Courses/frontend.png"
