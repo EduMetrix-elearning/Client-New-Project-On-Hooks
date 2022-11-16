@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Typewriter } from "react-simple-typewriter"
 import courseImage from "../../asset/images/Courses/Backend.png"
-import "./singlecourse.scss"
+import "./SingleCourse.scss"
 import "../Courses/Courses.scss"
 import { Footer } from '../Footer/Footer'
 import { Navbarpage } from '../Navbar/NavbarPage'
