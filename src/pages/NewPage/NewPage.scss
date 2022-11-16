@@ -1,11 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');//Libre Baskerville
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');//Merriweather
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');//Cairo
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');//EB Garamond
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');//Crimson Text
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');//Maven Pro
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');//Yanone Kaffeesatz
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');//Vollkorn
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
 
 .NewPage {
     background-color: rgb(251, 251, 251);
@@ -17,15 +10,16 @@
         .logo {
             display: flex;
             align-items: center;
-            img{
-                $side:40px;
+
+            img {
+                $side: 40px;
                 width: $side;
                 height: $side;
             }
-            p{
-                font-family: Libre Baskerville;
-                // font-weight: bold;
-                // font-style: italic;
+
+            p {
+                font-family: 'EB Garamond';
+                font-weight: 500;
                 font-size: 26pt;
             }
         }
@@ -33,6 +27,7 @@
         .menu {
             ul {
                 padding-left: 0;
+
                 li {
                     font-size: 14pt;
                     color: gray;
