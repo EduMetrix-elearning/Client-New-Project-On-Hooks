@@ -1,12 +1,18 @@
  .main-background-image {
-     margin-top: 100px;
-     width: 400px
+     margin-top: 150px;
+     width: 50%;
+ }
+
+ .auto-video-play {
+     width: 90%;
+     box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 10px 0px ;;
+     cursor: pointer;
  }
 
  .below-navbar {
      display: flex;
      margin: auto;
-     width:90%;
+     width: 90%;
      justify-content: space-around;
  }
 
@@ -22,16 +28,16 @@
      font-weight: bold;
      font-size: 50px;
      color: #164e64;
-    }
-    
-    .edumetrix-header .secondary-header {
-        font-weight: bold;
-        font-size: 30px;
-        color: rgb(113, 113, 113);
-        text-align: left;
-    }
-    
-    .edumetrix-header .ternary-header {
+ }
+
+ .edumetrix-header .secondary-header {
+     font-weight: bold;
+     font-size: 30px;
+     color: rgb(113, 113, 113);
+     text-align: left;
+ }
+
+ .edumetrix-header .ternary-header {
      text-align: left;
      margin-top: 20px;
      font-weight: bold;
@@ -39,10 +45,11 @@
      color: rgb(113, 113, 113)
  }
 
- .services-btn{
-    display: flex;
-    gap:20px
+ .services-btn {
+     display: flex;
+     gap: 20px
  }
+
  .apply-btn {
      margin-top: 20px;
      padding: 15px 30px;
@@ -51,34 +58,34 @@
      background-color: #164e64;
      color: white
  }
- @media screen and (max-width:800px) and (min-width:250px) {
-    .below-navbar{
-        flex-direction: column;
-        margin: auto;
-        text-align: center;
-        justify-content: center;
+ @media screen  and (max-width:1100) and (min-width:900px){
+    .auto-video-play{
+        border: 1px solid;
+        margin-top: 20%;
     }
-    .edumetrix-header{
-        width:100%;
-        margin: auto;
-        text-align: center;
-    }
-    .edumetrix-header p {
-        text-align: center;
-        word-break: normal;
-    }
-    .main-background-image{
-        margin: auto;
-    }
-   
  }
- @media (max-width:400px){
-    .main-background-image{
-    width:350px ;
-    }
-    .main-background-image img{
-        width:270px
-    }
+
+ @media screen and (max-width:900px) and (min-width:250px) {
+     .below-navbar {
+         flex-direction: column;
+         margin: auto;
+         text-align: center;
+         justify-content: center;
+     }
+
+     .edumetrix-header {
+         width: 100%;
+         margin: auto;
+         text-align: center;
+     }
+
+     .edumetrix-header p {
+         text-align: center;
+         word-break: normal;
+     }
+
+     
+
  }
 
  .all-courses-heading h1,
@@ -109,26 +116,42 @@
      .all-cards {
          width: 90%
      }
+     .main-background-image {
+                 width: 80%;
+                 margin: auto;
+                 margin-top: 20px;
+             }
+
  }
 
- 
+
 
  .all-cards::-webkit-scrollbar {
      width: 0;
      display: none;
  }
 
- .one-card-div {
-     box-shadow: #164e64 0px 15px 15px;
-     background-color: rgb(195, 255, 235);
+
+ 
+//  .all-cards div {
+//     box-shadow: #164e64 0px 5px 5px;
+//     background-color: rgb(245, 246, 245);
+//     transition: 1s;
+//  }
+//  .all-cards :hover {
+//     transform: scale(0.1);
+//     z-index:0
+//  }
+ .single-card{
+    box-shadow: #164e64 0px 15px 10px;
+    background-color: rgb(229, 250, 250);
      transition: 1s;
  }
-
- .one-card-div:hover {
-     cursor: pointer;
-     transform: scale(1.1);
-     z-index: 3;
+ .single-card:hover{
+    transform : scale(1.1);
+    z-index: 0;
  }
+ 
 
  .card-title {
      font-size: 20px;

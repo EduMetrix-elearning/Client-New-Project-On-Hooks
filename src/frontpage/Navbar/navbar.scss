@@ -1,0 +1,25 @@
+.frontend-navbar {
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    margin-bottom: 0px;
+
+}
+
+.navbar-items {
+    display: flex;
+    gap: 30px;
+}
+
+.navbar-items .all-items:hover {
+    width: 150px;
+    text-align: center;
+    background-color: #d6dbd9;
+    border-radius: 5px;
+    cursor: pointer;
+}

@@ -1,9 +1,39 @@
 import React from 'react'
 import "./footer.scss"
-import Qrcode from "../../asset/images/scan-Qr.jpeg"
 import { Link } from 'react-router-dom'
+import { ChatboxManager } from '../ChatboxManage/ChatboxManager';
+import Button from '@mui/material/Button';
+import Qrcode from "../../asset/images/scan-Qr.jpeg"
+import facebook from "../../asset/images/SocialImages/facebook.png"
+import instagram from "../../asset/images/SocialImages/instagram.png"
+import twitter from "../../asset/images/SocialImages/twitter.png"
+import linkedin from "../../asset/images/SocialImages/linkedin.png"
+import whatsapp from "../../asset/images/SocialImages/whatsapp.png"
+import ClearIcon from '@mui/icons-material/Clear';
+import { Card, CardContent, TextField, Box, FormControl, InputLabel, Input, FormHelperText, Typography, Grid ,Modal } from '@material-ui/core'
+
+const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 350,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
+};
 
 export const Footer = () => {
+    const [FAQopen, setFAQopen] = React.useState(false)
+
+    const handleFAQopen = () => {
+        setFAQopen(true)
+    }
+    const handleFAQclose = () => setFAQopen(false)
+
+ 
+
     return (
         <footer className='footer'>
             <div className="container">
@@ -13,47 +43,50 @@ export const Footer = () => {
                         <ul>
                             <li><Link to="/homepage">Home</Link></li>
                             <li><Link to="/AboutUs">about us</Link></li>
-                            <li><Link to="/TermOfservices">our services</Link></li>
+                            <li><Link to="/TermOfservices">Terms of services</Link></li>
                             <li><Link to="/PrivacyPolicy">privacy policy</Link></li>
                             <li><a href="#">affiliate program</a></li>
                         </ul>
                     </div>
                     <div className="footer-col">
-                        <h4>get help</h4>
+                        <h4>FAQs</h4>
                         <ul>
-                            <li><a href="#">FAQ</a></li>
-                            <li><a href="#">shiping</a></li>
-                            <li><a href="#">returns</a></li>
-                            <li><a href="#">order status</a></li>
-                            <li><a href="#">payment options</a></li>
+                            <li className='faq-link' onClick={handleFAQopen}>FAQ</li>
+                            <Modal open={FAQopen}
+                                onClose={handleFAQclose}
+                            >
+                                <ChatboxManager />
+                            </Modal>
+                            <li><a href="/whitePaper">White Paper</a></li>
+                            <li><a href="/address">Address</a></li>
+                            
                         </ul>
                     </div>
                     <div className="footer-col">
-                        <h4>online shop</h4>
+                        <h4>Courses</h4>
                         <ul>
-                            <li><a href="#">watch</a></li>
-                            <li><a href="#">bag</a></li>
-                            <li><a href="#">shoes</a></li>
-                            <li><a href="#">dress</a></li>
+                            <li><a href="/fullstack">Full Stack </a></li>
+                            <li><a href="/frontend">Frontend</a></li>
+                            <li><a href="/backend">Backend</a></li>
                         </ul>
                     </div>
                     <div className="footer-col">
                         <h4>follow us</h4>
                         <div className='social-links'>
                             <a href="https://www.facebook.com/edumetrix.io/">
-                                <i class="fab fa-facebook-f"></i>
+                                <img src={facebook} width="40px" alt="" />
                             </a>
                             <a href="https://twitter.com/Edumetrix_io">
-                                <i class="fab fa-twitter"></i>
+                                <img src={twitter} width="40px" alt="" />
                             </a>
                             <a href="https://www.instagram.com/edumetrix.io/">
-                                <i class="fab fa-instagram"></i>
+                                <img src={instagram} width="40px" alt="" />
                             </a>
                             <a href="https://www.linkedin.com/company/edumetrix-io/">
-                                <i class="fab fa-linkedin-in"></i>
+                                <img src={linkedin} width="40px" alt="" />
                             </a>
-                            <a href="#">
-                                <i class="fab fa-whatsapp"></i>
+                            <a href="https://wa.me/message/SWBLGFPFK6SYP1">
+                                <img src={whatsapp} width="40px" alt="" />
                             </a>
                         </div>
                         <div className="scancode-div">
@@ -61,7 +94,7 @@ export const Footer = () => {
                         </div>
 
                     </div>
-                   
+
                 </div>
             </div>
         </footer>

@@ -18,10 +18,15 @@ import Button from '@mui/material/Button';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import "./courses.scss"
 import { Box, Grid } from '@material-ui/core';
-import homepagehero from "../../asset/images/homelogo.png"
+import homepagehero from "../../asset/images/Homepagevdo.mp4"
 import { Typewriter } from "react-simple-typewriter"
 import { Modal, TextField } from '@material-ui/core';
 import ClearIcon from '@mui/icons-material/Clear';
+import ReactPlayer from 'react-player'
+import { Link } from 'react-router-dom';
+import fullstack from "../../asset/images/Courses/fullstack.jpg"
+import frontend from "../../asset/images/Courses/frontend.png"
+import backend from "../../asset/images/Courses/Backend.png"
 
 
 
@@ -39,18 +44,18 @@ const style = {
 
 const data = [
     {
-        "image": require("../../asset/images/feature_1.png"),
+        "image": require("../../asset/images/Courses/fullstack.jpg"),
         "title": "Full Stack Developer",
         "Details": " This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup of frozen peas along with the mussels, if you like.",
         "tags": ["Javascript", "React", "Nodejs", "Mongodb"]
     },
     {
-        "image": require("../../asset/images/feature_2.png"),
+        "image": require("../../asset/images/Courses/frontend.png"),
         "title": "Frontend Developer",
         "Details": " This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup of frozen peas along with the mussels, if you like."
     },
     {
-        "image": require("../../asset/images/feature_3.png"),
+        "image": require("../../asset/images/Courses/Backend.png"),
         "title": "Backend Developer",
         "Details": " This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup of frozen peas along with the mussels, if you like."
     }
@@ -82,6 +87,9 @@ const useStyles = makeStyles((theme) => ({
 
 
 export const Courses = () => {
+     
+
+
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
     const [courses, setCourses] = useState(data)
@@ -103,7 +111,7 @@ export const Courses = () => {
             <div className='below-navbar'>
                 <div className="edumetrix-header">
                     <h1 className='primary-header' ><Typewriter
-                        words={['EduMetrix Courses', 'Full stack Enginner']}
+                        words={['EduMetrix ', 'Full stack Enginner']}
                         loop={10}
                         cursor
                         cursorStyle='_'
@@ -115,7 +123,7 @@ export const Courses = () => {
                     <p className='ternary-header'>Build professional projects like the top 1% developers.Master the latest full stack and backend tech with real work-ex.Crack developer jobs at the best tech companies.</p>
                     <div className='services-btn'>
                     <button className='apply-btn' onClick={handleOpen}>Apply for Now</button>
-                    <button className='apply-btn'>Call Now +918310715970</button>
+                    <button className='apply-btn'><a href="tel:+918310715970" style={{textDecoration:"none",color:"white"}}> Call Now +918310715970 </a></button>
                     </div>
                     <Modal
                         open={open}
@@ -144,7 +152,8 @@ export const Courses = () => {
                 </div>
 
                 <div className='main-background-image'>
-                    <img src={homepagehero} width="400px" height="400px" alt="" />
+                    {/* <img src={homepagehero} width="400px" height="400px" alt="" /> */}
+                    <video src={homepagehero} className="auto-video-play" autoPlay loop muted />
                 </div>
             </div>
 
@@ -162,30 +171,78 @@ export const Courses = () => {
                 </div>
 
                 <Box className='all-cards'>
-                    {courses?.map((e) => {
+                    {/* {courses?.map((e) => { */}
 
-                        return (
-                            <Box className='one-card-div'>
-                                <Card className="course-card">
+                        {/* return ( */}
+                            {/* <div> */}
+                              {/* <Box className='one-card-div'> */}
+                                {/* <Box></Box> */}
+                                <div className='single-card'>
+                                <Link style={{textDecoration:"none"}} to="/fullstack"><Card className="course-card">
 
                                     <CardMedia
                                         className={classes.media}
-                                        image={e.image}
+                                        image={fullstack}
                                         title="Paella dish"
 
                                     />
                                     <CardContent>
                                         <Typography className='card-title' >
-                                            {e.title}
+                                            FullStack
                                         </Typography>
                                     </CardContent>
                                     <CardContent>
-                                        <Typography className="card-details">{e.Details}</Typography>
+                                        <Typography className="card-details">Become a skilled Full-Stack developer with hands-on experience in MERN stack . Tech stack used in Fullstack := Nodejs, MongoDB , React , HTML5 , CSS3 , Javascript</Typography>
                                     </CardContent>
-                                </Card>
-                            </Box >
-                        )
-                    })}
+                                </Card></Link>
+                                </div>
+
+
+                                <div className='single-card'>
+                                <Link style={{textDecoration:"none"}} to="/frontend"><Card className="course-card">
+
+                                    <CardMedia
+                                        className={classes.media}
+                                        image={frontend}
+                                        title="Paella dish"
+
+                                    />
+                                    <CardContent>
+                                        <Typography className='card-title' >
+                                            Frontend
+                                        </Typography>
+                                    </CardContent>
+                                    <CardContent>
+                                        <Typography className="card-details">Become a skilled frontend developer with hands-on experience in MERN stack . Tech stack used in Frontend := React , HTML5 , CSS3 , Javascript</Typography>
+                                    </CardContent>
+                                </Card></Link> </div>
+
+
+                                <div className='single-card'>
+                                <Link style={{textDecoration:"none"}} to="/backend"><Card className="course-card">
+                                    <CardMedia
+                                        className={classes.media}
+                                        image={backend}
+                                        title="Paella dish"
+
+                                    />
+                                    <CardContent>
+                                        <Typography className='card-title' >
+                                            Backend
+                                        </Typography>
+                                    </CardContent>
+                                    <CardContent>
+                                        <Typography className="card-details">Become a skilled backend developer with hands-on experience in building a scalable web backend .Tech stack used in Backend := Nodejs , Express js, MongoDB .</Typography>
+                                    </CardContent>
+                                </Card></Link>
+                                </div>
+                            {/* </Box >  */}
+
+                            
+
+                          {/* </div>  */}
+                        {/* ) */}
+                    {/* })} */}
 
                 </Box>
             </div>

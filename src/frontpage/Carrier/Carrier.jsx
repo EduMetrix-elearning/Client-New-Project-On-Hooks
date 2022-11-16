@@ -4,12 +4,6 @@ import Button from '@mui/material/Button';
 import { Card, CardContent, TextField, Box, FormControl, InputLabel, Input, FormHelperText, Typography, Grid ,Modal } from '@material-ui/core'
 import ClearIcon from '@mui/icons-material/Clear';
 
-const courses = [
-  {title:"Full stack Developer",id:"1"},
-  {title:"Frontend Developer",id:"2"},
-  {title:"Backend Developer",id:"3"},
-  {title:"Marketing",id:"4"}
-]
 
 const style = {
   position: 'absolute',
@@ -24,13 +18,9 @@ const style = {
 };
 
 export const Carrier = (props) => {
-  // const {handleClose,handleOpen,handleChange,open,course,setCourses}=props
-  const [course, setCourses] = React.useState(courses || [])
+  
   const {handleClose,carrierOpen}=props
-  console.log("carrier",course)
-  const handleChange = (event) => {
-    setCourses(event.target.value);
-  }
+  
   return (
     <div className='carrier-form'>
         
@@ -53,24 +43,14 @@ export const Carrier = (props) => {
           <TextField fullWidth sx={{ m: 1 }} id="standard-basic" label="Name *" variant="standard" />
           <TextField fullWidth sx={{ m: 1 }} id="standard-basic" label="10  digits Mobile No *" variant="standard" />
           <TextField fullWidth sx={{ m: 1 }} id="standard-basic" label="Email *" variant="standard" />
-          <TextField
-            fullWidth sx={{ m: 1 }}
-            id="standard-select-currency-native"
-            select
-            label="Select courses interested in"
-            value={course}
-            onChange={handleChange}
-            SelectProps={{
-              native: true,
-            }}
-            variant="standard"
-          >
-            {courses.map((e) => (
-              <option key={e.id} value={e.id}>
-                {e.title}
-              </option>
-            ))}
-          </TextField>
+          <select style={{marginTop:"20px"}}>
+            <option value="">Select Courses</option>
+            <option value="fullstack">Full stack Developer</option>
+            <option value="frontend">Frontend Developer</option>
+            <option value="backend">Backend Developer</option>
+            <option value="marketing">Marketing</option>
+          </select>
+          
           <TextField fullWidth sx={{ m: 1 }} id="standard-basic" label="Message *" variant="standard" />
           <input type="file" />
           <Button fullWidth sx={{ marginTop: "20px" }} variant="contained" className='student-form-filling-btn'>I'm Interested</Button>

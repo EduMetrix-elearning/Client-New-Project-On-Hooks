@@ -30,13 +30,21 @@ import {EduMetrixHomepage} from './frontpage/Homepage/Homepage.jsx';
 import {Aboutus} from "./frontpage/Aboutus/Aboutus.jsx"
 import {TermOfservices} from "./frontpage/TermOfCondition/TermOfservices.jsx"
 import {Privacypolicy} from "./frontpage/Privacypolicy/PrivacyPolicy.jsx"
-import { SingleCoursePage } from './frontpage/SingleCoursePage/SingleCoursePage.jsx';
+import {WhitePaperPage} from "./frontpage/WhitePaper/WhitePaperPage.jsx"
+import { Address } from './frontpage/Address/Address.jsx';
+import ScrollToTop from './ScrollTotop.js';
+import { Frontend } from './frontpage/SingleCoursePage/Frontend.jsx';
+import { Backend } from './frontpage/SingleCoursePage/Backend.jsx';
+import { Fullstack } from './frontpage/SingleCoursePage/Fullstack.jsx';
+import { Hrform } from './frontpage/HrForm/Hrform.jsx';
 
 function App() {
   return (
     <div className='platform'>
       <Provider store={store}>
+          
         <Router>
+          <ScrollToTop/>
           <Routes>
             <Route index element={<ProtectedRouter children={<Home />} />} />
             <Route path="login" element={<ProtectedRouter children={<Login />} />} />
@@ -63,10 +71,17 @@ function App() {
 
             {/* Edumetrix Front Courses Page */}
             <Route path="/homepage" element={<EduMetrixHomepage/>} ></Route>
-            <Route path="/Courses" element={<SingleCoursePage/>}></Route>
+            <Route path="/Courses" element={<Fullstack/>}></Route>
             <Route path="/AboutUs" element={<Aboutus/>}></Route>
             <Route path="/TermOfservices" element={<TermOfservices/>}></Route>
             <Route path="/PrivacyPolicy" element={<Privacypolicy/>}></Route>
+            <Route path="/whitepaper" element={<WhitePaperPage/>}></Route>
+            <Route path="/address" element={<Address/>}></Route>
+            <Route path="/backend" element={<Backend/>}></Route>
+            <Route path="/frontend" element={<Frontend/>}></Route>
+            <Route path="/fullstack" element={<Fullstack/>}></Route>
+            <Route path="/Hrform" element={<Hrform/>}></Route>
+            
           </Routes>
         </Router>
       </Provider>
