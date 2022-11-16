@@ -15,6 +15,7 @@ import Chatbot from './pages/Chatbot/Chatbot';
 import Profile from './pages/Profile/Profile';
 import Wallet from './pages/Wallet/Wallet';
 import SignUpVerification from './pages/SignUpVerification/SignUpVerification.jsx';
+import NewPage from './pages/NewPage/NewPage'
 
 import AboutUs from './pages/AboutUs/AboutUs/AboutUs';
 
@@ -32,7 +33,7 @@ function App() {
       <Provider store={store}>
         <Router>
           <Routes>
-            <Route index element={<ProtectedRouter children={<Home />} />} />
+            <Route index element={<ProtectedRouter children={<NewPage />} />} />
             <Route path="login" element={<ProtectedRouter children={<Login />} />} />
             <Route path="chat" element={<ProtectedRouter children={<Chat />} />} />
             <Route path="pics" element={<ProtectedRouter children={<TopPics />} />} />

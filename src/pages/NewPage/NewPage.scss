@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');//Libre Baskerville
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');//Merriweather
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');//Cairo
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');//EB Garamond
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');//Crimson Text
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');//Maven Pro
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');//Yanone Kaffeesatz
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');//Vollkorn
+
+.NewPage {
+    background-color: rgb(251, 251, 251);
+
+    .nav {
+        display: flex;
+        flex-direction: column;
+
+        .logo {
+            display: flex;
+            align-items: center;
+            img{
+                $side:40px;
+                width: $side;
+                height: $side;
+            }
+            p{
+                font-family: Libre Baskerville;
+                // font-weight: bold;
+                // font-style: italic;
+                font-size: 26pt;
+            }
+        }
+
+        .menu {
+            ul {
+                padding-left: 0;
+                li {
+                    font-size: 14pt;
+                    color: gray;
+                    padding-left: 20px;
+                    width: 250px;
+                    margin-top: 10px;
+                    cursor: pointer;
+                    margin-left: 5PX;
+
+                    i {
+                        margin-right: 30px;
+                        padding: 10px;
+                        border-radius: 50%;
+                        box-shadow: 1px 1px 0px 0px gray;
+                        background-color: white;
+                    }
+
+                    &:hover {
+                        opacity: .7;
+                    }
+                }
+
+                .active {
+                    color: var(--color7);
+                    font-weight: bold;
+                    border-left: 5px solid var(--color7);
+                    padding-left: 20px;
+                    margin-left: 0;
+
+                    i {
+                        background-color: var(--color7);
+                        color: white;
+                        padding: 10px;
+                        border-radius: 50%;
+                        border: none;
+                    }
+                }
+            }
+        }
+    }
+}
