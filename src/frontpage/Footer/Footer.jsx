@@ -35,7 +35,7 @@ export const Footer = () => {
  
 
     return (
-        <footer className='footer'>
+        <footer className='footer-main-div'>
             <div className="container">
                 <div className="row">
                     <div className="footer-col">

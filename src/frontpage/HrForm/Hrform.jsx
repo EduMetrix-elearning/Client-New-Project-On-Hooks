@@ -1,5 +1,5 @@
 import React from 'react'
-import { Navbarpage } from "../Navbar/NavbarPage.jsx"
+import { Navbarpage } from "../Navbar/Navbarpage.jsx"
 import { Footer } from "../Footer/Footer.jsx"
 import image1 from "../../asset/images/HrpageImage/hrpage1.jpeg"
 import image2 from "../../asset/images/HrpageImage/hrpage2.jpeg"

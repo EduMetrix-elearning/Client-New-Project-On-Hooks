@@ -4,7 +4,7 @@ import courseImage from "../../asset/images/Courses/fullstack.jpg"
 import "./SingleCourse.scss"
 import "../Courses/Courses.scss"
 import { Footer } from '../Footer/Footer'
-import { Navbarpage } from '../Navbar/NavbarPage'
+import { Navbarpage } from '../Navbar/Navbarpage'
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import SignalCellularAltIcon from '@mui/icons-material/SignalCellularAlt';
 

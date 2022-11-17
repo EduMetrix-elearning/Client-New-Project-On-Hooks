@@ -1,15 +1,15 @@
 import React from 'react'
 import './AboutUs.scss'
 import { Footer } from '../Footer/Footer'
-import { Navbarpage } from '../Navbar/NavbarPage'
+import { Navbarpage } from '../Navbar/Navbarpage'
 
 export const Aboutus=()=> {
     return (
         <>
         <Navbarpage/>
-        <div className='AboutUs' >
-            <div className='section'>
-                <div className='article'>
+        <div className='AboutUs-main-div' >
+            <div className='section-div'>
+                <div className='article-div'>
                     <header>
                         <h3>About Us</h3>
                         <p className='paragraph'>
@@ -17,7 +17,7 @@ export const Aboutus=()=> {
                         </p>
                     </header>
 
-                    <div className='video'>
+                    <div className='video-div'>
                         <iframe
                             allowFullScreen={"true"}
                             width="70%"
