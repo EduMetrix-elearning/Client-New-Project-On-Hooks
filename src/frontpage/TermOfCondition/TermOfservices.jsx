@@ -1,6 +1,6 @@
 import React from 'react'
 import { Footer } from '../Footer/Footer'
-import { Navbarpage } from '../Navbar/NavbarPage'
+import { Navbarpage } from '../Navbar/Navbarpage'
 import './TermOfservices.scss'
 
 export  const TermOfservices=()=> {

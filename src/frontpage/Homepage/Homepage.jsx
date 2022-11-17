@@ -11,7 +11,7 @@ import ChatIcon from '@material-ui/icons/Chat';
 import SpeakerNotesOffRoundedIcon from '@material-ui/icons/SpeakerNotesOffRounded';
 import Modal from '@mui/material/Modal';
 import { ChatboxManager } from '../ChatboxManage/ChatboxManager.jsx';
-import { Navbarpage } from '../Navbar/NavbarPage.jsx';
+import { Navbarpage } from '../Navbar/Navbarpage.jsx';
 
 
 const style = {

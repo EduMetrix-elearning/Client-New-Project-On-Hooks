@@ -22,7 +22,7 @@ export default function ProtectedRouter({ children }) {
             return children
         }
         else {
-            return <Navigate to="/login" />
+            return <Navigate to="/homepage" />
         }
     }
 }

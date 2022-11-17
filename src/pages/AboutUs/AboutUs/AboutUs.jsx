@@ -11,12 +11,12 @@ export default function AboutUs() {
         <div className='AboutUs'>
             <section>
                 <article>
-                    <header>
+                    <div className='header'>
                         <h3>About Us</h3>
                         <p>
                             Founded in November 2017, EduMetrix is a revolutionary decentralized educational platform powered by the blockchain technology. Taking a detour from the rote method of imparting information and knowledge, EduMetrix aims to build the bridge between all the stakeholders in the global education ecosystem. Closing the knowledge gaps by improving accessibility to learning tools and resources in a secure environment offers EduMetrix its distinctive identity when it comes to education in the digital.
                         </p>
-                    </header>
+                    </div>
 
                     <div className='video'>
                         <iframe
