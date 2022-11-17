@@ -45,7 +45,7 @@ export default function CreatePost() {
     async function submitFilePost() {
         if (fileInput.type === "image") {
             let obj = {
-                "student_id": userInfo.id,
+                "student_id": userInfo?.id,
                 "post_photo": await toBase64(fileInput.file),
                 "post_content": fileInput.text || "",
                 "posted_date": getFormattedDate(),
@@ -83,9 +83,9 @@ export default function CreatePost() {
     return (
         <div className='CreatePost'>
             <div className='createPost_inner_div'>
-                <header>
+                <div className='header'>
                     <p>Create Post</p>
-                </header>
+                </div>
                 <div className='body'>
                     <img src={userInfo?.photo} alt="" />
                     <input type="text" placeholder='write something here...'

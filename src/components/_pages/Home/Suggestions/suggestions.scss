@@ -1,8 +1,9 @@
-.suggestions {
-    grid-area: side;
-    // position: absolute;
+.Suggestions {
+    // grid-area: side;
+    position: fixed;
     right: 30px;
     top: 60px;
+    width: 250px;
     background-color: white;
     padding: 10px;
     // border-radius: 10px;
@@ -20,7 +21,8 @@
     .suggestions_inner_div {
         height: 70vh;
         overflow-y: scroll;
-        &::-webkit-scrollbar{
+
+        &::-webkit-scrollbar {
             display: none;
         }
 
@@ -54,5 +56,10 @@
             }
         }
     }
+}
 
+@media screen and (max-width:1100px) {
+    .Suggestions {
+        display: none;
+    }
 }

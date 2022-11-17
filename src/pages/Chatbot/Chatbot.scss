@@ -1,9 +1,14 @@
 .Chatbot {
+    height: 100vh;
     .chatbot_content {
+        padding-top: 10px;
         grid-area: 2 / 2 / 2 / 4;
         display: grid;
         grid-template-columns: repeat(7, 1fr);
-        overflow-y: auto;
+        grid-template-rows: repeat(3, 1fr);
+        // overflow-y: auto;
+        grid-gap: 10px;
+        height: inherit;
 
         .new_today {
             grid-column-start: 1;
@@ -11,7 +16,7 @@
             grid-row-start: 1;
             grid-row-end: 4;
             overflow-y: auto;
-            height: 80%;
+            // height: 100%;
 
             .heading {
                 h1 {

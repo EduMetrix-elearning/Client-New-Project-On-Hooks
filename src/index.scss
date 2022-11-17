@@ -111,6 +111,24 @@ ul {
   list-style: none;
 }
 
+header {
+  position: sticky;
+  top: 0;
+  height: 8vh;
+  z-index: 10;
+}
+
+main {
+  // width: 64%;
+  margin-left: 200px;
+  height: 92vh;
+
+  @media screen and (max-width:750px) {
+    margin-left: 0;
+  }
+}
+
+
 // html {
 //   @media(min-width:2732px) {font-size: 28px;}
 //   @media(max-width:2732px) {font-size: 26px;}
@@ -133,3 +151,9 @@ ul {
 // @media only screen and (min-width: 768px) {...}
 // @media only screen and (min-width: 992px) {...}
 // @media only screen and (min-width: 1200px) {...}
+
+// 320px — 480px: Mobile devices
+// 481px — 768px: iPads, Tablets
+// 769px — 1024px: Small screens, laptops
+// 1025px — 1200px: Desktops, large screens
+// 1201px and more —  Extra large screens, TV

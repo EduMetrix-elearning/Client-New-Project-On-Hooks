@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './suggestions.scss'
+import './Suggestions.scss'
 import { useEffect } from 'react'
 import { followFriend, getStudentsToFollow } from '../../../../api'
 import { userInfo } from '../../../../utils/localStorage_Utils'
@@ -27,7 +27,7 @@ export default function Suggestions() {
     }
 
     return (
-        <div className='suggestions'>
+        <div className='Suggestions'>
             <div className="title">
                 <h6>People suggestions</h6>
             </div>

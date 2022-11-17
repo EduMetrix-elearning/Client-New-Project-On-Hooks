@@ -105,17 +105,17 @@ export default function ChatWindow({ currentChat }) {
         }
     }
 
-    console.log(chats)
+    // console.log(chats)
     // console.log(attachmentFile)
 
     return (
         <div className='ChatWindow'>
             {currentChat ?
                 <div className='chat_window_inner_div'>
-                    <header>
+                    <div className='header'>
                         <img src={currentChat?.student_photo} alt="" />
                         <p>{currentChat?.student_fname}{currentChat?.student_lname}</p>
-                    </header>
+                    </div>
                     <div className='chat_screen'>
                         {
                             chats.map((chat, i) => {

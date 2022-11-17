@@ -28,8 +28,8 @@
             justify-content: flex-end;
 
             button {
-                margin: 5px 10px;
-                margin-top: 15px;
+                margin: 10px 0;
+                margin-left: 10px;
                 border-radius: 10px;
                 border: none;
                 background-color: var(--color3);
@@ -52,12 +52,14 @@
 
         input {
             border-radius: 10px;
+            height: 35px;
         }
     }
 
     .submit_button {
         display: flex;
         justify-content: center;
+        margin-top: 20px;
 
         button {
             width: 50%;
@@ -66,6 +68,36 @@
             color: white;
             border-radius: 10px;
             height: 40px;
+        }
+    }
+}
+
+@media screen and (max-width:862px) {
+    .SignUpDetailsForm {
+        width: 100%;
+        order: 1;
+    }
+}
+
+@media screen and (max-width:584px) {
+    .SignUpDetailsForm {
+        .otp_section {
+            .otp_inputs {
+                align-items: center;
+
+                input {
+                    height: 40px;
+                }
+            }
+        }
+
+        .details_form {
+            grid-template-columns: repeat(1, 1fr);
+            padding: 0 30px;
+
+            input {
+                height: 40px;
+            }
         }
     }
 }

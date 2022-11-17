@@ -38,7 +38,7 @@ export default function SignUpDetailsForm({ setPage }) {
         <div className='SignUpDetailsForm'>
             <div className='heading'>
                 <h5>Please complete the following steps</h5>
-                <h6>Enter OTP passwords which already send to your email and mobile no</h6>
+                <h6>Enter OTP passwords which already send to your email and mobile number</h6>
             </div>
             <div className='otp_section'>
                 <div className='otp_inputs'>

@@ -16,17 +16,19 @@ export default function SignUpVerification() {
                     page === "fillUpForm" ? <SignUpDetailsForm setPage={setPage} />
                         : page === 'uploadDocuments' && <UploadDocuments />
                 }
-                <div className='company'>
-                    <img src={image_coin} alt="" />
-                    <h3>EduMetrix.io</h3>
-                    <hr />
-                </div>
-                {page === "fillUpForm" &&
-                    <div className="refer">
-                        <input type="text" placeholder='Referal code (optional)' />
+                <section>
+                    <div className='company'>
+                        <img src={image_coin} alt="" />
+                        <h3>EduMetrix.io</h3>
+                        <hr />
                     </div>
-                }
+                    {page === "fillUpForm" &&
+                        <div className="refer">
+                            <input type="text" placeholder='Referal code (optional)' />
+                        </div>
+                    }
+                </section>
             </div>
-        </div>
+        </div >
     )
 }

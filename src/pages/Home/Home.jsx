@@ -15,10 +15,14 @@ export default function Home() {
 
 
   return (
-    <div className='Home grid'>
-      <Header />
+    <div className='Home'>
+      <header>
+        <Header />
+      </header>
+      <main>
+        <Wall />
+      </main>
       <NavBar currPage={'Home'} />
-      <Wall />
       <Suggestions />
       <ChatBox />
       {

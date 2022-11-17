@@ -8,7 +8,7 @@
     width: 280px;
     overflow: hidden;
 
-    header {
+    div.header {
         background-color: var(--color3);
         color: var(--color1);
         text-align: center;
@@ -23,7 +23,7 @@
         }
     }
 
-    main {
+    div.content {
         background-color: var(--color1);
         height: 250px;
 

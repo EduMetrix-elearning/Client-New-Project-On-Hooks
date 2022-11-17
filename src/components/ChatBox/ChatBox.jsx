@@ -54,11 +54,11 @@ export default function ChatBox() {
 
     return (
         <div className='ChatBox'>
-            <header onClick={() => setShow(!show)}>
-                <i className='fas fa-comment' />Messages
-            </header>
+            <div className='header' onClick={() => setShow(!show)}>
+                <i className='fa fa-comment' />Messages
+            </div>
             {show &&
-                <main>
+                <div className='content'>
                     <div className='chat_list'>
                         {!currentChats.length ?
                             activeUsers.map((user, i) => {
@@ -86,7 +86,7 @@ export default function ChatBox() {
                             </div>
                         }
                     </div>
-                </main>
+                </div>
             }
         </div>
     )

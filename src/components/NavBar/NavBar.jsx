@@ -25,6 +25,7 @@ export default function NavBar({ currPage }) {
   const dispatch = useDispatch()
 
   const [network, setNetwork] = useState({})
+  const [dropDown, setDropDown] = useState(false)
 
   const menus = [
     { title: 'Home', image_src: image_home, path: '/' },
@@ -52,13 +53,14 @@ export default function NavBar({ currPage }) {
         <span><p>{network.followings}</p> Followings</span>
       </div>
       <div className='logo' >
+        <i className='fa fa-bars' onClick={() => setDropDown(!dropDown)} />
         <div className='justify-center'>
           <img src={image_coin} alt="" />
         </div>
         <p>EduMetrix.io</p>
       </div>
       <hr />
-      <div>
+      <div className={'pages' + (dropDown ? ' active' : "")}>
         <ul>
           {
             menus &&

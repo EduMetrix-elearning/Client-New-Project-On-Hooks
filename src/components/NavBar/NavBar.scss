@@ -1,5 +1,11 @@
 .NavBar {
-    grid-area: navbar;
+    // grid-area: navbar;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 12;
+    width: 200px;
+    height: 100vh;
     background-color: var(--color6);
     padding: 1px;
     color: var(--color1);
@@ -14,11 +20,14 @@
 
     .logo {
         margin-top: 20px;
-        // margin-bottom: 40px;
         height: 150px;
         position: relative;
         width: 100%;
         display: inline-block;
+
+        i.fa-bars {
+            display: none;
+        }
 
         img {
             width: 100px;
@@ -34,11 +43,12 @@
             bottom: 0;
         }
     }
-    hr{
-        margin:20px 0;
+
+    hr {
+        margin: 20px 0;
         width: 90%;
-        margin-left:auto;
-        margin-right:auto;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     ul {
@@ -72,6 +82,53 @@
 
         .active {
             background-color: var(--color7);
+        }
+    }
+}
+
+@media screen and (max-width:750px) {
+    .NavBar {
+        height: 8vh;
+        width: auto;
+        padding: 0px;
+
+        &>*:not(.logo) {
+            display: none;
+        }
+
+        .logo {
+            display: flex;
+            height: 100%;
+            align-items: center;
+            margin-top: 0;
+            gap: 10px;
+            padding: 10px;
+
+            i.fa-bars {
+                display: block;
+                font-size: 14pt;
+                margin-top: 5px;
+                cursor: pointer;
+            }
+
+            img {
+                $side: 30px;
+                width: $side;
+                height: $side;
+            }
+
+            p {
+                position: relative;
+            }
+        }
+
+        .pages.active {
+            display: block;
+            background-color: var(--color6);
+            height: 100vh;
+            padding-top: 20px;
+            width: 100%;
+            border-top:1px solid white;
         }
     }
 }

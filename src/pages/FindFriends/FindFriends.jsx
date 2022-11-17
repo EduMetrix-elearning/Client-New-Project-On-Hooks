@@ -60,21 +60,25 @@ export default function FindFriends() {
     }
 
     return (
-        <div className='FindFriends grid'>
-            <Header />
-            <NavBar currPage={'Find friends'} />
-            <div className='findFriends_content'>
-                <SearchFriends search={searchFriendsHandle} inputs={setSearchInputs} filterBtn={filterButtonHandle} />
-                <div className="display_friends">
-                    {
-                        students && students.map((student, index) => {
-                            return (
-                                <DisplayFriends key={index} details={student} followButton={followButtonHandle} />
-                            )
-                        })
-                    }
+        <div className='FindFriends'>
+            <header>
+                <Header />
+            </header>
+            <main>
+                <div className='findFriends_content'>
+                    <SearchFriends search={searchFriendsHandle} inputs={setSearchInputs} filterBtn={filterButtonHandle} />
+                    <div className="display_friends">
+                        {
+                            students && students.map((student, index) => {
+                                return (
+                                    <DisplayFriends key={index} details={student} followButton={followButtonHandle} />
+                                )
+                            })
+                        }
+                    </div>
                 </div>
-            </div>
+            </main>
+            <NavBar currPage={'Find friends'} />
         </div>
     )
 }

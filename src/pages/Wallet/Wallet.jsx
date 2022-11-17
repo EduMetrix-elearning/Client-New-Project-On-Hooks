@@ -80,45 +80,49 @@ export default function Wallet() {
     // console.log(transactions)
 
     return (
-        <div className='Wallet grid'>
-            <Header />
+        <div className='Wallet'>
+            <header>
+                <Header />
+            </header>
+            <main>
+                <div className='wallet_content'>
+                    <p data-content="heading">EMC Balance: $</p>
+                    <p data-content="heading">USD Balance:</p>
+                    <div className="transactions">
+                        <h3>Transactions</h3>
+                        {transactions?.status === '0' && <p>{transactions.message}</p>}
+                        {transactions?.result.map((item, index) => (
+                            <tr key={index}>
+                                <td>
+                                    <strong>{item.timeStamp}</strong>
+                                </td>
+                                <td>{item.to || 'N/A'}</td>
+                                <td>{publicKey.public_key === item.to ? 'Received' : 'Sent'}</td>
+                                <td>{item.value}</td>
+                            </tr>
+                        ))}
+                    </div>
+                    <div className='qrcode'>
+                        <div className="qr">
+                            <img src={publicKey?.qrcode} alt="" />
+                        </div>
+                        <div className="wallet_address">
+                            <h6>Wallet Address
+                                <i className='fa fa-copy'
+                                    onClick={() => navigator.clipboard.writeText(`${publicKey?.public_key}`)} />
+                            </h6>
+                            <p>{publicKey?.public_key}</p>
+                        </div>
+                        <div className="send_to">
+                            <p>Send To A Public Address</p>
+                            <input type="text" placeholder='Public / Private key'
+                                onChange={(e) => setSendAddress(e.target.value)} />
+                            <button onClick={setupWithdrawal}>Send</button>
+                        </div>
+                    </div>
+                </div>
+            </main>
             <NavBar currPage={'Wallet'} />
-            <div className='wallet_content'>
-                <p data-content="heading">EMC Balance: $</p>
-                <p data-content="heading">USD Balance:</p>
-                <div className="transactions">
-                    <h3>Transactions</h3>
-                    {transactions?.status === '0' && <p>{transactions.message}</p>}
-                    {transactions?.result.map((item, index) => (
-                        <tr key={index}>
-                            <td>
-                                <strong>{item.timeStamp}</strong>
-                            </td>
-                            <td>{item.to || 'N/A'}</td>
-                            <td>{publicKey.public_key === item.to ? 'Received' : 'Sent'}</td>
-                            <td>{item.value}</td>
-                        </tr>
-                    ))}
-                </div>
-                <div className='qrcode'>
-                    <div className="qr">
-                        <img src={publicKey?.qrcode} alt="" />
-                    </div>
-                    <div className="wallet_address">
-                        <h6>Wallet Address
-                            <i className='fa fa-copy'
-                                onClick={() => navigator.clipboard.writeText(`${publicKey?.public_key}`)} />
-                        </h6>
-                        <p>{publicKey?.public_key}</p>
-                    </div>
-                    <div className="send_to">
-                        <p>Send To A Public Address</p>
-                        <input type="text" placeholder='Public / Private key'
-                            onChange={(e) => setSendAddress(e.target.value)} />
-                        <button onClick={setupWithdrawal}>Send</button>
-                    </div>
-                </div>
-            </div>
             <Modal setShow={setModalShow} show={modalShow}>
                 <h3>Please verify the OTPs to initiate the transaction</h3>
                 <div>

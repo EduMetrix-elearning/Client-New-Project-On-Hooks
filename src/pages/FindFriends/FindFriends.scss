@@ -1,19 +1,12 @@
 .FindFriends {
+    overflow: auto;
     .findFriends_content {
-        grid-area: 2 / 2 / 3 / 4;
-
         .display_friends {
             display: flex;
             flex-wrap: wrap;
-            justify-content: flex-start;
+            justify-content: center;
             gap: 20px;
-            overflow-y: scroll;
-            height: 500px;
-            padding: 20px 70px;
-
-            &::-webkit-scrollbar{
-                display: none;
-            }
+            padding-bottom: 20px;
         }
     }
 }

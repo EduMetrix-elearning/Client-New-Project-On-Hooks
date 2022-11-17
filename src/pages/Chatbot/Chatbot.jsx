@@ -6,7 +6,6 @@ import NavBar from '../../components/NavBar/NavBar'
 import BotIcon from '../../components/_pages/Chatbot/BotIcon/BotIcon'
 import SocialMediaPosts from '../../components/_pages/Chatbot/SocialMediaPosts/SocialMediaPosts'
 import { getFacebookData, getInstaData, getSlides, getTwitterData, getWhatsNewData } from '../../api'
-import { Slide } from 'react-slideshow-image'
 
 import image_video_camera from '../../asset/images/chatbot/video-camera.png'
 
@@ -24,9 +23,9 @@ export default function Chatbot() {
             .then((response) => setData((s) => ({ ...s, whats: response.data })))
             .catch((err) => ({ error: "Some error is happened" }))
 
-        getFacebookData()
-            .then((response) => setData((s) => ({ ...s, facebook: response.data.result.error.message })))
-            .catch((err) => ({ error: "Some error is happened" }))
+        // getFacebookData()
+        //     .then((response) => setData((s) => ({ ...s, facebook: response.data.result.error.message })))
+        //     .catch((err) => ({ error: "Some error is happened" }))
 
         getInstaData()
             .then((response) => setData((s) => ({ ...s, insta: response.data })))
@@ -55,51 +54,53 @@ export default function Chatbot() {
         }
     }
 
-
     // console.log(data)
     // console.log(data.slides)
-    console.log(slideRoll)
+    // console.log(slideRoll)
 
     return (
-        <div className='Chatbot grid'>
-            <Header />
-            <NavBar currPage={'Chatbot'} />
-            <div className='chatbot_content'>
-                <div className='new_today'>
-                    <div className='heading'>
-                        <h1>What's new today</h1>
+        <div className='Chatbot'>
+            <header>
+                <Header />
+            </header>
+            <main>
+                <div className='chatbot_content'>
+                    <div className='new_today'>
+                        <div className='heading'>
+                            <h1>What's new today</h1>
+                        </div>
+                        {data?.whats?.result &&
+                            data.whats.result.map((obj, i) => {
+                                return (
+                                    <div className='news' key={i}>
+                                        <img src={obj.adminPicture_uploaded} alt="" />
+                                        <p>{obj.message}</p>
+                                    </div>
+                                )
+                            })
+                        }
                     </div>
-                    {data?.whats?.result &&
-                        data.whats.result.map((obj, i) => {
-                            return (
-                                <div className='news' key={i}>
-                                    <img src={obj.adminPicture_uploaded} alt="" />
-                                    <p>{obj.message}</p>
+                    <SocialMediaPosts media={'instagram'} color={'#E8247B'} data={data.insta} />
+                    <SocialMediaPosts media={'linkedin'} color={'#0E76A8'} />
+                    <SocialMediaPosts media={'twitter'} color={'#00ACEE'} data={data.twitter} />
+                    {data.slides &&
+                        <div className="carousel">
+                            {(data.slides[slideRoll].slideVideo) ?
+                                <div className="each-slide" title="Click to See">
+                                    <video src={data.slides[slideRoll].slideVideo}></video>
                                 </div>
-                            )
-                        })
+                                :
+                                <div className="each-slide" title="Click to See">
+                                    <img className='slideImage' src={data.slides[slideRoll].slideImage} id="slide-img" alt="" />
+                                </div>
+                            }
+                            <span><i className='fa fa-angle-right' onClick={() => sliderAction(1)} /></span>
+                            <span><i className='fa fa-angle-left' onClick={() => sliderAction(-1)} /></span>
+                        </div>
                     }
                 </div>
-                <SocialMediaPosts media={'facebook'} start={'4'} end={'6'} color={'#4267B2'} />
-                <SocialMediaPosts media={'linkedin'} start={'6'} end={'8'} color={'#0E76A8'} />
-                <SocialMediaPosts media={'twitter'} start={'4'} end={'6'} color={'#00ACEE'} data={data.twitter} />
-                <SocialMediaPosts media={'instagram'} start={'6'} end={'8'} color={'#E8247B'} data={data.insta} />
-                {data.slides &&
-                    <div className="carousel">
-                        {(data.slides[slideRoll].slideVideo) ?
-                            <div className="each-slide" title="Click to See">
-                                <video src={data.slides[slideRoll].slideVideo}></video>
-                            </div>
-                            :
-                            <div className="each-slide" title="Click to See">
-                                <img className='slideImage' src={data.slides[slideRoll].slideImage} id="slide-img" alt="" />
-                            </div>
-                        }
-                        <span><i className='fa fa-angle-right' onClick={() => sliderAction(1)} /></span>
-                        <span><i className='fa fa-angle-left' onClick={() => sliderAction(-1)} /></span>
-                    </div>
-                }
-            </div>
+            </main>
+            <NavBar currPage={'Chatbot'} />
             <BotIcon />
         </div >
     )
