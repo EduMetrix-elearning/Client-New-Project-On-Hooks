@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import './CreatePost.scss'
+import Resizer from 'react-image-file-resizer';
 
 import { popUp } from '../../../../../slices/popUpSlice'
 
@@ -14,6 +15,7 @@ import { userInfo } from '../../../../../utils/localStorage_Utils'
 import { createPost, postDocPost, postImagePost, postVideoPost } from '../../../../../api'
 
 import Modal from '../../../../Modal/Modal'
+import { useEffect } from 'react';
 
 export default function CreatePost() {
 
@@ -42,17 +44,34 @@ export default function CreatePost() {
         setFileInput((s) => ({ ...s, file: e.target.files[0] }))
     }
 
+    const resizeFile = (file) =>
+        new Promise((resolve) => {
+            Resizer.imageFileResizer(
+                file,
+                600,
+                600,
+                "JPEG",
+                50,
+                0,
+                (uri) => {
+                    resolve(uri);
+                },
+                "base64"
+            );
+        });
+
+
     async function submitFilePost() {
         if (fileInput.type === "image") {
             let obj = {
                 "student_id": userInfo?.id,
-                "post_photo": await toBase64(fileInput.file),
+                "post_photo": await resizeFile(fileInput.file),
                 "post_content": fileInput.text || "",
                 "posted_date": getFormattedDate(),
                 "post_id": GeneratePostId()
             }
             console.log(obj)
-            postImagePost(obj).then((res) => console.log(res.data)).catch((err) => console.log(err))
+            postImagePost(obj).then((res) => console.log(res.data), setModalShow(false)).catch((err) => console.log(err))
         }
         if (fileInput.type === "video") {
             let postVideo = new FormData();
@@ -62,7 +81,7 @@ export default function CreatePost() {
             postVideo.append("posted_date", getFormattedDate())
             postVideo.append("post_id", GeneratePostId())
             console.log(postVideo)
-            postVideoPost(postVideo).then((res) => console.log(res.data)).catch((err) => console.log(err))
+            postVideoPost(postVideo).then((res) => console.log(res.data), setModalShow(false)).catch((err) => console.log(err))
         }
         if (fileInput.type === "document") {
             var postDoc = new FormData();
@@ -73,7 +92,7 @@ export default function CreatePost() {
             postDoc.append("post_id", GeneratePostId())
 
             console.log(postDoc)
-            postDocPost(postDoc).then((res) => console.log(res.data)).catch((err) => console.log(err))
+            postDocPost(postDoc).then((res) => console.log(res.data), setModalShow(false)).catch((err) => console.log(err))
         }
     }
 
