@@ -4,12 +4,14 @@
     width: 100%;
     background-color: white;
     display: flex;
-    justify-content: center;
+    // justify-content: spac;
     padding: 0 90px;
+    position: fixed;
+    top: 0;
 
-    &>div {
-        flex-grow: 1;
-    }
+    // &>div {
+    //     width: calc(100% / 3);
+    // }
 
     .logo {
         display: flex;
@@ -32,6 +34,9 @@
 
     .search {
         display: flex;
+        input{
+            width: 700px;
+        }
     }
 
     .profile {
