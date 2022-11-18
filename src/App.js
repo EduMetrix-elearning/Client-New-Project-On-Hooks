@@ -26,6 +26,7 @@ import PrivacyPolicy from './pages/AboutUs/PrivacyPolicy/PrivacyPolicy.jsx';
 import TermsOfServices from './pages/AboutUs/TermsOfServices/TermsOfServices.jsx';
 import WhitePaper from './pages/AboutUs/WhitePaper/WhitePaper.jsx';
 import ContactUs from './pages/AboutUs/ContactUs/ContactUs'
+import Home_2 from './NewPages/Home/Home.jsx';
 
 function App() {
   return (
@@ -54,10 +55,12 @@ function App() {
             {/* <Route path='*' element={<ErrorPage />} /> */}
 
             <Route path="/documentation" element={<Doc />} />
+
+            <Route path='/new/home' element={<Home_2 />} />
           </Routes>
         </Router>
       </Provider>
-    </div>
+    </div >
   );
 }
 

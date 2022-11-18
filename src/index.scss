@@ -53,30 +53,6 @@ code {
 .platform {
   margin: auto;
   overflow: overlay;
-
-  // @media (min-width: 576px) {
-  //   width: 540px;
-  // }
-
-  // @media (min-width: 768px) {
-  //   width: 720px;
-  // }
-
-  // @media (min-width: 992px) {
-  //   width: 960px;
-  // }
-
-  // @media (min-width: 1100px) {
-  //   width: 90%;
-  // }
-
-  // @media (min-width: 1300) {
-  //   width: 100%;
-  // }
-
-  //   @media (min-width: 1400px) {
-  //    max-width: 1320px;
-  //  }
 }
 
 p {
@@ -111,49 +87,19 @@ ul {
   list-style: none;
 }
 
-header {
-  position: sticky;
-  top: 0;
-  height: 8vh;
-  z-index: 10;
-}
-
-main {
-  // width: 64%;
-  margin-left: 200px;
-  height: 92vh;
-
-  @media screen and (max-width:750px) {
-    margin-left: 0;
-  }
-}
-
-
-// html {
-//   @media(min-width:2732px) {font-size: 28px;}
-//   @media(max-width:2732px) {font-size: 26px;}
-//   @media(max-width:2049px) {font-size: 24px;}
-//   @media(max-width:1821px) {font-size: 22px;}
-//   @media(max-width:1707px) {font-size: 20px;}
-//   @media(max-width:1517px) {font-size: 18px;}
-//   @media(max-width:1366px) {font-size: 16px;}
-//   @media(max-width:1241px) {font-size: 14px;}
-//   @media(max-width:1092px) {font-size: 12px;}
-//   @media(max-width:910px) {font-size: 10px;}
-//   @media(max-width:780px) {font-size: 8px;}
-//   @media(max-width:683px) {font-size: 6px;}
-//   @media(max-width:546px) {font-size: 4px;}
-//   @media(max-width:455px) {font-size: 2px;}
+// header {
+//   position: sticky;
+//   top: 0;
+//   height: 8vh;
+//   z-index: 10;
 // }
 
-// @media only screen and (max-width: 600px) {...}
-// @media only screen and (min-width: 600px) {...}
-// @media only screen and (min-width: 768px) {...}
-// @media only screen and (min-width: 992px) {...}
-// @media only screen and (min-width: 1200px) {...}
+// main {
+//   // width: 64%;
+//   margin-left: 200px;
+//   height: 92vh;
 
-// 320px — 480px: Mobile devices
-// 481px — 768px: iPads, Tablets
-// 769px — 1024px: Small screens, laptops
-// 1025px — 1200px: Desktops, large screens
-// 1201px and more —  Extra large screens, TV
+//   @media screen and (max-width:750px) {
+//     margin-left: 0;
+//   }
+// }

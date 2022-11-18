@@ -195,7 +195,7 @@ export default function Post({ details, page }) {
                     </div>
                 </div>
                 <div className="content">
-                    <p>{details.post_content}</p>
+                    {details.post_content && <p>{details.post_content}</p>}
                     {details.post_photo &&
                         <img src={details.post_photo} alt="" /> ||
                         details.post_video &&
