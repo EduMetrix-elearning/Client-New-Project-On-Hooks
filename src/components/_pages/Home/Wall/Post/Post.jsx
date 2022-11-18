@@ -195,14 +195,16 @@ export default function Post({ details, page }) {
                     </div>
                 </div>
                 <div className="content">
-                    <p>{details.post_content}</p>
-                    {details.post_photo &&
-                        <img src={details.post_photo} alt="" /> ||
-                        details.post_video &&
-                        <video src={details.post_video} controls controlsList='nodownload'></video> ||
-                        details.post_document &&
-                        <object data={details.post_document + "?#zoom=80&scrollbar=0&toolbar=0&navpanes=1&statusbar=1&view=fit"} type="application/pdf"></object>
-                    }
+                    {details.post_content && <p>{details.post_content}</p>}
+                    <div className="file">
+                        {details.post_photo &&
+                            <img src={details.post_photo} alt="" /> ||
+                            details.post_video &&
+                            <video src={details.post_video} controls controlsList='nodownload'></video> ||
+                            details.post_document &&
+                            <object data={details.post_document} width="100%" height="100%"  type="application/pdf"></object>
+                        }
+                    </div>
                 </div>
                 {/* <div className="reactions">
                     <div className='emojies'>
