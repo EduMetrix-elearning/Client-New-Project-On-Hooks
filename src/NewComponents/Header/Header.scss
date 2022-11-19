@@ -1,46 +1,109 @@
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
 
 .Header_2 {
-    width: 100%;
     background-color: white;
-    display: flex;
-    // justify-content: spac;
-    padding: 0 90px;
     position: fixed;
     top: 0;
-
-    // &>div {
-    //     width: calc(100% / 3);
-    // }
-
-    .logo {
+    width: 100%;
+    height: 50px;
+    padding: 0 90px;
+    
+    .contain {
         display: flex;
-        align-items: center;
+        justify-content: center;
+        position: relative;
+        max-width: 1169px;
+        margin: 0 auto;
 
-        img {
-            $side: 40px;
-            width: $side;
-            height: $side;
-            margin-right: 10px;
+        &>div {
+            width: calc(100% / 3);
         }
 
-        p {
-            font-family: 'EB Garamond';
-            font-weight: 500;
-            font-size: 26pt;
-            color: #4C7C8E;
-        }
-    }
+        .logo {
+            display: flex;
+            align-items: center;
 
-    .search {
-        display: flex;
-        input{
-            width: 700px;
-        }
-    }
+            img {
+                $side: 40px;
+                width: $side;
+                height: $side;
+                margin-right: 10px;
+            }
 
-    .profile {
-        display: flex;
-        justify-content: flex-end;
+            p {
+                font-family: 'EB Garamond';
+                font-weight: 500;
+                font-size: 25pt;
+                color: #4C7C8E;
+            }
+        }
+
+        .search {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            width: fit-content;
+            position: relative;
+
+            i {
+                position: absolute;
+                right: 15px;
+                color: #4C7C8E;
+                cursor: pointer;
+            }
+
+            input {
+                width: 500px;
+                height: 30px;
+                border-radius: 100px;
+                border: 1px solid rgb(230, 230, 230);
+                background-color: #F2F5F7;
+                padding-left: 20px;
+                padding-right: 40px;
+                padding-bottom: 3px;
+                font-size: 10pt;
+                color: #4C7C8E;
+
+                &:focus {
+                    outline: white;
+                }
+
+                &::placeholder {
+                    color: gray;
+                    font-style: italic;
+                    opacity: .5;
+                    font-size: 10pt;
+                    padding-left: 5px;
+                }
+            }
+        }
+
+        .profile {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 10px;
+
+            i {
+                $side: 30px;
+                width: $side;
+                height: $side;
+                border-radius: 50%;
+                background-color: #F2F5F7;
+                display: grid;
+                place-items: center;
+                color: #4C7C8E;
+                border: 1px solid rgb(230, 230, 230);
+                cursor: pointer;
+            }
+
+            img {
+                $side: 40px;
+                width: $side;
+                height: $side;
+                border-radius: 50%;
+            }
+        }
     }
 }
