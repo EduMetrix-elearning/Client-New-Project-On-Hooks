@@ -12,6 +12,9 @@ import Typography from '@mui/material/Typography';
 import { TextField } from '@material-ui/core';
 import ClearIcon from '@mui/icons-material/Clear';
 import "./HrForm.scss"
+import "react-responsive-carousel/lib/styles/carousel.min.css"; 
+import Carousel from 'react-bootstrap/Carousel';
+
 
 const style = {
   position: 'absolute',
@@ -27,6 +30,11 @@ const style = {
 
 export const Hrform = () => {
   const [open, setOpen] = React.useState(false);
+  const [index, setIndex] = React.useState(0);
+
+  const handleSelect = (selectedIndex, e) => {
+    setIndex(selectedIndex);
+  };
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -34,32 +42,110 @@ export const Hrform = () => {
     <div className="full-hr-page">
       <Navbarpage />
 
-      <div className='hr-image-slider'>
-        <div className='figure'>
+      <Carousel  activeIndex={index} onSelect={handleSelect}>
+      <Carousel.Item  className="carousel-item" >
+        <img
+          className="d-block w-100"
+          src={image2}
+          alt="First slide"
+        />
+        <Carousel.Caption>
+          <h1 >Collaborate With Us</h1>
+          
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item className="carousel-item" >
+        <img
+          className="d-block w-100"
+          src={image1}
+          alt="Second slide"
+        />
+
+        <Carousel.Caption>
+          <h1 >Collaborate With Us</h1>
+          
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item  className="carousel-item" >
+        <img
+          className="d-block w-100"
+          src={image3}
+          alt="Third slide"
+        />
+
+        <Carousel.Caption>
+          <h1 >Collaborate With Us</h1>
+         
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item  className="carousel-item" >
+        <img
+          className="d-block w-100"
+          src={image4}
+          alt="fourth slide"
+        />
+
+        <Carousel.Caption>
+          <h1 >Collaborate With Us</h1>
+         
+        </Carousel.Caption>
+      </Carousel.Item>
+    </Carousel>
 
 
-          <img src={image2} alt="" className='image1' />
-          <div >
-            <h1 className='image-heading1'>About EduMetrix Content</h1>
-          </div>
 
 
+      <div className='collaborates-div'>
+        <div>
+          <div>
+            <h1>Contact us <br />
+              to Collaborates</h1></div>
+          <div><button className='collaborate-btn' onClick={handleOpen}>Collaborate with us</button></div>
+          <Modal
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="responsive-modal-title"
+            aria-describedby="responsive-modal-title"
+          >
+            <Box sx={style}  className="modal-size" > 
+              <Box className="inner-model">
+                <Typography id="modal-modal-title" variant="h6" component="h4">
+                  Contact Us
+                </Typography>
+                <Button onClick={handleClose}>
+                  <ClearIcon />
+                </Button>
+              </Box>
+              <hr />
+              <TextField  sx={{ m: 1 }} id="standard-basic" label="Name *" variant="standard" style={{ marginBottom: "10px" }} />
 
-          <img src={image1} alt="" className='image2' />
-          {/* <div className='image-heading2'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla labore, </div> */}
+              <div className='flex-modal-inner-div'>
+                <TextField className="text-field"  sx={{ m: 1 }} id="standard-basic" label="Mobile No *" variant="standard" style={{ marginBottom: "10px" }} />
+                <TextField className="text-field"  sx={{ m: 1 }} id="standard-basic" label="Email *" variant="standard" style={{ marginBottom: "10px" }} />
+              </div>
 
+              <TextField sx={{ m: 1 }} id="standard-basic" label="Requirement of *" variant="standard" style={{ marginBottom: "10px" }} />
 
+              <div>
+                <TextField sx={{ m: 1 }} id="standard-basic" label="Skills Required *" variant="standard" style={{ marginBottom: "10px" }} />
+                <TextField sx={{ m: 1 }} id="standard-basic" label="Experience *" variant="standard" style={{ marginBottom: "10px" }} />
+              </div>
+              <TextField sx={{ m: 1 }} id="standard-basic" label="Location *" variant="standard" style={{ marginBottom: "10px" }} />
 
-          <img src={image3} alt="" className='image3' />
-          {/* <div className='image-heading3'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla labore, </div> */}
+              <div >
+                <TextField sx={{ m: 1 }} id="standard-basic" label="Salary (Lac/A) *" variant="standard" style={{ marginBottom: "10px" }} />
+                <TextField sx={{ m: 1 }} id="standard-basic" label="Name of the Company *" variant="standard" style={{ marginBottom: "10px" }} />
 
+              </div>
+              <TextField sx={{ m: 1 }} id="standard-basic" label="Website *" variant="standard" style={{ marginBottom: "10px" }} />
+              <TextField sx={{ m: 1 }} id="standard-basic" label="Message *" variant="standard" style={{ marginBottom: "10px" }} />
+              <Button sx={{ marginTop: "20px" }} variant="contained" className='student-form-filling-btn'>Submit</Button>
 
-
-          <img src={image4} alt="" className='image4' style={{ backgroundSize: "contain" }} />
-          {/* <div className='image-heading4'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla labore, </div> */}
-
+            </Box>
+          </Modal>
         </div>
       </div>
+
 
 
       <div className="Hr-information">
@@ -113,57 +199,7 @@ export const Hrform = () => {
       </div>
 
 
-      <div className='collaborates-div'>
-        <div>
-          <div>
-            <h1>Creative & <br />
-              Collaborative Lawyers</h1></div>
-          <div><button className='collaborate-btn' onClick={handleOpen}>Collaborate with us</button></div>
-          <Modal
-            open={open}
-            onClose={handleClose}
-            aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description"
-          >
-            <Box sx={style} style={{ width: "500px" }}>
-              <Box className="inner-model">
-                <Typography id="modal-modal-title" variant="h6" component="h4">
-                  Contact Us
-                </Typography>
-                <Button onClick={handleClose}>
-                  <ClearIcon />
-                </Button>
-              </Box>
-              <hr />
-              <TextField fullWidth sx={{ m: 1 }} id="standard-basic" label="Name *" variant="standard" style={{ marginBottom: "10px" }} />
-
-              <div style={{ display: "flex", gap: "30px" }}>
-                <TextField fullWidth sx={{ m: 1 }} id="standard-basic" label="Mobile No *" variant="standard" style={{ marginBottom: "10px" }} />
-                <TextField fullWidth sx={{ m: 1 }} id="standard-basic" label="Email *" variant="standard" style={{ marginBottom: "10px" }} />
-              </div>
-
-              <TextField fullWidth sx={{ m: 1 }} id="standard-basic" label="Company *" variant="standard" style={{ marginBottom: "10px" }} />
-              <TextField fullWidth sx={{ m: 1 }} id="standard-basic" label="Requirement of *" variant="standard" style={{ marginBottom: "10px" }} />
-
-              <div style={{ display: "flex", gap: "30px" }}>
-                <TextField fullWidth sx={{ m: 1 }} id="standard-basic" label="Skills Required *" variant="standard" style={{ marginBottom: "10px" }} />
-                <TextField fullWidth sx={{ m: 1 }} id="standard-basic" label="Experience *" variant="standard" style={{ marginBottom: "10px" }} />
-              </div>
-              <TextField fullWidth sx={{ m: 1 }} id="standard-basic" label="Location *" variant="standard" style={{ marginBottom: "10px" }} />
-
-              <div style={{ display: "flex", gap: "30px" }}>
-                <TextField fullWidth sx={{ m: 1 }} id="standard-basic" label="Salary (Lac/A) *" variant="standard" style={{ marginBottom: "10px" }} />
-                <TextField fullWidth sx={{ m: 1 }} id="standard-basic" label="Name of the Company *" variant="standard" style={{ marginBottom: "10px" }} />
-
-              </div>
-              <TextField fullWidth sx={{ m: 1 }} id="standard-basic" label="Website *" variant="standard" style={{ marginBottom: "10px" }} />
-              <TextField fullWidth sx={{ m: 1 }} id="standard-basic" label="Message *" variant="standard" style={{ marginBottom: "10px" }} />
-              <Button fullwidth sx={{ marginTop: "20px" }} variant="contained" className='student-form-filling-btn'>Submit</Button>
-
-            </Box>
-          </Modal>
-        </div>
-      </div>
+      
       <Footer />
     </div>
   )

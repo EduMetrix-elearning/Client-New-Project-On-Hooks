@@ -94,7 +94,7 @@ export const BussinessPartner = () => {
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStd6s9Uzb-GZM5eKlpSiG09KG3c8JWioeovyxjJhyB-G5_VN4ZXz_BpQ3ocDZuW2ZNc0Q&usqp=CAU" alt="" />
                 
                 
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBaPZ1HTjuazBqj9cVS1an_xiYRF4819w-_ztikqLktc6_VzOHY_wNBr-jM8j6OdfZWGk&usqp=CAU" alt="" />
+                    <img src="https://fresherslike.com/wp-content/uploads/2021/09/Zoho-logo.jpg" alt="" />
                 
                 
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQd6AopjQ2NpAREVaSl8U_wGcPx-AvhMcreMCrPHZStbs4HMaSDVE0q7hrLrC3xgZ4ylRg&usqp=CAU" alt="" />

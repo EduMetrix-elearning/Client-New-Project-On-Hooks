@@ -1,0 +1,45 @@
+// body{
+//     background: url("https://c4.wallpaperflare.com/wallpaper/538/484/974/lime-green-color-simple-background-wallpaper-preview.jpg");
+//     background-size: cover;
+//     font-family: monospace;
+// }
+.agent-signup-whole-div{
+    width:60%;
+    margin: auto;
+    height:100vh;
+    margin-top: 40px;
+    
+    .agent-signup-form-div{
+        width:70%;
+        margin: auto;       
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+    .agent-signup-form{
+        width:100%;
+        margin:auto;
+        margin-top: 10px;
+        justify-content: center;
+        padding:20px 40px;
+    }
+    .agent-signup-btn{
+        background-color: #193942;
+        color:white;
+        margin-bottom: 30px;
+        margin-right:10px ;
+        width:100%
+    }
+}
+@media (max-width:800px){
+    .agent-signup-whole-div{
+        width:80%;
+        .agent-signup-form{
+            width:100%;
+            margin:auto;
+            margin-top: 10px;
+            justify-content: center;
+        }
+        .agent-signup-form-div{
+            width:100%
+        }
+    }
+}

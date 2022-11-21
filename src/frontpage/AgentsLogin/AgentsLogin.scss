@@ -1,0 +1,40 @@
+.agent-login-whole-div{
+    width:60%;
+    margin: auto;
+    height:90vh;
+    margin-top: 40px;
+    
+    .agent-login-form-div{
+        width:70%;
+        margin: auto;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+    .agent-login-form{
+        width:100%;
+        margin:auto;
+        margin-top: 10px;
+        justify-content: center;
+        padding:20px 40px;
+    }
+    .agent-login-btn{
+        background-color: #193942;
+        color:white;
+        margin-bottom: 7px;
+        margin-right:10px ;
+        width:100%;
+    }
+}
+@media (max-width:800px){
+    .agent-login-whole-div{
+        width:80%;
+        .agent-login-form{
+            width:100%;
+            margin:auto;
+            margin-top: 10px;
+            justify-content: center;
+        }
+        .agent-login-form-div{
+            width:100%
+        }
+    }
+}
