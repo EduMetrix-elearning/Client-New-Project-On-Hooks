@@ -37,6 +37,7 @@ import { Backend } from './frontpage/SingleCoursePage/Backend.jsx';
 import { Fullstack } from './frontpage/SingleCoursePage/Fullstack.jsx';
 import { Hrform } from './frontpage/HrForm/HrForm.jsx';
 import { Aboutus } from './frontpage/Aboutus/AboutUs.jsx';
+// <<<<<<< HEAD
 import { EmployeLogin } from './frontpage/EmployeeLogin/EmployeLogin.jsx';
 import { AgentsSignup } from './frontpage/AgentsSignup/AgentsSignup.jsx';
 import { AgentsLogin } from './frontpage/AgentsLogin/AgentsLogin.jsx';
@@ -45,6 +46,8 @@ import { InternshipData } from './frontpage/InternshipData/InternshipData.jsx';
 import { CareerData } from './frontpage/CareerData/CareerData.jsx';
 import { Status } from './frontpage/Status/Status.jsx';
 import { StudentDetails } from './frontpage/StudentDetails/StudentDetails.jsx';
+// =======
+// >>>>>>> d8fa9f140c596cfebe9aad8864b64ed3cc4aee98
 
 function App() {
   return (
