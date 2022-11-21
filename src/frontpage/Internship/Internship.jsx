@@ -1,8 +1,9 @@
 import { Card, CardContent, TextField, Box, FormControl, InputLabel, Input, FormHelperText, Typography, Grid, Modal } from '@material-ui/core'
-import React from 'react'
+import React,{useContext} from 'react'
 import Button from '@mui/material/Button';
 import "./Internship.scss"
 import ClearIcon from '@mui/icons-material/Clear';
+import { InternshipContext } from '../../context/InternshipContext';
 
 
 const style = {

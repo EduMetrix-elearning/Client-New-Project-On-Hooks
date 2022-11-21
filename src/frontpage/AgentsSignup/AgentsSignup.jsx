@@ -32,7 +32,11 @@ export const AgentsSignup = () => {
               SIGN UP
             </Button>
           </Link>
-          
+          <Link style={{ textDecoration: "none", color: "white" }} to="/agentslogin">
+            <Button className="agent-signup-btn" variant="primary" type="submit" >
+              LOG IN
+            </Button>
+            </Link>
         </Form>
       </div>
     </div>

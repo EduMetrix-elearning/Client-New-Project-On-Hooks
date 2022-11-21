@@ -27,6 +27,7 @@ import { Link } from 'react-router-dom';
 import fullstack from "../../asset/images/Courses/fullstack.jpg"
 import frontend from "../../asset/images/Courses/frontend-3.webp"
 import backend from "../../asset/images/Courses/Backend.png"
+import { Navbarpage } from '../Navbar/Navbarpage';
 
 
 
@@ -106,7 +107,7 @@ export const Courses = () => {
     })
     return (
         <div className='courses-typewritter-cards-main-div'>
-
+            {/* <Navbarpage/> */}
             {/* Below Navbar  */}
             <div className='below-navbar'>
                 <div className="edumetrix-header">

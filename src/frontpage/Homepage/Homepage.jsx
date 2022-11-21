@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useContext } from 'react';
 import { Courses } from '../Courses/Courses.jsx';
 import "./Homepage.scss"
 import { BussinessPartner } from '../Bussiness/BussinessPartner.jsx';
@@ -12,6 +12,8 @@ import SpeakerNotesOffRoundedIcon from '@material-ui/icons/SpeakerNotesOffRounde
 import Modal from '@mui/material/Modal';
 import { ChatboxManager } from '../ChatboxManage/ChatboxManager.jsx';
 import { Navbarpage } from '../Navbar/Navbarpage.jsx';
+import { InternshipContext } from '../../context/InternshipContext.js';
+import { CareerContext } from '../../context/careerContext.js';
 
 
 const style = {
@@ -28,26 +30,30 @@ const style = {
 
 
 export const EduMetrixHomepage = () => {
-    const [internshipOpen, setInternshipOpen] = React.useState(false);
-    const [carrierOpen,setCarrierOpen]=React.useState(false);
+    // const [internshipOpen, setInternshipOpen] = React.useState(false);
+    // const [carrierOpen,setCarrierOpen]=React.useState(false);
     const [chatopen,setChatopen]=React.useState(false)
     const [chat ,setchat]=React.useState(true)
    
-    const handleinternship = () => setInternshipOpen(true);
-    const handleCarrier=()=>setCarrierOpen(true)
+    // const handleinternship = () => setInternshipOpen(true);
+    // const handleInternshipClose = () => setInternshipOpen(false);
+    // const handleCarrier=()=>setCarrierOpen(true)
+    // const handleCarrierClose =()=> setCarrierOpen(false)
+
     const handlechatOpen=()=>{
         setChatopen(true)
     }
-    const handleInternshipClose = () => setInternshipOpen(false);
-    const handleCarrierClose =()=> setCarrierOpen(false)
     const handleChatclose=()=>setChatopen(false)
+
+    const {internshipOpen,handleinternship,handleInternshipClose}=useContext(InternshipContext)
+    const {carrierOpen,handleCarrier,handleCarrierClose}=useContext(CareerContext)
     
     return (
         <div className='main-edumetrix-homepage'>
-            <Navbarpage handleinternship={handleinternship} handleCarrier={handleCarrier}/>
+            <Navbarpage handleinternship={handleinternship} handleCarrier={handleCarrier} />
             <Courses />
-            {internshipOpen ? <Internship   handleClose={handleInternshipClose} handleinternship={handleinternship} internshipOpen={internshipOpen} /> : ""}
-            {carrierOpen ? <Carrier handleClose={handleCarrierClose} handleCarrier={handleCarrier} carrierOpen={carrierOpen}   /> : ""}
+           
+            
             <BussinessPartner />
             <Footer />
 

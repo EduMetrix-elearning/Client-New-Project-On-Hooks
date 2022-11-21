@@ -46,6 +46,8 @@ import { InternshipData } from './frontpage/InternshipData/InternshipData.jsx';
 import { CareerData } from './frontpage/CareerData/CareerData.jsx';
 import { Status } from './frontpage/Status/Status.jsx';
 import { StudentDetails } from './frontpage/StudentDetails/StudentDetails.jsx';
+import { Internship } from './frontpage/Internship/Internship.jsx';
+import { Navbarpage } from './frontpage/Navbar/Navbarpage.jsx';
 // =======
 // >>>>>>> d8fa9f140c596cfebe9aad8864b64ed3cc4aee98
 
@@ -81,6 +83,7 @@ function App() {
 
 
             {/* Edumetrix Front Courses Page */}
+            
             <Route path="/homepage" element={<EduMetrixHomepage />} ></Route>
             <Route path="/Courses" element={<Fullstack />}></Route>
             <Route path="/AboutUs" element={<Aboutus />}></Route>
@@ -100,6 +103,7 @@ function App() {
             <Route path="/career-data" element={<CareerData/>}></Route>
             <Route path="/status" element={<Status/>}></Route>
             <Route path="/student-details" element={<StudentDetails/>}></Route>
+           
 
           </Routes>
         </Router>
