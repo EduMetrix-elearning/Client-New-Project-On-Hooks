@@ -92,6 +92,13 @@
         display:flex;
         flex-wrap:no-wrap;
     }
+    .id-card{
+        margin:10px
+    }
+    .id-card img{
+        height:200px;
+    
+    }
 }
 @media (max-width:1450px){
     .agent-profile-main-div{
@@ -142,5 +149,8 @@
             width:95%
         }
       
+        .id-card img{
+            height:200px;
+        }
     }
 }

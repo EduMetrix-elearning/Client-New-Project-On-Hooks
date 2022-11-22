@@ -1,5 +1,5 @@
 import { React, useState } from "react"
-import { Container, Nav, Navbar, Form, Button, Table, Accordion } from 'react-bootstrap';
+import { Container, Nav, Navbar, Form, Button, Table, Accordion, Carousel, CarouselItem } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AgentNavbar } from "../AgentNavbar/AgentNavbar";
 // import { AgentNavbar } from "../Navbar/Navbar";
@@ -13,11 +13,13 @@ export const AgentsDashboard = () => {
   const [mobileno, setmobile] = useState("9438833152")
   const [email, setemail] = useState("jaya@gmail.com")
   const [bank, setbank] = useState("")
-  const [accountno,setAccountno]=useState("12345678901234")
-  const [accountname,setAccountname]=useState("Jayasmita Sahu")
-  const [brachname,setBranchName]=useState("SBI branch")
-  const [Ifsc,setIfsc]=useState("26001234AS")
-  const [idcard,setIdcard]=useState("https://w7.pngwing.com/pngs/309/240/png-transparent-identity-document-identification-driving-license-text-business-multimedia.png")
+  const [accountno, setAccountno] = useState("12345678901234")
+  const [accountname, setAccountname] = useState("Jayasmita Sahu")
+  const [brachname, setBranchName] = useState("SBI branch")
+  const [Ifsc, setIfsc] = useState("26001234AS")
+  const [adharcardback,setAdharCardBack]=useState("https://5.imimg.com/data5/SELLER/Default/2021/6/YB/NS/ZE/127226125/pre-printed-pvc-aadhar-cards-500x500.jpg")
+  const [adharcardfront,setAdharCardFront]=useState("https://images.tv9hindi.com/wp-content/uploads/2022/04/aadhar4-1.jpg?width=1280&enlarge=true")
+  const [pancard, setpancard] = useState("https://w7.pngwing.com/pngs/309/240/png-transparent-identity-document-identification-driving-license-text-business-multimedia.png")
   const [valid, setvalid] = useState(false)
 
   const uploadImage = (e) => {
@@ -25,9 +27,19 @@ export const AgentsDashboard = () => {
       setImage(URL.createObjectURL(e.target.files[0]))
     }
   }
-  const uploadIDCard = (e) => {
+  const uploadPANCard = (e) => {
     if (e.target.files.length !== 0) {
-      setIdcard(URL.createObjectURL(e.target.files[0]))
+      setpancard(URL.createObjectURL(e.target.files[0]))
+    }
+  }
+  const uploadAdharFront=(e)=>{
+    if (e.target.files.length !== 0) {
+      setAdharCardFront(URL.createObjectURL(e.target.files[0]))
+    }
+  }
+  const uploadAdharBack=(e)=>{
+    if (e.target.files.length !== 0) {
+      setAdharCardBack(URL.createObjectURL(e.target.files[0]))
     }
   }
 
@@ -38,9 +50,9 @@ export const AgentsDashboard = () => {
 
   return (
     <div className='agents-dashboard'>
-      
 
-      <AgentNavbar/>
+
+      <AgentNavbar />
 
 
       <div className='agent-profile-main-div'>
@@ -56,43 +68,43 @@ export const AgentsDashboard = () => {
               <Form.Control type="number" onChange={(e) => { setmobile(e.target.value) }} placeholder="Enter mobile number" style={{ marginBottom: "15px" }} />
               <Form.Label>Email *</Form.Label>
               <Form.Control type="email" onChange={(e) => { setemail(e.target.value) }} placeholder="Enter email" style={{ marginBottom: "15px" }} />
-             
-              <Accordion  style={{marginBottom:"20px"}}>
+
+              <Accordion style={{ marginBottom: "20px" }}>
                 <Accordion.Item eventKey="1">
                   <Accordion.Header>Bank Account Details</Accordion.Header>
                   <Accordion.Body>
-                  <Form.Label>Branch Name *</Form.Label>
-                  <Form.Control type="text" onChange={(e) => { setbank(e.target.value) }} placeholder="Enter branch name" style={{ marginBottom: "15px" }} />
-                  <Form.Label>Account Holder Name *</Form.Label>
-                  <Form.Control type="text" onChange={(e) => { setbank(e.target.value) }} placeholder="Enter Account holder name" style={{ marginBottom: "15px" }} />
-                  <Form.Label>Account Number *</Form.Label>
-                  <Form.Control type="text" onChange={(e) => { setbank(e.target.value) }} placeholder="Enter Account Number" style={{ marginBottom: "15px" }} />
-                  <Form.Label>IFSC Code *</Form.Label>
-                  <Form.Control type="text" onChange={(e) => { setbank(e.target.value) }} placeholder="Enter IFSC code" style={{ marginBottom: "15px" }} />
+                    <Form.Label>Branch Name *</Form.Label>
+                    <Form.Control type="text" onChange={(e) => { setbank(e.target.value) }} placeholder="Enter branch name" style={{ marginBottom: "15px" }} />
+                    <Form.Label>Account Holder Name *</Form.Label>
+                    <Form.Control type="text" onChange={(e) => { setbank(e.target.value) }} placeholder="Enter Account holder name" style={{ marginBottom: "15px" }} />
+                    <Form.Label>Account Number *</Form.Label>
+                    <Form.Control type="text" onChange={(e) => { setbank(e.target.value) }} placeholder="Enter Account Number" style={{ marginBottom: "15px" }} />
+                    <Form.Label>IFSC Code *</Form.Label>
+                    <Form.Control type="text" onChange={(e) => { setbank(e.target.value) }} placeholder="Enter IFSC code" style={{ marginBottom: "15px" }} />
 
                   </Accordion.Body>
                 </Accordion.Item>
               </Accordion>
               <div className="profile-pan" >
                 <div>
-              <label htmlFor="">Profile Image</label> <br />
-              <input type="file" onChange={uploadImage} className='edit-image' /> <br />
-              </div>
-              <div>
-              <label htmlFor="">PAN Card Image</label> <br />
-              <input type="file" className='edit-image' /> <br />
-              </div>
+                  <label htmlFor="">Profile Image</label> <br />
+                  <input type="file" onChange={uploadImage} className='edit-image' /> <br />
+                </div>
+                <div>
+                  <label htmlFor="">PAN Card Image</label> <br />
+                  <input type="file" onChange={uploadPANCard}  className='edit-image' /> <br />
+                </div>
               </div>
 
               <div className="adhar-front-back">
                 <div>
-              <label htmlFor="">Adhar Card Front</label> <br />
-              <input type="file"  className='edit-image' />
-              </div>
-              <div>
-              <label htmlFor="">Adhar Card Back</label> <br />
-              <input type="file"  className='edit-image' />
-              </div>
+                  <label htmlFor="">Adhar Card Front</label> <br />
+                  <input type="file" onChange={uploadAdharFront}className='edit-image' />
+                </div>
+                <div>
+                  <label htmlFor="">Adhar Card Back</label> <br />
+                  <input type="file" onChange={uploadAdharBack} className='edit-image' />
+                </div>
               </div>
             </Form.Group>
 
@@ -107,46 +119,80 @@ export const AgentsDashboard = () => {
         </div>
         <div className='agent-data-show'>
           <div className="agent-card">
-              <div className="upper-container">
-                <div className="image-container">
-                    <img src={image}  alt="" height="150px" width="150px" />
+            <div className="upper-container">
+              <div className="image-container">
+                <img src={image} alt="" height="150px" width="150px" />
+              </div>
+            </div>
+            <div className="lower-container">
+              <h3>{name}</h3>
+              <h4>{email}</h4>
+              <p>{mobileno}</p>
+
+              <div className="bank-details">
+                <div className="account-div-1">
+                  <div>
+                    <h6>Account Holder Name</h6>
+                    <p>{accountname}</p>
+                  </div>
+                  <div>
+                    <h6>Account Number</h6>
+                    <p>{accountno}</p>
+                  </div>
+                </div>
+                <div className="account-div-2">
+                  <div>
+                    <h6>Branch Name</h6>
+                    <p>{brachname}</p>
+                  </div>
+                  <div>
+                    <h6>IFSC Code</h6>
+                    <p>{Ifsc}</p>
+                  </div>
                 </div>
               </div>
-              <div className="lower-container">
-                  <h3>{name}</h3>
-                  <h4>{email}</h4>
-                  <p>{mobileno}</p>
 
-                  <div className="bank-details">
-                      <div className="account-div-1">
-                        <div>
-                          <h6>Account Holder Name</h6>
-                          <p>{accountname}</p>
-                        </div>
-                        <div>
-                          <h6>Account Number</h6>
-                          <p>{accountno}</p>
-                        </div>
-                      </div>
-                      <div className="account-div-2">
-                      <div>
-                          <h6>Branch Name</h6>
-                          <p>{brachname}</p>
-                        </div>
-                        <div>
-                          <h6>IFSC Code</h6>
-                          <p>{Ifsc}</p>
-                        </div>
-                      </div>
-                  </div>
+              <div className="id-card">
+                <Carousel>
+                  <Carousel.Item>
+                    <img
+                      className="d-block w-60"
+                      src={pancard}
+                      alt="First slide"
+                    />
+                    <Carousel.Caption>
+                      {/* <h3>PAN Card</h3> */}
+                    </Carousel.Caption>
+                  </Carousel.Item>
+                  <Carousel.Item>
+                    <img
+                      className="d-block w-100"
+                      src={adharcardfront}
+                      alt="Second slide"
+                    />
 
-                  <div className="id-card">
-                      <img src={idcard} alt="" height="170px" width="80%" />
-                  </div>
+                    <Carousel.Caption>
+                      {/* <h3>Adhar Card Front</h3> */}
+                    </Carousel.Caption>
+                  </Carousel.Item>
+                  <Carousel.Item>
+                    <img
+                      className="d-block w-100"
+                      src={adharcardback}
+                      alt="Third slide"
+                    />
 
-
-
+                    <Carousel.Caption>
+                      {/* <h3>Adhar Card Back</h3> */}
+                     
+                    </Carousel.Caption>
+                  </Carousel.Item>
+                </Carousel>
               </div>
+
+
+
+            </div>
           </div>
 
         </div>

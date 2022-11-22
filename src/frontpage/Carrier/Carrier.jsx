@@ -44,7 +44,7 @@ export const Carrier = (props) => {
           <TextField fullWidth sx={{ m: 1 }} id="standard-basic" label="10  digits Mobile No *" variant="standard" />
           <TextField fullWidth sx={{ m: 1 }} id="standard-basic" label="Email *" variant="standard" />
           <select style={{marginTop:"20px"}}>
-            <option value="">Select Courses</option>
+            <option value="">Apply Courses</option>
             <option value="fullstack">Full stack Developer</option>
             <option value="frontend">Frontend Developer</option>
             <option value="backend">Backend Developer</option>

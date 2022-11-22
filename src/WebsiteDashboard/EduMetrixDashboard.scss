@@ -1,0 +1,26 @@
+.website-dashboard-input-status {
+    .inputs-status {
+        width: 200px;
+        margin: 10px;
+        padding: 10px;
+        font-size: 16px;
+        background-color: #f5f5ef;
+        border-radius: 5px;
+    }
+
+}
+
+.website-dashboard-status-check {
+
+    .table-status {
+        width: 120px;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 5px;
+    }
+
+    .table-status:focus {
+        min-width: 100px;
+        width: auto;
+    }
+}

@@ -48,6 +48,7 @@ import { Status } from './frontpage/Status/Status.jsx';
 import { StudentDetails } from './frontpage/StudentDetails/StudentDetails.jsx';
 import { Internship } from './frontpage/Internship/Internship.jsx';
 import { Navbarpage } from './frontpage/Navbar/Navbarpage.jsx';
+import { WebsiteDashboard } from './WebsiteDashboard/WebsiteDashboard.jsx';
 // =======
 // >>>>>>> d8fa9f140c596cfebe9aad8864b64ed3cc4aee98
 
@@ -103,6 +104,7 @@ function App() {
             <Route path="/career-data" element={<CareerData/>}></Route>
             <Route path="/status" element={<Status/>}></Route>
             <Route path="/student-details" element={<StudentDetails/>}></Route>
+            <Route path="/website-dashboard" element={<WebsiteDashboard/>}></Route>
            
 
           </Routes>
