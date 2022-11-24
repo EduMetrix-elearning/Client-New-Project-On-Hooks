@@ -35,7 +35,7 @@ export const Footer = () => {
  
 
     return (
-        <footer className='footer-main-div'>
+        <div className='footer-main-div'>
             <div className="container">
                 <div className="row">
                     <div className="footer-col">
@@ -57,6 +57,7 @@ export const Footer = () => {
                             >
                                 <ChatboxManager />
                             </Modal>
+                            <Link to="/employelogin" className='employe-login-link'>Employee Login</Link>
                             <li><a href="/whitePaper">White Paper</a></li>
                             <li><a href="/address">Address</a></li>
                             
@@ -97,6 +98,6 @@ export const Footer = () => {
 
                 </div>
             </div>
-        </footer>
+        </div>
     )
 }

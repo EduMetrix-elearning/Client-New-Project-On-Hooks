@@ -1,8 +1,9 @@
 import { Card, CardContent, TextField, Box, FormControl, InputLabel, Input, FormHelperText, Typography, Grid, Modal } from '@material-ui/core'
-import React from 'react'
+import React,{useContext} from 'react'
 import Button from '@mui/material/Button';
 import "./Internship.scss"
 import ClearIcon from '@mui/icons-material/Clear';
+import { InternshipContext } from '../../context/InternshipContext';
 
 
 const style = {
@@ -10,7 +11,7 @@ const style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 350,
+  width: 200,
   bgcolor: 'background.paper',
   border: '2px solid #000',
   boxShadow: 24,
@@ -31,7 +32,7 @@ export const Internship = (props) => {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style} style={{width:"500px"}} >
+        <Box sx={style} style={{width:"360px"}} >
           <Box className="inner-model">
             <Typography id="modal-modal-title" variant="h6" component="h4">
               Apply for Internship
@@ -60,8 +61,8 @@ export const Internship = (props) => {
           </select>
           </div>
 
-          <div className='select-div-2'>
-          <select>
+          <div className='select-div-2' >
+          <select style={{marginBottom:"10px",gap:"20px"}}>
             <option value="">Select Courses</option>
             <option value="fullstack">Full stack Developer</option>
             <option value="frontend">Frontend Developer</option>
@@ -82,6 +83,7 @@ export const Internship = (props) => {
           <TextField fullWidth sx={{ m: 1 }} id="standard-basic" label="Name of College/Organisation *" variant="standard" style={{marginBottom:"10px"}} />
           <TextField fullWidth sx={{ m: 1 }} id="standard-basic" label="Tell us more about you *" variant="standard" style={{marginBottom:"10px"}} />
           
+          <label htmlFor="">Apply CV Here</label>
           <input type="file" />
           <Button fullWidth sx={{ marginTop: "20px" }} variant="contained" className='student-form-filling-btn'>I'm Interested</Button>
             

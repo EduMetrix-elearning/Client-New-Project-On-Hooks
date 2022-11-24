@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Typewriter } from "react-simple-typewriter"
 import courseImage from "../../asset/images/Courses/fullstack.jpg"
 import "./SingleCourse.scss"
@@ -7,9 +7,10 @@ import { Footer } from '../Footer/Footer'
 import { Navbarpage } from '../Navbar/Navbarpage'
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import SignalCellularAltIcon from '@mui/icons-material/SignalCellularAlt';
+import { InternshipProvider } from '../../context/InternshipContext'
 
 export const Fullstack = () => {
-
+    // const {handleinternship} = useContext(InternshipProvider)
 
     return (
         <div>

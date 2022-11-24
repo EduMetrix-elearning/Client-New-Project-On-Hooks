@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import './CreatePost.scss'
-import Resizer from 'react-image-file-resizer';
+import Resizer from "react-image-file-resizer";
 
 import { popUp } from '../../../../../slices/popUpSlice'
 

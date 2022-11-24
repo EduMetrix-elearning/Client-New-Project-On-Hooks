@@ -25,8 +25,9 @@ import ClearIcon from '@mui/icons-material/Clear';
 // import ReactPlayer from 'react-player'
 import { Link } from 'react-router-dom';
 import fullstack from "../../asset/images/Courses/fullstack.jpg"
-import frontend from "../../asset/images/Courses/frontend.png"
+import frontend from "../../asset/images/Courses/frontend-3.webp"
 import backend from "../../asset/images/Courses/Backend.png"
+import { Navbarpage } from '../Navbar/Navbarpage';
 
 
 
@@ -106,12 +107,12 @@ export const Courses = () => {
     })
     return (
         <div className='courses-typewritter-cards-main-div'>
-
+            {/* <Navbarpage/> */}
             {/* Below Navbar  */}
             <div className='below-navbar'>
                 <div className="edumetrix-header">
                     <h1 className='primary-header' ><Typewriter
-                        words={['EduMetrix ', 'Full Stack Enginner']}
+                        words={['EduMetrix ', 'Full Stack Engineer']}
                         loop={10}
                         cursor
                         cursorStyle='_'
@@ -120,7 +121,7 @@ export const Courses = () => {
                         delaySpeed={1000}
                     /></h1>
                     <p className='secondary-header'>Coding for anyone not just for Engineers !!!</p>
-                    <p className='ternary-header'>Build professional projects like the top 1% developers.Master the latest full stack and backend tech with real work-ex.Crack developer jobs at the best tech companies.</p>
+                    <p className='ternary-header'>Build professional projects like the top 1% developers. Master the latest full stack and backend tech with real work-ex. Crack developer jobs at the best tech companies.</p>
                     <div className='services-btn'>
                     <button className='apply-btn' onClick={handleOpen}>Apply for Now</button>
                     <button className='apply-btn'><a href="tel:+918310715970" style={{textDecoration:"none",color:"white"}}> Call Now +918310715970 </a></button>
@@ -170,13 +171,8 @@ export const Courses = () => {
                         - through professional work-like Full-stack and Backend web development projects.</p>
                 </div>
 
-                <Box className='all-cards'>
-                    {/* {courses?.map((e) => { */}
-
-                        {/* return ( */}
-                            {/* <div> */}
-                              {/* <Box className='one-card-div'> */}
-                                {/* <Box></Box> */}
+                <div className='all-cards'>
+                   
                                 <div className='single-card'>
                                 <Link style={{textDecoration:"none"}} to="/fullstack"><Card className="course-card">
 
@@ -192,7 +188,7 @@ export const Courses = () => {
                                         </Typography>
                                     </CardContent>
                                     <CardContent>
-                                        <Typography className="card-details">Become a skilled Full-Stack developer with hands-on experience in MERN stack . Tech stack used in Fullstack := Nodejs, MongoDB , React , HTML5 , CSS3 , Javascript</Typography>
+                                        <Typography className="card-details">Become a skilled Full-Stack developer with hands-on experience in MERN stack . Tech stack used in Fullstack <br /><div> <span >Nodejs</span> <span>MongoDB</span>  <span>React</span> <span>HTML5</span><span>CSS3</span> </div></Typography>
                                     </CardContent>
                                 </Card></Link>
                                 </div>
@@ -213,7 +209,7 @@ export const Courses = () => {
                                         </Typography>
                                     </CardContent>
                                     <CardContent>
-                                        <Typography className="card-details">Become a skilled frontend developer with hands-on experience in MERN stack And MEAN stack. Tech stack used in Frontend := React , HTML5 , CSS3 , Javascript</Typography>
+                                        <Typography className="card-details">Become a skilled frontend developer with hands-on experience in MERN stack And MEAN stack. Tech stack used in Frontend <br /> <div><span>React</span> <span>HTML5</span> <span>CSS3</span> <span>Javascript</span> </div> </Typography>
                                     </CardContent>
                                 </Card></Link> </div>
 
@@ -232,19 +228,12 @@ export const Courses = () => {
                                         </Typography>
                                     </CardContent>
                                     <CardContent>
-                                        <Typography className="card-details">Become a skilled backend developer with hands-on experience in building a scalable web backend .Tech stack used in Backend := Nodejs , Express js, MongoDB .</Typography>
+                                        <Typography className="card-details">Become a skilled backend developer with hands-on experience in building a scalable web backend .Tech stack used in Backend <br /> <div> <span> Nodejs</span> <span>Express</span> <span>MongoDB</span> <span>MySQL</span>  </div></Typography>
                                     </CardContent>
                                 </Card></Link>
                                 </div>
-                            {/* </Box >  */}
-
-                            
-
-                          {/* </div>  */}
-                        {/* ) */}
-                    {/* })} */}
-
-                </Box>
+                           
+                </div>
             </div>
 
         </div>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Typewriter } from "react-simple-typewriter"
-import courseImage from "../../asset/images/Courses/frontend.png"
+import courseImage from "../../asset/images/Courses/frontend-3.webp"
 import "./SingleCourse.scss"
 import "../Courses/Courses.scss"
 import { Footer } from '../Footer/Footer'

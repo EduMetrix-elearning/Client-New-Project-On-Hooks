@@ -1,0 +1,148 @@
+import React,{useState} from "react";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
+import Checkbox from "@mui/material/Checkbox";
+import AodIcon from '@mui/icons-material/Aod';
+import MailOutlineIcon from "@mui/icons-material/MailOutline";
+import { Box } from "@mui/system";
+import CircleCheckedFilled from '@mui/icons-material/CheckCircle';
+import CircleUnchecked from '@mui/icons-material/RadioButtonUnchecked';
+import "./EduMetrixDashboard.scss";
+import dayjs from "dayjs";
+
+
+
+function createData(id, EnquiredOn, name, phone, email, message, course) {
+  return { id, EnquiredOn, name, phone, email, message, course };
+}
+
+
+const rows = [
+  createData(
+    1,
+    "10-11-21",
+    "Jayasmita",
+    9880686768,
+    "jasmitasahu@gmail.com",
+    "hkjklj",
+    "fullstack"
+  ),
+  createData(
+    2,
+    "11-11-21",
+    "Ashwini",
+    880686768,
+    "jasmitasahu@gmail.com",
+    "hkjklj",
+    "fullstack"
+  ),
+  createData(
+    3,
+    "12-11-22",
+    "Rachna",
+    880686768,
+    "jasmitasahu@gmail.com",
+    "hkjklj",
+    "fullstack"
+  ),
+  createData(
+    4,
+    "13-6-22",
+    "Akshay",
+    880686768,
+    "jasmitasahu@gmail.com",
+    "hkjklj",
+    "fullstack"
+  ),
+  createData(
+    5,
+    "14-11-22",
+    "Anoop",
+    880686768,
+    "jasmitasahu@gmail.com",
+    "hkjklj",
+    "fullstack"
+  ),
+];
+
+export const DashBoardStatus = ({data}) => {
+  console.log(data)
+
+  return (
+    <TableContainer component={Paper} className="website-dashboard-status-check">
+      <Table sx={{ width: "100%" }} aria-label="simple table">
+        <TableHead
+          sx={{ backgroundColor: "#f5f5ef", border: 1 }}
+          align="center"
+        >
+          <TableRow>
+            <TableCell padding="checkbox"></TableCell>
+            <TableCell>Id</TableCell>
+            <TableCell>Enquired On</TableCell>
+            <TableCell>Name</TableCell>
+            <TableCell>Message</TableCell>
+            <TableCell>Course</TableCell>
+            <TableCell>Call Status</TableCell>
+            <TableCell>Intrest Response</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody align="center">
+          {data.map((row, index) => (
+            <TableRow
+              className="tabelrow"
+              key={index}
+              sx={{ border: 1, borderColor: "#f5f5ef" }}
+            >
+              <TableCell padding="checkbox">
+                <Checkbox
+                  style={{ color: "green" }}
+                  icon={<CircleUnchecked />}
+                  checkedIcon={<CircleCheckedFilled />}
+                />
+               
+              </TableCell>
+              <TableCell component="th" scope="row">
+                {row.id}
+              </TableCell>
+              <TableCell>{row.submission_date} </TableCell>
+              <TableCell>
+                {row.name}
+                <Box sx={{ placeItems: "center" }} className="mobile">
+                  <AodIcon sx={{ fontSize: "20px" }} />
+                  <span style={{ marginRight: "20px" }}>{row.phone}</span>
+                  <MailOutlineIcon sx={{ fontSize: "20px" }} />
+                  <span>{row.email}</span>
+                </Box>
+              </TableCell>
+              <TableCell>{row.message}</TableCell>
+              <TableCell>{row.course}</TableCell>
+
+              <TableCell>
+                <select className="table-status">
+                  <option>Status</option>
+                  <option>Yes</option>
+                  <option>No</option>
+                </select>
+              </TableCell>
+
+              <TableCell>
+                <select className="table-status">
+                  <option>Status</option>
+                  <option>intrested</option>
+                  <option>Not intrested</option>
+                </select>
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
+  );
+};
+
+
