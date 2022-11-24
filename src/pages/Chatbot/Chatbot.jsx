@@ -8,8 +8,13 @@ import SocialMediaPosts from '../../components/_pages/Chatbot/SocialMediaPosts/S
 import { getFacebookData, getInstaData, getSlides, getTwitterData, getWhatsNewData } from '../../api'
 
 import image_video_camera from '../../asset/images/chatbot/video-camera.png'
+import Loader from '../../components/Loader/Loader'
+import { count } from '../../slices/notificationSlice'
+import { useDispatch } from 'react-redux'
 
 export default function Chatbot() {
+
+    const dispatch = useDispatch()
 
     const [data, setData] = useState({})
     const [slideRoll, setSlideRoll] = useState(0)
@@ -20,7 +25,7 @@ export default function Chatbot() {
             .catch((err) => ({ error: "Some error is happened" }))
 
         getWhatsNewData()
-            .then((response) => setData((s) => ({ ...s, whats: response.data })))
+            .then((response) => (setData((s) => ({ ...s, whats: response.data })), dispatch(count(response.data.result.length))))
             .catch((err) => ({ error: "Some error is happened" }))
 
         // getFacebookData()
@@ -28,7 +33,7 @@ export default function Chatbot() {
         //     .catch((err) => ({ error: "Some error is happened" }))
 
         getInstaData()
-            .then((response) => setData((s) => ({ ...s, insta: response.data })))
+            .then((response) => (console.log(response), setData((s) => ({ ...s, insta: response.data }))))
             .catch((err) => ({ error: "Some error is happened" }))
 
         getSlides()
@@ -69,16 +74,18 @@ export default function Chatbot() {
                         <div className='heading'>
                             <h1>What's new today</h1>
                         </div>
-                        {data?.whats?.result &&
-                            data.whats.result.map((obj, i) => {
-                                return (
-                                    <div className='news' key={i}>
-                                        <img src={obj.adminPicture_uploaded} alt="" />
-                                        <p>{obj.message}</p>
-                                    </div>
-                                )
-                            })
-                        }
+                        <div className={data?.whats?.result ? 'content' : "loading"}>
+                            {data?.whats?.result ?
+                                data.whats.result.map((obj, i) => {
+                                    return (
+                                        <div className='news' key={i}>
+                                            <img src={obj.adminPicture_uploaded} alt="" />
+                                            <p>{obj.message}</p>
+                                        </div>
+                                    )
+                                }) : <Loader />
+                            }
+                        </div>
                     </div>
                     <SocialMediaPosts media={'instagram'} color={'#E8247B'} data={data.insta} />
                     <SocialMediaPosts media={'linkedin'} color={'#0E76A8'} />

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { chatVideoUpload, getConversation, liveChatmessage } from '../../../../api'
-import { userInfo } from '../../../../utils/localStorage_Utils'
+// import { userInfo } from '../../../../utils/localStorage_Utils'
 import socket from '../../../../utils/socketIO_Util'
 import data from '@emoji-mart/data'
 import Picker from '@emoji-mart/react'
@@ -10,10 +10,12 @@ import './ChatWindow.scss'
 import image_chat from '../../../../asset/images/Chat/chat.png'
 import Modal from '../../../Modal/Modal'
 import { getNowDate } from '../../../../utils/date_Utils'
+import { useSelector } from 'react-redux'
 
 export default function ChatWindow({ currentChat }) {
 
     const chat_window_scroll_span = useRef()
+    const userInfo = useSelector((s) => s.Authentication.user)
 
     const [chats, setChats] = useState([])
     const [input, setInput] = useState('')
@@ -28,7 +30,7 @@ export default function ChatWindow({ currentChat }) {
             setInput('')
             setChats([])
         })
-    }, [currentChat])
+    }, [currentChat, attachmentModal])
 
     useEffect(() => {
         chat_window_scroll_span.current?.scrollIntoView({ behavior: 'smooth' })
@@ -74,7 +76,7 @@ export default function ChatWindow({ currentChat }) {
 
     function sendFileMessage() {
 
-        console.log(attachmentFile.file)
+        // console.log(attachmentFile.file)
         const formData = new FormData();
         formData.append("message", attachmentFile.text);
         formData.append("senderID", userInfo.id);
@@ -96,11 +98,11 @@ export default function ChatWindow({ currentChat }) {
         }
         else if (attachmentFile.type === "image") {
             formData.append("picture", attachmentFile.file);
-            for (const value of formData.entries()) {
-                console.log(value);
-            }
+            // for (const value of formData.entries()) {
+            //     console.log(value);
+            // }
             liveChatmessage(formData)
-                .then((res) => (console.log(res.data), setAttachmentModal(false)))
+                .then((res) => (setAttachmentModal(false), (console.log(res.data))))
                 .catch((err) => console.log(err))
         }
     }

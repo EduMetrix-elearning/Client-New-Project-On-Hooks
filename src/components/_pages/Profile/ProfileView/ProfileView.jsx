@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import './ProfileView.scss'
-import { userInfo } from '../../../../utils/localStorage_Utils'
+// import { userInfo } from '../../../../utils/localStorage_Utils'
 import { getDetails, getFollowers, getFollowings } from '../../../../api'
 import Modal from '../../../Modal/Modal'
 import EditProfile from '../EditProfile/EditProfile'
 
 import image_edit from '../../../../asset/images/My profile/edit.png'
+import { useSelector } from 'react-redux'
 
 
 export default function ProfileView() {
+
+    const userInfo = useSelector((s) => s.Authentication.user)
 
     const [profileDetails, setProfileDetails] = useState()
     const [follows, setFollows] = useState()

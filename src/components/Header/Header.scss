@@ -10,13 +10,38 @@
         align-items: center;
         padding: 5px 0;
 
+        .bell {
+            color: blue;
+            position: relative;
+
+            &::after {
+                content: attr(data-count);
+                aspect-ratio: 1 / 1;
+                height: 22px;
+                background-color: #cc0000;
+                position: absolute;
+                color: white;
+                border-radius: 50%;
+                display: grid;
+                place-items: center;
+                top: -8px;
+                right: 5px;
+                font-weight: bold;
+                font-size: 9pt;
+            }
+
+            &.show::after {
+                display: none;
+            }
+        }
+
         img {
             $side: 25px;
             width: $side;
             height: $side;
             margin: 0 15px;
 
-            &:last-child {
+            &.photo {
                 $side: 45px;
                 width: $side;
                 height: $side;

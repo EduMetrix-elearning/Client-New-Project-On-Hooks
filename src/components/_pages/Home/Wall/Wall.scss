@@ -12,6 +12,29 @@
         width: 80%;
         padding-top: 10px;
 
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 400px;
+
+            .error {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                img {
+                    $side: 150px;
+                    width: $side;
+                    margin: 0 auto;
+                }
+
+                p {
+                    text-align: center;
+                    margin-top: 15px;
+                }
+            }
+        }
     }
 }
 

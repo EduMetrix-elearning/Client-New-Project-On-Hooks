@@ -25,15 +25,15 @@ export function getAgoDate(date) {
     let minutes = Math.round((dateNow - postDate) / 60000)
 
     let ago =
-        minutes < 60 ? minutes + (minutes === 1 ? " minute" : " minutes")
-            : hours < 24 ? hours + (hours === 1 ? " hr" : " hrs")
-                : days < 7 ? days + (days === 1 ? " day" : " days")
-                    : weeks < 5 ? weeks + (weeks === 1 ? " week" : " weeks")
-                        : months < 12 ? months + (months === 1 ? " month" : " months")
-                            : years + (years === 1 ? " year" : " years")
-
-    return ago + " ago"
-
+        minutes <= 0 ? "now"
+            : minutes < 60 ? minutes + (minutes === 1 ? " minute" : " minutes")
+                : hours < 24 ? hours + (hours === 1 ? " hr" : " hrs")
+                    : days < 7 ? days + (days === 1 ? " day" : " days")
+                        : weeks < 5 ? weeks + (weeks === 1 ? " week" : " weeks")
+                            : months < 12 ? months + (months === 1 ? " month" : " months")
+                                : years + (years === 1 ? " year" : " years")
+    if (ago === "now") return ago
+    else return ago + " ago"
 }
 
 export function getFormattedDate(date) {

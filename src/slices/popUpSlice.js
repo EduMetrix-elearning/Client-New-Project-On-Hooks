@@ -10,10 +10,12 @@ export const popUpSlice = createSlice({
     initialState,
     reducers: {
         invokePopUp(state, action) {
+            // console.log(action)
             state.text = action.payload
             state.show = true
         },
         hidePopUp(state, action) {
+            // console.log(action)
             state.text = ""
             state.show = false
         }
