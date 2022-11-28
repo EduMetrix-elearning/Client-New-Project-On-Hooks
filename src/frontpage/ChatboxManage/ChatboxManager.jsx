@@ -42,7 +42,7 @@ export const ChatboxManager = () => {
             <p class="answer">1.	Submit an Online Application in this website <br />
               2.	Our Executives will Schedule a call and explain you the course details. <br />
               3.	Choose your location to join from available location options (Bangalore, Lucknow, Nilambur) <br />
-              4.	Pay the Admission fees Rs. 10,000/-  Online / Visit Branch to make payment. <br />
+              4.	Pay the Admission fees Rs. 15,000/-  Online / Visit Branch to make payment. <br />
               5.	Pay the Deposit amount of Rs. 3000/-  for the accommodation facility if you opt to go for accommodation provided by us. <br />
               6.	Pack Your Bag and come join next day.
             </p>

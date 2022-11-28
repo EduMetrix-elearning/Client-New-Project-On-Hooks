@@ -14,6 +14,8 @@ import CircleCheckedFilled from '@mui/icons-material/CheckCircle';
 import CircleUnchecked from '@mui/icons-material/RadioButtonUnchecked';
 import "./EduMetrixDashboard.scss";
 import dayjs from "dayjs";
+import { AppPagination } from "./AppPagination";
+
 
 
 
@@ -71,9 +73,11 @@ const rows = [
 ];
 
 export const DashBoardStatus = ({data}) => {
-  console.log(data)
+ 
+  
 
   return (
+    <>
     <TableContainer component={Paper} className="website-dashboard-status-check">
       <Table sx={{ width: "100%" }} aria-label="simple table">
         <TableHead
@@ -110,8 +114,8 @@ export const DashBoardStatus = ({data}) => {
                 {row.id}
               </TableCell>
               <TableCell>{row.submission_date} </TableCell>
-              <TableCell>
-                {row.name}
+              <TableCell >
+                <span style={{color:"blue"}}>{row.name}</span>
                 <Box sx={{ placeItems: "center" }} className="mobile">
                   <AodIcon sx={{ fontSize: "20px" }} />
                   <span style={{ marginRight: "20px" }}>{row.phone}</span>
@@ -119,7 +123,7 @@ export const DashBoardStatus = ({data}) => {
                   <span>{row.email}</span>
                 </Box>
               </TableCell>
-              <TableCell>{row.message}</TableCell>
+              <TableCell>{row.status}</TableCell>
               <TableCell>{row.course}</TableCell>
 
               <TableCell>
@@ -142,6 +146,8 @@ export const DashBoardStatus = ({data}) => {
         </TableBody>
       </Table>
     </TableContainer>
+    
+    </>
   );
 };
 

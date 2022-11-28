@@ -10,8 +10,7 @@ export const DashBoardInputs = ({ onDateFilter, onStatusFilter }) => {
     to: "",
   })
 
-  const [status,setStatus]=useState("")
-  console.log(status)
+ 
 
   const handleInputChange = (field) => (event) => {
     const { value } = event.target;
@@ -76,19 +75,7 @@ export const DashBoardInputs = ({ onDateFilter, onStatusFilter }) => {
               <option value="Inactive">Not Completed</option>
             </select>
           </Grid>
-          {/* <Grid item={2}>
-            <InputLabel>Export</InputLabel>
-            <Button
-              sx={{ backgroundColor: "#f5f5ef" }}
-              variant="contained"
-              size="small"
-            >
-              <IconButton size="small" sx={{ backgroundColor: "#f5f5ef" }}>
-                <input hidden accept="image/*" multiple type="file" />
-                <FileUploadIcon />
-              </IconButton>
-            </Button>
-          </Grid> */}
+          
         </Grid>
       </CardContent>
     </Card>

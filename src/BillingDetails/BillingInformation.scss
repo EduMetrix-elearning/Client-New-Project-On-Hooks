@@ -1,0 +1,76 @@
+
+.billing-pages-main-div{
+    .edumetrix-heading{
+        text-align: center;
+        margin-top: 20px;
+    }
+    .img-invoice{
+        display:flex;
+        justify-content: space-around;
+    }
+    .billed-by-to-div{
+        display:flex;
+        justify-content: space-around;
+        margin: auto;
+        width:62%;
+        margin-top: 20px;
+        gap:20px
+    }
+    .billed-by{ 
+        width:50%;
+        padding:10px;
+        background-color: #e6f3fa
+    }
+    .billed-to{
+    
+        width:50%;
+        padding:10px;
+        background-color: #e6f3fa
+    }
+    .heading-edit-icon{
+        display: flex;
+        justify-content: space-between;
+    }
+    .edit-icon{
+        cursor: pointer;
+    }
+    .amount-table,.received-amount-status{
+        width:62%;
+        margin: auto;
+        margin-top: 20px;
+    }
+    .total-amount-details-main-div{
+        display:flex;
+        justify-content: space-between;
+    }
+    .terms-of-service-bank-acc-main-div{
+        display: flex;
+        border-radius: 10px;    
+        width:62%;
+        margin: auto;
+        background-color: #e6f3fa
+    }
+    .terms-of-condition-div{
+        width:40%;
+        padding:30px
+    }
+    .bank-details-div{
+        width:60%;
+        padding:10px
+    }
+    .account-qr-code{
+        display:flex;
+        margin-top: 20px;
+        gap:40px;
+        padding-right:20px;
+        width:100%;
+        justify-content: space-between;
+    }
+    .contact-email-number {
+        margin: auto;
+        margin-top: 20px;
+        text-align: center;
+       
+    }
+    
+}

@@ -15,12 +15,16 @@ import  { DashBoardInputs } from "./Inputs";
 import { DashBoardDetails } from "./Details";
 import  { DashBoardStatus } from "./Status";
 import dayjs from "dayjs";
-import {data} from "./internship.js"
+import { useEffect } from "react";
+import axios from "axios"
+import { AppPagination } from "./AppPagination";
 
 const isSameOrAfter = require('dayjs/plugin/isSameOrAfter')
 dayjs.extend(isSameOrAfter)
 const isSameOrBefore = require('dayjs/plugin/isSameOrBefore')
 dayjs.extend(isSameOrBefore)
+const isBetween = require('dayjs/plugin/isBetween')
+dayjs.extend(isBetween)
 
 export const DashBoardNavbar = () => {
   const [value, setValues] = useState("1")
@@ -29,34 +33,59 @@ export const DashBoardNavbar = () => {
   }
 
 
-  const [internshipdata,setInsternshipData] = useState(data)
+  const [internshipdata,setInsternshipData] = useState([])
+  const [filterData,setFilterdata]=useState([])
+  const [filterstatus,setFilterStatus]=useState([])
+  const [pageCount,setPageCount]=useState(0)
+  let limit = 5;
+
   const handleFilterDate =(date,field)=>{
-    const filterdata = data.filter((item)=>{
-      if(field==="from" && dayjs(item.submission_date).isSameOrAfter(dayjs(date))){
+    const filterdata = filterData.filter((item)=>{
+      if((field==="from" && dayjs(item.submission_date).isSameOrAfter(dayjs(date))) || (field==="to" && dayjs(item.submission_date).isSameOrBefore(dayjs(date))) ){
         return item;
-      }
-      else  if(field==="to" && dayjs(item.submission_date).isSameOrBefore(dayjs(date))){
-        return item;
-      }
+      } 
     })
     setInsternshipData(filterdata)
   }
 
-  // const [filterStatus,setFilterStatus] = useState("")
-  // const handleFilterStatus = internshipdata.filter((e)=>{
-  //   if(filterStatus === "Active"){
-  //     return e.isAvailable === true;
-  //   }
-  //   else if(filterStatus === "Inactive"){
-  //     return e.isAvailable === false;
-  //   }
-  //   else{
-  //     return e;
-  //   }
-  // })
+
   const onFilterValueSelected =(filterstatusvalue)=>{
     console.log(filterstatusvalue)
+    const filteringStatus = filterstatus.filter((e)=>{
+      if(e.status==="Inactive"){
+        return e
+      }
+    })
+    setInsternshipData(filteringStatus)
   }
+
+ 
+  useEffect(()=>{
+    const getInternshipData=async()=>{
+      const res = await fetch(`http://localhost:8080/data?_page=1&_limit=${limit}`)
+      const data = await res.json()
+      const total = res.headers.get("x-total-count")
+      setPageCount(Math.ceil(total/limit))
+      setFilterStatus(data)
+      setFilterdata(data)
+      setInsternshipData(data)
+    };
+    getInternshipData()
+   },[])
+
+   const fetchSinglePageData=async(currentpage)=>{
+    const res = await fetch(`http://localhost:8080/data?_page=${currentpage}&_limit=${limit}`)
+    const data = await res.json()
+    return data
+   }
+
+   const handlePageClick= async(data)=>{
+     let currentpage = data.selected + 1
+     console.log(currentpage)
+    let pageFromfetchSinglepage = await fetchSinglePageData(currentpage)
+    setInsternshipData(pageFromfetchSinglepage)
+}
+
 
 
   return (
@@ -80,6 +109,7 @@ export const DashBoardNavbar = () => {
           <DashBoardInputs onDateFilter={handleFilterDate} onStatusFilter={onFilterValueSelected} />
           <DashBoardDetails/>
           <DashBoardStatus data={internshipdata}/>
+          <AppPagination handlePageClick={handlePageClick} pageCount={pageCount} />
         </TabPanel>
         <TabPanel value="2">
           Career
