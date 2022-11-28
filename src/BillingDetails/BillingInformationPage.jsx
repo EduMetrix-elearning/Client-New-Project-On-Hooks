@@ -9,6 +9,8 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { TextField } from '@material-ui/core';
 import ClearIcon from '@mui/icons-material/Clear';
+import qrscan from "../asset/images/scan-Qr.jpeg"
+import { InvoiceNumber } from 'invoice-number'
 
 
 const style = {
@@ -24,6 +26,7 @@ const style = {
 };
 
 export const BillingInformationPage = () => {
+    const invoicenumber = InvoiceNumber.next('A00001')
     const date = new Date()
     let day = date.getDate()
     let month = date.getMonth()+1;
@@ -40,14 +43,14 @@ export const BillingInformationPage = () => {
     return (
         <div className='billing-pages-main-div'>
             <div className='edumetrix-heading'>
-                <h1>EduMetrix Learning Solutions Pvt Ltd</h1>
+                <h1 style={{color:""}}>EduMetrix Learning Solutions Pvt Ltd</h1>
                 <p>CIN NO:U80900KA2019PTC126649</p>
             </div>
 
             <div className='img-invoice'>
                 <img src={edumetriximage} width="100px" alt="" />
                 <div>
-                    <p>Invoice No # <span style={{ fontWeight: "bold" }}>A00001</span></p>
+                    <p>Invoice No # <span style={{ fontWeight: "bold" }}>{invoicenumber}</span></p>
                     <p>Invoice Date # <span style={{ fontWeight: "bold" }}>{`${day+1}-${month}-${year}`}</span></p>
                 </div>
             </div>
@@ -71,14 +74,13 @@ export const BillingInformationPage = () => {
                         <div className="edit-icon" onClick={handleOpen}>Edit<EditIcon /></div>
                     </div>
                     <div>
-                        <label htmlFor="name">Name:{ name}</label> <br />
-                        {/* <input type="name" placeholder='Enter Name' /> <br /> */}
-                        <label htmlFor="Address">Address:{ address}</label> <br />
-                        {/* <input type="text" placeholder='Enter Address' /> <br /> */}
-                        <label htmlFor="email">Email:{ email}</label> <br />
-                        {/* <input type="email" placeholder='Enter Email' /> <br /> */}
-                        <label htmlFor="Phone">Phone No:{ phone}</label>
-                        {/* <input type="number" placeholder='Enter Number' /> <br /> */}
+                        <label htmlFor="name">Name: <span style={{ fontWeight: "bold" }}>{name}</span></label> <br />
+                       
+                        <label htmlFor="Address">Address:<span style={{ fontWeight: "bold" }}>{address}</span></label> <br />
+                       
+                        <label htmlFor="email">Email:<span style={{ fontWeight: "bold" }}>{email}</span></label> <br />
+                      
+                        <label htmlFor="Phone">Phone No:<span style={{ fontWeight: "bold" }}>{phone}</span></label>                     
 
                         <Modal
                     open={open}
@@ -89,18 +91,25 @@ export const BillingInformationPage = () => {
                     <Box sx={style}>
                         <Box className="inner-model">
                             <Typography id="modal-modal-title" variant="h6" component="h4">
-                                GBilling Form Information
+                                Billing Form 
                             </Typography>
                             <Button onClick={handleClose}>
                                 <ClearIcon />
                             </Button>
                         </Box>
                         <hr />
-                        <TextField fullWidth sx={{ m: 1 }} id="standard-basic" label="Name *" variant="standard" />
-                        <TextField fullWidth sx={{ m: 1 }} id="standard-basic" label="10  digits Mobile No *" variant="standard" />
-                        <TextField fullWidth sx={{ m: 1 }} id="standard-basic" label="Email *" variant="standard" />
-                        <TextField fullWidth sx={{ m: 1 }} id="standard-basic" label="Message *" variant="standard" />
-                        <Button fullwidth sx={{ marginTop: "20px" }} variant="contained" className='student-form-filling-btn'>I'm Interested</Button>
+                        <TextField fullWidth sx={{ m: 1 }} type="text" id="standard-basic" label="Name *" variant="standard" />
+                        <TextField fullWidth sx={{ m: 1 }} type="number" id="standard-basic" label="Phone *" variant="standard" />
+                        <TextField fullWidth sx={{ m: 1 }} type="email" id="standard-basic" label="Email *" variant="standard" />
+                        <TextField fullWidth sx={{ m: 1 }} type="text" id="standard-basic" label="Address *" variant="standard" />
+
+                        <select name="" id="">
+                            <option value=""></option>
+                            <option value="">cash</option>
+                            <option value="">A/c</option>
+                            <option value="">pending</option>
+                        </select>
+                        <Button fullwidth sx={{ marginTop: "20px" }} variant="contained" className='student-form-filling-btn'>Submit</Button>
 
                     </Box>
                 </Modal>
@@ -194,8 +203,8 @@ export const BillingInformationPage = () => {
                                     <option value="">pending</option>
                                 </select>
                             </td>
+                            <td>₹40,100</td>
                             <td>₹53,100</td>
-                            <td>₹4,050</td>
 
                         </tr>
 
@@ -221,7 +230,7 @@ export const BillingInformationPage = () => {
                     <h6 style={{ fontWeight: 'bold' }}>Bank and Payment Details</h6>
                     <div className='account-qr-code'>
                         <div className='account-details'>
-                            <div style={{ display: "flex",gap:"30px", justifyContent: "space-between" }}>
+                            <div style={{ display: "flex",gap:"21px", justifyContent: "space-between" }}>
                                 <p >Account Holder Name</p>
                                 <p style={{ fontWeight: 'bold' }}>Jayasmita Sahu</p>
                             </div>
@@ -248,14 +257,14 @@ export const BillingInformationPage = () => {
                         </div>
                         <div>
                             <p>Scan QR Code</p>
-                            <img src={edumetriximage} width="150px" alt="" />
+                            <img src={qrscan} width="150px" alt="" />
                         </div>
                     </div>
                 </div>
 
             </div>
 
-            <div clasName="contact-email-number">
+            <div className="contact-email-number">
                 For any enquiry,reach out via email at <a href="">edumetrixlearningsolutions@gmail.com</a> call on <a href="tel:+919074851744">9074851744</a>
          </div>
 

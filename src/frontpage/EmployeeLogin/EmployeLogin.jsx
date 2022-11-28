@@ -29,11 +29,11 @@ export const EmployeLogin = () => {
             </div>
           </Form.Group>
 
-          <Link style={{ textDecoration: "none", color: "white" }} to="/website-dashboard">
-            <Button className="employe-login-btn" type="submit">
+          {/* <Link style={{ textDecoration: "none", color: "white" }} to="/website-dashboard"> */}
+            <Button className="employe-login-btn" type="submit" disabled>
               LOG IN
             </Button>
-          </Link>
+          {/* </Link> */}
 
 
         </Form>

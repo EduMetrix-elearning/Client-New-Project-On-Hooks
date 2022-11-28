@@ -51,13 +51,13 @@ export const ChatboxManager = () => {
         <div>
           <h4 className='question'>What’s the Total Course Fees? </h4>
           <div >
-            <p class="answer">If you are paying Upfront fees you will have to pay only Rs. 45000/- + GST , or if you are Opting Pay after Placement you will have to pay a total of Rs. 85000/- , as 12 EMI es once you get Placed. </p>
+            <p class="answer">If you are paying Upfront fees you will have to pay only Rs. 45000/- + GST , or if you are Opting Pay after Placement you will have to pay a total of Rs. 85000/- + GST, as 12 EMI es once you get Placed. </p>
           </div>
         </div>
         <div>
           <h4 className='question'>How much EMI I will have to pay each month once I get placed? </h4>
           <div >
-            <p class="answer">Rs.6250/- will be your EMI for 12 Months. </p>
+            <p class="answer">Rs.5833/- + GST will be your EMI for 12 Months. </p>
           </div>
         </div>
         <div>

@@ -36,7 +36,7 @@ export const BussinessPartner = () => {
         <div className='hiring-partner'>
             <div className='hiring-card'>
                 <h3>Our Top Hiring Partners</h3>
-                <button onClick={handleOpen}>Get Carrier Handbook</button>
+                <button onClick={handleOpen}>Get Career Handbook</button>
                 <Modal
                     open={open}
                     onClose={handleClose}
