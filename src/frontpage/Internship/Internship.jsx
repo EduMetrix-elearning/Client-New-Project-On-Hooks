@@ -55,7 +55,7 @@ export const Internship = (props) => {
           <select>
             <option value="">Employment Status</option>
             <option value="employed">Employed</option>
-            <option value="frasher">Frasher</option>
+            <option value="frasher">Fresher</option>
             <option value="student">Student</option>
 
           </select>

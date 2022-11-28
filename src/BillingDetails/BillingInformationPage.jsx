@@ -89,7 +89,7 @@ export const BillingInformationPage = () => {
                     <Box sx={style}>
                         <Box className="inner-model">
                             <Typography id="modal-modal-title" variant="h6" component="h4">
-                                Get Courses Fees and Discount
+                                GBilling Form Information
                             </Typography>
                             <Button onClick={handleClose}>
                                 <ClearIcon />

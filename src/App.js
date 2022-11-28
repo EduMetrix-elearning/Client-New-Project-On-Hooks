@@ -105,7 +105,7 @@ function App() {
             <Route path="/career-data" element={<CareerData/>}></Route>
             <Route path="/status" element={<Status/>}></Route>
             <Route path="/student-details" element={<StudentDetails/>}></Route>
-            <Route path="/website-dashboard" element={<WebsiteDashboard/>}></Route>
+            {/* <Route path="/website-dashboard" element={<WebsiteDashboard/>}></Route> */}
             <Route path="/billing-infomation" element={<BillingInformationPage/>}></Route>          
 
           </Routes>
