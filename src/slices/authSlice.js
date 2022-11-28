@@ -24,6 +24,7 @@ export const authSlice = createSlice({
     reducers: {
 
         signUpUser(state, action) {
+            // console.log(action)
             switch (action.payload.type) {
                 case "start":
                     state.signUp.loading = true
@@ -59,7 +60,6 @@ export const authSlice = createSlice({
                     break;
                 default:
             }
-
         },
         logoutUser(state, action) {
             switch (action.type) {

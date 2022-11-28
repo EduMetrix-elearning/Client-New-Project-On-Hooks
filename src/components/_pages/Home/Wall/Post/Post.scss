@@ -184,6 +184,12 @@
                     $side: 20px;
                     width: $side;
                     height: $side;
+                    fill: var(--color3);
+                }
+
+                i {
+                    color: var(--color3);
+                    margin-right: 10px;
                 }
             }
         }

@@ -2,9 +2,15 @@ import React, { useState } from 'react'
 import './Suggestions.scss'
 import { useEffect } from 'react'
 import { followFriend, getStudentsToFollow } from '../../../../api'
-import { userInfo } from '../../../../utils/localStorage_Utils'
+// import { userInfo } from '../../../../utils/localStorage_Utils'
+import { useDispatch, useSelector } from 'react-redux'
+import { followings } from '../../../../slices/followSlice'
 
 export default function Suggestions() {
+
+    const dispatch = useDispatch()
+    const userInfo = useSelector((s) => s.Authentication.user)
+    const networks = useSelector(s => s.Network)
 
     const [peoples, setPeoples] = useState([])
     const [update, setUpdate] = useState(false)
@@ -15,7 +21,7 @@ export default function Suggestions() {
             setPeoples(response.data.data)
         }
         asyncFunction()
-    }, [update])
+    }, [update, userInfo])
 
     function followButtonHandle(people) {
         let obj = {
@@ -23,7 +29,7 @@ export default function Suggestions() {
             follower_id: userInfo.id,
         }
         console.log(obj)
-        followFriend(obj).then((res) => (console.log(res.data), setUpdate(!update))).catch((err) => console.log(err))
+        followFriend(obj).then((res) => (dispatch(followings(networks.followings + 1)), setUpdate(!update))).catch((err) => console.log(err))
     }
 
     return (

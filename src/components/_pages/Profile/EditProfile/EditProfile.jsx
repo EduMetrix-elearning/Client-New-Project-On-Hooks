@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react'
+import { useSelector } from 'react-redux'
 import { insertDescription, insertEducationalDetails, insertFamily, insertHobbies, insertLifeAmbition, insertSkills } from '../../../../api'
-import { userInfo } from '../../../../utils/localStorage_Utils'
+// import { userInfo } from '../../../../utils/localStorage_Utils'
 import './EditProfile.scss'
 
 export default function EditProfile({ currentDetails }) {
@@ -8,6 +9,7 @@ export default function EditProfile({ currentDetails }) {
     const HobbiesInput = useRef()
     const SkillsInput = useRef()
     const LifeGoalsInput = useRef()
+    const userInfo = useSelector((s) => s.Authentication.user)
 
     const [toggle, setToggle] = useState({ "About": true })
     const [inputs, setInputs] = useState({ About: null, Skills: [], Hobbies: [], Qualifications: {}, LifeGoals: '' })

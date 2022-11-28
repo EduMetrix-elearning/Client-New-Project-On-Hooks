@@ -26,39 +26,10 @@ export default function Login() {
     <>
       <div className='Login'>
         <div className='container'>
-          <div className='image_sky_div'>
-            <div className='image_coin_div'>
-              <img className='image_coin' src={image_coin} alt="" />
-            </div>
-            <div className='captions'>
-              <ul>
-                <li>Share your knowledge</li>
-                <li>Learn more from your friends</li>
-                <li>Chat with friends</li>
-                <li>Chat with experts</li>
-                <li>Earn money</li>
-              </ul>
-            </div>
-            <div className='captions_footer'>
-              <ul>
-                <li>Disclaimer</li>
-                <li>Privacy policy</li>
-                <li>Terms of service</li>
-                <li>Contact</li>
-                <li>EduMetrix &copy; 2020</li>
-              </ul>
-            </div>
-          </div>
           <div className='login_input_div'>
-            <div>
-              
-            </div>
-            <div className='about_page'>
-              <p data-content={'About us'}><a href='About_us'> About Us</a></p>
-            </div>
             <div className='login_company_logo_div justify-center'>
               <div className='login_company_logo_inner_div'>
-                <img src={image_logo} alt="" />
+                <img src={image_coin} alt="" />
                 <h6>EduMetrix</h6>
               </div>
             </div>

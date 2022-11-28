@@ -41,10 +41,10 @@ export default function SignIn({ setPage }) {
     }
 
     function recaptchaLoad(e) {
-        console.log(e)
+        // console.log(e)
     }
     function verifyCallback(e) {
-        console.log(e)
+        // console.log(e)
         if (e) {
             setCaptcha({ verified: true, error: '' })
         }

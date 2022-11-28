@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './UploadDocuments.scss'
 
-import { userInfo } from '../../../../utils/localStorage_Utils'
+// import { userInfo } from '../../../../utils/localStorage_Utils'
 import { imageToDB } from '../../../../api'
 import { useNavigate } from 'react-router-dom'
 import Modal from '../../../Modal/Modal'
@@ -9,10 +9,12 @@ import Modal from '../../../Modal/Modal'
 import image_dummy_idcard_front from '../../../../asset/images/SignUp/idcard_front.jpg'
 import image_dummy_idcard_back from '../../../../asset/images/SignUp/idcard_back.jpg'
 import image_dummy_user from '../../../../asset/images/SignUp/user_dummy.png'
+import { useSelector } from 'react-redux'
 
 export default function UploadDocuments() {
 
     const navigate = useNavigate()
+    const userInfo = useSelector((s) => s.Authentication.user)
 
     const [images, setImages] = useState()
     const [showModal, setShowModal] = useState(false)

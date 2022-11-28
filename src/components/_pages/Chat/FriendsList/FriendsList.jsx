@@ -3,13 +3,15 @@ import './FriendsList.scss'
 
 import { getAllStudents } from '../../../../api'
 import socket from '../../../../utils/socketIO_Util'
-import { userInfo } from '../../../../utils/localStorage_Utils'
+// import { userInfo } from '../../../../utils/localStorage_Utils'
+import { useSelector } from 'react-redux'
 
 export default function FriendsList({ setCurrentChat }) {
 
     const [allStudents, setAllStudents] = useState([])
     const [searchKey, setSearchKey] = useState('')
     const [activeFriends, setActiveFriends] = useState()
+    const userInfo = useSelector((s) => s.Authentication.user)
 
     useEffect(() => {
         async function asyncFunction() {
@@ -25,7 +27,8 @@ export default function FriendsList({ setCurrentChat }) {
 
     }, [])
 
-    // console.log(activeFriends)
+    // console.log(allStudents)
+    // console.log(userInfo)
 
     return (
         <div className='FriendsList'>

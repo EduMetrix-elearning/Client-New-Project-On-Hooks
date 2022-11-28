@@ -1,5 +1,6 @@
 .Chatbot {
     height: 100vh;
+
     .chatbot_content {
         padding-top: 10px;
         grid-area: 2 / 2 / 2 / 4;
@@ -22,6 +23,13 @@
                 h1 {
                     text-align: center;
                 }
+            }
+
+            .loading {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 300px;
             }
 
             .news {

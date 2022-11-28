@@ -9,80 +9,14 @@
     .container {
         width: 758px;
         display: flex;
+        justify-content: center;
         margin: 5vh 0;
         $width: 50%;
         $br: 15px;
 
-        .image_sky_div {
-            background: url('../../asset/images/Login/login-img.jpg');
-            background-size: cover;
-            background-position: 0 bottom;
-            border-radius: $br 0 0 $br;
-            width: $width;
-
-            .image_coin_div {
-                display: flex;
-                justify-content: center;
-
-                .image_coin {
-                    $side: 100px;
-                    width: $side;
-                    height: $side;
-                    margin-top: 30px;
-                }
-            }
-
-            .captions {
-                text-align: center;
-                margin-top: 160px;
-                color: var(--color1);
-                font-weight: bold;
-
-                ul {
-                    list-style: none;
-                    padding: 0%;
-
-                    li {
-                        margin-top: 13px;
-                    }
-                }
-            }
-
-            .captions_footer {
-                text-align: center;
-                padding: 0 65px;
-                display: flex;
-                justify-content: center;
-                white-space: wrap;
-                margin-top: 30px;
-                color: var(--color1);
-                font-size: 10pt;
-
-                ul {
-                    padding: 0%;
-
-                    li {
-                        display: inline-block;
-                        margin: 0 5px;
-                        cursor: pointer;
-
-                        &:not(:last-child):hover {
-                            text-decoration: underline;
-                        }
-                    }
-
-                    li:last-child {
-                        display: block;
-                        color: var(--color2);
-                        margin-top: 10px;
-                    }
-                }
-            }
-        }
-
         .login_input_div {
             background-color: var(--color1);
-            border-radius: 0 $br $br 0;
+            border-radius: $br;
             width: $width;
 
             p[data-content="About us"] {
@@ -102,12 +36,13 @@
                 text-align: center;
 
                 .login_company_logo_inner_div {
-                    margin: 25px 0;
+                    margin: 10px 0;
 
                     img {
                         $side: 100px;
                         width: $side;
-                        height: calc(#{$side} - 30px);
+                        height: $side;
+                        margin-bottom: 10px;
                     }
 
                     h6 {

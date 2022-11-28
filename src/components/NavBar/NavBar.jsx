@@ -13,19 +13,22 @@ import image_user from '../../asset/images/NavBar/profilepic.jpeg'
 import image_coin from '../../asset/images/NavBar/coin.png'
 
 import { Link } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { userLogout } from '../../slices/authSlice'
 import { useEffect } from 'react'
 import { getFollowers, getFollowings } from '../../api'
 import { useState } from 'react'
-import { userInfo } from '../../utils/localStorage_Utils'
+import { followers, followings } from '../../slices/followSlice'
+// import { userInfo } from '../../utils/localStorage_Utils'
 
 export default function NavBar({ currPage }) {
 
   const dispatch = useDispatch()
+  const networks = useSelector(s => s.Network)
 
-  const [network, setNetwork] = useState({})
+  // const [network, setNetwork] = useState({})
   const [dropDown, setDropDown] = useState(false)
+  const userInfo = useSelector((s) => s.Authentication.user)
 
   const menus = [
     { title: 'Home', image_src: image_home, path: '/' },
@@ -40,8 +43,10 @@ export default function NavBar({ currPage }) {
   ]
 
   useEffect(() => {
-    getFollowers({ "student_id": userInfo?.id }).then((res) => setNetwork((s) => ({ ...s, followers: res.data.result[0].followers })))
-    getFollowings({ "student_id": userInfo?.id }).then((res) => setNetwork((s) => ({ ...s, followings: res.data.result[0].following })))
+    // getFollowers({ "student_id": userInfo?.id }).then((res) => setNetwork((s) => ({ ...s, followers: res.data.result[0].followers })))
+    getFollowers({ "student_id": userInfo?.id }).then((res) => dispatch(followers(res.data.result[0].followers)))
+    // getFollowings({ "student_id": userInfo?.id }).then((res) => setNetwork((s) => ({ ...s, followings: res.data.result[0].following })))
+    getFollowings({ "student_id": userInfo?.id }).then((res) => dispatch(followings(res.data.result[0].following)))
   }, [])
 
   // console.log(network)
@@ -49,8 +54,8 @@ export default function NavBar({ currPage }) {
   return (
     <div className='NavBar'>
       <div className='network'>
-        <span><p>{network.followers}</p> Followers</span>
-        <span><p>{network.followings}</p> Followings</span>
+        <span><p>{networks.followers}</p> Followers</span>
+        <span><p>{networks.followings}</p> Followings</span>
       </div>
       <div className='logo' >
         <i className='fa fa-bars' onClick={() => setDropDown(!dropDown)} />

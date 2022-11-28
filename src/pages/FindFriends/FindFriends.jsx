@@ -7,13 +7,15 @@ import SearchFriends from '../../components/_pages/FindFriends/SearchFriends/Sea
 import DisplayFriends from '../../components/_pages/FindFriends/DisplayFriends/DisplayFriends'
 import { useEffect } from 'react'
 import { filterStudents, followFriend, getStudentsToFollow, searchFriends } from '../../api'
-import { userInfo } from '../../utils/localStorage_Utils'
+import { useSelector } from 'react-redux'
+// import { userInfo } from '../../utils/localStorage_Utils'
 
 export default function FindFriends() {
 
     const [students, setStudents] = useState([])
     const [update, setUpdate] = useState(false)
     const [searchInputs, setSearchInputs] = useState({ country: "", university: "", college: "" })
+    const userInfo = useSelector((s) => s.Authentication.user) 
 
     useEffect(() => {
         getAllStudents()
