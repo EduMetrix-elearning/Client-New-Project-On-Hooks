@@ -1,12 +1,11 @@
 import React from 'react'
-import ReactPaginate from 'react-paginate';
-import Pagination from 'react-bootstrap/Pagination';
+
 
 export const AppPagination = ({handlePageClick,pageCount}) => {
     
   return (
     <div>
-        <ReactPaginate
+        {/* <ReactPaginate
             previousLabel={"previous"}
             nextLabel={"next"}
             breakLabel={"***"}
@@ -23,7 +22,7 @@ export const AppPagination = ({handlePageClick,pageCount}) => {
             nextLinkClassName={"page-link"}
             breakClassName={"page-item"}
             breakLinkClassName={"page-link"}
-        />
+        /> */}
         {/* <Pagination>
       <Pagination.First />
       <Pagination.Prev />

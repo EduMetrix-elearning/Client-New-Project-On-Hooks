@@ -101,14 +101,21 @@ export const BillingInformationPage = () => {
                         <TextField fullWidth sx={{ m: 1 }} type="text" id="standard-basic" label="Name *" variant="standard" />
                         <TextField fullWidth sx={{ m: 1 }} type="number" id="standard-basic" label="Phone *" variant="standard" />
                         <TextField fullWidth sx={{ m: 1 }} type="email" id="standard-basic" label="Email *" variant="standard" />
-                        <TextField fullWidth sx={{ m: 1 }} type="text" id="standard-basic" label="Address *" variant="standard" />
+                        <TextField fullWidth sx={{ m: 1 }} type="text" id="standard-basic" label="Address *" variant="standard" style={{marginBottom:"10px"}}/> 
 
-                        <select name="" id="">
-                            <option value=""></option>
+                        <select name="" id="" style={{marginBottom:"10px"}}>
+                            <option value="">MODE</option>
                             <option value="">cash</option>
                             <option value="">A/c</option>
                             <option value="">pending</option>
-                        </select>
+                        </select> <br /> 
+
+                        <select name="" id="">
+                            <option value="">Status</option>
+                            <option value="">Complete</option>
+                            <option value="">pending</option>
+                        </select> <br />
+
                         <Button fullwidth sx={{ marginTop: "20px" }} variant="contained" className='student-form-filling-btn'>Submit</Button>
 
                     </Box>
@@ -191,17 +198,10 @@ export const BillingInformationPage = () => {
                         <tr>
                             <td>May 20 2020</td>
                             <td>
-                                <select name="" id="">
-                                    <option value="">Cash</option>
-                                    <option value="">A/c</option>
-                                    <option value="">pending</option>
-                                </select>
+                              cash
                             </td>
                             <td>
-                                <select name="" id="">
-                                    <option value="">complete</option>
-                                    <option value="">pending</option>
-                                </select>
+                               complete
                             </td>
                             <td>₹40,100</td>
                             <td>₹53,100</td>
