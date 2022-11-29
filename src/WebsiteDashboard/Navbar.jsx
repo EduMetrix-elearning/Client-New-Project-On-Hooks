@@ -18,6 +18,8 @@ import dayjs from "dayjs";
 import { useEffect } from "react";
 import axios from "axios"
 import { AppPagination } from "./AppPagination";
+import { CareerStatus } from "./CareerStatus";
+import { HiringStatus } from "./HiringStatus";
 
 const isSameOrAfter = require('dayjs/plugin/isSameOrAfter')
 dayjs.extend(isSameOrAfter)
@@ -113,15 +115,15 @@ export const DashBoardNavbar = () => {
         </TabPanel>
         <TabPanel value="2">
           Career
-          {/* <DashBoardInputs/>
+          <DashBoardInputs/>
           <DashBoardDetails/>
-          <DashBoardStatus/> */}
+          <CareerStatus data={internshipdata}/>
         </TabPanel>
         <TabPanel value="3">
           Hiring
-          {/* <DashBoardInputs/>
+          <DashBoardInputs/>
           <DashBoardDetails/>
-          <DashBoardStatus/> */}
+         <HiringStatus data={internshipdata}/>
           </TabPanel>
       </TabContext>
     </Box>

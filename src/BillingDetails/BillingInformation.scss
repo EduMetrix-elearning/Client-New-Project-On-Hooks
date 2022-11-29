@@ -1,79 +1,133 @@
+.billing-pages-main-div {
+    border: 1px solid;
+    width: 100%;
+    margin: auto;
+    margin-top:20px;
+    margin-bottom: 20px;
 
-.billing-pages-main-div{
-   
-    .edumetrix-heading{
-        text-align: center;
-        margin-top: 60px;
+    .print-button{
+        text-align: right;
+       print-color-adjust: black;
     }
-    .img-invoice{
-        display:flex;
+
+    .edumetrix-heading {
+        display: flex;
+        margin: auto;
+        text-align: justify;
+        gap: 30px;
+        margin-top: 20px;
+        width:85%;
+    }
+
+    .img-invoice {
+        display: flex;
         justify-content: space-around;
     }
-    .billed-by-to-div{
-        display:flex;
+
+    .billed-by-to-div {
+        display: flex;
         justify-content: space-around;
         margin: auto;
-        width:62%;
+        width: 85%;
         margin-top: 20px;
-        gap:20px
+        gap: 20px
     }
-    .billed-by{ 
-        width:50%;
-        padding:10px;
+
+    .billed-by {
+        width: 70%;
+        padding: 10px;
         background-color: #e6f3fa
     }
-    .billed-to{
-    
-        width:50%;
-        padding:10px;
+
+    .billed-to {
+
+        width: 50%;
+        padding: 10px;
         background-color: #e6f3fa
     }
-    .heading-edit-icon{
+
+    .heading-edit-icon {
         display: flex;
         justify-content: space-between;
     }
-    .edit-icon{
+
+    .edit-icon {
         cursor: pointer;
     }
-    .amount-table,.received-amount-status{
-        width:62%;
-        margin: auto;
-        margin-top: 20px;
-    }
-    .total-amount-details-main-div{
-        display:flex;
-        justify-content: space-between;
-    }
-    .terms-of-service-bank-acc-main-div{
-        display: flex;
-        border-radius: 10px;    
-        width:62%;
-        margin: auto;
-        background-color: #e6f3fa
-    }
-    .terms-of-condition-div{
-        width:40%;
-        padding:30px
-    }
-    .bank-details-div{
-        width:60%;
-        padding:30px
-    }
-    .account-qr-code{
-        display:flex;
-        margin-top: 20px;
-        gap:40px;
-        padding-right:20px;
-        width:100%;
-        justify-content: space-between;
-    }
-    .contact-email-number{
-        width:62%;
-        margin: auto;
-        margin-top: 20px;
-        margin-bottom: 30px;
-        text-align: center;
 
+    .amount-table,
+    .received-amount-status {
+        width:85%;
+        margin: auto;
+        margin-top: 10px;
     }
-    
+    .received-amount-status thead{
+        background-color: #164e64;
+        color:white
+    }
+    .amount-table thead{
+        background-color: #164e64;
+        color:white
+    }
+
+    .total-amount-details-main-div {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .Terms-of-condition-full-main-div {
+
+        background-color: #e6f3fa;
+        width: 85%;
+        margin: auto;
+        margin-bottom: 20px;
+    }
+
+    .terms-of-service-bank-acc-main-div {
+        display: flex;
+        border-radius: 10px;
+    }
+
+    .terms-of-condition-div {
+        width: 40%;
+        padding: 20px;
+        
+    }
+
+    .bank-details-div {
+        width: 60%;
+        padding: 20px;
+    }
+
+    .account-qr-code {
+        display: flex;
+        margin-top: 20px;
+        gap: 40px;
+        padding-right: 20px;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .contact-email-number {
+        width: 62%;
+        margin: auto;
+        // margin-top: -10px;
+        padding-bottom: 20px;
+        text-align: center;
+    }
+
 }
+
+@media print {
+    .billing-pages-main-div {
+        .amount-table thead{
+            // background-color: #164e64;
+            color:black;
+        }
+        
+        .received-amount-status thead{
+            background-color: #164e64;
+            color:white
+        }
+    }  
+ }

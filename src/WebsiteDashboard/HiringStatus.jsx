@@ -19,60 +19,8 @@ import "./EduMetrixDashboard.scss";
 
 
 
-function createData(id, EnquiredOn, name, phone, email, message, course) {
-  return { id, EnquiredOn, name, phone, email, message, course };
-}
 
-
-const rows = [
-  createData(
-    1,
-    "10-11-21",
-    "Jayasmita",
-    9880686768,
-    "jasmitasahu@gmail.com",
-    "hkjklj",
-    "fullstack"
-  ),
-  createData(
-    2,
-    "11-11-21",
-    "Ashwini",
-    880686768,
-    "jasmitasahu@gmail.com",
-    "hkjklj",
-    "fullstack"
-  ),
-  createData(
-    3,
-    "12-11-22",
-    "Rachna",
-    880686768,
-    "jasmitasahu@gmail.com",
-    "hkjklj",
-    "fullstack"
-  ),
-  createData(
-    4,
-    "13-6-22",
-    "Akshay",
-    880686768,
-    "jasmitasahu@gmail.com",
-    "hkjklj",
-    "fullstack"
-  ),
-  createData(
-    5,
-    "14-11-22",
-    "Anoop",
-    880686768,
-    "jasmitasahu@gmail.com",
-    "hkjklj",
-    "fullstack"
-  ),
-];
-
-export const DashBoardStatus = ({data}) => {
+export const HiringStatus = ({data}) => {
  
   
 
