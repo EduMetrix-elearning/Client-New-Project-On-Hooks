@@ -8,6 +8,7 @@ import {
 import { DashBoardNavbar } from './Navbar';
 import { AgentStatus } from './AgentStudent/AgentStatus';
 import { StudentStatusShow } from './StudentStatus/StudentStatusShow';
+import { BillingNavbar } from './Biiling/BillingNavbar';
 
 export const MainDashboardHeader = () => {
     const [value, setValues] = useState("1")
@@ -38,11 +39,10 @@ export const MainDashboardHeader = () => {
            <DashBoardNavbar/>    
         </TabPanel>
         <TabPanel value="2">  
-          {!showagent ? <AgentStatus setShow={setShow}/> : <StudentStatusShow />}
-
+          <AgentStatus />
         </TabPanel>
         <TabPanel value="3">
-          Billing
+          <BillingNavbar/>
           </TabPanel>
           <TabPanel value="4">
           Team

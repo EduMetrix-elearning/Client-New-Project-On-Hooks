@@ -121,13 +121,11 @@
 @media print {
     .billing-pages-main-div {
         .amount-table thead{
-            // background-color: #164e64;
             color:black;
         }
         
         .received-amount-status thead{
-            background-color: #164e64;
-            color:white
+            color:black;
         }
     }  
  }

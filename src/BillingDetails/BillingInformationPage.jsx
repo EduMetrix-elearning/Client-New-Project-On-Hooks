@@ -96,7 +96,7 @@ export const BillingInformationPage = () => {
                     </div>
                     <div style={{textAlign:"right"}}>
                         <p>Invoice No # <span style={{ fontWeight: "bold" }}>{invoicenumber}</span></p>
-                        <p>Invoice Date # <span style={{ fontWeight: "bold" }}>{`${day}-${month}-${year}`}</span></p>
+                        <p>Invoice Date # <span style={{ fontWeight: "bold" }}>{`${day+1}-${month}-${year}`}</span></p>
                     </div>
                     <div>
                         <label htmlFor="name">Name: <span style={{ fontWeight: "bold" }}>{name}</span></label> <br />

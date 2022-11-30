@@ -8,7 +8,7 @@ import Button from '@mui/material/Button';
 import CardActions from '@mui/material/CardActions';
 import { Link } from 'react-router-dom';
 
-export const AgentStatus = ({setshow}) => {
+export const AgentStatus = () => {
   return (
     <div className='all-agent-Card-page'>
       <Link to="/student-card">
