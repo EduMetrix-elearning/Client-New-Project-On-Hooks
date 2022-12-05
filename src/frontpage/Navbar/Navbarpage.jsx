@@ -33,7 +33,7 @@ export const Navbarpage = () => {
                             <Nav.Link className="all-items" ><Link to="/Courses" style={{textDecoration:"none",color:"#707071"}}>Courses</Link></Nav.Link>
                             <Nav.Link className="all-items" onClick={handleinternship}>Internship</Nav.Link>
                             <Nav.Link className="all-items" onClick={handleCarrier} >Career</Nav.Link>
-                            <Nav.Link className="all-items" href="#"><Link to="/agentssignup" style={{ textDecoration: "none", color: "#707071" }}>Agent</Link></Nav.Link>
+                            <Nav.Link className="all-items" href="#"><Link to="/agentssignup" style={{ textDecoration: "none", color: "#707071" }}>Affiliate Program</Link></Nav.Link>
                             <Nav.Link className="all-items"><Link to="/Hrform" style={{ textDecoration: "none", color: "#707071" }}>Corporates</Link></Nav.Link>
                             <Nav.Link className="all-items" href="#"><Link to="/login" style={{ textDecoration: "none", color: "#707071" }}>Student</Link></Nav.Link>
                         </Nav>

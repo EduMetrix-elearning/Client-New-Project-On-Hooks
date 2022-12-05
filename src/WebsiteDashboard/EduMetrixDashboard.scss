@@ -24,3 +24,13 @@
         width: auto;
     }
 }
+
+@media print{
+    .Dashboard-navbar{
+       display:none 
+    }
+    .dashboard-header{
+        border:1px solid;
+        display: none;
+    }
+}

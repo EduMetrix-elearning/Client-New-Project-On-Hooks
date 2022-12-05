@@ -7,7 +7,7 @@ export const WebsiteDashboard = () => {
   return (
     <div>
         <DashBoardHeader/>
-      <MainDashboardHeader/>
+        <MainDashboardHeader/>
     </div>
   )
 }

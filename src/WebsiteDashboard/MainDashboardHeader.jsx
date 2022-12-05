@@ -9,6 +9,7 @@ import { DashBoardNavbar } from './Navbar';
 import { AgentStatus } from './AgentStudent/AgentStatus';
 import { StudentStatusShow } from './StudentStatus/StudentStatusShow';
 import { BillingNavbar } from './Biiling/BillingNavbar';
+import "./EduMetrixDashboard.scss"
 
 export const MainDashboardHeader = () => {
     const [value, setValues] = useState("1")
@@ -18,9 +19,10 @@ export const MainDashboardHeader = () => {
   const [showagent,setShow] = useState(false)
 
   return (
-    <div>
+    <div className='main-dashboard-navbar'>
         <Box sx={{ width: "100%", typography: "body1" }}>
       <TabContext value={value}>
+      <div  className="Dashboard-navbar">
         <Box sx={{
           borderBottom: 1,
           borderColor: "divider"
@@ -35,6 +37,7 @@ export const MainDashboardHeader = () => {
             <Tab label="Team" value="4"></Tab>
           </TabList>
         </Box>
+        </div>
         <TabPanel value="1">
            <DashBoardNavbar/>    
         </TabPanel>

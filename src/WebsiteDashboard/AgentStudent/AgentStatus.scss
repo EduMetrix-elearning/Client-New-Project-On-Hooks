@@ -1,10 +1,27 @@
-.all-agent-Card-page{
-    display:grid;
-    grid-template-columns: auto auto auto auto;
-    justify-content:center;
-    gap:70px;
-}
-.one-agent-card:hover{
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    cursor: pointer;
+.Agent-Showing-details-div{
+    .all-agent-Card-page{
+        display:grid;
+        grid-template-columns: auto auto auto auto;
+        justify-content:center;
+        gap:70px;
+    }
+    .one-agent-card:hover{
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        cursor: pointer;
+    }
+    .filtering-name{
+        width:90%;
+        padding:5px;
+        margin-bottom: 10px;
+    }
+    .filtering-agent-div{
+        width:100%;
+        text-align: center;
+    }
+    .Filtering-email-status-location{
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 20px;
+    }
+
 }

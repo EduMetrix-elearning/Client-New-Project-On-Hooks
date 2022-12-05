@@ -45,7 +45,8 @@ export const Footer = () => {
                             <li><Link to="/AboutUs">About us</Link></li>
                             <li><Link to="/TermOfservices">Terms of services</Link></li>
                             <li><Link to="/PrivacyPolicy">Privacy policy</Link></li>
-                            <li><a href="#">Affiliate program</a></li>
+                            <li><Link to="/agentssignup">Affiliate program</Link></li>
+                          
                         </ul>
                     </div>
                     <div className="footer-col">

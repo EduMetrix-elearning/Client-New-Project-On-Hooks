@@ -7,6 +7,7 @@ import {
   Tabs,
   Tab,
 } from "@mui/material";
+import "./EduMetrixDashboard.scss"
 import TabPanel from "@mui/lab/TabPanel";
 import TabContext from "@mui/lab/TabContext";
 import React, { useState } from "react";
@@ -91,12 +92,13 @@ export const DashBoardNavbar = () => {
 
 
   return (
-    <Box sx={{ width: "100%", typography: "body1" }}>
+    <Box sx={{ width: "100%", typography: "body1" }} >
       <TabContext value={value}>
         <Box sx={{
           borderBottom: 1,
-          borderColor: "divider"
-        }}>
+          borderColor: "divider"    
+        }}
+        >
           <TabList 
           onChange={handleChange}
           aria-label="lab API tabs example"

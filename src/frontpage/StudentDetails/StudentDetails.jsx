@@ -12,7 +12,7 @@ export const StudentDetails = () => {
 
       <div className='student-profile-main-div'>
         <div className='student-profile-form-div'>
-          <h1 style={{ marginBottom: "20px", color: "white", backgroundColor: "#193942", padding: "15px" }}>Referral Form</h1>
+          <h2 style={{ marginBottom: "20px", color: "white", backgroundColor: "#193942", padding: "15px", textAlign:"center" }}>Referral Form</h2>
           <Form className="student-profile-form">
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label> Student Name *</Form.Label>

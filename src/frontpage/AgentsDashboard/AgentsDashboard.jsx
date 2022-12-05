@@ -57,7 +57,7 @@ export const AgentsDashboard = () => {
 
       <div className='agent-profile-main-div'>
         <div className='agent-profile-form-div'>
-          <h1 style={{ marginBottom: "20px", color: "white", backgroundColor: "#193942", padding: "15px" }}>Agent KYC Form</h1>
+          <h2 style={{ marginBottom: "20px", color: "white", backgroundColor: "#193942", padding: "15px" ,textAlign:"center"}}>Agent KYC Form</h2>
           <Form className="agent-profile-form">
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Name *</Form.Label>

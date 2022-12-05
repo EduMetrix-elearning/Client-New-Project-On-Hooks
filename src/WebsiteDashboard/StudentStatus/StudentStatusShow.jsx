@@ -1,21 +1,7 @@
 import React from 'react'
 import "./StudentStatusShow.scss";
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import CardActions from '@mui/material/CardActions';
-import { DashBoardNavbar } from '../Navbar';
-import { DashBoardHeader } from '../Header';
-import TabPanel from "@mui/lab/TabPanel";
-import TabContext from "@mui/lab/TabContext";
-import TabList from "@mui/lab/TabList";
-import {
-    Box,
-    Tab,} from "@mui/material";
+import {Box} from "@mui/material";
 import { useState } from "react";
-import { DashBoardStatus } from '../Status';
 import { DashBoardInputs } from '../Inputs';
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -36,11 +22,9 @@ export const StudentStatusShow = () => {
     const handleChange = (e, val) => {
       setValues(val)
     }
-    const [data,setData]=useState([])
+    const [Studentdata,setStudentData]=useState([])
     return (
         <>
-        {/* <DashBoardHeader/> */}
-        {/* <DashBoardStatus/> */}
         
         <div className="student-agent-full-details-show">
             <div className='agent-full-details'>
@@ -51,8 +35,8 @@ export const StudentStatusShow = () => {
                         </div>
                     </div>
                     <div className="lower-box">
-                        <h3>Abhishek Singh</h3>
-                        <p>Abhishek@gmail.com</p>
+                        <h3>Jamsheer</h3>
+                        <p>Jamsheer@gmail.com</p>
                         <p>Phone : 909090455</p>
                     </div>
                 </div>
@@ -79,7 +63,7 @@ export const StudentStatusShow = () => {
           </TableRow>
         </TableHead>
         <TableBody align="center">
-          {data.map((row, index) => (
+          {Studentdata.map((row, index) => (
             <TableRow
               className="tabelrow"
               key={index}

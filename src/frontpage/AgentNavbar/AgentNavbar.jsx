@@ -15,9 +15,9 @@ export const AgentNavbar = () => {
   return (
 
     <div>
-      <Navbar expand="lg" style={{ padding: "20px", backgroundColor: "#193942" }}>
+      <Navbar expand="lg" style={{ padding: "15px", backgroundColor: "#193942" }}>
         <Container fluid>
-          <Navbar.Brand ><Link to="/agents-dashboard" style={{ color: "white", textDecoration: "none", gap: "30px" }}>Agent Profile</Link></Navbar.Brand>
+          <h5><Link to="/agents-dashboard" style={{ color: "white", textDecoration: "none", marginLeft:"20px" }}>AgentProfile</Link></h5>
           <Navbar.Toggle aria-controls="navbarScroll" style={{ color: "white", backgroundColor: "white" }} />
           <Navbar.Collapse id="navbarScroll" >
             <Nav
@@ -25,8 +25,8 @@ export const AgentNavbar = () => {
               style={{ maxHeight: '100px' }}
               navbarScroll
             >
-              <Navbar.Brand  ><Link to="/student-details" style={{ color: "white", textDecoration: "none" }}>Student Data</Link></Navbar.Brand>
-              <Navbar.Brand style={{ color: "white" }}><Link to="/status" style={{ color: "white", textDecoration: "none" }}>Status</Link> </Navbar.Brand>
+              <h5  ><Link to="/student-details" style={{ color: "white", textDecoration: "none" ,marginLeft:"20px"}}>StudentDetails</Link></h5>
+              <h5 style={{ color: "white" }}><Link to="/status" style={{ color: "white", textDecoration: "none",marginLeft:"20px" }}>Status</Link> </h5>
 
 
             </Nav>

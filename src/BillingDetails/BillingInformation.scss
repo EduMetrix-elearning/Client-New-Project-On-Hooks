@@ -2,12 +2,11 @@
     border: 1px solid;
     width: 100%;
     margin: auto;
-    margin-top:20px;
+    margin-top: 0px;
     margin-bottom: 20px;
 
-    .print-button{
+    .print-button {
         text-align: right;
-       print-color-adjust: black;
     }
 
     .edumetrix-heading {
@@ -16,7 +15,7 @@
         text-align: justify;
         gap: 30px;
         margin-top: 20px;
-        width:85%;
+        width: 85%;
     }
 
     .img-invoice {
@@ -57,17 +56,19 @@
 
     .amount-table,
     .received-amount-status {
-        width:85%;
+        width: 85%;
         margin: auto;
         margin-top: 10px;
     }
-    .received-amount-status thead{
+
+    .received-amount-status thead {
         background-color: #164e64;
-        color:white
+        color: white
     }
-    .amount-table thead{
+
+    .amount-table thead {
         background-color: #164e64;
-        color:white
+        color: white
     }
 
     .total-amount-details-main-div {
@@ -91,7 +92,7 @@
     .terms-of-condition-div {
         width: 40%;
         padding: 20px;
-        
+
     }
 
     .bank-details-div {
@@ -109,23 +110,85 @@
     }
 
     .contact-email-number {
-        width: 62%;
+        width: 65%;
         margin: auto;
         // margin-top: -10px;
-        padding-bottom: 20px;
+        padding-bottom: 10px;
         text-align: center;
+    }
+
+    .course-details-seal-logo {
+        display: flex;
+        justify-content: space-between;
+
+    }
+
+    .thanks-tag {
+        font-weight: bold;
+        text-align: center;
+        padding-bottom: 5px;
+        font-size: 20px;
+    }
+
+    .seal {
+        width: 150px;
+        margin-top: 35px;
+    }
+    .billing-course-details-p-tag{
+        margin: 0;
+        padding: 0;
     }
 
 }
 
 @media print {
     .billing-pages-main-div {
-        .amount-table thead{
-            color:black;
+        width: 100%;
+
+        .amount-table thead {
+            color: black;
         }
-        
-        .received-amount-status thead{
-            color:black;
+
+        .received-amount-status thead {
+            color: black;
         }
-    }  
- }
+
+        .contact-email-number {
+            width: 85%;
+        }
+
+        .thanks-tag {
+            font-weight: bold;
+            text-align: center;
+            font-size: 15px;
+        }
+
+        .edumetrix-heading {
+            width: 90%
+        }
+
+        .amount-table,
+        .received-amount-status {
+
+            width: 90%
+        }
+
+        .billed-by-to-div {
+
+            width: 90%;
+        }
+
+        .seal{
+            width: 100px;
+            margin-top: 55px;
+        }
+
+        .Terms-of-condition-full-main-div {
+            width: 90%
+        }
+        .billed-by , .billed-to{
+            background-color: #d7e4eb
+
+        }
+    }
+}

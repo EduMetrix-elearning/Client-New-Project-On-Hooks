@@ -51,6 +51,10 @@ import { Navbarpage } from './frontpage/Navbar/Navbarpage.jsx';
 import { WebsiteDashboard } from './WebsiteDashboard/WebsiteDashboard.jsx';
 import { BillingInformationPage } from './BillingDetails/BillingInformationPage.jsx';
 import { StudentStatusShow } from './WebsiteDashboard/StudentStatus/StudentStatusShow.jsx';
+import { AgentVarification } from './frontpage/AgentVerification/AgentVarification.jsx';
+import { ForgetagntPasswod } from './frontpage/ForgetPasword/ForgetagntPasswod.jsx';
+import { ForgetAgentOtpVarify } from './frontpage/ForgetAgentOtpVarify/ForgetAgentOtpVarify.jsx';
+import { ForgetAgentPasswordUpdate } from './frontpage/ForgetAgentPasswordUpdate/ForgetAgentPasswordUpdate.jsx';
 // =======
 // >>>>>>> d8fa9f140c596cfebe9aad8864b64ed3cc4aee98
 
@@ -109,7 +113,10 @@ function App() {
             <Route path="/website-dashboard" element={<WebsiteDashboard/>}></Route>
             <Route path="/billing-information" element={<BillingInformationPage/>}></Route>          
             <Route path="/student-card" element={<StudentStatusShow/>}></Route>
-
+            <Route path="/agent_otp_varification" element={<AgentVarification/>}></Route>
+            <Route path="/forget_agent_password" element={<ForgetagntPasswod/>}></Route>
+            <Route path="/forget_agent_otp_varify" element={<ForgetAgentOtpVarify/>}></Route>
+            <Route path="/forget_agent_password_update" element={<ForgetAgentPasswordUpdate/>}></Route>
 
           </Routes>
         </Router>
