@@ -1,66 +1,57 @@
-import React from 'react'
-import { Container, Nav, Navbar, Form, Button,Table } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { React, useState, useEffect } from 'react';
+import { Table } from 'react-bootstrap';
 import { AgentNavbar } from '../AgentNavbar/AgentNavbar';
-import "./Status.scss"
+import './Status.scss';
+
+const services = require('../../services/pages/agentRoute');
 
 export const Status = () => {
-  return (
-    <div className='status-main-div'>
-      
-        <AgentNavbar/>
+	const [referrals, setReferrals] = useState('');
 
-      <div className='status-inner-div'>
-        <div className='status-table-div'>
-          <h1 style={{marginBottom:"30px",color:"#193942",textAlign:"center",marginTop:"20px"}}> Student Status</h1> 
-          <Table bordered  responsive className='student-table'>
-      <thead>
-        <tr>
-          <th>NO.</th>
-          <th>NAME</th>
-          <th>EMAIL</th>
-          <th>PHONE</th>
-          <th>LOCATION</th>
-          <th>PAST COURSE</th>
-          <th>STATUS</th>
-          <th>SUBMISSION DATE</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>Shafan</td>
-          <td>Shafan@gmail.com</td>
-          <td>9459088234</td>
-          <td>Bangalore</td>
-          <td>Full stacak course</td>
-          <td>Active</td>
-          <td>12/09/2022</td>
-        </tr>
-        <tr>
-        <td>2</td>
-          <td>Abhishek</td>
-          <td>abhishek@gmail.com</td>
-          <td>9342567762</td>
-          <td>Lukhnow</td>
-          <td>Backend Course</td>
-          <td>Active</td>
-          <td>12/09/2022</td>
-        </tr>
-        <tr>
-        <td>3</td>
-          <td>Sruti</td>
-          <td>sruti@gmail.com</td>
-          <td>9498338234</td>
-          <td>Delhi</td>
-          <td>Frontend course</td>
-          <td>Inactive</td>
-          <td>12/09/2022</td>
-        </tr>
-      </tbody>
-    </Table>          
-        </div>
-      </div>
-    </div>
-  )
-}
+	useEffect(() => {
+		services.agentReferrals((error, result) => {
+			setReferrals(result);
+		});
+	});
+
+	return (
+		<div className="status-main-div">
+			<AgentNavbar />
+
+			<div className="status-inner-div">
+				<div className="status-table-div">
+					<h1 style={{ marginBottom: '30px', color: '#193942', textAlign: 'center', marginTop: '20px' }}> Student Status</h1>
+					<Table bordered responsive className="student-table">
+						<thead>
+							<tr>
+								<th>NO.</th>
+								<th>NAME</th>
+								<th>EMAIL</th>
+								<th>PHONE</th>
+								<th>LOCATION</th>
+								<th>PAST COURSE</th>
+								<th>STATUS</th>
+								<th>SUBMISSION DATE</th>
+							</tr>
+						</thead>
+						<tbody>
+							{referrals &&
+								referrals.map((detail, i) => (
+									<tr key={i}>
+										<td>{detail.referral_id}</td>
+										<td>{detail.name}</td>
+										<td>{detail.email}</td>
+										<td>{detail.contact_number}</td>
+										<td>{detail.place}</td>
+										<td>{detail.course}</td>
+										<td>Active</td>
+										<td>{detail.created_date}</td>
+									</tr>
+								))}
+						</tbody>
+					</Table>
+				</div>
+			</div>
+		</div>
+	);
+};
