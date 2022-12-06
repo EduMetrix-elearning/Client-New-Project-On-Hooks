@@ -4,12 +4,10 @@ import './TopPics.scss'
 import NavBar from '../../components/NavBar/NavBar'
 import Header from '../../components/Header/Header'
 import Suggestions from '../../components/_pages/Home/Suggestions/Suggestions'
-
 import { getTopPicsForYou } from '../../api'
 import Grid from '../../components/_pages/TopPics/Grid/Grid'
 
 export default function TopPics() {
-
     const [topPics, setTopPics] = useState()
     const [pagination, setPagination] = useState({ pageNumber: 1, pageLength: 5 })
 
@@ -23,7 +21,6 @@ export default function TopPics() {
 
     return (
         <div className='TopPics'>
-
             <header>
                 <Header />
             </header>

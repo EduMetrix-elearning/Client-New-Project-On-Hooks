@@ -29,11 +29,11 @@ export const EmployeLogin = () => {
             </div>
           </Form.Group>
 
-          {/* <Link style={{ textDecoration: "none", color: "white" }} to="/website-dashboard"> */}
-            <Button className="employe-login-btn" style={{backgroundColor:"#193942" }} disabled>
+          <Link style={{ textDecoration: "none", color: "white" }} to="/website-dashboard">
+            <Button className="employe-login-btn" style={{backgroundColor:"#193942" }}>
               LOG IN
             </Button>
-          {/* </Link> */}
+          </Link>
 
          
         </Form>

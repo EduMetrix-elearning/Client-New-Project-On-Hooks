@@ -1,3 +1,4 @@
 export const GetUrl=()=>{
-    return "http://localhost:9000"
+    return BASE_URL
 }
+const BASE_URL = "http://localhost:9000"
