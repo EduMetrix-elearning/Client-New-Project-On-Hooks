@@ -51,6 +51,22 @@ export function otpVarify(values, callback) {
 
     })
 }
+export function agentLogin(values, callback) {
+    Axios.post(baseurl.GetUrl() + "/agent/login", values).then(async (response) => {
+        console.log("api response", response)
+        if (response.data) {
+            await ls.set("id", response.data.id)
+            await ls.set("token", response.data.token)
+            return callback(null, response)
+        }
+    }).catch((error) => {
+        if (error.response) {
+            alert(error.response.data.message);
+        }
+        return callback(error)
+
+    })
+}
 
 
 // export const otpVarify=(values,callback)=>{
