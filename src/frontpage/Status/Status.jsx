@@ -10,9 +10,9 @@ export const Status = () => {
 
 	useEffect(() => {
 		services.agentReferrals((error, result) => {
-			setReferrals(result);
+			if (result && !!result.length) setReferrals(result.reverse());
 		});
-	});
+	}, []);
 
 	return (
 		<div className="status-main-div">
@@ -45,7 +45,7 @@ export const Status = () => {
 										<td>{detail.place}</td>
 										<td>{detail.course}</td>
 										<td>Active</td>
-										<td>{detail.created_date}</td>
+										<td>{new Date(detail.created_date).toLocaleString('lookup')}</td>
 									</tr>
 								))}
 						</tbody>

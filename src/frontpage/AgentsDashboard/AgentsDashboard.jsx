@@ -97,20 +97,20 @@ export const AgentsDashboard = () => {
 
 	useEffect(() => {
 		services.agentInfo((error, result) => {
-			setname(result.agent_name);
-			setmobile(result.agent_phone);
-			setemail(result.agent_email);
-			setplace(result.agent_address);
-			setBranchName(result.bank_branch);
-			setAccountname(result.bank_account_name);
-			setAccountno(result.bank_account_number);
-			setIfsc(result.bank_ifsc);
-			setImage(result.agent_photo);
-			setpancard(result.agent_pan);
-			setAdharCardFront(result.agent_aadharfront);
-			setAdharCardBack(result.agent_aadharback);
+			if (result.agent_name) setname(result.agent_name);
+			if (result.agent_phone) setmobile(result.agent_phone);
+			if (result.agent_email) setemail(result.agent_email);
+			if (result.agent_address) setplace(result.agent_address);
+			if (result.bank_branch) setBranchName(result.bank_branch);
+			if (result.bank_account_name) setAccountname(result.bank_account_name);
+			if (result.bank_account_number) setAccountno(result.bank_account_number);
+			if (result.bank_ifsc) setIfsc(result.bank_ifsc);
+			if (result.agent_photo) setImage(result.agent_photo);
+			if (result.agent_pan) setpancard(result.agent_pan);
+			if (result.agent_aadharfront) setAdharCardFront(result.agent_aadharfront);
+			if (result.adharcardback) setAdharCardBack(result.agent_aadharback);
 		});
-	});
+	}, []);
 
 	return (
 		<div className="agents-dashboard">
