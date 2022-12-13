@@ -94,9 +94,9 @@ export const StudentDetails = () => {
 							/>
 						</Form.Group>
 
-						<Form.Group className="mb-3" controlId="formBasicCheckbox">
+						{/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
 							<Form.Check type="checkbox" label="Remember me" />
-						</Form.Group>
+						</Form.Group> */}
 						<Link style={{ textDecoration: 'none', color: 'white' }} to="/status">
 							<Button className="student-profile-form-btn" variant="primary" type="submit" onClick={handleSubmit}>
 								Submit
