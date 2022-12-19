@@ -73,7 +73,7 @@ export const Status = () => {
             align="center"
           >
             <TableRow>
-              <TableCell padding="checkbox"></TableCell>
+          
               <TableCell>No.</TableCell>
               <TableCell>NAME</TableCell>
               <TableCell>ENAIL</TableCell>

@@ -139,7 +139,7 @@ export const AgentsDashboard = () => {
     if (e.target.files.length !== 0) {
       // setImage(e.target.files[0]);
       setImage(URL.createObjectURL(e.target.files[0]));
-      setImage("");
+      
 
       // setImage(URL.createObjectURL(e.target.files[0]));
     }
