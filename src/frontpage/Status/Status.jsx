@@ -1,60 +1,3 @@
-// import { React, useState, useEffect } from 'react';
-// import { Table } from 'react-bootstrap';
-// import { AgentNavbar } from '../AgentNavbar/AgentNavbar';
-// import './Status.scss';
-
-// const services = require('../../services/pages/agentRoute');
-
-// export const Status = () => {
-// 	const [referrals, setReferrals] = useState('');
-
-// 	useEffect(() => {
-// 		services.agentReferrals((error, result) => {
-// 			if (result && !!result.length) setReferrals(result.reverse());
-// 		});
-// 	}, []);
-
-// 	return (
-// 		<div className="status-main-div">
-// 			<AgentNavbar />
-
-// 			<div className="status-inner-div">
-// 				<div className="status-table-div">
-// 					<h1 style={{ marginBottom: '30px', color: '#193942', textAlign: 'center', marginTop: '20px' }}> Student Status</h1>
-// 					<Table bordered responsive className="student-table">
-// 						<thead>
-// 							<tr>
-// 								<th>NO.</th>
-// 								<th>NAME</th>
-// 								<th>EMAIL</th>
-// 								<th>PHONE</th>
-// 								<th>LOCATION</th>
-// 								<th>PAST COURSE</th>
-// 								<th>STATUS</th>
-// 								<th>SUBMISSION DATE</th>
-// 							</tr>
-// 						</thead>
-// 						<tbody>
-// 							{referrals &&
-// 								referrals.map((detail, i) => (
-// 									<tr key={i}>
-// 										<td>{detail.referral_id}</td>
-// 										<td>{detail.name}</td>
-// 										<td>{detail.email}</td>
-// 										<td>{detail.contact_number}</td>
-// 										<td>{detail.place}</td>
-// 										<td>{detail.course}</td>
-// 										<td>Waiting for call</td>
-// 										<td>{new Date(detail.created_date).toLocaleString('lookup')}</td>
-// 									</tr>
-// 								))}
-// 						</tbody>
-// 					</Table>
-// 				</div>
-// 			</div>
-// 		</div>
-// 	);
-// };
 import { React, useState, useEffect } from "react";
 import { AgentNavbar } from "../AgentNavbar/AgentNavbar";
 import Table from "@mui/material/Table";
@@ -79,6 +22,7 @@ export const Status = () => {
     services.agentReferrals((error, result) => {
       if (result && !!result.length) setReferrals(result.reverse());
     });
+
   }, []);
 
   return (
@@ -129,14 +73,15 @@ export const Status = () => {
             align="center"
           >
             <TableRow>
+              <TableCell padding="checkbox"></TableCell>
               <TableCell>No.</TableCell>
               <TableCell>NAME</TableCell>
-              <TableCell>EMAIL</TableCell>
+              <TableCell>ENAIL</TableCell>
               <TableCell>PHONE</TableCell>
               <TableCell>LOCATION</TableCell>
               <TableCell>PAST COURSE</TableCell>
               <TableCell>STATUS</TableCell>
-			  <TableCell>SUBMISSION DATE</TableCell>
+			  <TableCell>SUNMISSION DATE</TableCell>
             </TableRow>
           </TableHead>
           <TableBody align="center">
@@ -144,7 +89,7 @@ export const Status = () => {
               <TableRow
                 className="tabelrow"
                 key={index}
-                sx={{ border: 1, borderColor: "#f5f5ef"}}
+                sx={{ border: 1, borderColor: "#f5f5ef" }}
               >
                 <TableCell component="th" scope="row">
                 {detail.referral_id}
@@ -154,7 +99,7 @@ export const Status = () => {
                 <TableCell>{detail.contact_number}</TableCell>
                 <TableCell>{detail.place}</TableCell>
                 <TableCell>{detail.course}</TableCell>
-                <TableCell>Waiting for call</TableCell>
+                <TableCell>Active</TableCell>
                 <TableCell>{new Date(detail.created_date).toLocaleString('lookup')}</TableCell>
                 
 
