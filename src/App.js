@@ -147,7 +147,7 @@ function App() {
               path="/billing-information"
               element={<BillingInformationPage />}
             ></Route>
-            <Route path="/student-card" element={<StudentStatusShow />}></Route>
+            <Route path="/student-card/:id" element={<StudentStatusShow  />}></Route>
             <Route
               path="/agent_otp_varification"
               element={<AgentVarification />}
