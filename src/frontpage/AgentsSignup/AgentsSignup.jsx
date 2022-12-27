@@ -5,6 +5,7 @@ import "./AgentsSignup.scss";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import LoadingScreen from "./LoadingScreen";
 const services = require("../../services/pages/agentRoute");
 
 export const AgentsSignup = () => {
@@ -16,6 +17,8 @@ export const AgentsSignup = () => {
   const [errorphone, setErrorPhone] = useState("");
   const [erroremail, setErrorEmail] = useState("");
   const [errorpassword, setErrorPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
   let navigate = useNavigate();
 
   const inputHandle = (e) => {
@@ -46,6 +49,7 @@ export const AgentsSignup = () => {
   // };
 
   const handlesignUpSubmit = (e) => {
+    setIsLoading(true);
     e.preventDefault();
     let flag = false;
     if (name === "") {
@@ -60,7 +64,7 @@ export const AgentsSignup = () => {
     } else if (phone === "") {
       flag = true;
       setErrorPhone("phone number cannot be empty *");
-    }  else if (phone.length < 10) {
+    } else if (phone.length < 10) {
       flag = true;
       setErrorPhone("Phone number should be 10 digit *");
     } else if (email === "") {
@@ -89,15 +93,17 @@ export const AgentsSignup = () => {
     if (!flag) {
       let obj = {
         name: name,
-        contact_number: "+91"+phone,
+        contact_number: "+91" + phone,
         email: email,
         password: password,
       };
-      console.log("api obj",obj)
+      console.log("api obj", obj);
       services.agentSignup(obj, (error, result) => {
         if (result) {
+          setIsLoading(false);
           navigate("/agent_otp_varification");
         } else {
+          setIsLoading(false);
           console.log("Agent signup error", error);
           alert("Something wrong in Agentsignup");
         }
@@ -106,91 +112,101 @@ export const AgentsSignup = () => {
   };
 
   return (
-    <div className="agent-signup-whole-div">
-      <ToastContainer />
-      <div className="agent-signup-form-div">
-        <h1
-          style={{
-            marginBottom: "20px",
-            color: "white",
-            backgroundColor: "#193942",
-            padding: "15px",
-          }}
-        >
-          Sign Up
-        </h1>
-        <Form className="agent-signup-form">
-          <label>Name *</label>
-          <Form.Control
-            type="text"
-            name="name"
-            value={name}
-            placeholder="Enter name"
-            style={{ marginBottom: "15px" }}
-            onChange={(e) => inputHandle(e)}
-          />
-
-          {errorname ? <div className="error_div">{errorname}</div> : null}
-
-          <Form.Label>Mobile Number*</Form.Label>
-          <Form.Control
-            type="number"
-            name="phone"
-            value={phone}
-            onChange={(e) => inputHandle(e)}
-            placeholder="Enter Mobile number"
-            style={{ marginBottom: "15px" }}
-          />
-          {errorphone ? <div className="error_div">{errorphone}</div> : null}
-          <Form.Label>Email *</Form.Label>
-          <Form.Control
-            type="text"
-            name="email"
-            value={email}
-            onChange={(e) => inputHandle(e)}
-            placeholder="Enter email"
-            style={{ marginBottom: "15px" }}
-          />
-          {erroremail ? <div className="error_div">{erroremail}</div> : null}
-
-          <label htmlFor="password">Password *</label>
-          <Form.Control
-            type="password"
-            name="password"
-            value={password}
-            onChange={(e) => inputHandle(e)}
-            placeholder="Password"
-            style={{ marginBottom: "15px" }}
-          />
-          {errorpassword ? (
-            <div className="error_div">{errorpassword}</div>
-          ) : null}
-
-          {/* <Form.Check type="checkbox" label="Remember me" /> */}
-
-          <Button
-            className="agent-signup-btn"
-            variant="primary"
-            onClick={(e) => handlesignUpSubmit(e)}
-            type="submit"
-          >
-            SIGN UP
-          </Button>
-
-          <Link
-            style={{ textDecoration: "none", color: "white" }}
-            to="/agentslogin"
-          >
-            <Button
-              className="agent-signup-btn"
-              variant="primary"
-              type="submit"
+    <div>
+      {!isLoading ? (
+        <div className="agent-signup-whole-div">
+          <ToastContainer />
+          <div className="agent-signup-form-div">
+            <h1
+              style={{
+                marginBottom: "20px",
+                color: "white",
+                backgroundColor: "#193942",
+                padding: "15px",
+              }}
             >
-              Already have an account? LOG IN
-            </Button>
-          </Link>
-        </Form>
-      </div>
+              Sign Up
+            </h1>
+            <Form className="agent-signup-form">
+              <label>Name *</label>
+              <Form.Control
+                type="text"
+                name="name"
+                value={name}
+                placeholder="Enter name"
+                style={{ marginBottom: "15px" }}
+                onChange={(e) => inputHandle(e)}
+              />
+
+              {errorname ? <div className="error_div">{errorname}</div> : null}
+
+              <Form.Label>Mobile Number*</Form.Label>
+              <Form.Control
+                type="number"
+                name="phone"
+                value={phone}
+                onChange={(e) => inputHandle(e)}
+                placeholder="Enter Mobile number"
+                style={{ marginBottom: "15px" }}
+              />
+              {errorphone ? (
+                <div className="error_div">{errorphone}</div>
+              ) : null}
+              <Form.Label>Email *</Form.Label>
+              <Form.Control
+                type="text"
+                name="email"
+                value={email}
+                onChange={(e) => inputHandle(e)}
+                placeholder="Enter email"
+                style={{ marginBottom: "15px" }}
+              />
+              {erroremail ? (
+                <div className="error_div">{erroremail}</div>
+              ) : null}
+
+              <label htmlFor="password">Password *</label>
+              <Form.Control
+                type="password"
+                name="password"
+                value={password}
+                onChange={(e) => inputHandle(e)}
+                placeholder="Password"
+                style={{ marginBottom: "15px" }}
+              />
+              {errorpassword ? (
+                <div className="error_div">{errorpassword}</div>
+              ) : null}
+
+              {/* <Form.Check type="checkbox" label="Remember me" /> */}
+
+              <Button
+                className="agent-signup-btn"
+                variant="primary"
+                onClick={(e) => handlesignUpSubmit(e)}
+                type="submit"
+              >
+                SIGN UP
+              </Button>
+
+              <Link
+                style={{ textDecoration: "none", color: "white" }}
+                to="/agentslogin"
+              >
+                <Button
+                  className="agent-signup-btn"
+                  variant="primary"
+                  type="submit"
+                >
+                  Already have an account? LOG IN
+                </Button>
+              </Link>
+            </Form>
+          </div>
+        </div>
+      ) : (
+        <LoadingScreen />
+      )}
     </div>
   );
 };

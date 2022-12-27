@@ -22,7 +22,6 @@ export const Status = () => {
     services.agentReferrals((error, result) => {
       if (result && !!result.length) setReferrals(result.reverse());
     });
-
   }, []);
 
   return (
@@ -73,42 +72,42 @@ export const Status = () => {
             align="center"
           >
             <TableRow>
-              <TableCell padding="checkbox"></TableCell>
+              {/* <TableCell padding="checkbox"></TableCell> */}
               <TableCell>No.</TableCell>
               <TableCell>NAME</TableCell>
-              <TableCell>ENAIL</TableCell>
+              <TableCell>EMAIL</TableCell>
               <TableCell>PHONE</TableCell>
               <TableCell>LOCATION</TableCell>
               <TableCell>PAST COURSE</TableCell>
               <TableCell>STATUS</TableCell>
-			  <TableCell>SUNMISSION DATE</TableCell>
+              <TableCell>YEAR OF PASSING</TableCell>
+              <TableCell>SUBMISSION DATE</TableCell>
             </TableRow>
           </TableHead>
           <TableBody align="center">
-            {referrals && referrals.map((detail, index) => (
-              <TableRow
-                className="tabelrow"
-                key={index}
-                sx={{ border: 1, borderColor: "#f5f5ef" }}
-              >
-                <TableCell component="th" scope="row">
-                {detail.referral_id}
-                </TableCell>
-                <TableCell>{detail.name}</TableCell>
-                <TableCell>{detail.email}</TableCell>
-                <TableCell>{detail.contact_number}</TableCell>
-                <TableCell>{detail.place}</TableCell>
-                <TableCell>{detail.course}</TableCell>
-                <TableCell>Active</TableCell>
-                <TableCell>{new Date(detail.created_date).toLocaleString('lookup')}</TableCell>
-                
-
-             
-
-               
-              </TableRow>
-            ))}
-          </TableBody> 
+            {referrals &&
+              referrals.map((detail, index) => (
+                <TableRow
+                  className="tabelrow"
+                  key={index}
+                  sx={{ border: 1, borderColor: "#f5f5ef" }}
+                >
+                  <TableCell component="th" scope="row">
+                    {detail.student_id}
+                  </TableCell>
+                  <TableCell>{detail.name}</TableCell>
+                  <TableCell>{detail.email}</TableCell>
+                  <TableCell>{detail.contact_number}</TableCell>
+                  <TableCell>{detail.place}</TableCell>
+                  <TableCell>{detail.course}</TableCell>
+                  <TableCell>{detail.status}</TableCell>
+                  <TableCell>{detail.year_of_passing}</TableCell>
+                  <TableCell>
+                    {new Date(detail.created_date).toLocaleString("lookup")}
+                  </TableCell>
+                </TableRow>
+              ))}
+          </TableBody>
         </Table>
       </TableContainer>
     </div>

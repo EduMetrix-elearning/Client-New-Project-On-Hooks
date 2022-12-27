@@ -6,7 +6,7 @@ import { Box, Button, Tab } from "@mui/material";
 import { DashBoardNavbar } from "./Navbar";
 import { AgentStatus } from "./AgentStudent/AgentStatus";
 import { StudentStatusShow } from "./StudentStatus/StudentStatusShow";
-import { BillingNavbar } from "./Billing/BillingNavbar";
+import { BillingNavbar } from "./Biiling/BillingNavbar";
 import "./EduMetrixDashboard.scss";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 

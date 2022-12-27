@@ -297,7 +297,6 @@
 // 	);
 // };
 
-
 import { Grid, Paper, TextField } from "@mui/material";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
@@ -392,19 +391,22 @@ export const AgentsDashboard = () => {
   const regax = /^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$/;
 
   const inputHandle = (e) => {
-    if (e.target.name === "name") {
-      setname(e.target.value);
-      setErrorName("");
-    } else if (e.target.name === "place") {
+    // if (e.target.name === "name") {
+    //   setname(e.target.value);
+    //   setErrorName("");
+    // } else
+    if (e.target.name === "place") {
       setplace(e.target.value);
       setErrorPlace("");
-    } else if (e.target.name === "number") {
-      setmobile(e.target.value);
-      setErrorNumber("");
-    } else if (e.target.name === "email") {
-      setemail(e.target.value);
-      setErrorEmail("");
-    } else if (e.target.name === "branchname") {
+    }
+    // else if (e.target.name === "number") {
+    //   setmobile(e.target.value);
+    //   setErrorNumber("");
+    // } else if (e.target.name === "email") {
+    //   setemail(e.target.value);
+    //   setErrorEmail("");
+    // }
+    else if (e.target.name === "branchname") {
       setBranchName(e.target.value);
       setErrorBname("");
       setError("");
@@ -439,7 +441,6 @@ export const AgentsDashboard = () => {
     if (e.target.files.length !== 0) {
       // setImage(e.target.files[0]);
       setImage(URL.createObjectURL(e.target.files[0]));
-      
 
       // setImage(URL.createObjectURL(e.target.files[0]));
     }
@@ -534,13 +535,14 @@ export const AgentsDashboard = () => {
   const handleAgentSubmit = (e) => {
     e.preventDefault();
     let flag = false;
-    if (name === "") {
-      flag = true;
-      setErrorName("Agent name field cannot be empty *");
-    } else if (usernameValidate(name)) {
-      flag = true;
-      setErrorName("Agent name not valid *");
-    } else if (name.indexOf("@") > -1) {
+    // if (name === "") {
+    //   flag = true;
+    //   setErrorName("Agent name field cannot be empty *");
+    // } else if (usernameValidate(name)) {
+    //   flag = true;
+    //   setErrorName("Agent name not valid *");
+    // } else
+    if (name.indexOf("@") > -1) {
       flag = true;
       setErrorName("@ not allowed *");
     } else if (place === "") {
@@ -549,22 +551,24 @@ export const AgentsDashboard = () => {
     } else if (place.length < 2) {
       flag = true;
       setErrorPlace("place name atleast 3 Charecter long*");
-    } else if (mobileno === "") {
-      flag = true;
-      setErrorNumber("phone number cannot be empty *");
-    } else if (mobileno.length < 10) {
-      flag = true;
-      setErrorNumber("Phone number should be 10 digit *");
-    } else if (email === "") {
-      flag = true;
-      setErrorEmail("email cannot be empty *");
-    } else if (!email.match(regax)) {
-      flag = true;
-      setErrorEmail("Email not valid *");
-    } else if (email.split(" ").length - 1 > 0) {
-      flag = true;
-      setErrorEmail("space not allowed *");
-    } else if (brachname === "") {
+    }
+    // else if (mobileno === "") {
+    //   flag = true;
+    //   setErrorNumber("phone number cannot be empty *");
+    // } else if (mobileno.length < 10) {
+    //   flag = true;
+    //   setErrorNumber("Phone number should be 10 digit *");
+    // } else if (email === "") {
+    //   flag = true;
+    //   setErrorEmail("email cannot be empty *");
+    // } else if (!email.match(regax)) {
+    //   flag = true;
+    //   setErrorEmail("Email not valid *");
+    // } else if (email.split(" ").length - 1 > 0) {
+    //   flag = true;
+    //   setErrorEmail("space not allowed *");
+    // }
+    else if (brachname === "") {
       flag = true;
       setErrorBname("Agent Bank name field cannot be empty *");
       setError("please fill all the Bank Details");
@@ -597,10 +601,10 @@ export const AgentsDashboard = () => {
     if (!flag) {
       var obj = {
         agent_id: ls.get("id"),
-        agent_name: name,
+        // agent_name: name,
         agent_address: place,
-        agent_phone: mobileno,
-        agent_email: email,
+        // agent_phone: mobileno,
+        // agent_email: email,
 
         bank_branch: brachname,
         bank_account_name: accountname,
@@ -656,7 +660,7 @@ export const AgentsDashboard = () => {
               </Grid>
               {/* <Paper style={paperStyle}> */}
 
-              <TextField
+              {/* <TextField
                 autoComplete="off"
                 name="name"
                 label="Username"
@@ -667,7 +671,7 @@ export const AgentsDashboard = () => {
                 margin="normal"
                 onChange={(e) => inputHandle(e)}
               />
-              {errorName ? <div className="error_div">{errorName}</div> : null}
+              {errorName ? <div className="error_div">{errorName}</div> : null} */}
               <TextField
                 autoComplete="off"
                 name="place"
@@ -683,7 +687,7 @@ export const AgentsDashboard = () => {
               {errorPlace ? (
                 <div className="error_div">{errorPlace}</div>
               ) : null}
-              <TextField
+              {/* <TextField
                 autoComplete="off"
                 name="number"
                 label="Mobile Number"
@@ -697,8 +701,8 @@ export const AgentsDashboard = () => {
               />
               {errorNumber ? (
                 <div className="error_div">{errorNumber}</div>
-              ) : null}
-              <TextField
+              ) : null} */}
+              {/* <TextField
                 autoComplete="off"
                 name="email"
                 label="Email"
@@ -712,7 +716,7 @@ export const AgentsDashboard = () => {
               />
               {errorEmail ? (
                 <div className="error_div">{errorEmail}</div>
-              ) : null}
+              ) : null} */}
 
               <Accordion margin="normal" sx={{ color: "grey" }}>
                 <AccordionSummary

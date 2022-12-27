@@ -174,6 +174,29 @@ export async function getStudentByAgent(id) {
     alert(error.response.data.message);
   }
 }
+
+export async function getStudentBill(bill) {
+  try {
+    const students = await Axios.get(baseurl.GetUrl() + "/student_billings");
+
+    return students.data.data;
+  } catch (error) {
+    alert(error.response.data.message);
+  }
+}
+
+export async function submitStudentBill(bill) {
+  try {
+    const students = await Axios.post(
+      baseurl.GetUrl() + "/student_billings",
+      bill
+    );
+
+    return students.data;
+  } catch (error) {
+    alert(error);
+  }
+}
 // export const otpVarify=(values,callback)=>{
 //     axios.post(Url.GetUrl() + "/verifyOtp", values).then((response) => {
 //         console.log("otp verify==", response);
