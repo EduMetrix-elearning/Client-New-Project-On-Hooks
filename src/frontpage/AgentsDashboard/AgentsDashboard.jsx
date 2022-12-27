@@ -67,8 +67,14 @@ export const AgentsDashboard = () => {
   const [errorBname, setErrorBname] = useState("");
   const [Ifsc, setIfsc] = useState("");
   const [errorIfsc, setErrorIfsc] = useState("");
-  const [error, setError] = useState("");
+
   const [show, setShow] = useState(true);
+
+  const [totalAmount, setTotalAmount] = useState(0);
+
+  useEffect(() => {
+    setTotalAmount();
+  });
 
   const [adharcardfront, setAdharCardFront] = useState(
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeYAWo19XH2Z_ow2WVzhIKxQ--8pDGtWnI9Q&usqp=CAU"
@@ -107,19 +113,15 @@ export const AgentsDashboard = () => {
     } else if (e.target.name === "branchname") {
       setBranchName(e.target.value);
       setErrorBname("");
-      setError("");
     } else if (e.target.name === "accname") {
       setAccountname(e.target.value);
       setErrorAccName("");
-      setError("");
     } else if (e.target.name === "accnumber") {
       setAccountno(e.target.value);
       setErrorAccNo("");
-      setError("");
     } else if (e.target.name === "ifsc") {
       setIfsc(e.target.value);
       setErrorIfsc("");
-      setError("");
     } else if (e.target.name === "profile") {
       setImage(e.target.value);
       setProfileError("");
@@ -139,7 +141,6 @@ export const AgentsDashboard = () => {
     if (e.target.files.length !== 0) {
       // setImage(e.target.files[0]);
       setImage(URL.createObjectURL(e.target.files[0]));
-      
 
       // setImage(URL.createObjectURL(e.target.files[0]));
     }
@@ -267,19 +268,15 @@ export const AgentsDashboard = () => {
     } else if (brachname === "") {
       flag = true;
       setErrorBname("Agent Bank name field cannot be empty *");
-      setError("please fill all the Bank Details");
     } else if (accountname === "") {
       flag = true;
       setErrorAccName("Agent name field cannot be empty *");
-      setError("please fill all the Bank Details");
     } else if (accountno === "") {
       flag = true;
       setErrorAccNo("Agent Account No field cannot be empty *");
-      setError("please fill all the Bank Details");
     } else if (Ifsc === "") {
       flag = true;
       setErrorIfsc("Agent Ifsc field cannot be empty *");
-      setError("please fill all the Bank Details");
     } else if (image === "") {
       flag = true;
       setProfileError("Required *");
@@ -352,11 +349,12 @@ export const AgentsDashboard = () => {
                   textAlign: "center",
                 }}
               >
-                <h2>Agent KYC</h2>
+                <h2>AGENT KYC</h2>
               </Grid>
               {/* <Paper style={paperStyle}> */}
 
-              <TextField
+              {/* <TextField
+                disabled
                 autoComplete="off"
                 name="name"
                 label="Username"
@@ -367,7 +365,7 @@ export const AgentsDashboard = () => {
                 margin="normal"
                 onChange={(e) => inputHandle(e)}
               />
-              {errorName ? <div className="error_div">{errorName}</div> : null}
+              {errorName ? <div className="error_div">{errorName}</div> : null} */}
               <TextField
                 autoComplete="off"
                 name="place"
@@ -383,7 +381,7 @@ export const AgentsDashboard = () => {
               {errorPlace ? (
                 <div className="error_div">{errorPlace}</div>
               ) : null}
-              <TextField
+              {/* <TextField
                 autoComplete="off"
                 name="number"
                 label="Mobile Number"
@@ -397,8 +395,8 @@ export const AgentsDashboard = () => {
               />
               {errorNumber ? (
                 <div className="error_div">{errorNumber}</div>
-              ) : null}
-              <TextField
+              ) : null} */}
+              {/* <TextField
                 autoComplete="off"
                 name="email"
                 label="Email"
@@ -412,81 +410,67 @@ export const AgentsDashboard = () => {
               />
               {errorEmail ? (
                 <div className="error_div">{errorEmail}</div>
+              ) : null} */}
+
+              <TextField
+                autoComplete="off"
+                name="branchname"
+                label="Branch Name"
+                placeholder="Branch Name"
+                type="text"
+                fullWidth
+                required
+                size="small"
+                margin="normal"
+                onChange={(e) => inputHandle(e)}
+              />
+              {errorBname ? (
+                <div className="error_div">{errorBname}</div>
+              ) : null}
+              <TextField
+                autoComplete="off"
+                name="accname"
+                label="Account Holder Name"
+                placeholder="Name"
+                type="text"
+                fullWidth
+                required
+                size="small"
+                margin="normal"
+                onChange={(e) => inputHandle(e)}
+              />
+              {errorAccName ? (
+                <div className="error_div">{errorAccName}</div>
+              ) : null}
+              <TextField
+                autoComplete="off"
+                name="accnumber"
+                label="Account Number"
+                placeholder="Account Number"
+                type="number"
+                fullWidth
+                required
+                size="small"
+                margin="normal"
+                onChange={(e) => inputHandle(e)}
+              />
+              {errorAccNo ? (
+                <div className="error_div">{errorAccNo}</div>
               ) : null}
 
-              <Accordion margin="normal" sx={{ color: "grey" }}>
-                <AccordionSummary
-                  expandIcon={<ExpandMoreIcon />}
-                  aria-controls="panel1a-content"
-                  id="panel1a-header"
-                >
-                  <Typography>Enter Bank Details</Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <TextField
-                    autoComplete="off"
-                    name="branchname"
-                    label="Branch Name"
-                    placeholder="Branch Name"
-                    type="text"
-                    fullWidth
-                    required
-                    size="small"
-                    margin="normal"
-                    onChange={(e) => inputHandle(e)}
-                  />
-                  {errorBname ? (
-                    <div className="error_div">{errorBname}</div>
-                  ) : null}
-                  <TextField
-                    autoComplete="off"
-                    name="accname"
-                    label="Account Holder Name"
-                    placeholder="Name"
-                    type="text"
-                    fullWidth
-                    required
-                    size="small"
-                    margin="normal"
-                    onChange={(e) => inputHandle(e)}
-                  />
-                  {errorAccName ? (
-                    <div className="error_div">{errorAccName}</div>
-                  ) : null}
-                  <TextField
-                    autoComplete="off"
-                    name="accnumber"
-                    label="Account Number"
-                    placeholder="Account Number"
-                    type="number"
-                    fullWidth
-                    required
-                    size="small"
-                    margin="normal"
-                    onChange={(e) => inputHandle(e)}
-                  />
-                  {errorAccNo ? (
-                    <div className="error_div">{errorAccNo}</div>
-                  ) : null}
-
-                  <TextField
-                    autoComplete="off"
-                    name="ifsc"
-                    label="IFSC"
-                    placeholder="IFSC CODE"
-                    type="text"
-                    fullWidth
-                    required
-                    size="small"
-                    margin="normal"
-                    onChange={(e) => inputHandle(e)}
-                  />
-                  {errorIfsc ? (
-                    <div className="error_div">{errorIfsc}</div>
-                  ) : null}
-                </AccordionDetails>
-              </Accordion>
-              {error ? <div className="error_div">{error}</div> : null}
+              <TextField
+                autoComplete="off"
+                name="ifsc"
+                label="IFSC"
+                placeholder="IFSC CODE"
+                type="text"
+                fullWidth
+                required
+                size="small"
+                margin="normal"
+                onChange={(e) => inputHandle(e)}
+              />
+              {errorIfsc ? <div className="error_div">{errorIfsc}</div> : null}
 
               <Stack
                 direction="column"
@@ -616,7 +600,7 @@ export const AgentsDashboard = () => {
 
         <div
           className={`agent-card-container ${
-            !show ? "agent-card-container-after" : ""
+            !show ? "agent-dashboard-after" : ""
           }`}
         >
           <div className={"agent-card-item"}>
@@ -628,10 +612,11 @@ export const AgentsDashboard = () => {
                 <h3>{name}</h3>
                 <h4>{email}</h4>
                 <p>{mobileno}</p>
+                <p>{place}</p>
               </div>
               <div className="agent-profile-earning">
                 <h4>Earned Amount</h4>
-                <MonetizationOnIcon align="center" /> 150$
+                <MonetizationOnIcon align="center" /> {totalAmount}/-
               </div>
             </div>
             <div className="agent-bank-details">

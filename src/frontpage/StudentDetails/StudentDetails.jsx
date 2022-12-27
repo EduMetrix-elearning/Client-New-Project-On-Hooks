@@ -5,6 +5,7 @@ import { AgentNavbar } from "../AgentNavbar/AgentNavbar";
 import { ToastContainer, toast } from "react-toastify";
 
 import "./StudentDetails.scss";
+import { color } from "@mui/system";
 
 const services = require("../../services/pages/agentRoute");
 const ls = require("local-storage");
@@ -22,7 +23,8 @@ export const StudentDetails = () => {
   const [emailError, setEmailError] = useState("");
   const [course, setCourse] = useState("");
   const [courseError, setCourseError] = useState("");
-  
+  const [courseYear, setCourseYear] = useState("");
+  const [courseYearError, setCourseYearError] = useState("");
 
   const usernameValidate = (name) => {
     const re = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
@@ -46,6 +48,9 @@ export const StudentDetails = () => {
     } else if (e.target.name === "course") {
       setCourse(e.target.value);
       setCourseError("");
+    } else if (e.target.name === "year") {
+      setCourseYear(e.target.value);
+      setCourseYearError("");
     }
   };
 
@@ -104,6 +109,9 @@ export const StudentDetails = () => {
     } else if (course === "") {
       flag = true;
       setCourseError("Enter Course Details*");
+    } else if (courseYear === "") {
+      flag = true;
+      setCourseYearError("Enter Year Of Passing*");
     }
 
     if (!flag) {
@@ -114,6 +122,7 @@ export const StudentDetails = () => {
         contact_number: contact_number,
         email: email,
         course: course,
+        courseYear: courseYear,
       };
       console.log("api obj", obj);
       services.referralSubmit(obj, (result) => {
@@ -127,8 +136,6 @@ export const StudentDetails = () => {
       });
     }
   };
-
- 
 
   return (
     <div className="student-details">
@@ -146,7 +153,7 @@ export const StudentDetails = () => {
               textAlign: "center",
             }}
           >
-            Referral Form
+            REFFERAL FORM
           </h2>
           <Form className="student-profile-form">
             <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -195,10 +202,20 @@ export const StudentDetails = () => {
                 onChange={(e) => inputHandle(e)}
               />
               {courseError ? <p style={{ color: "red" }}>{courseError}</p> : ""}
-            </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicCheckbox">
-              <Form.Check type="checkbox" label="Remember me" />
+              <Form.Label>Year Of Passing *</Form.Label>
+              <Form.Control
+                name="year"
+                type="date"
+                placeholder="Enter course completion date"
+                style={{ marginBottom: "15px", color: "grey" }}
+                onChange={(e) => inputHandle(e)}
+              />
+              {courseYearError ? (
+                <p style={{ color: "red" }}>{courseYearError}</p>
+              ) : (
+                ""
+              )}
             </Form.Group>
 
             <Button

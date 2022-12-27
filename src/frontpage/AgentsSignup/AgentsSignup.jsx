@@ -117,7 +117,7 @@ export const AgentsSignup = () => {
             padding: "15px",
           }}
         >
-          Sign Up
+          SIGNUP
         </h1>
         <Form className="agent-signup-form">
           <label>Name *</label>

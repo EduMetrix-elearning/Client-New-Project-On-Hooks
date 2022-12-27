@@ -43,6 +43,7 @@ import { EmployeLogin } from "./frontpage/EmployeeLogin/EmployeLogin.jsx";
 import { AgentsSignup } from "./frontpage/AgentsSignup/AgentsSignup.jsx";
 import { AgentsLogin } from "./frontpage/AgentsLogin/AgentsLogin.jsx";
 import { AgentsDashboard } from "./frontpage/AgentsDashboard/AgentsDashboard.jsx";
+import AgentEarning from "./frontpage/AgentEarning/AgentEarning.jsx";
 import { InternshipData } from "./frontpage/InternshipData/InternshipData.jsx";
 import { CareerData } from "./frontpage/CareerData/CareerData.jsx";
 import { Status } from "./frontpage/Status/Status.jsx";
@@ -139,6 +140,7 @@ function App() {
             <Route path="/career-data" element={<CareerData />}></Route>
             <Route path="/status" element={<Status />}></Route>
             <Route path="/student-details" element={<StudentDetails />}></Route>
+            <Route path="/agent-earning" element={<AgentEarning />}></Route>
             <Route
               path="/website-dashboard"
               element={<WebsiteDashboard />}
