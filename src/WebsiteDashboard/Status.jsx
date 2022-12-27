@@ -17,74 +17,23 @@ import axios from "axios";
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
 import "./EduMetrixDashboard.scss";
-function createData(id, EnquiredOn, name, phone, email, message, course) {
-  return { id, EnquiredOn, name, phone, email, message, course };
-}
 
-const rows = [
-  createData(
-    1,
-    "10-11-21",
-    "Jayasmita",
-    9880686768,
-    "jasmitasahu@gmail.com",
-    "hkjklj",
-    "fullstack"
-  ),
-  createData(
-    2,
-    "11-11-21",
-    "Ashwini",
-    880686768,
-    "jasmitasahu@gmail.com",
-    "hkjklj",
-    "fullstack"
-  ),
-  createData(
-    3,
-    "12-11-22",
-    "Rachna",
-    880686768,
-    "jasmitasahu@gmail.com",
-    "hkjklj",
-    "fullstack"
-  ),
-  createData(
-    4,
-    "13-6-22",
-    "Akshay",
-    880686768,
-    "jasmitasahu@gmail.com",
-    "hkjklj",
-    "fullstack"
-  ),
-  createData(
-    5,
-    "14-11-22",
-    "Anoop",
-    880686768,
-    "jasmitasahu@gmail.com",
-    "hkjklj",
-    "fullstack"
-  ),
-];
+import * as services from "../services/pages/agentRoute";
+import { async } from "./../services/pages/agentRoute";
 
 export const DashBoardStatus = ({ data }) => {
-  const [status, setStatus] = useState();
   const [referrals, setReferrals] = useState([]);
+
   useEffect(() => {
-    const getReferrals = async () => {
-      try {
-        const referrals = await axios.get(
-          "http://localhost:9000/agent/referrals/allstudents"
-        );
-        console.log(referrals.data.data);
-        setReferrals(referrals.data.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getReferrals();
+    try {
+      const getReferrals = async () => {
+        const referrals = await services.agentAllReferrals();
+        setReferrals(referrals);
+      };
+      getReferrals();
+    } catch (error) {
+      alert(error.response.data.message);
+    }
   }, []);
 
   const submit = (e, id) => {
@@ -106,16 +55,14 @@ export const DashBoardStatus = ({ data }) => {
 
   const handleStatusChange = async (e, id) => {
     const status = { status: e.target.value };
-    setStatus(e.target.value);
 
     try {
-      const result = await axios.put(
-        `http://localhost:9000/agent/referrals/status/${id}`,
-        status
-      );
-      setStatus(result.data.data.status);
+      const updateStatus = async () => {
+        await services.updateReferralStatus(status, id);
+      };
+      updateStatus();
     } catch (error) {
-      console.log(error);
+      alert(error.response.data.message);
     }
   };
 
@@ -146,7 +93,7 @@ export const DashBoardStatus = ({ data }) => {
                 <TableCell>{referral.student_id}</TableCell>
                 <TableCell>Enquired On</TableCell>
                 <TableCell>{referral.name}</TableCell>
-                <TableCell>{status}</TableCell>
+                <TableCell>status</TableCell>
                 <TableCell>{referral.course}</TableCell>
                 <TableCell>
                   <select

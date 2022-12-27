@@ -19,6 +19,8 @@ import { DashBoardDetails } from "../Details";
 import axios from "axios";
 import { useParams } from "react-router";
 
+import * as services from "../../services/pages/agentRoute";
+
 export const StudentStatusShow = (props) => {
   const [value, setValues] = useState("1");
   const handleChange = (e, val) => {
@@ -29,28 +31,20 @@ export const StudentStatusShow = (props) => {
   const { id } = useParams();
 
   useEffect(() => {
-    const getAgent = async (id) => {
-      try {
-        const agent = await axios.get(`http://localhost:9000/agent/${id}`);
-        setAgent(agent.data.data);
-       
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    const getStudents = async (id) => {
-      try {
-        const students = await axios.get(
-          `http://localhost:9000/agent/referrals/${id}`
-        );
-
-        setStudents(students.data.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getStudents(id);
-    getAgent(id);
+    try {
+      const getAgent = async (id) => {
+        const agent = await services.getAgent(id);
+        setAgent(agent);
+      };
+      const getStudents = async (id) => {
+        const students = await services.getStudentByAgent(id);
+        setStudents(students);
+      };
+      getStudents(id);
+      getAgent(id);
+    } catch (error) {
+      alert(error.response.data.message);
+    }
   }, []);
   return (
     <>
