@@ -23,8 +23,8 @@ export const StudentDetails = () => {
   const [emailError, setEmailError] = useState("");
   const [course, setCourse] = useState("");
   const [courseError, setCourseError] = useState("");
-  const [courseYear, setCourseYear] = useState("");
-  const [courseYearError, setCourseYearError] = useState("");
+  const [year_of_passing, setYear_of_passing] = useState("");
+  const [yearError, setYearError] = useState("");
 
   const usernameValidate = (name) => {
     const re = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
@@ -48,9 +48,9 @@ export const StudentDetails = () => {
     } else if (e.target.name === "course") {
       setCourse(e.target.value);
       setCourseError("");
-    } else if (e.target.name === "year") {
-      setCourseYear(e.target.value);
-      setCourseYearError("");
+    } else if (e.target.name === "year_of_passing") {
+      setYear_of_passing(e.target.value);
+      setYearError("");
     }
   };
 
@@ -109,20 +109,20 @@ export const StudentDetails = () => {
     } else if (course === "") {
       flag = true;
       setCourseError("Enter Course Details*");
-    } else if (courseYear === "") {
+    } else if (year_of_passing === "") {
       flag = true;
-      setCourseYearError("Enter Year Of Passing*");
+      setYearError("Enter Year of Passing*");
     }
-
+   
     if (!flag) {
       let obj = {
         agent_id: ls.get("id"),
-        name: name,
-        place: place,
-        contact_number: contact_number,
-        email: email,
-        course: course,
-        courseYear: courseYear,
+        name,
+        place,
+        contact_number,
+        email,
+        course,
+        year_of_passing,
       };
       console.log("api obj", obj);
       services.referralSubmit(obj, (result) => {
@@ -203,19 +203,15 @@ export const StudentDetails = () => {
               />
               {courseError ? <p style={{ color: "red" }}>{courseError}</p> : ""}
 
-              <Form.Label>Year Of Passing *</Form.Label>
+              <Form.Label>Year of Passing *</Form.Label>
               <Form.Control
-                name="year"
+                name="year_of_passing"
                 type="date"
-                placeholder="Enter course completion date"
-                style={{ marginBottom: "15px", color: "grey" }}
+                placeholder="Enter Year of Passing"
+                style={{ marginBottom: "15px" }}
                 onChange={(e) => inputHandle(e)}
               />
-              {courseYearError ? (
-                <p style={{ color: "red" }}>{courseYearError}</p>
-              ) : (
-                ""
-              )}
+              {yearError ? <p style={{ color: "red" }}>{yearError}</p> : ""}
             </Form.Group>
 
             <Button

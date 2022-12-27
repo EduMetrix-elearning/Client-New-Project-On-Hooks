@@ -86,7 +86,7 @@ export const AgentNavbar = () => {
             <Nav>
               {/* <Navbar.Brand style={{ color: "white" }}><Link to="/internship-data" style={{ color: "white", textDecoration: "none" }}>Internship</Link> </Navbar.Brand>
               <Navbar.Brand style={{ color: "white" }}><Link to="/career-data" style={{ color: "white", textDecoration: "none" }}>Carrer</Link> </Navbar.Brand> */}
-              <Link to="/agentslogin">
+              <Link to="/">
                 <button style={{ padding: "10px 20px" }}>Logout</button>
               </Link>
             </Nav>

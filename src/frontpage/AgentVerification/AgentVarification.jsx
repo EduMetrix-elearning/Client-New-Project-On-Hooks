@@ -10,12 +10,15 @@ export const AgentVarification = () => {
   const [mobileotp, setMobileOTP] = useState("");
   const [errorEmailOTP, setErrorEmailOTP] = useState("");
   const [errormobileOTP, setErrormobileOTP] = useState("");
+  const [loading, setLoading] = useState(false);
+
   let navigate = useNavigate();
 
   const inputHandle = (e) => {
-    if (e.target.name === "emailotp") {
-      setEmailOTP(e.target.value);
-    } else if (e.target.name === "mobileotp") {
+    // if (e.target.name === "emailotp") {
+    //   setEmailOTP(e.target.value);
+    // } else
+    if (e.target.name === "mobileotp") {
       setMobileOTP(e.target.value);
     }
   };
@@ -23,23 +26,28 @@ export const AgentVarification = () => {
   const handlesignUpSubmit = (e) => {
     e.preventDefault();
     let flag = false;
-    if (emailotp === "") {
-      flag = true;
-      setErrorEmailOTP("Agent otp field cannot be empty *");
-    } else if (mobileotp === "") {
+    // if (emailotp === "") {
+    //   flag = true;
+    //   setErrorEmailOTP("Agent otp field cannot be empty *");
+    // } else 
+    if (mobileotp === "") {
       flag = true;
       setErrormobileOTP("mobile otp cannot be empty *");
     }
     if (!flag) {
       let obj = {
         agent_id: localStorage.getItem("agent_id"),
-        email_otp: emailotp,
+        // email_otp: emailotp,
         mobile_otp: mobileotp,
       };
       console.log("api obj", obj);
       services.otpVarify(obj, (error, result) => {
         if (result) {
-          navigate("/agentslogin");
+          setLoading(true);
+          alert(`Succefully registered...
+Login to continue.`);
+          setLoading(false);
+          navigate("/agentslogin", { replace: true });
         } else {
           console.log("Agent OTP error", error);
           alert("Something wrong in Agent OTP");
@@ -67,7 +75,7 @@ export const AgentVarification = () => {
             mobile no
           </div>
           <hr />
-          <label>Email OTP *</label>
+          {/* <label>Email OTP *</label>
           <Form.Control
             type="text"
             name="emailotp"
@@ -75,7 +83,7 @@ export const AgentVarification = () => {
             onChange={(e) => inputHandle(e)}
             placeholder="Enter email otp"
             style={{ marginBottom: "15px" }}
-          />
+          /> */}
 
           <Form.Label>Mobile OTP*</Form.Label>
           <Form.Control

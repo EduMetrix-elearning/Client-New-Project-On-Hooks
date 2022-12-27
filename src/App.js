@@ -3,8 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { store } from "./store.js";
 import { Provider } from "react-redux";
 
-
-
 import ProtectedRouter from "./protectedRouter.js";
 import Login from "./pages/Login/Login";
 import Home from "./pages/Home/Home";
@@ -149,7 +147,10 @@ function App() {
               path="/billing-information"
               element={<BillingInformationPage />}
             ></Route>
-            <Route path="/student-card" element={<StudentStatusShow />}></Route>
+            <Route
+              path="/agent-card/:id"
+              element={<StudentStatusShow />}
+            ></Route>
             <Route
               path="/agent_otp_varification"
               element={<AgentVarification />}

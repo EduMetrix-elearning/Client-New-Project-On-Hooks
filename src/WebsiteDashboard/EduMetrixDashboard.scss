@@ -1,36 +1,42 @@
 .website-dashboard-input-status {
-    .inputs-status {
-        width: 200px;
-        margin: 10px;
-        padding: 10px;
-        font-size: 16px;
-        background-color: #f5f5ef;
-        border-radius: 5px;
-    }
-
+  .inputs-status {
+    width: 200px;
+    margin: 10px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #f5f5ef;
+    border-radius: 5px;
+  }
+}
+.student-status {
+  width: 200px;
+  margin: 10px;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #f5f5ef;
+  border-radius: 5px;
 }
 
 .website-dashboard-status-check {
+  .table-status {
+    width: 120px;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+  }
 
-    .table-status {
-        width: 120px;
-        padding: 10px;
-        font-size: 16px;
-        border-radius: 5px;
-    }
-
-    .table-status:focus {
-        min-width: 100px;
-        width: auto;
-    }
+  .table-status:focus {
+    min-width: 100px;
+    width: auto;
+  }
 }
 
-@media print{
-    .Dashboard-navbar{
-       display:none 
-    }
-    .dashboard-header{
-        border:1px solid;
-        display: none;
-    }
+@media print {
+  .Dashboard-navbar {
+    display: none;
+  }
+  .dashboard-header {
+    border: 1px solid;
+    display: none;
+  }
 }

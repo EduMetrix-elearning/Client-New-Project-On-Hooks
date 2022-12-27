@@ -72,6 +72,7 @@ export const Status = () => {
             align="center"
           >
             <TableRow>
+              {/* <TableCell padding="checkbox"></TableCell> */}
               <TableCell>No.</TableCell>
               <TableCell>NAME</TableCell>
               <TableCell>EMAIL</TableCell>
@@ -80,6 +81,7 @@ export const Status = () => {
               <TableCell>PAST COURSE</TableCell>
               <TableCell>YEAR OF PASSING</TableCell>
               <TableCell>STATUS</TableCell>
+              <TableCell>YEAR OF PASSING</TableCell>
               <TableCell>SUBMISSION DATE</TableCell>
             </TableRow>
           </TableHead>
@@ -92,15 +94,15 @@ export const Status = () => {
                   sx={{ border: 1, borderColor: "#f5f5ef" }}
                 >
                   <TableCell component="th" scope="row">
-                    {detail.referral_id}
+                    {detail.student_id}
                   </TableCell>
                   <TableCell>{detail.name}</TableCell>
                   <TableCell>{detail.email}</TableCell>
                   <TableCell>{detail.contact_number}</TableCell>
                   <TableCell>{detail.place}</TableCell>
                   <TableCell>{detail.course}</TableCell>
-                  <TableCell>{detail.courseYear}</TableCell>
-                  <TableCell>Active</TableCell>
+                  <TableCell>{detail.status}</TableCell>
+                  <TableCell>{detail.year_of_passing}</TableCell>
                   <TableCell>
                     {new Date(detail.created_date).toLocaleString("lookup")}
                   </TableCell>
