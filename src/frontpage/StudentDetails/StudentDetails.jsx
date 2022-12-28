@@ -5,6 +5,7 @@ import { AgentNavbar } from "../AgentNavbar/AgentNavbar";
 import { ToastContainer, toast } from "react-toastify";
 
 import "./StudentDetails.scss";
+import { color } from "@mui/system";
 
 const services = require("../../services/pages/agentRoute");
 const ls = require("local-storage");
@@ -152,7 +153,7 @@ export const StudentDetails = () => {
               textAlign: "center",
             }}
           >
-            Referral Form
+            REFFERAL FORM
           </h2>
           <Form className="student-profile-form">
             <Form.Group className="mb-3" controlId="formBasicEmail">

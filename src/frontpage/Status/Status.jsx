@@ -79,8 +79,8 @@ export const Status = () => {
               <TableCell>PHONE</TableCell>
               <TableCell>LOCATION</TableCell>
               <TableCell>PAST COURSE</TableCell>
-              <TableCell>STATUS</TableCell>
               <TableCell>YEAR OF PASSING</TableCell>
+              <TableCell>STATUS</TableCell>
               <TableCell>SUBMISSION DATE</TableCell>
             </TableRow>
           </TableHead>
@@ -100,8 +100,9 @@ export const Status = () => {
                   <TableCell>{detail.contact_number}</TableCell>
                   <TableCell>{detail.place}</TableCell>
                   <TableCell>{detail.course}</TableCell>
-                  <TableCell>{detail.status}</TableCell>
                   <TableCell>{detail.year_of_passing}</TableCell>
+                  <TableCell>{detail.status}</TableCell>
+
                   <TableCell>
                     {new Date(detail.created_date).toLocaleString("lookup")}
                   </TableCell>

@@ -1,0 +1,98 @@
+
+
+.modalBackground {
+  width: 100vw;
+  height: 100vh;
+  /* background-color: rgba(200, 200, 200); */
+  background-image: url("newhrpage2.jpg");
+  /* background-color:grey; */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  color: whitesmoke;
+  backdrop-filter: blur(20px);
+  
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalContainer {
+  /* width: 400px;
+  height: 500px;
+  border-radius: 12px;
+  background-color: white;
+  box-shadow: rgba(238, 236, 236, 0.35) 0px 5px 15px;
+  display: flex;
+  flex-direction: column;
+  padding:0px 10px;
+  margin-bottom: 30px; */
+  width: 400px;
+  height: 500px;
+  background-color: rgba(255,255,255,0.13);
+  position: absolute;
+  transform: translate(-50%,-50%);
+  padding:0px 10px;
+  top: 50%;
+  left: 50%;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255,255,255,0.1);
+  box-shadow: 0 0 40px rgba(8,7,16,0.6);
+  /* padding: 50px 35px; */
+}
+
+.modalContainer .title {
+  display: inline-block;
+  text-align: center;
+  margin-top: 5px 0px;
+  flex:10%;
+}
+
+.titleCloseBtn {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.titleCloseBtn button {
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.modalContainer .body {
+  flex: 80%;
+  display: flex;
+  /* justify-content: center;
+  align-items: center; */
+  flex-direction: column;
+  text-align: justify;
+}
+
+.modalContainer .footer {
+  flex: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  padding-bottom: 20px;
+}
+
+.modalContainer .footer button {
+  width: 100px;
+  height: 45px;
+  margin: 0px 10px;
+  border: none;
+  background-color: cornflowerblue;
+  color: white;
+  border-radius: 8px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+#cancelBtn {
+  background-color: crimson;
+}

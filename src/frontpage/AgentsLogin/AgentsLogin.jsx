@@ -67,16 +67,17 @@ export const AgentsLogin = () => {
     <div className="agent-login-whole-div">
       <ToastContainer />
       <div className="agent-login-form-div">
-        <h1
+        <h2
           style={{
             marginBottom: "20px",
             color: "white",
             backgroundColor: "#193942",
             padding: "15px",
+            textAlign: "center",
           }}
         >
-          Login
-        </h1>
+          LOGIN
+        </h2>
         <Form className="agent-login-form">
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email *</Form.Label>
