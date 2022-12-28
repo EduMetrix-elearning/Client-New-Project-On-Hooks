@@ -97,7 +97,7 @@ export const AgentsSignup = () => {
         email: email,
         password: password,
       };
-      console.log("api obj", obj);
+      // console.log("api obj", obj);
       services.agentSignup(obj, (error, result) => {
         if (result) {
           setIsLoading(false);

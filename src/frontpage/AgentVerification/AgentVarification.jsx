@@ -29,7 +29,7 @@ export const AgentVarification = () => {
     // if (emailotp === "") {
     //   flag = true;
     //   setErrorEmailOTP("Agent otp field cannot be empty *");
-    // } else 
+    // } else
     if (mobileotp === "") {
       flag = true;
       setErrormobileOTP("mobile otp cannot be empty *");
@@ -40,7 +40,7 @@ export const AgentVarification = () => {
         // email_otp: emailotp,
         mobile_otp: mobileotp,
       };
-      console.log("api obj", obj);
+      // console.log("api obj", obj);
       services.otpVarify(obj, (error, result) => {
         if (result) {
           setLoading(true);
@@ -71,8 +71,9 @@ Login to continue.`);
         <Form className="agent-signup-form">
           <div id="instruction-title">Please complete the following steps</div>
           <div id="otp-message">
-            Please enter OTP passwords which already send to your email and
-            mobile no
+            Please enter the OTP
+            {/* passwords which already send to your email and
+            mobile no */}
           </div>
           <hr />
           {/* <label>Email OTP *</label>

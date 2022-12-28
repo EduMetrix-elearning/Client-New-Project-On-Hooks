@@ -24,7 +24,7 @@ const ls = require("local-storage");
 export function agentSignup(values, callback) {
   Axios.post(baseurl.GetUrl() + "/agent/get-started", values)
     .then(async (response) => {
-      console.log("api response", response);
+      // console.log("api response", response);
       if (response.data) {
         await ls.set("agent_id", response.data.agent_id);
         return callback(null, response);
@@ -40,7 +40,7 @@ export function agentSignup(values, callback) {
 export function otpVarify(values, callback) {
   Axios.post(baseurl.GetUrl() + "/agent/verifyOtp", values)
     .then(async (response) => {
-      console.log("api response", response);
+      // console.log("api response", response);
       if (response.data) {
         return callback(null, response);
       }
@@ -55,7 +55,7 @@ export function otpVarify(values, callback) {
 export function agentLogin(values, callback) {
   Axios.post(baseurl.GetUrl() + "/agent/login", values)
     .then(async (response) => {
-      console.log("api response", response);
+      // console.log("api response", response);
       if (response.data) {
         await ls.set("id", response.data.id);
         await ls.set("token", response.data.token);
@@ -194,7 +194,38 @@ export async function submitStudentBill(bill) {
 
     return students.data;
   } catch (error) {
+    console.log(error);
+
     alert(error);
+  }
+}
+
+export async function verifyOtp(obj) {
+  try {
+    const otp = await Axios.post(
+      baseurl.GetUrl() + "/agent/forgotPassword",
+      obj
+    );
+   
+
+    return otp.data;
+  } catch (error) {
+  
+    alert(error.response.data.message);
+  }
+}
+
+export async function resetPassword(obj) {
+  try {
+    const result = await Axios.post(
+      baseurl.GetUrl() + "/agent/resetPassword",
+      obj
+    );
+
+    return result.data;
+  } catch (error) {
+
+    alert(error.response.data.message);
   }
 }
 // export const otpVarify=(values,callback)=>{
