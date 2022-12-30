@@ -111,6 +111,7 @@ export const DashBoardStatus = ({ data }) => {
                   >
                     <option value="">{detail.status}</option>
                     <option value="No Response">No Response</option>
+                    <option value="Decision Pending">Decision Pending</option>
                     <option value="Not Interested">Not Interested</option>
                     <option value="Interested">Interested </option>
                     <option value="Waiting to Join">Waiting to Join</option>

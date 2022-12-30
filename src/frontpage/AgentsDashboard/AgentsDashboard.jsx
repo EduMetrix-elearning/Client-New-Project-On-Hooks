@@ -145,6 +145,8 @@ export const AgentsDashboard = () => {
 
   useEffect(() => {
     services.agentInfo((error, result) => {
+      console.log(result);
+
       if (result.bank_branch) {
         setShow(!show);
       }
