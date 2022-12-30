@@ -54,24 +54,6 @@ export const StudentDetails = () => {
     }
   };
 
-  // const handleSubmit = () => {
-  //   const obj = {
-  //     agent_id: ls.get("id"),
-  //     name: name,
-  //     place: place,
-  //     contact_number: contact_number,
-  //     email: email,
-  //     course: course,
-  //   };
-
-  //   services.referralSubmit(obj, (result) => {
-  //     if (result) {
-  //       navigate("/status");
-  //     } else {
-  //       setErrMsg(true);
-  //     }
-  //   });
-  // };
 
   const handleAgentSubmit = (e) => {
     e.preventDefault();

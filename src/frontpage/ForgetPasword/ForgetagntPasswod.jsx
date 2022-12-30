@@ -49,7 +49,6 @@ export const ForgetagntPasswod = () => {
 
         checkOtp(otp);
       } catch (error) {
-        // console.log("Agent OTP error", error);
         alert("Something wrong in Agent OTP");
       }
     }

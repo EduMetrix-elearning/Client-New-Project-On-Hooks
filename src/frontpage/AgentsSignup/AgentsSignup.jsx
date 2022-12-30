@@ -43,10 +43,6 @@ export const AgentsSignup = () => {
   };
   const regax = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
-  // const phoneNumberValidate = (phone) => {
-  //   const phoneReg = /^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/;
-  //   return phoneReg.test(phone);
-  // };
 
   const handlesignUpSubmit = (e) => {
     setIsLoading(true);
@@ -97,7 +93,7 @@ export const AgentsSignup = () => {
         email: email,
         password: password,
       };
-      // console.log("api obj", obj);
+   
       services.agentSignup(obj, (error, result) => {
         if (result) {
           setIsLoading(false);

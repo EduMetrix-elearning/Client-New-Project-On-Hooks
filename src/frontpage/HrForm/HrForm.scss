@@ -35,7 +35,6 @@
         line-height: 1.90;
         color: white;
         margin-bottom: 10px;
-        // text-shadow: 1px 0px 5px black, 0 0 1em rgb(10, 64, 78), 0 0 0.2em rgb(10, 64, 78),
     }
     .hr-short-title{
         margin-left: 20px;
@@ -48,7 +47,6 @@
     }
     .collaborates-div{
         margin-top: 5px;
-        // position: relative;
         background-image: url("../../asset/images/HrpageImage/longtile.jpeg");
         background-repeat: no-repeat;
         background-size: cover;
@@ -66,18 +64,13 @@
     }
     
     .collaborates-div div div h1 {
-        // position: absolute;
-        // top:30%;
-        // left:20%;
+    
         margin-top: 160px;
         font-size: 60px;
         color:#164e64;
-        // position:absolute
     }
     .collaborates-div div button {
-        // position: absolute;
-        // top:40%;
-        // right:20%;
+     
         padding:20px 35px;
         font-size:20px;
         color:#164e64;
@@ -93,9 +86,7 @@
         background-color: #164e64;
         color:white
     }
-    // .modal-size div{
-        
-    // }
+ 
     .flex-modal-inner-div{
         display:flex;
         gap:30px;

@@ -1,999 +1,379 @@
-// @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
-
-
-// .agent-profile-main-div {
-//     display: flex;
-//     width: 100%;
-//     margin: auto;
-//     gap:30px;
-//     justify-content: space-around;
-//     margin-top: 20px;
-//     padding: 20px 40px;
-//     align-items: center;
-
-//     .error_div{
-//         color: red;
-//         text-align: start;
-//         font-size: 12px;
-//     }
-
-  
-    
-
-//     .agent-profile-form-div { 
-//         width:50%;    
-//         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-//         justify-content: center;
-//         align-items: center;
-//     }
-
-//     .agent-profile-form-div h2 {
-//         font-family: 'Roboto', sans-serif;
-//         font-weight: 500;
-//     }
-//     .agent-profile-form{
-//         width: 100%;
-//         padding: 10px 30px;
-//     }
-//     .agent-data-show{
-//         width:50%;
-//         text-align: center;
-//     }
-
-  
-
-//     .agent-profile-form-btn {
-//         background-color: #193942;
-//         color: white;
-//         margin-bottom: 30px;
-//         width:100%
-//     }
-
-//     .agent-image img {
-//         border-radius: "30px";
-//         margin-bottom: 20px;
-//         width:200px;
-//         height:200px;
-//         border-radius: 50px;
-//     }
-
-//     .agent-data{
-//         width:100%;
-//         margin: auto;
-//         margin-top: 70px;
-//         text-align: center;
-//         border:3px solid rgb(57, 148, 0);
-//         padding:20px 40px;
-        
-//     }
-//     .agent-card{
-//         width:70%;
-//         height:110vh;
-//         margin: auto;
-//         background-color: white;
-//         border-radius: 10px;
-//         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-        
-//     }
-//     .upper-container{
-//         height:170px;
-//         background: linear-gradient(to left, #53b4db , #164e64  );
-//     }
-//     .image-container img{
-//         background:white;
-//         width:180px;
-//         height:180px;
-//         border-radius: 50%;
-//         padding:5px;
-//         transform: translate(5px,85px);
-//         border:3px solid #164e64;
-//     }
-
-    
-//     .lower-container{
-//         margin-top: 100px;
-//         height:100px;
-//         width:100%;
-//         text-align: center;
-//         font-family: sans-serif;
-        
-//     }
-    
-//     .bank-details{
-        
-//         .account-div-1, .account-div-2{
-//             display:flex;
-//             gap:30px;
-//             justify-content: space-around;
-//             padding:10px 20px;
-//         }
-//         .account-div-1 h6, .account-div-2 h6{
-//             font-weight: bold;
-//             color:#164e64
-//         }
-//     }
-//     .profile-pan,.adhar-front-back{
-//         display:flex;
-//         flex-wrap:no-wrap;
-//     }
-//     .id-card{
-//         margin:10px;
-//         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-//         border-radius: 20px;
-       
-//     }
-//     .id-card img{
-//         height:200px;
-        
-//     }
-
-    
- 
-
-
-//     .agent-card-container{
-//         display: flex;
-//         justify-content: center;
-//         align-items: center;
-//         flex-direction: column;
-//         padding: 20px;
-//         width:50%;
-//     }
-
-//     .agent-card-container-after{
-//         display: flex;
-//         justify-content: center;
-//         align-items: center;
-//         flex-direction: column;
-//         padding: 20px;
-//         width:100%;
-//     }
-
-    
-    
-//     .agent-card-container .agent-card-item{
-//         box-shadow:rgba(0, 0, 0, 0.35) 0px 0px 8px;
-       
-    
-       
-//     }
-    
-//     .agent-image{
-//         align-items: center;
-//         box-shadow:rgba(0, 0, 0, 0.35) 0px 0px 8px;
-//         border-radius: 20px;
-//         display: flex;
-//         flex-direction: row;
-//         justify-content: space-between;
-//         flex:100%;
-//         flex-wrap: nowrap;
-//         padding: 10px;
-       
-       
-        
-//     }
-    
-    
-//     .agent-image .agent-profile-details{
-//         align-items: center;
-//     }
-    
-    
-    
-//     .agent-image .agent-profile-img img {
-//         border-radius: 50%;
-       
-//     }
-    
-//     /* .agent-details{
-//         margin: 10px 0px;
-//         padding:10px;
-//         border-radius: 20px;
-//     } */
-    
-    
-//     .agent-bank-details{
-//         padding:10px;
-//         display: flex;
-//         flex-direction: row;
-//         justify-content: space-between;
-        
-//     }
-//     /* 
-//     .bank-details{
-//         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; 
-//         border-radius: 10px;
-        
-//         padding:0px 5px;
-//         line-height: 5px;
-//     } */
-    
-    
-    
-//     .bank-account{
-//         box-shadow:rgba(0, 0, 0, 0.35) 0px 0px 8px;
-//         margin: 10px 10px; 
-//         border-radius: 10px;
-//         line-height: 5px;
-//         padding: 10px;
-//         text-align: center;
-//     }
-    
-//     .cards{
-//         display: flex;
-//         justify-content: space-between;
-//         flex-direction: column;
-//     }
-    
-//     .cards .cards-item{
-//         box-shadow:rgba(0, 0, 0, 0.35) 0px 0px 8px;
-//         border-radius: 20px;
-//         margin: 10px;
-//         width:100%;
-        
-        
-//     }
-    
-//     .cards-item img {
-        
-//        object-fit: cover;
-//        width:100%;
-    
-//     }
-    
-//     .agent-card-container{
-//         display: flex;
-//         justify-content: center;
-//         align-items: center;
-//         flex-direction: column;
-//         padding: 20px;
-//     }
-    
-//     .agent-card-container .agent-card-item{
-//         box-shadow:rgba(0, 0, 0, 0.35) 0px 0px 8px;
-//         border-radius: 20px;
-    
-       
-//     }
-    
-//     .agent-image{
-//         align-items: center;
-//         box-shadow:rgba(0, 0, 0, 0.35) 0px 0px 8px;
-//         border-radius: 20px;
-//         display: flex;
-//         flex-direction: row;
-//         justify-content: space-between;
-//         flex:100%;
-//         flex-wrap: nowrap;
-       
-       
-        
-//     }
-    
- 
-    
-//     .agent-image .agent-profile-details{
-//         flex: 33.33%;
-//         align-items: center;
-//         margin:0px 50px;
-//     }
-    
-//     .agent-image .agent-profile-img{
-//         flex: 33.33%;
-        
-        
-//     }
-    
-    
-//     .agent-image .agent-profile-img img {
-//         border-radius: 50%;
-       
-       
-//     }
-    
-//     /* .agent-details{
-//         margin: 10px 0px;
-//         padding:10px;
-//         border-radius: 20px;
-//     } */
-    
-    
-//     .agent-bank-details{
-//         padding:10px;
-//         display: flex;
-//         flex-direction: row;
-//         justify-content: space-between;
-        
-//     }
-//     /* 
-//     .bank-details{
-//         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; 
-//         border-radius: 10px;
-        
-//         padding:0px 5px;
-//         line-height: 5px;
-//     } */
-    
-    
-    
-//     .bank-details{
-//         box-shadow:rgba(0, 0, 0, 0.35) 0px 0px 8px;
-//         margin: 10px 10px; 
-//         border-radius: 10px;
-//         line-height: 10px;
-//         padding: 10px;
-//         text-align: center;
-//     }
-    
-//     .cards{
-//         display: flex;
-//         justify-content: space-between;
-//         flex-direction: row;
-//         flex:100%;
-        
-        
-//     }
-    
-//     .cards .cards-item{
-//         box-shadow:rgba(0, 0, 0, 0.35) 0px 0px 8px;
-//         border-radius: 20px;
-//         margin: 10px;
-//         padding: 10px;
-        
-//     }
-    
-//     .cards-item img {
-//         object-fit: cover;
-       
-    
-//     }
-    
-   
-    
- 
-   
-    
-    
-    
-    
-//     /* .agent-details{
-//         margin: 10px 0px;
-//         padding:10px;
-//         border-radius: 20px;
-//     } */
-    
-    
-  
-//     /* 
-//     .bank-details{
-//         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; 
-//         border-radius: 10px;
-        
-//         padding:0px 5px;
-//         line-height: 5px;
-//     } */
-    
-    
-
-    
-    
-    
-  
-
-// }
-// @media (max-width:1450px){
-//     .agent-profile-main-div{
-//         .profile-pan,.adhar-front-back{
-//             display:flex;
-//             flex-wrap:wrap;
-//         }
-//         .agent-card{
-//             height:120vh
-//         }
-
-//         .agent-image{
-//             flex-wrap: wrap;
-//         }
-//     }
-// }
-// @media (max-width:950px) {
-//     .agent-profile-main-div {
-//         width: 100%;
-//         display: flex;
-//         justify-content: center;
-//         flex-direction: column;
-//         .profile-pan,.adhar-front-back{
-//             display:flex;
-//             flex-wrap:wrap;
-//         }
-
-//         .agent-profile-form{
-//             width: 100%;
-//             padding: 10px 30px;
-//         }
-
-//         .agent-profile-form-div {
-//             width: 100%;
-//             margin: auto;
-//             justify-content: center;
-//             margin-top: 50px;
-//             box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-//         }
-
-//         .agent-data-show {
-//             text-align: center;
-//             margin-top: 40px;
-//         }
-//         .agent-data-show{
-//             margin:auto;
-//             margin-top: 20px;
-//             width:100%
-//         }
-
-//         .agent-image img {
-//             border-radius: "30px";
-//             margin-bottom: 20px;
-//         }
-//         .agent-card{
-//             height:110vh;
-//             width:95%;
-//             box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-//             border-radius: 5px;
-//         }
-      
-//         .id-card img{
-//             height:200px;
-//         }
-
-
-//         .agent-card-container{
-//             display: flex;
-//             justify-content: center;
-//             align-items: center;
-//             flex-direction: column;
-//             padding: 20px;
-//             margin: auto;
-//             width:100%;
-//         }
-
-//         .agent-image{
-//             align-items: center;
-//             justify-content: center;
-//             box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-//             border-radius: 20px;
-//             display: flex;
-//             flex-direction: column;
-//             justify-content: space-between;
-//             flex:100%;
-//             flex-wrap: wrap;
-//             text-align: center;
-           
-           
-            
-//         }
-
-
-//         .bank-details{
-//             box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-//             margin: 10px 10px; 
-//             border-radius: 10px;
-//             line-height: 10px;
-//             padding: 10px;
-//             text-align: center;
-//         }
-        
-        
-
-
-       
-
-
-//         .cards{
-//             flex:100%;
-//             flex-wrap: wrap;
-//             flex-direction: column;
-//             justify-content: center;
-//             align-items: center;
-//         }
-
-//         .cards .cards-item {
-//             justify-content: center;
-//             align-items: center;
-//             margin: 10px 0px;
-//         }
-//     }
-// }
-
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap");
 
 .agent-profile-main-div {
-    display: flex;
+  display: flex;
+  width: 100%;
+  margin: auto;
+  gap: 30px;
+  justify-content: space-around;
+  margin-top: 20px;
+  padding: 20px 40px;
+  align-items: center;
+
+  .error_div {
+    color: red;
+    text-align: start;
+    font-size: 12px;
+  }
+
+  .agent-profile-form-div {
+    width: 50%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .agent-profile-form-div h2 {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+  }
+  .agent-profile-form {
+    width: 100%;
+    padding: 10px 30px;
+  }
+  .agent-data-show {
+    width: 50%;
+    text-align: center;
+  }
+
+  .agent-profile-form-btn {
+    background-color: #193942;
+    color: white;
+    margin-bottom: 30px;
+    width: 100%;
+  }
+
+  .agent-image img {
+    border-radius: "30px";
+    margin-bottom: 20px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50px;
+  }
+
+  .agent-data {
     width: 100%;
     margin: auto;
-    gap:30px;
-    justify-content: space-around;
-    margin-top: 20px;
+    margin-top: 70px;
+    text-align: center;
+    border: 3px solid rgb(57, 148, 0);
     padding: 20px 40px;
+  }
+  .agent-card {
+    width: 70%;
+    height: 110vh;
+    margin: auto;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+  .upper-container {
+    height: 170px;
+    background: linear-gradient(to left, #53b4db, #164e64);
+  }
+  .image-container img {
+    background: white;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    padding: 5px;
+    transform: translate(5px, 85px);
+    border: 3px solid #164e64;
+  }
+
+  .lower-container {
+    margin-top: 100px;
+    height: 100px;
+    width: 100%;
+    text-align: center;
+    font-family: sans-serif;
+  }
+
+  .bank-details {
+    .account-div-1,
+    .account-div-2 {
+      display: flex;
+      gap: 30px;
+      justify-content: space-around;
+      padding: 10px 20px;
+    }
+    .account-div-1 h6,
+    .account-div-2 h6 {
+      font-weight: bold;
+      color: #164e64;
+    }
+  }
+  .profile-pan,
+  .adhar-front-back {
+    display: flex;
+    flex-wrap: no-wrap;
+  }
+  .id-card {
+    margin: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 20px;
+  }
+  .id-card img {
+    height: 200px;
+  }
+
+  .agent-card-container {
+    display: flex;
+    justify-content: center;
     align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    width: 50%;
+  }
 
-    .error_div{
-        color: red;
-        text-align: start;
-        font-size: 12px;
-    }
+  .agent-dashboard-after {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    width: 100%;
+  }
 
+  .agent-card-container .agent-card-item {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 8px;
+  }
+
+  .agent-image {
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 8px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex: 100%;
+    flex-wrap: nowrap;
+    padding: 10px;
+  }
+
+  .agent-image .agent-profile-img img {
+    border-radius: 50%;
+  }
+
+  .agent-bank-details {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+
+  .bank-account {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 8px;
+    margin: 10px 10px;
+    border-radius: 10px;
+    line-height: 5px;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .cards {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+
+  .cards .cards-item {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 8px;
+    border-radius: 20px;
+    margin: 10px;
+    width: 100%;
+  }
+
+  .cards-item img {
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .agent-card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .agent-card-container .agent-card-item {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 8px;
+    border-radius: 20px;
+  }
+
+  .agent-image {
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 8px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex: 100%;
+    flex-wrap: nowrap;
+  }
+
+  .agent-image .agent-profile-details {
+    flex: 33.33%;
+    align-items: center;
+    margin: 0px 50px;
+  }
+
+  .agent-image .agent-profile-img {
+    flex: 33.33%;
+  }
+
+  .agent-image .agent-profile-img img {
   
-    
+    object-fit: cover;
+  }
 
-    .agent-profile-form-div { 
-        width:50%;    
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-        justify-content: center;
-        align-items: center;
+
+  .agent-bank-details {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+ 
+
+  .bank-details {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 8px;
+    margin: 10px 10px;
+    border-radius: 10px;
+    line-height: 10px;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .cards {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex: 100%;
+  }
+
+  .cards .cards-item {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 8px;
+    border-radius: 20px;
+    margin: 10px;
+    padding: 10px;
+  }
+
+  .cards-item img {
+    object-fit: cover;
+  }
+
+}
+@media (max-width: 1450px) {
+  .agent-profile-main-div {
+    .profile-pan,
+    .adhar-front-back {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .agent-card {
+      height: 120vh;
     }
 
-    .agent-profile-form-div h2 {
-        font-family: 'Roboto', sans-serif;
-        font-weight: 500;
+    .agent-image {
+      flex-wrap: wrap;
     }
-    .agent-profile-form{
-        width: 100%;
-        padding: 10px 30px;
-    }
-    .agent-data-show{
-        width:50%;
-        text-align: center;
+  }
+}
+@media (max-width: 950px) {
+  .agent-profile-main-div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    .profile-pan,
+    .adhar-front-back {
+      display: flex;
+      flex-wrap: wrap;
     }
 
-  
+    .agent-profile-form {
+      width: 100%;
+      padding: 10px 30px;
+    }
 
-    .agent-profile-form-btn {
-        background-color: #193942;
-        color: white;
-        margin-bottom: 30px;
-        width:100%
+    .agent-profile-form-div {
+      width: 100%;
+      margin: auto;
+      justify-content: center;
+      margin-top: 50px;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+
+    .agent-data-show {
+      text-align: center;
+      margin-top: 40px;
+    }
+    .agent-data-show {
+      margin: auto;
+      margin-top: 20px;
+      width: 100%;
     }
 
     .agent-image img {
-        border-radius: "30px";
-        margin-bottom: 20px;
-        width:200px;
-        height:200px;
-        border-radius: 50px;
+      border-radius: "30px";
+      margin-bottom: 20px;
+    }
+    .agent-card {
+      height: 110vh;
+      width: 95%;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      border-radius: 5px;
     }
 
-    .agent-data{
-        width:100%;
-        margin: auto;
-        margin-top: 70px;
-        text-align: center;
-        border:3px solid rgb(57, 148, 0);
-        padding:20px 40px;
-        
-    }
-    .agent-card{
-        width:70%;
-        height:110vh;
-        margin: auto;
-        background-color: white;
-        border-radius: 10px;
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-        
-    }
-    .upper-container{
-        height:170px;
-        background: linear-gradient(to left, #53b4db , #164e64  );
-    }
-    .image-container img{
-        background:white;
-        width:180px;
-        height:180px;
-        border-radius: 50%;
-        padding:5px;
-        transform: translate(5px,85px);
-        border:3px solid #164e64;
+    .id-card img {
+      height: 200px;
     }
 
-    
-    .lower-container{
-        margin-top: 100px;
-        height:100px;
-        width:100%;
-        text-align: center;
-        font-family: sans-serif;
-        
-    }
-    
-    .bank-details{
-        
-        .account-div-1, .account-div-2{
-            display:flex;
-            gap:30px;
-            justify-content: space-around;
-            padding:10px 20px;
-        }
-        .account-div-1 h6, .account-div-2 h6{
-            font-weight: bold;
-            color:#164e64
-        }
-    }
-    .profile-pan,.adhar-front-back{
-        display:flex;
-        flex-wrap:no-wrap;
-    }
-    .id-card{
-        margin:10px;
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-        border-radius: 20px;
-       
-    }
-    .id-card img{
-        height:200px;
-        
+    .agent-card-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 20px;
+      margin: auto;
+      width: 100%;
     }
 
-    
- 
-
-
-    .agent-card-container{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        padding: 20px;
-        width:50%;
+    .agent-image {
+      align-items: center;
+      justify-content: center;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex: 100%;
+      flex-wrap: wrap;
+      text-align: center;
+    }
+    .bank-details {
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      margin: 10px 10px;
+      border-radius: 10px;
+      line-height: 10px;
+      padding: 10px;
+      text-align: center;
+    }
+    .cards {
+      flex: 100%;
+      flex-wrap: wrap;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
 
-    .agent-dashboard-after{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        padding: 20px;
-        width:100%;
+    .cards .cards-item {
+      justify-content: center;
+      align-items: center;
+      margin: 10px 0px;
     }
-
-    
-    
-    .agent-card-container .agent-card-item{
-        box-shadow:rgba(0, 0, 0, 0.35) 0px 0px 8px;
-       
-    
-       
-    }
-    
-    .agent-image{
-        align-items: center;
-        box-shadow:rgba(0, 0, 0, 0.35) 0px 0px 8px;
-        border-radius: 20px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        flex:100%;
-        flex-wrap: nowrap;
-        padding: 10px;
-       
-       
-        
-    }
-    
-    
-    // .agent-image .agent-profile-details{
-    //     align-items: center;
-    // }
-    
-    
-    
-    .agent-image .agent-profile-img img {
-        border-radius: 50%;
-       
-    }
-    
-    /* .agent-details{
-        margin: 10px 0px;
-        padding:10px;
-        border-radius: 20px;
-    } */
-    
-    
-    .agent-bank-details{
-        padding:10px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        
-    }
-    /* 
-    .bank-details{
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; 
-        border-radius: 10px;
-        
-        padding:0px 5px;
-        line-height: 5px;
-    } */
-    
-    
-    
-    .bank-account{
-        box-shadow:rgba(0, 0, 0, 0.35) 0px 0px 8px;
-        margin: 10px 10px; 
-        border-radius: 10px;
-        line-height: 5px;
-        padding: 10px;
-        text-align: center;
-    }
-    
-    .cards{
-        display: flex;
-        justify-content: space-between;
-        flex-direction: column;
-    }
-    
-    .cards .cards-item{
-        box-shadow:rgba(0, 0, 0, 0.35) 0px 0px 8px;
-        border-radius: 20px;
-        margin: 10px;
-        width:100%;
-        
-        
-    }
-    
-    .cards-item img {
-        
-       object-fit: cover;
-       width:100%;
-    
-    }
-    
-    .agent-card-container{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        padding: 20px;
-    }
-    
-    .agent-card-container .agent-card-item{
-        box-shadow:rgba(0, 0, 0, 0.35) 0px 0px 8px;
-        border-radius: 20px;
-    
-       
-    }
-    
-    .agent-image{
-        align-items: center;
-        box-shadow:rgba(0, 0, 0, 0.35) 0px 0px 8px;
-        border-radius: 20px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        flex:100%;
-        flex-wrap: nowrap;
-       
-       
-        
-    }
-    
- 
-    
-    .agent-image .agent-profile-details{
-        flex: 33.33%;
-        align-items: center;
-        margin:0px 50px;
-    }
-    
-    .agent-image .agent-profile-img{
-        flex: 33.33%;
-        
-        
-    }
-    
-    
-    .agent-image .agent-profile-img img {
-        // border-radius: 50%;
-        object-fit: cover;
-       
-       
-       
-    }
-    
-    /* .agent-details{
-        margin: 10px 0px;
-        padding:10px;
-        border-radius: 20px;
-    } */
-    
-    
-    .agent-bank-details{
-        padding:10px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        
-    }
-    /* 
-    .bank-details{
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; 
-        border-radius: 10px;
-        
-        padding:0px 5px;
-        line-height: 5px;
-    } */
-    
-    
-    
-    .bank-details{
-        box-shadow:rgba(0, 0, 0, 0.35) 0px 0px 8px;
-        margin: 10px 10px; 
-        border-radius: 10px;
-        line-height: 10px;
-        padding: 10px;
-        text-align: center;
-    }
-    
-    .cards{
-        display: flex;
-        justify-content: space-between;
-        flex-direction: row;
-        flex:100%;   
-    }
-    
-    .cards .cards-item{
-        box-shadow:rgba(0, 0, 0, 0.35) 0px 0px 8px;
-        border-radius: 20px;
-        margin: 10px;
-        padding: 10px;
-        
-    }
-    
-    .cards-item img {
-        object-fit: cover;
-       
-    
-    }
-    
-   
-    
- 
-   
-    
-    
-    
-    
-    /* .agent-details{
-        margin: 10px 0px;
-        padding:10px;
-        border-radius: 20px;
-    } */
-    
-    
-  
-    /* 
-    .bank-details{
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; 
-        border-radius: 10px;
-        
-        padding:0px 5px;
-        line-height: 5px;
-    } */
-    
-    
-
-    
-    
-    
-  
-
-}
-@media (max-width:1450px){
-    .agent-profile-main-div{
-        .profile-pan,.adhar-front-back{
-            display:flex;
-            flex-wrap:wrap;
-        }
-        .agent-card{
-            height:120vh
-        }
-
-        .agent-image{
-            flex-wrap: wrap;
-        }
-    }
-}
-@media (max-width:950px) {
-    .agent-profile-main-div {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        .profile-pan,.adhar-front-back{
-            display:flex;
-            flex-wrap:wrap;
-        }
-
-        .agent-profile-form{
-            width: 100%;
-            padding: 10px 30px;
-        }
-
-        .agent-profile-form-div {
-            width: 100%;
-            margin: auto;
-            justify-content: center;
-            margin-top: 50px;
-            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-        }
-
-        .agent-data-show {
-            text-align: center;
-            margin-top: 40px;
-        }
-        .agent-data-show{
-            margin:auto;
-            margin-top: 20px;
-            width:100%
-        }
-
-        .agent-image img {
-            border-radius: "30px";
-            margin-bottom: 20px;
-        }
-        .agent-card{
-            height:110vh;
-            width:95%;
-            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-            border-radius: 5px;
-        }
-      
-        .id-card img{
-            height:200px;
-        }
-
-
-        .agent-card-container{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            padding: 20px;
-            margin: auto;
-            width:100%;
-        }
-
-        .agent-image{
-            align-items: center;
-            justify-content: center;
-            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-            border-radius: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            flex:100%;
-            flex-wrap: wrap;
-            text-align: center;   
-        }
-        .bank-details{
-            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-            margin: 10px 10px; 
-            border-radius: 10px;
-            line-height: 10px;
-            padding: 10px;
-            text-align: center;
-        }
-        .cards{
-            flex:100%;
-            flex-wrap: wrap;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .cards .cards-item {
-            justify-content: center;
-            align-items: center;
-            margin: 10px 0px;
-        }
-    }
+  }
 }

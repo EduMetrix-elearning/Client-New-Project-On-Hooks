@@ -89,7 +89,7 @@ export const StudentStatusShow = (props) => {
                   <TableCell>Message</TableCell>
                   <TableCell>Course</TableCell>
                   <TableCell>Call Status</TableCell>
-                  <TableCell>Intrest Response</TableCell>
+                  <TableCell>Interest Response</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody align="center">
@@ -102,7 +102,7 @@ export const StudentStatusShow = (props) => {
                     <TableCell>Message</TableCell>
                     <TableCell>{student.course}</TableCell>
                     <TableCell>{student.status}</TableCell>
-                    <TableCell>Intrest Response</TableCell>
+                    <TableCell>Interest Response</TableCell>
                   </TableRow>
                 ))}
                 {/* {Studentdata.map((row, index) => (
@@ -145,8 +145,8 @@ export const StudentStatusShow = (props) => {
                     <TableCell>
                       <select className="table-status">
                         <option>Status</option>
-                        <option>intrested</option>
-                        <option>Not intrested</option>
+                        <option>interested</option>
+                        <option>Not interested</option>
                       </select>
                     </TableCell>
                   </TableRow>

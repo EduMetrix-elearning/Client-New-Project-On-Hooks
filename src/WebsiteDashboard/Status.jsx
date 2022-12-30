@@ -28,7 +28,8 @@ export const DashBoardStatus = ({ data }) => {
     try {
       const getReferrals = async () => {
         const referrals = await services.agentAllReferrals();
-        setReferrals(referrals);
+        const referral = referrals.reverse();
+        setReferrals(referral);
       };
       getReferrals();
     } catch (error) {
@@ -76,13 +77,14 @@ export const DashBoardStatus = ({ data }) => {
           <TableRow>
             {/* <TableCell padding="checkbox"></TableCell> */}
             <TableCell>No.</TableCell>
+            <TableCell>Student Id</TableCell>
             <TableCell>NAME</TableCell>
             <TableCell>EMAIL</TableCell>
             <TableCell>PHONE</TableCell>
             <TableCell>LOCATION</TableCell>
             <TableCell>PAST COURSE</TableCell>
-            <TableCell>STATUS</TableCell>
             <TableCell>YEAR OF PASSING</TableCell>
+            <TableCell>STATUS</TableCell>
             <TableCell>SUBMISSION DATE</TableCell>
           </TableRow>
         </TableHead>
@@ -94,28 +96,27 @@ export const DashBoardStatus = ({ data }) => {
                 key={index}
                 sx={{ border: 1, borderColor: "#f5f5ef" }}
               >
-                <TableCell component="th" scope="row">
-                  {detail.student_id}
-                </TableCell>
+                <TableCell>{index + 1}</TableCell>
+                <TableCell>{detail.student_id}</TableCell>
                 <TableCell>{detail.name}</TableCell>
                 <TableCell>{detail.email}</TableCell>
                 <TableCell>{detail.contact_number}</TableCell>
                 <TableCell>{detail.place}</TableCell>
                 <TableCell>{detail.course}</TableCell>
+                <TableCell>{detail.year_of_passing}</TableCell>
                 <TableCell>
                   <select
                     className="student-status"
                     onChange={(e) => submit(e, detail.student_id)}
                   >
                     <option value="">{detail.status}</option>
-                    <option value="Completed">Completed</option>
-                    <option value="no response">no response</option>
-                    <option value="waiting to call">waiting to call </option>
-                    <option value="not intrested">not intrested</option>
-                    <option value="interest">interest</option>
+                    <option value="No Response">No Response</option>
+                    <option value="Not Interested">Not Interested</option>
+                    <option value="Interested">Interested </option>
+                    <option value="Waiting to Join">Waiting to Join</option>
+                    <option value="Admission">Admission</option>
                   </select>
                 </TableCell>
-                <TableCell>{detail.year_of_passing}</TableCell>
                 <TableCell>
                   {new Date(detail.created_date).toLocaleString("lookup")}
                 </TableCell>
@@ -126,100 +127,3 @@ export const DashBoardStatus = ({ data }) => {
     </TableContainer>
   );
 };
-//   <>
-//     <TableContainer
-//       component={Paper}
-//       className="website-dashboard-status-check"
-//     >
-//       <Table sx={{ width: "100%" }} aria-label="simple table">
-//         <TableHead
-//           sx={{ backgroundColor: "#f5f5ef", border: 1 }}
-//           align="center"
-//         >
-//           <TableRow>
-//             <TableCell padding="checkbox"></TableCell>
-//             <TableCell>Id</TableCell>
-//             <TableCell>Enquired On</TableCell>
-//             <TableCell>Name</TableCell>
-//             <TableCell>Message</TableCell>
-//             <TableCell>Course</TableCell>
-//             <TableCell>Call Status</TableCell>
-//             <TableCell>Intrest Response</TableCell>
-//           </TableRow>
-//           {referrals.map((referral) => (
-//             <TableRow key={referral.student_id}>
-//               <TableCell padding="checkbox"></TableCell>
-//               <TableCell>{referral.student_id}</TableCell>
-//               <TableCell>Enquired On</TableCell>
-//               <TableCell>{referral.name}</TableCell>
-//               <TableCell>status</TableCell>
-//               <TableCell>{referral.course}</TableCell>
-//               <TableCell>
-//                 <select
-//                   className="student-status"
-//                   onChange={(e) => submit(e, referral.student_id)}
-//                 >
-//                   <option value="">{referral.status}</option>
-//                   <option value="Completed">Completed</option>
-//                   <option value="no response">no response</option>
-//                   <option value="waiting to call">waiting to call </option>
-//                   <option value="not intrested">not intrested</option>
-//                   <option value="interest">interest</option>
-//                 </select>
-//               </TableCell>
-//               <TableCell>Intrest Response</TableCell>
-//             </TableRow>
-//           ))}
-//         </TableHead>
-//         <TableBody align="center">
-//           {data.map((row, index) => (
-//             <TableRow
-//               className="tabelrow"
-//               key={index}
-//               sx={{ border: 1, borderColor: "#f5f5ef" }}
-//             >
-//               <TableCell padding="checkbox">
-//                 <Checkbox
-//                   style={{ color: "green" }}
-//                   icon={<CircleUnchecked />}
-//                   checkedIcon={<CircleCheckedFilled />}
-//                 />
-//               </TableCell>
-//               <TableCell component="th" scope="row">
-//                 {row.id}
-//               </TableCell>
-//               <TableCell>{row.submission_date} </TableCell>
-//               <TableCell>
-//                 <span style={{ color: "blue" }}>{row.name}</span>
-//                 <Box sx={{ placeItems: "center" }} className="mobile">
-//                   <AodIcon sx={{ fontSize: "20px" }} />
-//                   <span style={{ marginRight: "20px" }}>{row.phone}</span>
-//                   <MailOutlineIcon sx={{ fontSize: "20px" }} />
-//                   <span>{row.email}</span>
-//                 </Box>
-//               </TableCell>
-//               <TableCell>{row.status}</TableCell>
-//               <TableCell>{row.course}</TableCell>
-
-//               <TableCell>
-//                 <select className="table-status">
-//                   <option>Status</option>
-//                   <option>Yes</option>
-//                   <option>No</option>
-//                 </select>
-//               </TableCell>
-
-//               <TableCell>
-//                 <select className="table-status">
-//                   <option>Status</option>
-//                   <option>intrested</option>
-//                   <option>Not intrested</option>
-//                 </select>
-//               </TableCell>
-//             </TableRow>
-//           ))}
-//         </TableBody>
-//       </Table>
-//     </TableContainer>
-//   </>
-// );

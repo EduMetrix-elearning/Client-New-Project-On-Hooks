@@ -8,7 +8,6 @@ import * as services from "../../services/pages/agentRoute";
 
 export const ForgetAgentOtpVarify = () => {
   const navigate = useNavigate();
-  // const [email,setEmail]=useState("")
   const [mobile, setMobile] = useState("");
   const [mobileOtp, setMobileOtp] = useState("");
   const [password, setPassword] = useState("");
@@ -16,7 +15,6 @@ export const ForgetAgentOtpVarify = () => {
   const [mobileOtpError, setMobileOtpError] = useState("");
   const [passwordError, setPasswordError] = useState("");
 
-  // console.log(mobile, mobileOtp, password);
 
   const handleSubmit = (e) => {
     e.preventDefault();

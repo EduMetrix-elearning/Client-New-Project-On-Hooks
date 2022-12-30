@@ -12,11 +12,7 @@ import {
 import { Link } from "react-router-dom";
 
 export const AgentNavbar = () => {
-  // const [show, setShow] = useState(false);
-
-  // const handleClose = () => setShow(false);
-  // const handleShow = () => setShow(true);
-
+ 
   return (
     <div>
       <Navbar

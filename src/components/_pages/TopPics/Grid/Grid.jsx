@@ -2,7 +2,7 @@ import React from 'react'
 import './Grid.scss'
 
 export default function Grid({ items }) {
-    // console.log(items)
+   
 
     let arr = [...items, ...items, ...items, ...items, ...items, ...items]
 
