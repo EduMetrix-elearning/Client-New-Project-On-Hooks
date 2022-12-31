@@ -87,10 +87,10 @@ export const AgentsSignup = () => {
 
     if (!flag) {
       let obj = {
-        name: name,
+        agent_name: name,
         contact_number: "+91" + phone,
-        email: email,
-        password: password,
+        agent_email: email,
+        password_hash: password,
       };
 
       setIsLoading(true);
