@@ -43,9 +43,7 @@ export const AgentsSignup = () => {
   };
   const regax = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
-
   const handlesignUpSubmit = (e) => {
-    setIsLoading(true);
     e.preventDefault();
     let flag = false;
     if (name === "") {
@@ -86,6 +84,7 @@ export const AgentsSignup = () => {
       flag = true;
       setErrorPassword("space not allowed *");
     }
+
     if (!flag) {
       let obj = {
         name: name,
@@ -93,13 +92,13 @@ export const AgentsSignup = () => {
         email: email,
         password: password,
       };
-   
+
+      setIsLoading(true);
       services.agentSignup(obj, (error, result) => {
         if (result) {
           setIsLoading(false);
           navigate("/agent_otp_varification");
         } else {
-          setIsLoading(false);
           console.log("Agent signup error", error);
           alert("Something wrong in Agentsignup");
         }
