@@ -308,7 +308,6 @@ export async function submitSyllabus(obj) {
 export async function getCollaborators() {
   try {
     const result = await Axios.get(baseurl.GetUrl() + "/collaborators");
-    console.log(result);
 
     return result.data;
   } catch (error) {

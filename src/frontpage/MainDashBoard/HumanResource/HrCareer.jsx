@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import HrDates from "./HrDates";
 import HumanResource from "./HumanResource";
 import "./HrCareer.css";
 import HrTable from "./HrTable";
 
+
 const HrCareer = () => {
+ 
+
+
   return (
     <>
       <HumanResource />
@@ -31,7 +35,20 @@ const HrCareer = () => {
             </div>
           </section>
         </div>
-        <HrTable />
+        <div>
+          <table style={{ overflowX: "auto" }}>
+            <tr>
+              <th>No.</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone No</th>
+              <th>Job Domain</th>
+              <th>Message</th>
+              <th>CV</th>
+              <th>Submission Date</th>
+            </tr>
+          </table>
+        </div>
       </div>
     </>
   );

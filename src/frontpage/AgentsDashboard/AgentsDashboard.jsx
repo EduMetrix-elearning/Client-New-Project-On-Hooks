@@ -21,10 +21,6 @@ const ls = require("local-storage");
 export const AgentsDashboard = () => {
   const navigate = useNavigate();
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 5bccca0595273850f95c9580d5e1fb71f40c68b2
   const [image, setImage] = useState(
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBRdmz3LadjgP_7giopi8RU6TJQgE-9IZaYXSJYWHuFv3ty1vbrgMiiU6XqdhxXyFqJqU&usqp=CAU"
   );
