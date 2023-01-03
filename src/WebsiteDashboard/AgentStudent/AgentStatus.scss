@@ -1,5 +1,4 @@
 .Agent-Showing-details-div {
-  //   background-color: aqua;
   width: 90%;
   .all-agent-Card-page {
     display: grid;
@@ -14,7 +13,6 @@
   }
 
   .banner {
-    // position: absolute;
     display: flex;
     justify-content: center;
     width: 100%;
@@ -22,7 +20,6 @@
     background-image: linear-gradient(to right, #04303b, #4696ae);
     background-size: cover;
     margin-bottom: 75px;
-    // z-index: -1;
   }
 
   .img-circle {

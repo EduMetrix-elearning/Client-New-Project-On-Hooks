@@ -43,13 +43,7 @@ export const AgentsSignup = () => {
   };
   const regax = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
-  // const phoneNumberValidate = (phone) => {
-  //   const phoneReg = /^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/;
-  //   return phoneReg.test(phone);
-  // };
-
   const handlesignUpSubmit = (e) => {
-    setIsLoading(true);
     e.preventDefault();
     let flag = false;
     if (name === "") {
@@ -90,20 +84,21 @@ export const AgentsSignup = () => {
       flag = true;
       setErrorPassword("space not allowed *");
     }
+
     if (!flag) {
       let obj = {
-        name: name,
+        agent_name: name,
         contact_number: "+91" + phone,
-        email: email,
-        password: password,
+        agent_email: email,
+        password_hash: password,
       };
-      console.log("api obj", obj);
+
+      setIsLoading(true);
       services.agentSignup(obj, (error, result) => {
         if (result) {
           setIsLoading(false);
           navigate("/agent_otp_varification");
         } else {
-          setIsLoading(false);
           console.log("Agent signup error", error);
           alert("Something wrong in Agentsignup");
         }

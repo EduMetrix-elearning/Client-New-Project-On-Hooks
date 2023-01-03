@@ -18,8 +18,7 @@ export default function Wallet() {
     const [otpInputs, setOtpInputs] = useState()
 
     useEffect(() => {
-        // getTotalEarnings().then((res) => setEarningsInfo(res.data)).catch((err) => console.log(err))
-        // fetchLatestPrice().then((res) => setEmcData(res.data)).catch((err) => console.log(err))
+     
         fetchPublicKeyForQRCode().then((res) => setPublicKey(res.data.result[0]))
     }, [])
 
@@ -74,10 +73,7 @@ export default function Wallet() {
         }).catch((err) => console.log(err))
     }
 
-    // console.log(earningsInfo)
-    // console.log(emcData)
-    // console.log(publicKey)
-    // console.log(transactions)
+    
 
     return (
         <div className='Wallet'>

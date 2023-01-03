@@ -83,74 +83,28 @@ export const StudentStatusShow = (props) => {
               >
                 <TableRow>
                   <TableCell padding="checkbox"></TableCell>
-                  <TableCell>Id</TableCell>
-                  <TableCell>Enquired On</TableCell>
+                  <TableCell>No.</TableCell>
                   <TableCell>Name</TableCell>
-                  <TableCell>Message</TableCell>
-                  <TableCell>Course</TableCell>
+                  <TableCell>Phone</TableCell>
+                  <TableCell>Past Course</TableCell>
+                  <TableCell>Place</TableCell>
                   <TableCell>Call Status</TableCell>
-                  <TableCell>Intrest Response</TableCell>
+                  <TableCell>Call Response</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody align="center">
-                {students.map((student) => (
+                {students.map((student, index) => (
                   <TableRow key={student.student_id}>
                     <TableCell padding="checkbox"></TableCell>
-                    <TableCell>{student.student_id}</TableCell>
-                    <TableCell>Enquired On</TableCell>
+                    <TableCell>{index + 1}</TableCell>
                     <TableCell>{student.name}</TableCell>
-                    <TableCell>Message</TableCell>
+                    <TableCell>{student.contact_number}</TableCell>
                     <TableCell>{student.course}</TableCell>
+                    <TableCell>{student.place}</TableCell>
                     <TableCell>{student.status}</TableCell>
-                    <TableCell>Intrest Response</TableCell>
+                    <TableCell>Call Response</TableCell>
                   </TableRow>
                 ))}
-                {/* {Studentdata.map((row, index) => (
-                  <TableRow
-                    className="tabelrow"
-                    key={index}
-                    sx={{ border: 1, borderColor: "#f5f5ef" }}
-                  >
-                    <TableCell padding="checkbox">
-                      <Checkbox
-                        style={{ color: "green" }}
-                        icon={<CircleUnchecked />}
-                        checkedIcon={<CircleCheckedFilled />}
-                      />
-                    </TableCell>
-                    <TableCell component="th" scope="row">
-                      {row.id}
-                    </TableCell>
-                    <TableCell>{row.submission_date} </TableCell>
-                    <TableCell>
-                      <span style={{ color: "blue" }}>{row.name}</span>
-                      <Box sx={{ placeItems: "center" }} className="mobile">
-                        <AodIcon sx={{ fontSize: "20px" }} />
-                        <span style={{ marginRight: "20px" }}>{row.phone}</span>
-                        <MailOutlineIcon sx={{ fontSize: "20px" }} />
-                        <span>{row.email}</span>
-                      </Box>
-                    </TableCell>
-                    <TableCell>{row.status}</TableCell>
-                    <TableCell>{row.course}</TableCell>
-
-                    <TableCell>
-                      <select className="table-status">
-                        <option>Status</option>
-                        <option>Yes</option>
-                        <option>No</option>
-                      </select>
-                    </TableCell>
-
-                    <TableCell>
-                      <select className="table-status">
-                        <option>Status</option>
-                        <option>intrested</option>
-                        <option>Not intrested</option>
-                      </select>
-                    </TableCell>
-                  </TableRow>
-                ))} */}
               </TableBody>
             </Table>
           </TableContainer>

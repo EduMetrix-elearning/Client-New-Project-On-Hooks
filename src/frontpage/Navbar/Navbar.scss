@@ -3,11 +3,8 @@
     top: 0;
     width: 100%;
     position: fixed;
-    // position: -webkit-sticky;
-    // position: sticky;
-    // top: 0;
+   
     z-index: 300;
-    // border:3px solid;
     .frontend-navbar {
         background-color: white;
         color: black;
@@ -30,7 +27,7 @@
         border-radius: 5px;
         cursor: pointer;
     }
-    //
+    
     .edu-image {
             width: 60px;
             margin-right: 13px;

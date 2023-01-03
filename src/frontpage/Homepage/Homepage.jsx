@@ -30,15 +30,10 @@ const style = {
 
 
 export const EduMetrixHomepage = () => {
-    // const [internshipOpen, setInternshipOpen] = React.useState(false);
-    // const [carrierOpen,setCarrierOpen]=React.useState(false);
+     
     const [chatopen,setChatopen]=React.useState(false)
     const [chat ,setchat]=React.useState(true)
    
-    // const handleinternship = () => setInternshipOpen(true);
-    // const handleInternshipClose = () => setInternshipOpen(false);
-    // const handleCarrier=()=>setCarrierOpen(true)
-    // const handleCarrierClose =()=> setCarrierOpen(false)
 
     const handlechatOpen=()=>{
         setChatopen(true)

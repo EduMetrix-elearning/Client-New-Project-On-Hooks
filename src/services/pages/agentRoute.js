@@ -1,30 +1,10 @@
 import Axios from "axios";
-// import { agentReferrals } from "./agentRoute";
 const baseurl = require("./generalUrl");
 const ls = require("local-storage");
-
-// export const agentSignup =(values,callback)=>{
-//  try{
-//      axios.post(Url.GetUrl() + "/agent/get-started" ,values)
-//     .then((response)=>{
-
-//         // let res = response.data.json()
-//         console.log("getting agent result" , response)
-//         // let id = await localStorage.set("agentregisteredId",response.json())
-//         // return callback(null,response)
-//     }).catch((error)=>{
-//         return callback(error)
-//     })
-//  }
-//  catch(error){
-//     return callback(error)
-//  }
-// }
 
 export function agentSignup(values, callback) {
   Axios.post(baseurl.GetUrl() + "/agent/get-started", values)
     .then(async (response) => {
-      console.log("api response", response);
       if (response.data) {
         await ls.set("agent_id", response.data.agent_id);
         return callback(null, response);
@@ -40,7 +20,6 @@ export function agentSignup(values, callback) {
 export function otpVarify(values, callback) {
   Axios.post(baseurl.GetUrl() + "/agent/verifyOtp", values)
     .then(async (response) => {
-      console.log("api response", response);
       if (response.data) {
         return callback(null, response);
       }
@@ -55,7 +34,6 @@ export function otpVarify(values, callback) {
 export function agentLogin(values, callback) {
   Axios.post(baseurl.GetUrl() + "/agent/login", values)
     .then(async (response) => {
-      console.log("api response", response);
       if (response.data) {
         await ls.set("id", response.data.id);
         await ls.set("token", response.data.token);
@@ -194,27 +172,157 @@ export async function submitStudentBill(bill) {
 
     return students.data;
   } catch (error) {
-    alert(error);
+    console.log(error);
+    alert(error.message);
+    alert(error.response.data.message);
   }
 }
-// export const otpVarify=(values,callback)=>{
-//     axios.post(Url.GetUrl() + "/verifyOtp", values).then((response) => {
-//         console.log("otp verify==", response);
-//         if (response) {
-//             return callback(null, response)
-//         }
-//     }).catch((error) => {
-//         return callback(error)
-//     })
-// }
 
-// export const resendOTP=(values, callback)=> {
+export async function verifyOtp(obj) {
+  try {
+    const otp = await Axios.post(
+      baseurl.GetUrl() + "/agent/forgotPassword",
+      obj
+    );
 
-//     axios.post(Url.GetUrl() + "/resendOTP", values).then((response) => {
-//         if (response) {
-//             return callback(null, response)
-//         }
-//     }).catch((error) => {
-//         return callback(error)
-//     })
-// }
+    return otp.data;
+  } catch (error) {
+    alert(error.message);
+    alert(error.response.data.message);
+  }
+}
+
+export async function resetPassword(obj) {
+  try {
+    const result = await Axios.post(
+      baseurl.GetUrl() + "/agent/resetPassword",
+      obj
+    );
+
+    return result.data;
+  } catch (error) {
+    alert(error.message);
+    alert(error.response.data.message);
+  }
+}
+
+export async function submitEmployee(obj) {
+  try {
+    const result = await Axios.post(
+      baseurl.GetUrl() + "/employee_registeration",
+      obj
+    );
+
+    return result.data;
+  } catch (error) {
+    alert(error.message);
+    alert(error.response.data.message);
+  }
+}
+
+export async function getEmployee() {
+  try {
+    const result = await Axios.get(
+      baseurl.GetUrl() + "/employee_registeration"
+    );
+
+    return result.data;
+  } catch (error) {
+    alert(error.message);
+    alert(error.response.data.message);
+  }
+}
+export async function getInternship() {
+  try {
+    const result = await Axios.get(baseurl.GetUrl() + "/student_internship");
+
+    return result.data;
+  } catch (error) {
+    alert(error.message);
+    alert(error.response.data.message);
+  }
+}
+
+export async function submitInternship(obj) {
+  try {
+    const result = await Axios.post(
+      baseurl.GetUrl() + "/student_internship",
+      obj
+    );
+    console.log(result);
+
+    return result.data;
+  } catch (error) {
+    alert(error.message);
+    alert(error.response.data.message);
+  }
+}
+
+export async function getEnquiry() {
+  try {
+    const result = await Axios.get(baseurl.GetUrl() + "/student_enquiry");
+    console.log(result);
+
+    return result.data;
+  } catch (error) {
+    alert(error.message);
+    alert(error.response.data);
+  }
+}
+
+export async function submitEnquiry(obj) {
+  try {
+    const result = await Axios.post(baseurl.GetUrl() + "/student_enquiry", obj);
+    return result.data;
+  } catch (error) {
+    alert(error.message);
+    alert(error.response.data.message);
+  }
+}
+
+export async function getSyllabus() {
+  try {
+    const result = await Axios.get(baseurl.GetUrl() + "/student_syllabus");
+    console.log(result);
+
+    return result.data;
+  } catch (error) {
+    alert(error.message);
+    alert(error.response.data.message);
+  }
+}
+
+export async function submitSyllabus(obj) {
+  try {
+    const result = await Axios.post(
+      baseurl.GetUrl() + "/student_syllabus",
+      obj
+    );
+    return result.data;
+  } catch (error) {
+    alert(error.message);
+    alert(error.response.data.message);
+  }
+}
+
+export async function getCollaborators() {
+  try {
+    const result = await Axios.get(baseurl.GetUrl() + "/collaborators");
+    console.log(result);
+
+    return result.data;
+  } catch (error) {
+    alert(error.message);
+    alert(error.response.data.message);
+  }
+}
+
+export async function submitCollaborators(obj) {
+  try {
+    const result = await Axios.post(baseurl.GetUrl() + "/collaborators", obj);
+    return result.data;
+  } catch (error) {
+    alert(error.message);
+    alert(error.response.data.message);
+  }
+}

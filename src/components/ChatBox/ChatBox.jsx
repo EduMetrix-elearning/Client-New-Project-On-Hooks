@@ -49,8 +49,7 @@ export default function ChatBox() {
         socket.emit("CONVERSATION", message)
     }
 
-    // console.log(activeUsers)
-    // console.log(currentChats)
+  
 
     return (
         <div className='ChatBox'>

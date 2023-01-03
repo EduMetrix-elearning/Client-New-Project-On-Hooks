@@ -24,7 +24,6 @@ export const authSlice = createSlice({
     reducers: {
 
         signUpUser(state, action) {
-            // console.log(action)
             switch (action.payload.type) {
                 case "start":
                     state.signUp.loading = true

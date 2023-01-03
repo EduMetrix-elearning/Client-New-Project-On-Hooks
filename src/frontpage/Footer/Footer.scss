@@ -54,18 +54,14 @@
     }
     .footer-col ul li a , .employe-login-link{
         font-size: 16px;
-        // text-transform: capitalize;
         color:white;
         text-decoration: none;
         font-weight: 300;
         color:#bbbbbb;
         display: block;
         transition: all 0.3s ease;
-        // border:1px solid red;
     }
-    // .footer-col ul li{
-       
-    // }
+    
     .footer-col ul li a:hover, .employe-login-link:hover{
         color: #ffffff;
         padding-left: 8px;
@@ -94,7 +90,7 @@
         margin-top: 20px;
     }
 }
-//
+
 @media screen and (max-width:767px) {
     .footer-main-div{
 

@@ -24,18 +24,6 @@ export const AgentsLogin = () => {
     }
   };
 
-  // const handleLoginSubmit = (e)=>{
-  //   e.preventDefault()
-  //   if(email !="" || password != ""){
-  //     toast("Login Successfully !")
-  //     setTimeout(()=>{
-  //       navigate("/agents-dashboard")
-  //     },3000)
-  //   }
-  //   else{
-  //     toast("Email & password should enter")
-  //   }
-  // }
   const handlesignUpSubmit = (e) => {
     e.preventDefault();
     let flag = false;
@@ -51,7 +39,7 @@ export const AgentsLogin = () => {
         email: email,
         password: password,
       };
-      console.log("api obj", obj);
+      
       services.agentLogin(obj, (error, result) => {
         if (result) {
           navigate("/agents-dashboard");
@@ -73,7 +61,7 @@ export const AgentsLogin = () => {
             color: "white",
             backgroundColor: "#193942",
             padding: "15px",
-            textAlign:"center"
+            textAlign: "center",
           }}
         >
           LOGIN

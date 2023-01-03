@@ -54,7 +54,7 @@ export const NewBilling = () => {
               <TableCell>E-Mail</TableCell>
               <TableCell>Course</TableCell>
               <TableCell>Call Status</TableCell>
-              <TableCell>Intrest Response</TableCell>
+              <TableCell>Interest Response</TableCell>
             </TableRow>
           </TableHead>
           {billingData.map((bill) => (
@@ -65,7 +65,7 @@ export const NewBilling = () => {
               <TableCell>{bill.email}</TableCell>
               <TableCell>Course</TableCell>
               <TableCell>{bill.status}</TableCell>
-              <TableCell>Intrest Response</TableCell>
+              <TableCell>Interest Response</TableCell>
             </TableRow>
           ))}
           {/* <TableBody align="center">
@@ -109,8 +109,8 @@ export const NewBilling = () => {
                 <TableCell>
                   <select className="table-status">
                     <option>Status</option>
-                    <option>intrested</option>
-                    <option>Not intrested</option>
+                    <option>interested</option>
+                    <option>Not interested</option>
                   </select>
                 </TableCell>
               </TableRow>
