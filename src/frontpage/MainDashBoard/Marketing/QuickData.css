@@ -1,0 +1,60 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+  .main{
+    width: 100%;
+    height: 25vh;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    justify-content: center;
+    background-position: center;
+    background-size: cover;
+  }
+  .profile-card{
+    display: flex;
+    background-color: #7e94f3;
+    align-items: center;
+    width: 20%;
+    height: 80px;
+    border-radius: 0px;
+    padding: 30px;
+    border: 1px solid #ffffff40;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+  }
+  .profile-card2{
+    display: flex;
+    background-color: #7ef37e;
+    align-items: center;
+    width: 20%;
+    height: 80px;
+    border-radius: 0px;
+    padding: 30px;
+    border: 1px solid #ffffff40;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+  }
+  .profile-card3{
+    display: flex;
+    background-color: #fafa81;
+    align-items: center;
+    width: 20%;
+    height: 80px;
+    border-radius: 0px;
+    padding: 30px;
+    border: 1px solid #ffffff40;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+  }
+  .profile-card4{
+    display: flex;
+    background-color: #ff0000;
+    align-items: center;
+    width: 20%;
+    height: 80px;
+    border-radius: 0px;
+    padding: 30px;
+    border: 1px solid #ffffff40;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+  }

@@ -14,6 +14,23 @@ import Chatbot from "./pages/Chatbot/Chatbot";
 import Profile from "./pages/Profile/Profile";
 import Wallet from "./pages/Wallet/Wallet";
 import SignUpVerification from "./pages/SignUpVerification/SignUpVerification.jsx";
+import EmployeeVerification from "./frontpage/EmployeeVerification/EmployeeVerification.jsx";
+import MainDashboard from "./frontpage/MainDashBoard/MainDashboard.jsx";
+import { AgentNavbar } from "./frontpage/AgentNavbar/AgentNavbar.jsx";
+import AdminDashboard from "./frontpage/MainDashBoard/AdminDashboard/AdminDashboard.jsx";
+import HumanResource from "./frontpage/MainDashBoard/HumanResource/HumanResource.jsx";
+import HrCareer from "./frontpage/MainDashBoard/HumanResource/HrCareer.jsx";
+import HrMeeting from "./frontpage/MainDashBoard/HumanResource/HrMeeting.jsx";
+import HrCorporate from "./frontpage/MainDashBoard/HumanResource/HrCorporate.jsx";
+import QuickData from "./frontpage/MainDashBoard/Marketing/QuickData.jsx";
+import InternspDetails from "./frontpage/MainDashBoard/Marketing/internsDetails.jsx";
+
+import MarketingNavbar from "./frontpage/MainDashBoard/Marketing/MarketingNavbar.jsx";
+import ItResource from "./frontpage/MainDashBoard/ItResource/ItResource.jsx";
+import InternNavbar from "./frontpage/MainDashBoard/Intern/InternNavbar.jsx";
+import InternMeeting from "./frontpage/MainDashBoard/Intern/InternMeeting.jsx";
+import ItMeeting from "./frontpage/MainDashBoard/ItResource/ItMeeting.jsx";
+import MarketingMeeting from "./frontpage/MainDashBoard/Marketing/MarketingMeeting.jsx";
 
 import AboutUs from "./pages/AboutUs/AboutUs/AboutUs";
 
@@ -55,6 +72,13 @@ import { AgentVarification } from "./frontpage/AgentVerification/AgentVarificati
 import { ForgetagntPasswod } from "./frontpage/ForgetPasword/ForgetagntPasswod.jsx";
 import { ForgetAgentOtpVarify } from "./frontpage/ForgetAgentOtpVarify/ForgetAgentOtpVarify.jsx";
 import { ForgetAgentPasswordUpdate } from "./frontpage/ForgetAgentPasswordUpdate/ForgetAgentPasswordUpdate.jsx";
+// import AdminDashboard from "./frontpage/MainDashBoard/AdminDashboard/AdminDashboard.jsx";
+import EmployeeDetails from "./frontpage/MainDashBoard/AdminDashboard/EmployeeDetails.jsx";
+import EmployeeProfiles from "./frontpage/MainDashBoard/AdminDashboard/EmployeeProfiles.jsx";
+import BillingHistory from "./frontpage/MainDashBoard/AdminDashboard/BillingHistory.jsx";
+import NewBillingDetails from "./frontpage/MainDashBoard/AdminDashboard/NewBillingDetails.jsx";
+import AdminMeeting from "./frontpage/MainDashBoard/AdminDashboard/AdminMeeting.jsx";
+
 // =======
 // >>>>>>> d8fa9f140c596cfebe9aad8864b64ed3cc4aee98
 
@@ -131,6 +155,49 @@ function App() {
             <Route path="/agentssignup" element={<AgentsSignup />}></Route>
             <Route path="/agentslogin" element={<AgentsLogin />}></Route>
             <Route
+              path="/employeeVerification"
+              element={<EmployeeVerification />}
+            ></Route>
+            <Route path="/maindashboard" element={<MainDashboard />}></Route>
+            <Route path="/admindashboard" element={<AdminDashboard />}></Route>
+            <Route
+              path="/employeedetails"
+              element={<EmployeeDetails />}
+            ></Route>
+            <Route
+              path="/employeeprofiles"
+              element={<EmployeeProfiles />}
+            ></Route>
+            <Route path="/BillingHistory" element={<BillingHistory />}></Route>
+            <Route
+              path="/newbilingdetails"
+              element={<NewBillingDetails />}
+            ></Route>
+            <Route path="/adminmeeting" element={<AdminMeeting />}></Route>
+            <Route path="/humanresource" element={<HumanResource />}></Route>
+            <Route path="/hrcareer" element={<HrCareer />}></Route>
+            <Route path="/hrcorporate" element={<HrCorporate />}></Route>
+            <Route path="/hrmeeting" element={<HrMeeting />}></Route>
+            <Route path="/quickdata" element={<QuickData />}></Route>
+            <Route path="/internsdetails" element={<InternspDetails />}></Route>
+
+            <Route
+              path="/marketingnavbar"
+              element={<MarketingNavbar />}
+            ></Route>
+
+            <Route
+              path="/marketingmeeting"
+              element={<MarketingMeeting />}
+            ></Route>
+
+            <Route path="/itresource" element={<ItResource />}></Route>
+            <Route path="/itmeeting" element={<ItMeeting />}></Route>
+
+            <Route path="/internnavbar" element={<InternNavbar />}></Route>
+            <Route path="/internmeeting" element={<InternMeeting />}></Route>
+
+            <Route
               path="/agents-dashboard"
               element={<AgentsDashboard />}
             ></Route>
@@ -139,10 +206,7 @@ function App() {
             <Route path="/status" element={<Status />}></Route>
             <Route path="/student-details" element={<StudentDetails />}></Route>
             <Route path="/agent-earning" element={<AgentEarning />}></Route>
-            <Route
-              path="/website-dashboard"
-              element={<WebsiteDashboard />}
-            ></Route>
+            <Route path="/te-dashboard" element={<WebsiteDashboard />}></Route>
             <Route
               path="/billing-information"
               element={<BillingInformationPage />}

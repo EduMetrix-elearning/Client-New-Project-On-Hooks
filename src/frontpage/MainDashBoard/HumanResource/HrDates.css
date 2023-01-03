@@ -1,0 +1,73 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+.form-content{
+    width: 100%;
+    display: flex;
+}
+.container{
+    width: 79%;
+    margin-left: 7%;
+    display: flex;
+    gap: 30px;
+}
+.field-input-field{
+    width:25%;
+    height: 50px;
+    display: flex;
+    text-align: center;
+    background-color:  #ffffff40;
+    margin-top: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+}
+header{
+    margin-top: 15px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #232836;
+      margin-left:10px;
+} 
+.field-input{
+    height: 35px; 
+    width: 52%;
+    margin-left: 15%;
+    background-color:#ffffff40 ;
+    margin-top: 8px;
+     border: 0px; 
+    font-size: 16px;
+    padding: 10px;
+    font-weight: 400;
+    border-radius: 6px;
+    box-shadow: inset -3px -3px 7px #ffffff, inset 3px 3px 5px #ceced1;
+}
+.field-input:focus{
+    outline: none;
+}
+.field-option{
+    height: 35px; 
+    width: 55%;
+    margin-left: 14%;
+    background-color:#ffffff40 ;
+    margin-top: 8px;
+     border: 0px; 
+    font-size: 16px;
+    padding: 10px;
+    font-weight: 400;
+    border-radius: 6px;
+    box-shadow: inset -3px -3px 7px #ffffff, inset 3px 3px 5px #ceced1;
+}
+.field-option:focus{
+    outline: none;
+}
+.option-container:hover{
+    background-color: #ffffff ;
+    border-radius: 6px;
+    box-shadow: inset -3px -3px 7px #ffffff, inset 3px 3px 5px #ceced1;
+    color:blue
+}
+.option-container:focus{
+    outline: none;
+}

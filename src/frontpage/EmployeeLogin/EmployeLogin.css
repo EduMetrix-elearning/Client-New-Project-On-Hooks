@@ -1,0 +1,108 @@
+/* // .employe-login-whole-div{
+//     width:60%;
+//     margin: auto;
+//     height:90vh;
+//     margin-top: 60px;
+
+    
+//     .employe-login-form-div{
+//         width:70%;
+//         margin: auto;
+//         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+//     }
+//     .employe-login-form{
+//         width:100%;
+//         margin:auto;
+//         margin-top: 10px;
+//         justify-content: center;
+//         padding:20px 40px;
+//     }
+//     .employe-login-btn{
+//         background-color: #193942;
+//         color:white;
+//         margin-bottom: 7px;
+//         margin-right:10px ;
+//         width:100%;
+//     }
+// }
+// @media (max-width:800px){
+//     .employe-login-whole-div{
+//         width:80%;
+//         .employe-login-form{
+//             width:100%;
+//             margin:auto;
+//             margin-top: 10px;
+//             justify-content: center;
+//         }
+//         .employe-login-form-div{
+//             width:100%
+//         }
+//     }
+
+// } */
+
+.main-login-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height:100vh;
+    /* border:1px solid black; */
+    background-color: #EEF0F4;
+}
+
+.main-login-container .main-login-form{
+    width:350px;
+    /* border:1px solid black; */
+    min-height:300px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    background: linear-gradient(145deg, #A2A7BE, #EEF5FF);
+    border-radius: 20px;
+    box-shadow: -3px -3px 7px #ffffff73,
+    2px 2px 5px rgba(94,104,121,0.288);
+}
+
+.main-heading h4 {
+    text-align: center;
+    font-size: 26px;
+    font-weight: bold;
+    color: #193942;
+}
+
+.text-filed input{
+    width:300px;
+    padding: 10px 10px;
+    margin-top: 20px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: inset 2px 2px 5px #BABECC,
+    inset -5px -5px 10px #ffffff73;
+    outline:1px solid #ffffff73;
+}
+
+.text-filed input:focus{
+    box-shadow: inset 1px 1px 2px #BABECC,
+                inset -1px -1px 2px #ffffff73;
+  }
+
+.login-btn button{
+    padding: 5px 20px;
+    margin-top: 30px;
+   
+    background: linear-gradient(120deg, #fff 0%, #193942 50%); 
+    /* background: #193942; */
+    border-radius: 10px;
+    border: none;
+    font-size: 22px;
+    color: #ffffff;
+    font-weight: 400;
+
+}
+
+
+/* .login-btn button:focus{
+    box-shadow: 9.91px 9.91px 15px #CBCDD1, -9.91px -9.91px 15px #FFFFFF;
+} */

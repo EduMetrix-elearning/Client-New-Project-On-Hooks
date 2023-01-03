@@ -320,27 +320,6 @@ const ls = require("local-storage");
 export const AgentsDashboard = () => {
   const navigate = useNavigate();
 
-  // const temp = [
-  //   {
-  //     name: "",
-  //     place: "",
-  //     mobileNumber: "",
-  //     email: "",
-  //     accountNo: "",
-  //     accountName: "",
-  //     branchName: "",
-  //     ifscCode: "",
-  //     profile:
-  //       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBRdmz3LadjgP_7giopi8RU6TJQgE-9IZaYXSJYWHuFv3ty1vbrgMiiU6XqdhxXyFqJqU&usqp=CAU",
-
-  //     adharcardfront:
-  //       "https://images.tv9hindi.com/wp-content/uploads/2022/04/aadhar4-1.jpg?width=1280&enlarge=true",
-  //     adharcardBack:
-  //       "https://5.imimg.com/data5/SELLER/Default/2021/6/YB/NS/ZE/127226125/pre-printed-pvc-aadhar-cards-500x500.jpg",
-  //     panCard:
-  //       "https://w7.pngwing.com/pngs/309/240/png-transparent-identity-document-identification-driving-license-text-business-multimedia.png",
-  //   },
-  // ];
 
   const [image, setImage] = useState(
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBRdmz3LadjgP_7giopi8RU6TJQgE-9IZaYXSJYWHuFv3ty1vbrgMiiU6XqdhxXyFqJqU&usqp=CAU"
