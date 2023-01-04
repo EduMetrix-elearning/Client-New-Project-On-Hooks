@@ -18,7 +18,7 @@ const AdminDashboard = () => {
 
         <li>
           TEAM
-          <ul class="submenu">
+          <ul className="submenu">
             <li>
               <Link
                 style={{ textDecoration: "none", color: "black" }}
@@ -40,7 +40,7 @@ const AdminDashboard = () => {
 
         <li>
           BILLING
-          <ul class="submenu">
+          <ul className="submenu">
             <li>
               <Link
                 style={{ textDecoration: "none", color: "black" }}

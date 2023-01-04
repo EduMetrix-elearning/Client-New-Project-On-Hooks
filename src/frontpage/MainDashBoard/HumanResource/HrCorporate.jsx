@@ -70,6 +70,7 @@ const HrCorporate = () => {
                   <td>{corporate.name}</td>
                   <td>{corporate.email}</td>
                   <td>{corporate.contact_number}</td>
+                  <td>{corporate.location}</td>
                   <td>{corporate.requirement}</td>
                   <td>{corporate.skill}</td>
                   <td>{corporate.experience}</td>
@@ -77,7 +78,6 @@ const HrCorporate = () => {
                   <td>{corporate.company}</td>
                   <td>{corporate.website}</td>
                   <td>{corporate.message}</td>
-                  <td>{corporate.website}</td>
                   <td>
                     <input type="text" />
                   </td>

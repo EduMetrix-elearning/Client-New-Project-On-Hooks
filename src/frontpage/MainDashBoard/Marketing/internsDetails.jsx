@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import MarketingNavbar from "./MarketingNavbar";
 import HrDates from "../HumanResource/HrDates";
 import "./internsDetails";
+const services = require("../../../services/pages/agentRoute");
 
 const InternspDetails = () => {
+  const [internshipDetails, setInternshipDetails] = useState([]);
+
+  const handleInternshipDetails = async () => {
+    const result = await services.getInternship();
+    console.log(result);
+    setInternshipDetails(result.data);
+  };
+
+  useEffect(() => {
+    handleInternshipDetails();
+  }, []);
   return (
     <>
       <MarketingNavbar />
@@ -33,37 +45,49 @@ const InternspDetails = () => {
       </div>
       <div>
         <table>
-          <tr>
-            <th>No.</th>
-            <th>NAME</th>
-            <th>EMAIL</th>
-            <th>PHONE</th>
-            <th>LOCATION</th>
-            <th>PAST COURSE</th>
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>NAME</th>
+              <th>EMAIL</th>
+              <th>PHONE</th>
+              <th>LOCATION</th>
+              <th>PAST COURSE</th>
 
-            <th> YEAR OF PASSING</th>
-            <th>CV</th>
-            <th>SUBMISSION DATE</th>
-          </tr>
-          <tr>
-            <td>Peter</td>
-            <td>Griffin</td>
-            <td>$100</td>
-            <td>Peter</td>
-            <td>Griffin</td>
-            <td>$100</td>
-            <td>Peter</td>
-            <td>
-              <button
-                style={{
-                  padding: "5px",
-                }}
-              >
-                Resume
-              </button>
-            </td>
-            <td>$100</td>
-          </tr>
+              <th> YEAR OF PASSING</th>
+              <th>Self Intro</th>
+              <th>CV</th>
+              <th>SUBMISSION DATE</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {internshipDetails.map((interns) => {
+              return (
+                <tr key={interns.student_id}>
+                  <td>{interns.student_id}</td>
+                  <td>{interns.name}</td>
+                  <td>{interns.email}</td>
+                  <td>{interns.contact_number}</td>
+                  <td>{interns.place}</td>
+                  <td>{interns.course}</td>
+                  <td>{interns.year_of_passing}</td>
+                  <td>{interns.about_yourself}</td>
+
+                  <td>
+                    <button
+                      style={{
+                        padding: "5px",
+                      }}
+                    >
+                      {interns.resume}
+                    </button>
+                  </td>
+                  <td>{interns.created_date}</td>
+                </tr>
+              );
+            })}
+          </tbody>
         </table>
       </div>
     </>

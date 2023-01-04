@@ -4,7 +4,7 @@
                3px 3px 5px #ceced1,
                inset -3px -3px 7px #ffffff,
                inset 3px 3px 5px #ceced1;
-     transition: all 0.3s ease;
+     /* transition: all 0.3s ease; */
   margin: 0px;
   width: 100%;
   display: flex;
@@ -18,13 +18,13 @@
   padding: 14px 30px 14px;
   font-size: 18px;
   /* text-align: center; */
-  transition: background 1s;
+  /* transition: background 1s; */
   color: #31344b;
   border-radius: 6px;
   box-shadow: -3px -3px 7px #ffffff,
              3px 3px 5px #ceced1;
   position: relative;
-  transition: all 0.2s ease;
+  /* transition: all 0.2s ease; */
 }
 
 
@@ -38,7 +38,7 @@
 }
 
 #mainmenu li .submenu {
-  margin: 10px -30px 10px;
+  /* margin: 10px -30px 10px; */
   background: #ecf0f3;
   color:balck;
   padding: 0px;
@@ -50,20 +50,21 @@
 
 #mainmenu li .submenu li {
   display: block !important;
-  transition: padding-left 1s;
+  /* transition: padding-left 1s; */
   box-shadow: -3px -3px 7px #ffffff,
   3px 3px 5px #ceced1;
-position: relative;
-transition: all 0.2s ease;
+
+/* transition: all 0.2s ease; */
 }
 
 #mainmenu li:hover .submenu {
   display: block;
+  z-index: 1;
 }
 
 #mainmenu li .submenu li:hover {
-  padding-left: 15px;
-  cursor: pointer;
+  /* padding-left: 15px; */
+  /* cursor: pointer; */
 }
 
 

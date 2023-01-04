@@ -31,7 +31,7 @@ const MarketingNavbar = () => {
           </li>
           <li>
             <Link>
-              <i class="fa-solid fa-user"></i>Agent
+              <i className="fa-solid fa-user"></i>Agent
             </Link>
           </li>
           <li>

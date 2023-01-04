@@ -3,11 +3,20 @@ import HrDates from "./HrDates";
 import HumanResource from "./HumanResource";
 import "./HrCareer.css";
 import HrTable from "./HrTable";
-
+const services = require("../../../services/pages/agentRoute");
 
 const HrCareer = () => {
- 
+  const [hiringdetails, setHiringDetails] = useState([]);
 
+  const HandleHiringDetails = async () => {
+    const result = await services.getEmployee();
+    console.log(result);
+    setHiringDetails(result.data);
+  };
+
+  useEffect(() => {
+    HandleHiringDetails();
+  }, []);
 
   return (
     <>
@@ -37,16 +46,34 @@ const HrCareer = () => {
         </div>
         <div>
           <table style={{ overflowX: "auto" }}>
-            <tr>
-              <th>No.</th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Phone No</th>
-              <th>Job Domain</th>
-              <th>Message</th>
-              <th>CV</th>
-              <th>Submission Date</th>
-            </tr>
+            <thead>
+              <tr>
+                <th>No.</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone No</th>
+                <th>Job Domain</th>
+                <th>Message</th>
+                <th>CV</th>
+                <th>Submission Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              {hiringdetails.map((employee) => {
+                return (
+                  <tr key={employee.employee_id}>
+                    <td>{employee.employee_id}</td>
+                    <td>{employee.name}</td>
+                    <td>{employee.email}</td>
+                    <td>{employee.contact_number}</td>
+                    <td>{employee.job}</td>
+                    <td>{employee.message}</td>
+                    <td>{employee.image}</td>
+                    <td>{employee.created_date}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
           </table>
         </div>
       </div>

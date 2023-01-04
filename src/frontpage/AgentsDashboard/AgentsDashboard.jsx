@@ -69,11 +69,11 @@ export const AgentsDashboard = () => {
   );
   const [pancardError, setPancardError] = useState("");
 
-  const usernameValidate = (name) => {
-    const re = /^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$/;
-    return re.test(name);
-  };
-  const regax = /^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$/;
+  // const usernameValidate = (name) => {
+  //   const re = /^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$/;
+  //   return re.test(name);
+  // };
+  // const regax = /^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$/;
 
   const inputHandle = (e) => {
     if (e.target.name === "place") {

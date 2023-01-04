@@ -325,3 +325,41 @@ export async function submitCollaborators(obj) {
     alert(error.response.data.message);
   }
 }
+
+export async function getWorkingEmployee() {
+  try {
+    const result = await Axios.get(baseurl.GetUrl() + "/working_employees");
+
+    return result.data;
+  } catch (error) {
+    alert(error.message);
+    alert(error.response.data.message);
+  }
+}
+
+export async function submitWorkingEmployee(obj) {
+  try {
+    const result = await Axios.post(
+      baseurl.GetUrl() + "/working_employees",
+      obj
+    );
+
+    return result.data;
+  } catch (error) {
+    alert(error.message);
+    alert(error.response.data.message);
+  }
+}
+
+export async function EmployeeuploadImages(empimg, callback) {
+  try {
+    const result = await Axios.post(
+      baseurl.GetUrl() + "/working_employees_images",
+      empimg
+    );
+    return result.data;
+  } catch (error) {
+    alert(error.message);
+    alert(error.response.data.message);
+  }
+}

@@ -20,16 +20,17 @@ import { Form, Link, useNavigate } from "react-router-dom";
 import AdminDashboard from "./AdminDashboard";
 import "./EmployeeDetails.scss";
 
+const services = require("../../../services/pages/agentRoute");
+const ls = require("local-storage");
 
 const EmployeeDetails = () => {
   const [image, setImage] = useState(
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBRdmz3LadjgP_7giopi8RU6TJQgE-9IZaYXSJYWHuFv3ty1vbrgMiiU6XqdhxXyFqJqU&usqp=CAU"
   );
+
   const [profileError, setProfileError] = useState("");
   const [name, setname] = useState("");
   const [errorName, setErrorName] = useState("");
-
-  const [position, setPosition] = useState("");
   const [joiningdate, setJoiningDate] = useState("");
   const [employeeId, setEmployeeId] = useState("");
   const [bllodgroup, setBloodGroup] = useState("");
@@ -56,23 +57,55 @@ const EmployeeDetails = () => {
   const [adharcardfront, setAdharCardFront] = useState(
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeYAWo19XH2Z_ow2WVzhIKxQ--8pDGtWnI9Q&usqp=CAU"
   );
+
   const [adharError, setAdharError] = useState("");
 
   const [adharcardback, setAdharCardBack] = useState(
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrL9UKZ3r3lcX8uQW_0ErRKikH3ZZI4xUdVyEz2Sxqf-am-SU22xqKfOiIiel0Bs4zfk4&usqp=CAU"
   );
+
   const [adharBackError, setAdharBackError] = useState("");
 
   const [pancard, setpancard] = useState(
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiynov2NK7TZhPQAjAfyup8EO4efuRqJH8Jw&usqp=CAU"
   );
+
   const [pancardError, setPancardError] = useState("");
 
   const [empPosition, setEmpPosition] = useState("");
 
-  const handleChange = (event) => {
-    setEmpPosition(event.target.value);
+  const updateImages = async () => {
+    const formData = new FormData();
+    formData.append("employee_photo", image);
+    formData.append("employee_pan", pancard);
+    formData.append("employee_aadharfront", adharcardfront);
+    formData.append("employee_aadharback", adharcardback);
+
+    services.EmployeeuploadImages(formData);
   };
+
+  // useEffect(() => {
+  //   services.agentInfo((error, result) => {
+  //     console.log(result);
+
+  //     if (result.bank_branch) {
+  //       setShow(!show);
+  //     }
+  //     if (result.employee_name) setname(result.employee_name);
+  //     if (result.employee_phone) setmobile(result.employee_phone);
+  //     if (result.employee_email) setemail(result.employee_email);
+  //     if (result.place) setplace(result.place);
+
+  //     if (result.bank_branch) setBranchName(result.bank_branch);
+  //     if (result.bank_account_name) setAccountname(result.bank_account_name);
+  //     if (result.bank_account_number) setAccountno(result.bank_account_number);
+  //     if (result.bank_ifsc) setIfsc(result.bank_ifsc);
+  //     if (result.agent_photo) setImage(result.agent_photo);
+  //     if (result.agent_pan) setpancard(result.agent_pan);
+  //     if (result.agent_aadharfront) setAdharCardFront(result.agent_aadharfront);
+  //     if (result.agent_aadharback) setAdharCardBack(result.agent_aadharback);
+  //   });
+  // }, []);
 
   const usernameValidate = (name) => {
     const re = /^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$/;
@@ -87,8 +120,8 @@ const EmployeeDetails = () => {
     } else if (e.target.name === "place") {
       setplace(e.target.value);
       setErrorPlace("");
-      // } else if (e.target.name === "position") {
-      //   setPosition(e.target.value);
+    } else if (e.target.name === "number") {
+      setmobile(e.target.value);
     } else if (e.target.name === "empid") {
       setEmployeeId(e.target.value);
     } else if (e.target.name === "dob") {
@@ -131,40 +164,97 @@ const EmployeeDetails = () => {
     if (e.target.files.length !== 0) {
       // setImage(e.target.files[0]);
       setImage(URL.createObjectURL(e.target.files[0]));
-
-      // setImage(URL.createObjectURL(e.target.files[0]));
     }
-    // setImage(URL.createObjectURL(e.target.files[0]));
   };
 
   const uploadPANCard = (e) => {
     if (e.target.files.length !== 0) {
       // setpancard(e.target.files[0]);
       setpancard(URL.createObjectURL(e.target.files[0]));
-
-      // setpancard(URL.createObjectURL(e.target.files[0]));
     }
-    // setpancard(URL.createObjectURL(e.target.files[0]));
   };
 
   const uploadAdharFront = (e) => {
     if (e.target.files.length !== 0) {
       // setAdharCardFront(e.target.files[0]);
       setAdharCardFront(URL.createObjectURL(e.target.files[0]));
-
-      // setAdharCardFront(URL.createObjectURL(e.target.files[0]));
     }
-    // setAdharCardFront(URL.createObjectURL(e.target.files[0]));
   };
 
   const uploadAdharBack = (e) => {
     if (e.target.files.length !== 0) {
       // setAdharCardBack(e.target.files[0]);
       setAdharCardBack(URL.createObjectURL(e.target.files[0]));
-
-      //   setAdharCardBack(URL.createObjectURL(e.target.files[0]));
     }
-    // setAdharCardBack(URL.createObjectURL(e.target.files[0]));
+  };
+
+  const handleEmployeeSubmit = (e) => {
+    e.preventDefault();
+    let flag = false;
+
+    if (name.indexOf("@") > -1) {
+      flag = true;
+      setErrorName("@ not allowed *");
+    } else if (place === "") {
+      flag = true;
+      setErrorPlace("Place Should Not Be Empty*");
+    } else if (place.length < 2) {
+      flag = true;
+      setErrorPlace("place name atleast 3 Charecter long*");
+    } else if (brachname === "") {
+      flag = true;
+      setErrorBname("Agent Bank name field cannot be empty *");
+    } else if (accountname === "") {
+      flag = true;
+      setErrorAccName("Agent name field cannot be empty *");
+    } else if (accountno === "") {
+      flag = true;
+      setErrorAccNo("Agent Account No field cannot be empty *");
+    } else if (Ifsc === "") {
+      flag = true;
+      setErrorIfsc("Agent Ifsc field cannot be empty *");
+    } else if (image === "") {
+      flag = true;
+      setProfileError("Required *");
+    } else if (pancard === "") {
+      flag = true;
+      setPancardError("Required*");
+    } else if (adharcardfront === "") {
+      flag = true;
+      setAdharError("Required*");
+    } else if (adharcardback === "") {
+      flag = true;
+      setAdharBackError("Required*");
+    }
+
+    if (!flag) {
+      var obj = {
+        employee_id: ls.get("id"),
+        employee_name: name,
+        agent_dob: dateofbirth,
+        position: empPosition,
+        employee_id: "EM02023A" + employeeId,
+        employee_phone: mobileno,
+        employee_email: email,
+        blood_group: bllodgroup,
+        place: place,
+        joining_date: joiningdate,
+        bank_branch: brachname,
+        bank_account_name: accountname,
+        bank_account_number: accountno,
+        bank_ifsc: Ifsc,
+        employee_photo: image,
+        employee_pan: pancard,
+        employee_aadharfront: adharcardfront,
+        employee_aadharback: adharcardback,
+      };
+      console.log("api obj", obj);
+      services.submitWorkingEmployee(obj, (error, result) => {
+        if (result) {
+          updateImages();
+        }
+      });
+    }
   };
 
   const paperStyle = {
@@ -208,57 +298,20 @@ const EmployeeDetails = () => {
             />
             {errorName ? <div className="error_div">{errorName}</div> : null}
 
+            <label>Date Of Birth</label>
             <TextField
               autoComplete="off"
               name="dob"
-              label="Date Of Birth"
-              placeholder="DD-MM-YYYY"
+              type="date"
               fullWidth
               required
               size="small"
-              margin="normal"
               onChange={(e) => inputHandle(e)}
             />
             {errorName ? <div className="error_div">{errorName}</div> : null}
 
-            {/* <TextField
-              autoComplete="off"
-              name="position"
-              label="Enter Employee Position"
-              placeholder="Enter Employee Position"
-              fullWidth
-              required
-              size="small"
-              margin="normal"
-              onChange={(e) => inputHandle(e)}
-            />
-            {errorName ? <div className="error_div">{errorName}</div> : null} */}
-            {/* <InputLabel id="demo-select-small">Enter Position</InputLabel>
-            <Select
-              placeholder="Enter Position"
-              name="position"
-              size="small"
-              fullWidth
-              labelId="demo-select-small"
-              id="demo-select-small"
-              value={empPosition}
-              label="enter position"
-              onChange={handleChange}
-              onChange={(e) => inputHandle(e)}
-            >
-              <MenuItem value="">
-                <em>Enter Position</em>
-              </MenuItem>
-              <MenuItem value={"Human Resource"}>Human Resource</MenuItem>
-              <MenuItem>Hr Intern</MenuItem>
-              <MenuItem>marketing Exicutive</MenuItem>
-              <MenuItem>marketing Intern</MenuItem>
-              <MenuItem>Software Engineer</MenuItem>
-              <MenuItem>Software Engineer Intern</MenuItem>
-              <MenuItem>Operation Exicutive</MenuItem>
-              <MenuItem>Operation Intern</MenuItem>
-            </Select> */}
             <select
+              style={{ marginTop: "10px" }}
               className="empposition"
               value={empPosition}
               onChange={(e) => {
@@ -289,16 +342,17 @@ const EmployeeDetails = () => {
               onChange={(e) => inputHandle(e)}
             />
             {errorName ? <div className="error_div">{errorName}</div> : null}
-
+            <label>joining date</label>
             <TextField
               autoComplete="off"
               name="joiningdate"
-              label="Joining Date"
-              placeholder="DD-MM-YYYY"
+              type="date"
+              // label="Joining Date"
+              // placeholder="YYYY-MM-DD"
               fullWidth
               required
               size="small"
-              margin="normal"
+              // margin="normal"
               onChange={(e) => inputHandle(e)}
             />
             {errorName ? <div className="error_div">{errorName}</div> : null}
@@ -528,8 +582,7 @@ const EmployeeDetails = () => {
                 color="inherit"
                 component="label"
                 fullWidth
-                //   onClick={(e) => handleAgentSubmit(e)}
-                // onClick={() => setShow(!show)}
+                onClick={(e) => handleEmployeeSubmit(e)}
                 sx={{ color: "grey", backgroundColor: "#193942" }}
               >
                 Submit

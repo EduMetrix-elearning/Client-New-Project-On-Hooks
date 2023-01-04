@@ -9,7 +9,8 @@ export const EmployeLogin = () => {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = () => {
+  const handleLogin = (e) => {
+    e.preventDefault();
     const admin = {
       email: "shafan@edumetrix.io",
       password: "password",
@@ -32,23 +33,23 @@ export const EmployeLogin = () => {
     };
     if (user === admin.email && password === admin.password) {
       setError(false);
-      navigate("/admindashboard");
+      navigate("/adminmeeting");
       return;
     } else if (user === hr.email && password === hr.password) {
       setError(false);
-      navigate("/humanresource");
+      navigate("/hrmeeting");
       return;
     } else if (user === marketing.email && password === marketing.password) {
       setError(false);
-      navigate("/marketingnavbar");
+      navigate("/marketingmeeting");
       return;
     } else if (user === it.email && password === it.password) {
       setError(false);
-      navigate("/itresource");
+      navigate("/itmeeting");
       return;
     } else if (user === intern.email && password === intern.password) {
       setError(false);
-      navigate("/internnavbar");
+      navigate("/internmeeting");
       return;
     } else {
       setError(true);
