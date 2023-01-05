@@ -1,15 +1,13 @@
-import { React, useEffect, useState } from "react";
+import { React, useState } from "react";
 import { Form, Button } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { AgentNavbar } from "../AgentNavbar/AgentNavbar";
 import { ToastContainer, toast } from "react-toastify";
 
 import "./StudentDetails.scss";
-import { color } from "@mui/system";
 
 const services = require("../../services/pages/agentRoute");
 const ls = require("local-storage");
-
 export const StudentDetails = () => {
   const navigate = useNavigate();
 
@@ -54,7 +52,6 @@ export const StudentDetails = () => {
     }
   };
 
-
   const handleAgentSubmit = (e) => {
     e.preventDefault();
     let flag = false;
@@ -95,7 +92,7 @@ export const StudentDetails = () => {
       flag = true;
       setYearError("Enter Year of Passing*");
     }
-   
+
     if (!flag) {
       let obj = {
         agent_id: ls.get("id"),

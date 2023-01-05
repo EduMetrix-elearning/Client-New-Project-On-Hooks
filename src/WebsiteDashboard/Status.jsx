@@ -6,20 +6,12 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import Checkbox from "@mui/material/Checkbox";
-import AodIcon from "@mui/icons-material/Aod";
-import MailOutlineIcon from "@mui/icons-material/MailOutline";
-import { Box } from "@mui/system";
-import CircleCheckedFilled from "@mui/icons-material/CheckCircle";
-import CircleUnchecked from "@mui/icons-material/RadioButtonUnchecked";
 import "./EduMetrixDashboard.scss";
-import axios from "axios";
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
 import "./EduMetrixDashboard.scss";
 
 import * as services from "../services/pages/agentRoute";
-import { async } from "./../services/pages/agentRoute";
 
 export const DashBoardStatus = ({ data }) => {
   const [referrals, setReferrals] = useState([]);

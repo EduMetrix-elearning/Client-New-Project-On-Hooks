@@ -108,26 +108,25 @@ export const AgentsDashboard = () => {
 
   const uploadImage = (e) => {
     if (e.target.files.length !== 0) {
-      setImage(URL.createObjectURL(e.target.files[0]));
+      setImage(e.target.files[0]);
     }
   };
 
   const uploadPANCard = (e) => {
     if (e.target.files.length !== 0) {
-      // setpancard(e.target.files[0]);
-      setpancard(URL.createObjectURL(e.target.files[0]));
+      setpancard(e.target.files[0]);
     }
   };
 
   const uploadAdharFront = (e) => {
     if (e.target.files.length !== 0) {
-      setAdharCardFront(URL.createObjectURL(e.target.files[0]));
+      setAdharCardFront(e.target.files[0]);
     }
   };
 
   const uploadAdharBack = (e) => {
     if (e.target.files.length !== 0) {
-      setAdharCardBack(URL.createObjectURL(e.target.files[0]));
+      setAdharCardBack(e.target.files[0]);
     }
   };
 
@@ -145,8 +144,6 @@ export const AgentsDashboard = () => {
 
   useEffect(() => {
     services.agentInfo((error, result) => {
-      console.log(result);
-
       if (result.bank_branch) {
         setShow(!show);
       }
@@ -213,12 +210,8 @@ export const AgentsDashboard = () => {
         bank_account_name: accountname,
         bank_account_number: accountno,
         bank_ifsc: Ifsc,
-        agent_photo: image,
-        agent_pan: pancard,
-        agent_aadharfront: adharcardfront,
-        agent_aadharback: adharcardback,
       };
-      console.log("api obj", obj);
+
       services.agentKYC(obj, (error, result) => {
         if (result) {
           updateImages();
