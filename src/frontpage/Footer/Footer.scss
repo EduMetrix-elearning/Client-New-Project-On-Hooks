@@ -1,121 +1,124 @@
-*{
-    margin:0;
-    padding: 0;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.footer-main-div {
+  margin-top: 20px;
+  background-color: #24262b;
+  padding: 70px 0;
+  .container {
+    max-width: 1170px;
+    margin: auto;
+  }
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    width: 1170px;
+  }
+  ul {
+    list-style: none;
+  }
+  .footer-col ul {
+    margin: 0 0 0px;
+    padding: 0px;
+  }
+  .footer-col {
+    width: 25%;
+    padding: 0 15px;
+  }
+
+  .footer-col h4 {
+    font-size: 18px;
+    color: #ffffff;
+    text-transform: capitalize;
+    margin-bottom: 35px;
+    font-weight: 500;
+    position: relative;
+  }
+  .footer-col h4::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    background-color: #e91e63;
+    height: 2px;
     box-sizing: border-box;
-}
+    width: 50px;
+  }
+  .footer-col ul li:not(:last-child) {
+    margin-bottom: 10px;
+  }
+  .employe-login-link {
+    margin-bottom: 10px;
+  }
+  .footer-col ul li a,
+  .employe-login-link {
+    font-size: 16px;
+    color: white;
+    text-decoration: none;
+    font-weight: 300;
+    color: #bbbbbb;
+    display: block;
+    transition: all 0.3s ease;
+  }
 
-.footer-main-div{
+  .footer-col ul li a:hover,
+  .employe-login-link:hover {
+    color: #ffffff;
+    padding-left: 8px;
+  }
+  .faq-link,
+  .hr-form {
+    font-size: 15px;
+    color: #bbbbbb;
+    cursor: pointer;
+  }
+  .faq-link:hover,
+  .hr-form:hover {
+    padding-left: 8px;
+  }
+
+  .footer-col .social-links {
+    width: 100%;
+  }
+  .footer-col .social-links a {
+    display: inline-block;
+    margin-right: 7px;
+  }
+  .footer-col .social-links a:hover {
+    transform: scale(1.1);
+    z-index: 3;
+  }
+  .scancode-div img {
     margin-top: 20px;
-    background-color: #24262b;
-    padding: 70px 0;
-    .container{
-        max-width: 1170px;
-        margin: auto;
-    }
-    .row{
-        display: flex;
-        flex-wrap: wrap;
-    }
-    ul{
-        list-style: none;
-    }
-    .footer-col ul{
-        margin:0 0 0px;
-        padding:0px
-    }
-    .footer-col{
-        width:25%;
-        padding: 0 15px; 
-    }
-    
-    .footer-col h4{
-        font-size: 18px;
-        color:#ffffff;
-        text-transform: capitalize;
-        margin-bottom: 35px;
-        font-weight: 500;
-        position: relative;
-    }
-    .footer-col h4::before{
-        content: "";
-        position: absolute;
-        left:0;
-        bottom: -10px;
-        background-color: #e91e63;
-        height: 2px;
-        box-sizing: border-box;
-        width: 50px;
-    }
-    .footer-col ul li:not(:last-child){
-        margin-bottom: 10px;
-    }
-    .employe-login-link{
-        margin-bottom: 10px;
-    }
-    .footer-col ul li a , .employe-login-link{
-        font-size: 16px;
-        color:white;
-        text-decoration: none;
-        font-weight: 300;
-        color:#bbbbbb;
-        display: block;
-        transition: all 0.3s ease;
-    }
-    
-    .footer-col ul li a:hover, .employe-login-link:hover{
-        color: #ffffff;
-        padding-left: 8px;
-    }
-    .faq-link, .hr-form{
-        font-size: 15px;
-        color:#bbbbbb;
-        cursor: pointer;
-    }
-    .faq-link:hover, .hr-form:hover{
-        padding-left: 8px;
-    }
-    
-    .footer-col .social-links{
-        width:100%
-    }
-    .footer-col .social-links a{
-        display: inline-block;
-        margin-right: 7px;
-    }
-    .footer-col .social-links a:hover{
-        transform: scale(1.1);
-        z-index: 3;
-    }
-    .scancode-div img{
-        margin-top: 20px;
-    }
+  }
 }
 
-@media screen and (max-width:767px) {
-    .footer-main-div{
-
-        .footer-col{
-            width:50%;
-            margin-bottom: 30px;
-        }
+@media screen and (max-width: 767px) {
+  .footer-main-div {
+    .footer-col {
+      width: 50%;
+      margin-bottom: 30px;
     }
+  }
 }
-@media screen and (max-width:574px) {
-    .footer-main-div{
-
-        .footer-col{
-            width:100%;
-            margin-bottom: 30px;
-        }
-        .scancode-div img{
-            width:50%;
-        }
+@media screen and (max-width: 574px) {
+  .footer-main-div {
+    .footer-col {
+      width: 100%;
+      margin-bottom: 30px;
     }
+    .scancode-div img {
+      width: 50%;
+    }
+  }
 }
-@media screen and (max-width:300px) {
-    .footer-main-div{
-        .scancode-div img{
-            width:60%;
-        }
+@media screen and (max-width: 300px) {
+  .footer-main-div {
+    .scancode-div img {
+      width: 60%;
     }
+  }
 }
