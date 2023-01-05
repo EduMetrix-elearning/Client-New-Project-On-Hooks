@@ -34,7 +34,7 @@ const EmployeeProfiles = () => {
           display: "flex",
           justifyContent: "space-around",
           flexDirection: "row",
-          flexWrap: "wrap",
+          flexWrap:"wrap"
         }}
       >
         {employeeCard.map((employee) => {

@@ -1,0 +1,241 @@
+.CreatePost {
+  background-color: white;
+  border-radius: 7px;
+  border: 1px solid var(--color8);
+  -webkit-box-shadow: 1px 1px 10px -5px;
+          box-shadow: 1px 1px 10px -5px;
+  padding-bottom: 10px;
+}
+
+.CreatePost .createPost_inner_div {
+  height: inherit;
+}
+
+.CreatePost .createPost_inner_div div.header {
+  padding: 10px;
+  padding-left: 20px;
+  background-color: var(--color6);
+  border-radius: 7px 7px 0 0;
+  color: white;
+  height: 25%;
+  font-size: 1rem;
+}
+
+.CreatePost .createPost_inner_div .body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 2%;
+  height: 40%;
+}
+
+.CreatePost .createPost_inner_div .body img {
+  width: 6%;
+  border-radius: 50%;
+  margin: 1%;
+}
+
+.CreatePost .createPost_inner_div .body input {
+  width: 94%;
+  height: 100%;
+  border-radius: 1000px;
+  padding-left: 20px;
+  padding-bottom: 5px;
+  border: 1px solid var(--color4);
+  padding-top: 5px;
+}
+
+.CreatePost .createPost_inner_div .body input::-webkit-input-placeholder {
+  color: var(--color8);
+}
+
+.CreatePost .createPost_inner_div .body input:-ms-input-placeholder {
+  color: var(--color8);
+}
+
+.CreatePost .createPost_inner_div .body input::-ms-input-placeholder {
+  color: var(--color8);
+}
+
+.CreatePost .createPost_inner_div .body input::placeholder {
+  color: var(--color8);
+}
+
+.CreatePost .createPost_inner_div .body input:focus {
+  outline: none;
+}
+
+.CreatePost .createPost_inner_div footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 5px;
+  height: 35%;
+}
+
+.CreatePost .createPost_inner_div footer .icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin-top: 3px;
+  margin-left: 20px;
+}
+
+.CreatePost .createPost_inner_div footer .icons .icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.CreatePost .createPost_inner_div footer .icons .icon img {
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+}
+
+.CreatePost .createPost_inner_div footer .icons .icon p {
+  margin-left: 6px;
+  font-size: 1rem;
+}
+
+.CreatePost .createPost_inner_div footer button {
+  border-radius: 25px;
+  width: 100px;
+  border: 1px solid var(--color8);
+  margin-right: 20px;
+}
+
+.CreatePost .Modal {
+  min-height: 300px !important;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 0 !important;
+  overflow: hidden;
+}
+
+.CreatePost .Modal svg {
+  fill: white;
+}
+
+.CreatePost .Modal h5 {
+  background-color: var(--color6);
+  color: white;
+  padding: 10px;
+  margin: 0;
+}
+
+.CreatePost .Modal .fa-edit {
+  position: absolute;
+  top: 48px;
+  left: 5px;
+  font-size: 14pt;
+  cursor: pointer;
+}
+
+.CreatePost .Modal .fa-edit:hover {
+  opacity: .7;
+}
+
+.CreatePost .Modal .fileUploadInterface {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border: 2px dashed grey;
+  margin: 20px;
+  padding: 20px;
+}
+
+.CreatePost .Modal .fileUploadInterface label {
+  background-color: darkgray;
+  cursor: pointer;
+  padding: 5px 15px;
+  margin-top: 10px;
+  border-radius: 7px;
+}
+
+.CreatePost .Modal .fileUploadButton {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.CreatePost .Modal .fileUploadButton input {
+  display: none;
+}
+
+.CreatePost .Modal .fileUploadButton img,
+.CreatePost .Modal .fileUploadButton video,
+.CreatePost .Modal .fileUploadButton object {
+  max-height: 200px;
+  margin: 15px 0;
+}
+
+.CreatePost .Modal .fileUploadText {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 20px;
+  padding-bottom: 15px;
+}
+
+.CreatePost .Modal .fileUploadText input {
+  width: 70%;
+  border-radius: 1000px;
+  border: 1px solid gainsboro;
+  height: 40px;
+  padding-left: 20px;
+}
+
+.CreatePost .Modal .fileUploadText input::-webkit-input-placeholder {
+  font-style: italic;
+}
+
+.CreatePost .Modal .fileUploadText input:-ms-input-placeholder {
+  font-style: italic;
+}
+
+.CreatePost .Modal .fileUploadText input::-ms-input-placeholder {
+  font-style: italic;
+}
+
+.CreatePost .Modal .fileUploadText input::placeholder {
+  font-style: italic;
+}
+
+.CreatePost .Modal .fileUploadText button {
+  border: 1px solid gainsboro;
+  border-radius: 25px;
+  width: 100px;
+  height: 40px;
+}
+/*# sourceMappingURL=CreatePost.css.map */

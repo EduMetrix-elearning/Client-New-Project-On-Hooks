@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,WAAW,CAAC;EACR,OAAO,EAAE,IAAI;CAKhB;;AAND,AAGI,WAHO,CAGP,CAAC,CAAC;EACE,OAAO,EAAE,IAAI;CAChB",
+    "sources": [
+        "Disclaimer.scss"
+    ],
+    "names": [],
+    "file": "Disclaimer.css"
+}

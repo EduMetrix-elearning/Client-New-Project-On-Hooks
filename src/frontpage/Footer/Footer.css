@@ -1,0 +1,137 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.footer-main-div {
+  margin-top: 20px;
+  background-color: #24262b;
+  padding: 70px 0;
+}
+
+.footer-main-div .container {
+  max-width: 1170px;
+  margin: auto;
+}
+
+.footer-main-div .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.footer-main-div ul {
+  list-style: none;
+}
+
+.footer-main-div .footer-col ul {
+  margin: 0 0 0px;
+  padding: 0px;
+}
+
+.footer-main-div .footer-col {
+  width: 25%;
+  padding: 0 15px;
+}
+
+.footer-main-div .footer-col h4 {
+  font-size: 18px;
+  color: #ffffff;
+  text-transform: capitalize;
+  margin-bottom: 35px;
+  font-weight: 500;
+  position: relative;
+}
+
+.footer-main-div .footer-col h4::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  background-color: #e91e63;
+  height: 2px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 50px;
+}
+
+.footer-main-div .footer-col ul li:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.footer-main-div .employe-login-link {
+  margin-bottom: 10px;
+}
+
+.footer-main-div .footer-col ul li a, .footer-main-div .employe-login-link {
+  font-size: 16px;
+  color: white;
+  text-decoration: none;
+  font-weight: 300;
+  color: #bbbbbb;
+  display: block;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.footer-main-div .footer-col ul li a:hover, .footer-main-div .employe-login-link:hover {
+  color: #ffffff;
+  padding-left: 8px;
+}
+
+.footer-main-div .faq-link, .footer-main-div .hr-form {
+  font-size: 15px;
+  color: #bbbbbb;
+  cursor: pointer;
+}
+
+.footer-main-div .faq-link:hover, .footer-main-div .hr-form:hover {
+  padding-left: 8px;
+}
+
+.footer-main-div .footer-col .social-links {
+  width: 100%;
+}
+
+.footer-main-div .footer-col .social-links a {
+  display: inline-block;
+  margin-right: 7px;
+}
+
+.footer-main-div .footer-col .social-links a:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  z-index: 3;
+}
+
+.footer-main-div .scancode-div img {
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 767px) {
+  .footer-main-div .footer-col {
+    width: 50%;
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (max-width: 574px) {
+  .footer-main-div .footer-col {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  .footer-main-div .scancode-div img {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .footer-main-div .scancode-div img {
+    width: 60%;
+  }
+}
+/*# sourceMappingURL=Footer.css.map */

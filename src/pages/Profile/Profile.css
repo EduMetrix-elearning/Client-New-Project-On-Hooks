@@ -1,0 +1,17 @@
+.Profile .profile_content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow-y: auto;
+}
+
+.Profile .profile_content .profile_wall {
+  width: 50%;
+}
+
+.Profile .profile_content .advertisement {
+  height: 92vh;
+  width: 15%;
+  border: 1px solid black;
+}
+/*# sourceMappingURL=Profile.css.map */

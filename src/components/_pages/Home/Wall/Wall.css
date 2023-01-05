@@ -1,0 +1,80 @@
+.Wall {
+  overflow-y: scroll;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 77%;
+}
+
+.Wall::-webkit-scrollbar {
+  display: none;
+}
+
+.Wall .wall_inner_div {
+  width: 80%;
+  padding-top: 10px;
+}
+
+.Wall .wall_inner_div .loading {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 400px;
+}
+
+.Wall .wall_inner_div .loading .error {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.Wall .wall_inner_div .loading .error img {
+  width: 150px;
+  margin: 0 auto;
+}
+
+.Wall .wall_inner_div .loading .error p {
+  text-align: center;
+  margin-top: 15px;
+}
+
+@media screen and (max-width: 1300px) {
+  .Wall {
+    width: 75%;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .Wall {
+    width: 73%;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .Wall {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .Wall .wall_inner_div {
+    width: 90%;
+  }
+}
+/*# sourceMappingURL=Wall.css.map */

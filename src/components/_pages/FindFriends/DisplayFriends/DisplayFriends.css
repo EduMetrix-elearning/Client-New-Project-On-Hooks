@@ -1,0 +1,34 @@
+.DisplayFriends {
+  width: 500px;
+  height: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 20px;
+  border-radius: 20px;
+  -webkit-box-shadow: 1px 1px 7px 1px;
+          box-shadow: 1px 1px 7px 1px;
+}
+
+.DisplayFriends img {
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+}
+
+.DisplayFriends .details {
+  width: 50%;
+  margin-left: 30px;
+}
+
+.DisplayFriends button {
+  border-radius: 15px;
+  width: 100px;
+  background-color: var(--color7);
+  border: none;
+  color: white;
+}
+/*# sourceMappingURL=DisplayFriends.css.map */

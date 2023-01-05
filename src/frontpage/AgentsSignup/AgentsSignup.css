@@ -1,0 +1,55 @@
+.agent-signup-whole-div {
+  width: 60%;
+  margin: auto;
+  height: 100vh;
+  margin-top: 40px;
+}
+
+.agent-signup-whole-div .agent-signup-form-div {
+  width: 70%;
+  margin: auto;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.agent-signup-whole-div .agent-signup-form {
+  width: 100%;
+  margin: auto;
+  margin-top: 10px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 20px 40px;
+}
+
+.agent-signup-whole-div .agent-signup-btn {
+  background-color: #193942;
+  color: white;
+  margin-bottom: 30px;
+  margin-right: 10px;
+  width: 100%;
+}
+
+.agent-signup-whole-div .error_div {
+  color: red;
+  text-align: start;
+  font-size: 12px;
+}
+
+@media (max-width: 800px) {
+  .agent-signup-whole-div {
+    width: 80%;
+  }
+  .agent-signup-whole-div .agent-signup-form {
+    width: 100%;
+    margin: auto;
+    margin-top: 10px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .agent-signup-whole-div .agent-signup-form-div {
+    width: 100%;
+  }
+}
+/*# sourceMappingURL=AgentsSignup.css.map */

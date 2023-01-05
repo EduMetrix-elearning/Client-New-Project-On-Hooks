@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,OAAO,CAAC;EAGJ,MAAM,EAAE,GAAG,CAAC,KAAK,CAAC,OAAkB;EACpC,QAAQ,EAAE,QAAQ;EAClB,MAAM,EAAE,CAAC;EACT,KAAK,EAAE,CAAC;EACR,gBAAgB,EAAE,KAAK;CAC1B",
+    "sources": [
+        "Popper.scss"
+    ],
+    "names": [],
+    "file": "Popper.css"
+}

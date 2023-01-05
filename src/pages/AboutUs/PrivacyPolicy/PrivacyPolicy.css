@@ -1,0 +1,14 @@
+.PrivacyPolicy {
+  padding: 30px;
+}
+
+.PrivacyPolicy P {
+  padding: 20px;
+  text-align: justify;
+}
+
+.PrivacyPolicy ul {
+  list-style: disc;
+  padding-left: 80px;
+}
+/*# sourceMappingURL=PrivacyPolicy.css.map */

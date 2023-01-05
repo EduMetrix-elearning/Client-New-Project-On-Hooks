@@ -1,0 +1,71 @@
+.Suggestions {
+  position: fixed;
+  right: 30px;
+  top: 60px;
+  width: 250px;
+  background-color: white;
+  padding: 10px;
+}
+
+.Suggestions .title h6 {
+  background-color: darkcyan;
+  color: white;
+  padding: 10px;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.Suggestions .suggestions_inner_div {
+  height: 70vh;
+  overflow-y: scroll;
+}
+
+.Suggestions .suggestions_inner_div::-webkit-scrollbar {
+  display: none;
+}
+
+.Suggestions .suggestions_inner_div .people {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 5px 0;
+  padding-left: 5px;
+}
+
+.Suggestions .suggestions_inner_div .people div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.Suggestions .suggestions_inner_div .people div img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.Suggestions .suggestions_inner_div .people div p {
+  font-size: 10pt;
+  margin-left: 5px;
+}
+
+.Suggestions .suggestions_inner_div .people i {
+  font-size: 10pt;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1100px) {
+  .Suggestions {
+    display: none;
+  }
+}
+/*# sourceMappingURL=Suggestions.css.map */

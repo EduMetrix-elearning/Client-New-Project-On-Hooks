@@ -1,0 +1,39 @@
+.AboutUs-main-div {
+  padding-top: 140px;
+  padding-bottom: 30px;
+}
+
+.AboutUs-main-div .section-div {
+  width: 95%;
+  padding-left: 10px;
+  margin: auto;
+}
+
+.AboutUs-main-div .article-div {
+  width: 80%;
+  margin: auto;
+}
+
+.AboutUs-main-div .paragraph {
+  text-align: justify;
+  display: block;
+  word-break: normal;
+}
+
+.AboutUs-main-div .video-div {
+  margin-top: 150px;
+  text-align: center;
+}
+
+@media screen and (max-width: 1100px) and (min-width: 600px) {
+  .AboutUs-main-div .video-div {
+    margin-top: 200px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .AboutUs-main-div .video-div {
+    margin-top: 325px;
+  }
+}
+/*# sourceMappingURL=AboutUs.css.map */

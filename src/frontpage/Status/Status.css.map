@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AACI,gBADY,CACZ,cAAc,CAAA;EACV,KAAK,EAAC,GAAG;EACT,MAAM,EAAE,IAAI;CACf;;AAEL,MAAM,CAAC,MAAM,MAAM,SAAS,EAAE,KAAK;EAC/B,AACI,gBADY,CACZ,cAAc,CAAA;IACV,KAAK,EAAC,GAAG;IACT,MAAM,EAAE,IAAI;IACZ,QAAQ,EAAE,MAAM;GACnB",
+    "sources": [
+        "Status.scss"
+    ],
+    "names": [],
+    "file": "Status.css"
+}

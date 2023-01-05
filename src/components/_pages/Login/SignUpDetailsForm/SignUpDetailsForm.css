@@ -1,0 +1,115 @@
+.SignUpDetailsForm {
+  width: 65%;
+  padding: 20px;
+}
+
+.SignUpDetailsForm input {
+  border-radius: 1000px;
+  border: 2px solid #c8c8c8;
+  height: 30px;
+  padding: 0 20px;
+}
+
+.SignUpDetailsForm .otp_section {
+  margin-top: 16px;
+}
+
+.SignUpDetailsForm .otp_section .otp_inputs {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 100px 1fr;
+      grid-template-columns: 100px 1fr;
+  row-gap: 10px;
+}
+
+.SignUpDetailsForm .otp_section .otp_inputs input {
+  width: 250px;
+}
+
+.SignUpDetailsForm .otp_section .buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.SignUpDetailsForm .otp_section .buttons button {
+  margin: 10px 0;
+  margin-left: 10px;
+  border-radius: 10px;
+  border: none;
+  background-color: var(--color3);
+  color: white;
+  padding: 5px 15px;
+}
+
+.SignUpDetailsForm .details_form {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  row-gap: 5px;
+  -webkit-column-gap: 10px;
+          column-gap: 10px;
+  margin: 10px 0;
+}
+
+.SignUpDetailsForm .details_form > div {
+  display: -ms-grid;
+  display: grid;
+}
+
+.SignUpDetailsForm .details_form input {
+  border-radius: 10px;
+  height: 35px;
+}
+
+.SignUpDetailsForm .submit_button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 20px;
+}
+
+.SignUpDetailsForm .submit_button button {
+  width: 50%;
+  border: none;
+  background-color: var(--color3);
+  color: white;
+  border-radius: 10px;
+  height: 40px;
+}
+
+@media screen and (max-width: 862px) {
+  .SignUpDetailsForm {
+    width: 100%;
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+  }
+}
+
+@media screen and (max-width: 584px) {
+  .SignUpDetailsForm .otp_section .otp_inputs {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .SignUpDetailsForm .otp_section .otp_inputs input {
+    height: 40px;
+  }
+  .SignUpDetailsForm .details_form {
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
+    padding: 0 30px;
+  }
+  .SignUpDetailsForm .details_form input {
+    height: 40px;
+  }
+}
+/*# sourceMappingURL=SignUpDetailsForm.css.map */

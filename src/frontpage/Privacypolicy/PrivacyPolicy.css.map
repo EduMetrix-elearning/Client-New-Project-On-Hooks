@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AACI,yBADqB,CACrB,cAAc,CAAA;EACV,KAAK,EAAC,GAAG;EACT,MAAM,EAAE,IAAI;EACZ,UAAU,EAAE,KAAK;CACpB;;AALL,AAMI,yBANqB,CAMrB,cAAc,CAAC,CAAC,CAAA;EACZ,OAAO,EAAE,GAAG;CACf;;AARL,AASI,yBATqB,CASrB,EAAE,CAAA;EACE,UAAU,EAAE,IAAI;CACnB",
+    "sources": [
+        "PrivacyPolicy.scss"
+    ],
+    "names": [],
+    "file": "PrivacyPolicy.css"
+}

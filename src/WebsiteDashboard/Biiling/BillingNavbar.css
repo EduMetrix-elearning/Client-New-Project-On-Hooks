@@ -1,0 +1,6 @@
+@media print {
+  .billing-navbar {
+    display: none;
+  }
+}
+/*# sourceMappingURL=BillingNavbar.css.map */

@@ -1,0 +1,116 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+/* :root{
+  --color1 : #d7d7d7;
+  --color2 : #b9b8b6;
+  --color3 : #719638;
+  --color4 : gray;
+  --color5 : black;
+  --color6 : white;
+  --color7 : blue;
+  --color5 : black;
+} */
+:root {
+  --color1: white;
+  --color2: black;
+  --color3: #164e64;
+  --color4: rgb(187, 187, 187);
+  --color5: rgb(180, 180, 180);
+  --color6: #323232;
+  --color7: #5c9aa5;
+  --color8: #d3d3d3;
+  --color9: #164E64;
+}
+
+.justify-center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.align-center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.align-end {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.platform {
+  margin: auto;
+  overflow: overlay;
+}
+
+p {
+  margin: 0%;
+}
+
+.grid {
+  display: -ms-grid;
+  display: grid;
+  width: 100%;
+  height: 100vh;
+      grid-template-areas: "navbar header header" "navbar main side";
+  -ms-grid-columns: 15% 65% 20%;
+      grid-template-columns: 15% 65% 20%;
+  -ms-grid-rows: 8vh 92vh;
+      grid-template-rows: 8vh 92vh;
+}
+
+hr {
+  margin: 5px;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+ul {
+  list-style: none;
+}
+
+header {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  height: 8vh;
+  z-index: 10;
+}
+
+main {
+  margin-left: 200px;
+  height: 92vh;
+}
+
+@media screen and (max-width: 750px) {
+  main {
+    margin-left: 0;
+  }
+}
+/*# sourceMappingURL=index.css.map */

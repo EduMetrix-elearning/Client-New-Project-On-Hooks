@@ -1,0 +1,17 @@
+.FindFriends {
+  overflow: auto;
+}
+
+.FindFriends .findFriends_content .display_friends {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 20px;
+  padding-bottom: 20px;
+}
+/*# sourceMappingURL=FindFriends.css.map */

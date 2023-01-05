@@ -280,6 +280,14 @@ export async function submitEnquiry(obj) {
   }
 }
 
+export async function updateStudentEnquiryStatus(status, id) {
+  try {
+    await Axios.put(baseurl.GetUrl() + `/student_enquiry/status/${id}`, status);
+  } catch (error) {
+    alert(error.response.data.message);
+  }
+}
+
 export async function getSyllabus() {
   try {
     const result = await Axios.get(baseurl.GetUrl() + "/student_syllabus");
@@ -360,6 +368,17 @@ export async function EmployeeuploadImages(empimg, callback) {
     return result.data;
   } catch (error) {
     alert(error.message);
+    alert(error.response.data.message);
+  }
+}
+
+export async function getWorkingEmployeeById(id) {
+  try {
+    const result = await Axios.get(
+      baseurl.GetUrl() + `/working_employees/${id}`
+    );
+    return result.data;
+  } catch (error) {
     alert(error.response.data.message);
   }
 }

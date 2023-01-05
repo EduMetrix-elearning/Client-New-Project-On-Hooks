@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,WAAW,CAAC;EACR,MAAM,EAAE,KAAK;CAChB;;AAED,MAAM,CAAC,MAAM,MAAM,SAAS,EAAE,MAAM;EAChC,AAAA,WAAW,CAAC;IACR,MAAM,EAAE,kBAAkB;GAC7B",
+    "sources": [
+        "WhitePaper.scss"
+    ],
+    "names": [],
+    "file": "WhitePaper.css"
+}

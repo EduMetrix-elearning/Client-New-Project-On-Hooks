@@ -1,0 +1,164 @@
+.SignUpVerification {
+  background: url("../../asset/images/Login/login-bg.jpg");
+  background-size: cover;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.SignUpVerification .content {
+  margin: 5vh;
+  width: 70%;
+  border: 2px solid gray;
+  background: -webkit-gradient(linear, left top, right top, color-stop(50%, rgba(255, 255, 255, 0.6)), to(#35A2C1));
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.6) 50%, #35A2C1);
+  border-radius: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+
+.SignUpVerification .content section {
+  width: 35%;
+}
+
+.SignUpVerification .content section .company {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 100px;
+}
+
+.SignUpVerification .content section .company img {
+  background-color: white;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+
+.SignUpVerification .content section .company h3 {
+  color: white;
+}
+
+.SignUpVerification .content section .company hr {
+  color: white;
+  width: 50%;
+  height: 3px;
+  opacity: 1;
+}
+
+.SignUpVerification .content section .refer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.SignUpVerification .content section .refer input {
+  background-color: inherit;
+  border: none;
+  text-align: center;
+  margin-top: 180px;
+  border-bottom: 1px solid white;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  bottom: 24px;
+  right: 74px;
+}
+
+.SignUpVerification .content section .refer input::-webkit-input-placeholder {
+  -webkit-text-decoration: wavy;
+          text-decoration: wavy;
+  font-style: italic;
+}
+
+.SignUpVerification .content section .refer input:-ms-input-placeholder {
+  text-decoration: wavy;
+  font-style: italic;
+}
+
+.SignUpVerification .content section .refer input::-ms-input-placeholder {
+  text-decoration: wavy;
+  font-style: italic;
+}
+
+.SignUpVerification .content section .refer input::placeholder {
+  -webkit-text-decoration: wavy;
+          text-decoration: wavy;
+  font-style: italic;
+}
+
+.SignUpVerification .content section .refer input:focus {
+  outline: none;
+}
+
+@media screen and (max-width: 1292px) {
+  .SignUpVerification .content {
+    width: 75%;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .SignUpVerification .content {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 1125px) {
+  .SignUpVerification .content {
+    width: 85%;
+  }
+}
+
+@media screen and (max-width: 1060px) {
+  .SignUpVerification .content {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 862px) {
+  .SignUpVerification {
+    height: auto;
+  }
+  .SignUpVerification .content {
+    margin: 5vh;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    background: -webkit-gradient(linear, left bottom, left top, color-stop(50%, rgba(255, 255, 255, 0.6)), to(#35A2C1));
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.6) 50%, #35A2C1);
+  }
+  .SignUpVerification .content section {
+    width: 100%;
+  }
+  .SignUpVerification .content section .company {
+    margin-top: 30px;
+  }
+  .SignUpVerification .content section .refer input {
+    margin-top: 10px;
+  }
+}
+/*# sourceMappingURL=SignUpVerification.css.map */

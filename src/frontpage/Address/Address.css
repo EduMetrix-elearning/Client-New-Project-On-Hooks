@@ -1,0 +1,79 @@
+.address-main-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: auto;
+  margin-top: 30px;
+  width: 90%;
+  border-radius: 20px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.address-main-div .city-heading {
+  margin-top: 30px;
+}
+
+.address-main-div .city-heading h4 {
+  margin-bottom: 15px;
+}
+
+.address-main-div .city-heading p {
+  margin-top: 0;
+}
+
+.address-main-div .contact {
+  -ms-flex-preferred-size: 30%;
+      flex-basis: 30%;
+  padding: 20px;
+  width: 50%;
+  border-radius: 20px;
+  background-color: #deeced;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.address-main-div .email-header {
+  margin-bottom: 20px;
+}
+
+.address-main-div .address p {
+  text-align: justify;
+}
+
+.address-main-div .email {
+  margin-top: 60px;
+}
+
+.address-main-div .email-anchor {
+  display: block;
+  margin-top: 10px;
+}
+
+.address-main-div .google-map-iframe {
+  margin-bottom: 30px;
+}
+
+.address-main-div .location {
+  -ms-flex-preferred-size: 70%;
+      flex-basis: 70%;
+  padding: 40px;
+  display: block;
+}
+
+@media screen and (max-width: 700px) {
+  .address-main-div {
+    display: block;
+    margin: auto;
+    margin-top: 30px;
+    width: 90%;
+    padding: 30px;
+    border-radius: 20px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+  .address-main-div .contact {
+    border: 0;
+  }
+}
+/*# sourceMappingURL=Address.css.map */

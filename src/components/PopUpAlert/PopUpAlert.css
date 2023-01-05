@@ -1,0 +1,61 @@
+.PopUpAlert {
+  position: fixed;
+  bottom: -40px;
+  width: 100%;
+  -webkit-animation: popup 3s ease forwards;
+          animation: popup 3s ease forwards;
+}
+
+.PopUpAlert .frame {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 40px;
+  padding: 0 20px;
+  background-color: #3EC761;
+  background-color: #c73e3e;
+  margin: auto;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+.PopUpAlert .frame p {
+  text-align: center;
+  margin-top: 6px;
+  color: white;
+}
+
+@-webkit-keyframes popup {
+  0% {
+  }
+  20% {
+    -webkit-transform: translateY(-50px);
+            transform: translateY(-50px);
+  }
+  80% {
+    -webkit-transform: translateY(-50px);
+            transform: translateY(-50px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes popup {
+  0% {
+  }
+  20% {
+    -webkit-transform: translateY(-50px);
+            transform: translateY(-50px);
+  }
+  80% {
+    -webkit-transform: translateY(-50px);
+            transform: translateY(-50px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+/*# sourceMappingURL=PopUpAlert.css.map */

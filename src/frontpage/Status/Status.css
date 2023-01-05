@@ -1,0 +1,13 @@
+.status-main-div .student-table {
+  width: 80%;
+  margin: auto;
+}
+
+@media screen and (max-width: 800px) {
+  .status-main-div .student-table {
+    width: 80%;
+    margin: auto;
+    overflow: scroll;
+  }
+}
+/*# sourceMappingURL=Status.css.map */

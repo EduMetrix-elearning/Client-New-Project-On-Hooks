@@ -1,0 +1,94 @@
+.Agent-Showing-details-div {
+  width: 90%;
+}
+
+.Agent-Showing-details-div .all-agent-Card-page {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto auto;
+      grid-template-columns: auto auto auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 70px;
+}
+
+.Agent-Showing-details-div .one-agent-card {
+  position: relative;
+  width: 350px;
+  border-radius: 20px;
+}
+
+.Agent-Showing-details-div .banner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  height: 110px;
+  background-image: -webkit-gradient(linear, left top, right top, from(#04303b), to(#4696ae));
+  background-image: linear-gradient(to right, #04303b, #4696ae);
+  background-size: cover;
+  margin-bottom: 75px;
+}
+
+.Agent-Showing-details-div .img-circle {
+  position: absolute;
+  top: 35px;
+  height: 130px;
+  width: 130px;
+  border-radius: 150px;
+  border: 3px solid #fff;
+  margin-top: 10px;
+  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+}
+
+.Agent-Showing-details-div .card_container {
+  margin: 0 40px;
+  padding-top: 0;
+  color: "#000";
+}
+
+.Agent-Showing-details-div .card_header {
+  font-weight: 800;
+  text-align: center;
+  margin: 0 0 25px;
+  color: #121111;
+}
+
+.Agent-Showing-details-div .card_detail {
+  font-weight: 400;
+  color: #130909;
+  margin-bottom: 15px;
+}
+
+.Agent-Showing-details-div .one-agent-card:hover {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  cursor: pointer;
+}
+
+.Agent-Showing-details-div .filtering-name {
+  width: 90%;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.Agent-Showing-details-div .filtering-agent-div {
+  width: 100%;
+  text-align: center;
+}
+
+.Agent-Showing-details-div .Filtering-email-status-location {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin-bottom: 20px;
+}
+/*# sourceMappingURL=AgentStatus.css.map */

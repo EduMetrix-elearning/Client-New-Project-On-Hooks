@@ -1,0 +1,14 @@
+.privacy-policy-whole-div .PrivacyPolicy {
+  width: 79%;
+  margin: auto;
+  margin-top: 100px;
+}
+
+.privacy-policy-whole-div .PrivacyPolicy P {
+  padding: 0px;
+}
+
+.privacy-policy-whole-div h5 {
+  margin-top: 20px;
+}
+/*# sourceMappingURL=PrivacyPolicy.css.map */

@@ -1,0 +1,590 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap");
+.agent-profile-main-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  margin: auto;
+  gap: 30px;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  margin-top: 20px;
+  padding: 20px 40px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  /* .agent-details{
+        margin: 10px 0px;
+        padding:10px;
+        border-radius: 20px;
+    } */
+  /* 
+    .bank-details{
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; 
+        border-radius: 10px;
+        
+        padding:0px 5px;
+        line-height: 5px;
+    } */
+  /* .agent-details{
+        margin: 10px 0px;
+        padding:10px;
+        border-radius: 20px;
+    } */
+  /* 
+    .bank-details{
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; 
+        border-radius: 10px;
+        
+        padding:0px 5px;
+        line-height: 5px;
+    } */
+  /* .agent-details{
+        margin: 10px 0px;
+        padding:10px;
+        border-radius: 20px;
+    } */
+  /* 
+    .bank-details{
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; 
+        border-radius: 10px;
+        
+        padding:0px 5px;
+        line-height: 5px;
+    } */
+}
+
+.agent-profile-main-div .error_div {
+  color: red;
+  text-align: start;
+  font-size: 12px;
+}
+
+.agent-profile-main-div .agent-profile-form-div {
+  width: 50%;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.agent-profile-main-div .agent-profile-form-div h2 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+}
+
+.agent-profile-main-div .agent-profile-form {
+  width: 100%;
+  padding: 10px 30px;
+}
+
+.agent-profile-main-div .agent-data-show {
+  width: 50%;
+  text-align: center;
+}
+
+.agent-profile-main-div .agent-profile-form-btn {
+  background-color: #193942;
+  color: white;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.agent-profile-main-div .agent-image img {
+  border-radius: "30px";
+  margin-bottom: 20px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50px;
+}
+
+.agent-profile-main-div .agent-data {
+  width: 100%;
+  margin: auto;
+  margin-top: 70px;
+  text-align: center;
+  border: 3px solid #399400;
+  padding: 20px 40px;
+}
+
+.agent-profile-main-div .agent-card {
+  width: 70%;
+  height: 110vh;
+  margin: auto;
+  background-color: white;
+  border-radius: 10px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.agent-profile-main-div .upper-container {
+  height: 170px;
+  background: -webkit-gradient(linear, right top, left top, from(#53b4db), to(#164e64));
+  background: linear-gradient(to left, #53b4db, #164e64);
+}
+
+.agent-profile-main-div .image-container img {
+  background: white;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  padding: 5px;
+  -webkit-transform: translate(5px, 85px);
+          transform: translate(5px, 85px);
+  border: 3px solid #164e64;
+}
+
+.agent-profile-main-div .lower-container {
+  margin-top: 100px;
+  height: 100px;
+  width: 100%;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.agent-profile-main-div .bank-details .account-div-1, .agent-profile-main-div .bank-details .account-div-2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 30px;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding: 10px 20px;
+}
+
+.agent-profile-main-div .bank-details .account-div-1 h6, .agent-profile-main-div .bank-details .account-div-2 h6 {
+  font-weight: bold;
+  color: #164e64;
+}
+
+.agent-profile-main-div .profile-pan, .agent-profile-main-div .adhar-front-back {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: no-wrap;
+      flex-wrap: no-wrap;
+}
+
+.agent-profile-main-div .id-card {
+  margin: 10px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 20px;
+}
+
+.agent-profile-main-div .id-card img {
+  height: 200px;
+}
+
+.agent-profile-main-div .agent-card-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 20px;
+  width: 50%;
+}
+
+.agent-profile-main-div .agent-dashboard-after {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 20px;
+  width: 100%;
+}
+
+.agent-profile-main-div .agent-card-container .agent-card-item {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 8px;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 8px;
+}
+
+.agent-profile-main-div .agent-image {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 8px;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 8px;
+  border-radius: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-flex: 100%;
+      -ms-flex: 100%;
+          flex: 100%;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  padding: 10px;
+}
+
+.agent-profile-main-div .agent-image .agent-profile-img img {
+  border-radius: 50%;
+}
+
+.agent-profile-main-div .agent-bank-details {
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.agent-profile-main-div .bank-account {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 8px;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 8px;
+  margin: 10px 10px;
+  border-radius: 10px;
+  line-height: 5px;
+  padding: 10px;
+  text-align: center;
+}
+
+.agent-profile-main-div .cards {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.agent-profile-main-div .cards .cards-item {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 8px;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 8px;
+  border-radius: 20px;
+  margin: 10px;
+  width: 100%;
+}
+
+.agent-profile-main-div .cards-item img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+}
+
+.agent-profile-main-div .agent-card-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 20px;
+}
+
+.agent-profile-main-div .agent-card-container .agent-card-item {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 8px;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 8px;
+  border-radius: 20px;
+}
+
+.agent-profile-main-div .agent-image {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 8px;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 8px;
+  border-radius: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-flex: 100%;
+      -ms-flex: 100%;
+          flex: 100%;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+}
+
+.agent-profile-main-div .agent-image .agent-profile-details {
+  -webkit-box-flex: 33.33%;
+      -ms-flex: 33.33%;
+          flex: 33.33%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0px 50px;
+}
+
+.agent-profile-main-div .agent-image .agent-profile-img {
+  -webkit-box-flex: 33.33%;
+      -ms-flex: 33.33%;
+          flex: 33.33%;
+}
+
+.agent-profile-main-div .agent-image .agent-profile-img img {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.agent-profile-main-div .agent-bank-details {
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.agent-profile-main-div .bank-details {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 8px;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 8px;
+  margin: 10px 10px;
+  border-radius: 10px;
+  line-height: 10px;
+  padding: 10px;
+  text-align: center;
+}
+
+.agent-profile-main-div .cards {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-flex: 100%;
+      -ms-flex: 100%;
+          flex: 100%;
+}
+
+.agent-profile-main-div .cards .cards-item {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 8px;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 8px;
+  border-radius: 20px;
+  margin: 10px;
+  padding: 10px;
+}
+
+.agent-profile-main-div .cards-item img {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.agent-profile-main-div .empposition {
+  width: 100%;
+  padding: 10px 0px;
+  border-radius: 5px;
+  border: 1px solid grey;
+  color: grey;
+}
+
+@media (max-width: 1450px) {
+  .agent-profile-main-div .profile-pan, .agent-profile-main-div .adhar-front-back {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .agent-profile-main-div .agent-card {
+    height: 120vh;
+  }
+  .agent-profile-main-div .agent-image {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 950px) {
+  .agent-profile-main-div {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .agent-profile-main-div .profile-pan, .agent-profile-main-div .adhar-front-back {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .agent-profile-main-div .agent-profile-form {
+    width: 100%;
+    padding: 10px 30px;
+  }
+  .agent-profile-main-div .agent-profile-form-div {
+    width: 100%;
+    margin: auto;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin-top: 50px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+  .agent-profile-main-div .agent-data-show {
+    text-align: center;
+    margin-top: 40px;
+  }
+  .agent-profile-main-div .agent-data-show {
+    margin: auto;
+    margin-top: 20px;
+    width: 100%;
+  }
+  .agent-profile-main-div .agent-image img {
+    border-radius: "30px";
+    margin-bottom: 20px;
+  }
+  .agent-profile-main-div .agent-card {
+    height: 110vh;
+    width: 95%;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 5px;
+  }
+  .agent-profile-main-div .id-card img {
+    height: 200px;
+  }
+  .agent-profile-main-div .agent-card-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 20px;
+    margin: auto;
+    width: 100%;
+  }
+  .agent-profile-main-div .agent-image {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-flex: 100%;
+        -ms-flex: 100%;
+            flex: 100%;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    text-align: center;
+  }
+  .agent-profile-main-div .bank-details {
+    -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin: 10px 10px;
+    border-radius: 10px;
+    line-height: 10px;
+    padding: 10px;
+    text-align: center;
+  }
+  .agent-profile-main-div .cards {
+    -webkit-box-flex: 100%;
+        -ms-flex: 100%;
+            flex: 100%;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .agent-profile-main-div .cards .cards-item {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin: 10px 0px;
+  }
+}
+/*# sourceMappingURL=EmployeeDetails.css.map */

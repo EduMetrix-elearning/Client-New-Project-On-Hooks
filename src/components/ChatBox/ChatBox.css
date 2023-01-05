@@ -1,0 +1,118 @@
+.ChatBox {
+  position: absolute;
+  bottom: 0px;
+  right: 20px;
+  border: 2px solid var(--color3);
+  border-bottom: none;
+  border-radius: 10px 10px 0 0;
+  width: 280px;
+  overflow: hidden;
+}
+
+.ChatBox div.header {
+  background-color: var(--color3);
+  color: var(--color1);
+  text-align: center;
+  height: 40px;
+  padding-top: 6px;
+  cursor: pointer;
+  font-size: 14pt;
+  font-weight: 700;
+}
+
+.ChatBox div.header i {
+  margin-right: 15px;
+}
+
+.ChatBox div.content {
+  background-color: var(--color1);
+  height: 250px;
+}
+
+.ChatBox div.content .chat_list {
+  height: inherit;
+}
+
+.ChatBox div.content .chat_list .user {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.ChatBox div.content .chat_list .user img {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+}
+
+.ChatBox div.content .chat_list .user p {
+  margin-top: 2px;
+  margin-left: 10px;
+}
+
+.ChatBox div.content .chat_list .chatting_box {
+  margin-top: 5px;
+  height: inherit;
+}
+
+.ChatBox div.content .chat_list .chatting_box .chats {
+  overflow-y: scroll;
+  height: calc(100% - $inputHeight);
+}
+
+.ChatBox div.content .chat_list .chatting_box .chats .message {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 4px 7px;
+  border-radius: 5px;
+  margin: 7px 0;
+  font-size: 10pt;
+}
+
+.ChatBox div.content .chat_list .chatting_box .chats .left {
+  background-color: var(--color8);
+  margin-left: 5px;
+}
+
+.ChatBox div.content .chat_list .chatting_box .chats .right {
+  background-color: var(--color7);
+  margin-left: auto;
+  margin-right: 5px;
+}
+
+.ChatBox div.content .chat_list .chatting_box .footer {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  height: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.ChatBox div.content .chat_list .chatting_box .footer input {
+  width: auto;
+}
+
+.ChatBox div.content .chat_list .chatting_box .footer span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: var(--color4);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+/*# sourceMappingURL=ChatBox.css.map */

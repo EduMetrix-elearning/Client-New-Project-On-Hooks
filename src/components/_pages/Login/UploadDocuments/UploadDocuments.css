@@ -1,0 +1,149 @@
+.UploadDocuments {
+  width: 80%;
+  padding: 20px;
+}
+
+.UploadDocuments .items > * {
+  margin-top: 15px;
+}
+
+.UploadDocuments .items .item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-left: 15px;
+  position: relative;
+}
+
+.UploadDocuments .items .item:hover label::before {
+  opacity: 2;
+}
+
+.UploadDocuments .items .item:hover img {
+  opacity: .2;
+}
+
+.UploadDocuments .items .item img {
+  -webkit-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
+  width: 150px;
+}
+
+.UploadDocuments .items .item label {
+  cursor: pointer;
+  position: absolute;
+  width: 100%;
+  height: 87%;
+  z-index: 10;
+}
+
+.UploadDocuments .items .item label::before {
+  content: "\f093";
+  -webkit-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-size: 50pt;
+  color: var(--color9);
+}
+
+.UploadDocuments .items .item figcaption {
+  margin: 0 auto;
+  font-weight: bold;
+}
+
+.UploadDocuments .items .row1 .item img {
+  height: 150px;
+  border-radius: 15px;
+  -webkit-box-shadow: 0px 0px 13px -3px;
+          box-shadow: 0px 0px 13px -3px;
+}
+
+.UploadDocuments .items .row2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.UploadDocuments .items .row2 .item {
+  width: 48%;
+}
+
+.UploadDocuments .items .row2 .item img {
+  width: 100%;
+  max-height: 182px;
+  border-radius: 15px;
+  -webkit-box-shadow: 0px 0px 13px -3px;
+          box-shadow: 0px 0px 13px -3px;
+}
+
+.UploadDocuments .buttons button {
+  display: block;
+  margin-top: 15px;
+  margin-left: 15px;
+  width: 180px;
+  width: calc(100% - 15px);
+  height: 40px;
+  border: 1px solid #bbbbbb;
+  border-radius: 5px;
+  background-color: var(--color9);
+  color: white;
+  font-weight: bold;
+}
+
+.UploadDocuments .Modal h4 {
+  text-align: center;
+}
+
+.UploadDocuments .Modal button {
+  margin: 0 auto;
+  display: block;
+  margin-top: 25px;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 40px;
+  color: white;
+  background-color: var(--color9);
+}
+
+@media screen and (max-width: 862px) {
+  .UploadDocuments {
+    width: 100%;
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+  }
+  .UploadDocuments .row1 .item {
+    width: auto;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .UploadDocuments .row2 {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 15px;
+    row-gap: 16px;
+  }
+  .UploadDocuments .row2 .item {
+    width: 100% !important;
+    margin: 0;
+  }
+}
+/*# sourceMappingURL=UploadDocuments.css.map */

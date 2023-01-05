@@ -1,0 +1,184 @@
+.Navigation {
+  width: 20%;
+  height: 100vh;
+  position: fixed;
+  background-color: var(--color3);
+}
+
+.Navigation .header .backButton {
+  margin: 20px;
+  display: block;
+  text-underline-offset: 3px;
+  color: white;
+  cursor: pointer;
+}
+
+.Navigation .header .logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 50px;
+}
+
+.Navigation .header .logo img {
+  background-color: white;
+  border-radius: 50%;
+}
+
+.Navigation .header .logo h3 {
+  color: white;
+}
+
+.Navigation nav ul {
+  margin-top: 35px;
+}
+
+.Navigation nav ul li {
+  margin-top: 20px;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.Navigation nav ul li a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-decoration: none;
+  color: white;
+}
+
+.Navigation nav ul li a span {
+  background-color: var(--color5);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 20px;
+}
+
+.Navigation nav ul li a span img {
+  width: 20px;
+  height: 20px;
+}
+
+@media screen and (max-width: 1284px) {
+  .Navigation nav ul li {
+    margin-left: 10px;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .Navigation nav ul {
+    padding-left: 1rem;
+  }
+  .Navigation nav ul li {
+    margin-left: 0;
+  }
+}
+
+@media screen and (min-width: 1050px) {
+  .Navigation i.fa-bars,
+  .Navigation a[title='Back to login'] i.fa-angle-left {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  .Navigation {
+    width: 100%;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+  .Navigation .header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 20px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 10px;
+    color: white;
+  }
+  .Navigation .header a.backButton {
+    display: none !important;
+  }
+  .Navigation .header a:has(i.fa-angle-left) {
+    text-decoration: none;
+  }
+  .Navigation .header i {
+    cursor: pointer;
+  }
+  .Navigation .header i.fa-angle-left {
+    background-color: white;
+    color: var(--color3);
+    width: 30px;
+    height: 30px;
+    display: -ms-grid;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    font-weight: 900;
+    font-size: large;
+  }
+  .Navigation .header i.fa-bars {
+    font-size: larger;
+  }
+  .Navigation .header .logo {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    margin-top: 0;
+  }
+  .Navigation .header .logo img {
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+  }
+  .Navigation .header .logo h3 {
+    margin: 0;
+  }
+  .Navigation nav {
+    display: block;
+    overflow: hidden;
+    height: 0px;
+    -webkit-transition: all .5s linear;
+    transition: all .5s linear;
+    width: 300px;
+    background-color: var(--color3);
+    position: absolute;
+    margin-left: 10px;
+    border-radius: 0 0 25px 25px;
+  }
+  .Navigation nav ul {
+    margin: 0;
+    padding-left: 60px;
+    padding-bottom: 20px;
+  }
+  .Navigation nav.show {
+    border-top: 2px solid white;
+    height: 400px;
+    margin-left: 60px;
+  }
+}
+/*# sourceMappingURL=Navigation.css.map */

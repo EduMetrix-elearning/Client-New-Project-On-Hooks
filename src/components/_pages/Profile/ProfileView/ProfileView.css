@@ -1,0 +1,137 @@
+.ProfileView {
+  width: 35%;
+  height: 100%;
+  overflow-y: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+}
+
+.ProfileView::-webkit-scrollbar {
+  display: none;
+}
+
+.ProfileView .edumetrix_details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.ProfileView .edumetrix_details h5 i {
+  margin-left: 10px;
+}
+
+.ProfileView .image {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.ProfileView .image img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+}
+
+.ProfileView .personal .id {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-column-gap: 40px;
+          column-gap: 40px;
+}
+
+.ProfileView .personal .followings {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-column-gap: 10px;
+          column-gap: 10px;
+  margin-top: 20px;
+}
+
+.ProfileView .personal .followings p {
+  border: 1px solid var(--color3);
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
+.ProfileView .separator {
+  height: 2px;
+  width: 100%;
+  background-color: white;
+}
+
+.ProfileView .professional {
+  width: 100%;
+}
+
+.ProfileView .professional .details {
+  width: 100%;
+}
+
+.ProfileView .professional .details p {
+  margin-left: 30px;
+}
+
+.ProfileView .professional .details h6 {
+  background-color: var(--color8);
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+.ProfileView .professional .details .line {
+  margin: 0 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.ProfileView .professional .edit_button button {
+  border: none;
+  background-color: inherit;
+  margin-left: auto;
+  display: block;
+  color: #4399BF;
+}
+
+.ProfileView .professional .edit_button button img {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.ProfileView .Modal {
+  height: 600px;
+  width: 800px;
+}
+/*# sourceMappingURL=ProfileView.css.map */

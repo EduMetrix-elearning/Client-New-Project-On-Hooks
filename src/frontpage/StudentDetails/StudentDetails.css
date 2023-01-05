@@ -1,0 +1,47 @@
+.student-profile-main-div {
+  width: 90%;
+  margin: auto;
+  margin-top: 20px;
+  padding: 20px 40px;
+}
+
+.student-profile-main-div .student-profile-form {
+  width: 100%;
+  padding: 10px 25px;
+}
+
+.student-profile-main-div .student-profile-form-div {
+  width: 50%;
+  margin: auto;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.student-profile-main-div .student-profile-form-btn {
+  background-color: #193942;
+  color: white;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+@media (max-width: 800px) {
+  .student-profile-main-div {
+    width: 100%;
+  }
+  .student-profile-main-div .agent-profile-form {
+    width: 100%;
+    padding: 10px 30px;
+  }
+  .student-profile-main-div .student-profile-form-div {
+    width: 100%;
+    border: 1px solid;
+    margin: auto;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin-top: 50px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+}
+/*# sourceMappingURL=StudentDetails.css.map */

@@ -1,0 +1,59 @@
+.Header {
+  background-color: white;
+  -webkit-box-shadow: 0px 1px 9px 0px;
+          box-shadow: 0px 1px 9px 0px;
+  z-index: 10;
+  height: 100%;
+}
+
+.Header .header_inner_div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: right;
+      -ms-flex-pack: right;
+          justify-content: right;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 5px 0;
+}
+
+.Header .header_inner_div .bell {
+  color: blue;
+  position: relative;
+}
+
+.Header .header_inner_div .bell::after {
+  content: attr(data-count);
+  aspect-ratio: 1 / 1;
+  height: 22px;
+  background-color: #cc0000;
+  position: absolute;
+  color: white;
+  border-radius: 50%;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  top: -8px;
+  right: 5px;
+  font-weight: bold;
+  font-size: 9pt;
+}
+
+.Header .header_inner_div .bell.show::after {
+  display: none;
+}
+
+.Header .header_inner_div img {
+  width: 25px;
+  height: 25px;
+  margin: 0 15px;
+}
+
+.Header .header_inner_div img.photo {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+/*# sourceMappingURL=Header.css.map */

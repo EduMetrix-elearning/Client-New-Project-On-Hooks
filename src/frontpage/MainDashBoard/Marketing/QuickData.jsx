@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import MarketingNavbar from "./MarketingNavbar";
 import HrDates from "../HumanResource/HrDates";
 import HrTable from "../HumanResource/HrTable";
+import { confirmAlert } from "react-confirm-alert";
+import "react-confirm-alert/src/react-confirm-alert.css";
 import "./QuickData.css";
 const services = require("../../../services/pages/agentRoute");
 
@@ -17,6 +19,36 @@ const QuickData = () => {
   useEffect(() => {
     handleEnquiryData();
   }, []);
+
+  const submit = (e, id) => {
+    confirmAlert({
+      title: "Confirm to submit",
+      message: "Are you sure to do this.",
+      buttons: [
+        {
+          label: "Yes",
+          onClick: () => handleStatusChange(e, id),
+        },
+        {
+          label: "No",
+          onClick: () => window.location.reload(true),
+        },
+      ],
+    });
+  };
+
+  const handleStatusChange = async (e, id) => {
+    const status = { status: e.target.value };
+
+    try {
+      const updateStatus = async () => {
+        await services.updateStudentEnquiryStatus(status, id);
+      };
+      updateStatus();
+    } catch (error) {
+      alert(error.response.data.message);
+    }
+  };
   return (
     <>
       <MarketingNavbar />
@@ -68,14 +100,18 @@ const QuickData = () => {
                   <td>{enquiry.contact_number}</td>
 
                   <td>
-                    <select className="student-status">
+                    <select
+                      className="student-status"
+                      onChange={(e) => submit(e, enquiry.enquiry_id)}
+                    >
                       <option value="">{enquiry.status}</option>
-                      <option value="Completed">No Response</option>
-                      <option value="no response">Not Intrested</option>
-                      <option value="waiting to call">Decison Pending </option>
-                      <option value="not intrested">Intrested</option>
-                      <option value="interest">Waiting To Join</option>
-                      <option value="interest">Admission</option>
+                      <option value="Waiting To Call">Waiting To Call</option>
+                      <option value="No Response">No Response</option>
+                      <option value="Decision Pending">Decision Pending</option>
+                      <option value="Not Interested">Not Interested</option>
+                      <option value="Interested">Interested </option>
+                      <option value="Waiting to Join">Waiting to Join</option>
+                      <option value="Admission">Admission</option>
                     </select>
                   </td>
                   <td>{enquiry.message}</td>

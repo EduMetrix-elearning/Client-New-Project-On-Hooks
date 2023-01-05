@@ -1,0 +1,35 @@
+.BotIcon {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  cursor: pointer;
+}
+
+.BotIcon .chat_window {
+  height: 521px;
+  width: 335px;
+  background-color: white;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  border-radius: 15px;
+  overflow: hidden;
+  -webkit-box-shadow: 1px 1px 10px -4px;
+          box-shadow: 1px 1px 10px -4px;
+}
+
+.BotIcon .chat_window svg {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  fill: white;
+  z-index: 1000;
+}
+
+.BotIcon .image_div img {
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  border-radius: 50%;
+}
+/*# sourceMappingURL=BotIcon.css.map */

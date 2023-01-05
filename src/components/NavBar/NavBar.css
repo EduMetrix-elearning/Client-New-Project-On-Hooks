@@ -1,0 +1,133 @@
+.NavBar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 12;
+  width: 200px;
+  height: 100vh;
+  background-color: var(--color6);
+  padding: 1px;
+  color: var(--color1);
+}
+
+.NavBar .network {
+  text-align: center;
+  margin: 20px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  height: 5%;
+}
+
+.NavBar .logo {
+  margin-top: 20px;
+  height: 150px;
+  position: relative;
+  width: 100%;
+  display: inline-block;
+}
+
+.NavBar .logo i.fa-bars {
+  display: none;
+}
+
+.NavBar .logo img {
+  width: 100px;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.NavBar .logo p {
+  width: 100%;
+  text-align: center;
+  font-size: 20pt;
+  position: absolute;
+  bottom: 0;
+}
+
+.NavBar hr {
+  margin: 20px 0;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.NavBar ul {
+  margin: 0;
+  list-style: none;
+  padding-left: 0%;
+}
+
+.NavBar ul a {
+  text-decoration: none;
+}
+
+.NavBar ul a li {
+  cursor: pointer;
+  padding-left: 2rem;
+  padding-top: 6px;
+  height: 40px;
+}
+
+.NavBar ul a li img {
+  width: 25px;
+  height: 25px;
+}
+
+.NavBar ul a li span {
+  position: relative;
+  bottom: 0px;
+  left: 10px;
+  color: var(--color1);
+}
+
+.NavBar ul .active {
+  background-color: var(--color7);
+}
+
+@media screen and (max-width: 750px) {
+  .NavBar {
+    height: 8vh;
+    width: auto;
+    padding: 0px;
+  }
+  .NavBar > *:not(.logo) {
+    display: none;
+  }
+  .NavBar .logo {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 100%;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-top: 0;
+    gap: 10px;
+    padding: 10px;
+  }
+  .NavBar .logo i.fa-bars {
+    display: block;
+    font-size: 14pt;
+    margin-top: 5px;
+    cursor: pointer;
+  }
+  .NavBar .logo img {
+    width: 30px;
+    height: 30px;
+  }
+  .NavBar .logo p {
+    position: relative;
+  }
+  .NavBar .pages.active {
+    display: block;
+    background-color: var(--color6);
+    height: 100vh;
+    padding-top: 20px;
+    width: 100%;
+    border-top: 1px solid white;
+  }
+}
+/*# sourceMappingURL=NavBar.css.map */

@@ -1,4 +1,12 @@
 import React, { useState, useEffect } from "react";
+import Paper from "@mui/material/Paper";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TablePagination from "@mui/material/TablePagination";
+import TableRow from "@mui/material/TableRow";
 import HumanResource from "./HumanResource";
 import HrDates from "./HrDates";
 const services = require("../../../services/pages/agentRoute");
@@ -43,7 +51,7 @@ const HrCorporate = () => {
         </div>
       </div>
       <div>
-        <table style={{ overflowX: "auto" }}>
+        {/* <table style={{ overflowX: "auto" }}>
           <thead>
             <tr>
               <th>No.</th>
@@ -86,7 +94,55 @@ const HrCorporate = () => {
               );
             })}
           </tbody>
-        </table>
+        </table> */}
+        <TableContainer
+          component={Paper}
+          className="website-dashboard-status-check"
+        >
+          <Table
+            sx={{ width: "100%", overflowX: "auto" }}
+            aria-label="simple table"
+          >
+            <TableHead sx={{ backgroundColor: "#f5f5ef" }} align="center">
+              <TableRow>
+                {/* <TableCell padding="checkbox"></TableCell> */}
+                <TableCell>No.</TableCell>
+                <TableCell>Name</TableCell>
+
+                <TableCell>EMAIL</TableCell>
+                <TableCell>PHONE</TableCell>
+                <TableCell>LOCATION</TableCell>
+                <TableCell>HIRING DOMAIN</TableCell>
+                <TableCell>SKILLS</TableCell>
+                <TableCell>EXPERIENCE</TableCell>
+                <TableCell>PACKAGE(LPA)</TableCell>
+                <TableCell>NAME OF COMPANY</TableCell>
+                <TableCell>WEBSITE</TableCell>
+                <TableCell>STATUS</TableCell>
+                <TableCell>SUBMISSION DATE</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {careerdetails.map((corporate) => (
+                <TableRow key={corporate.collaborator_id}>
+                  <TableCell>{corporate.collaborator_id}</TableCell>
+                  <TableCell>{corporate.name}</TableCell>
+                  <TableCell>{corporate.email}</TableCell>
+                  <TableCell>{corporate.contact_number}</TableCell>
+                  <TableCell>{corporate.location}</TableCell>
+                  <TableCell>{corporate.requirement}</TableCell>
+                  <TableCell>{corporate.skill}</TableCell>
+                  <TableCell>{corporate.experience}</TableCell>
+                  <TableCell>{corporate.salary}</TableCell>
+                  <TableCell>{corporate.company}</TableCell>
+                  <TableCell>{corporate.website}</TableCell>
+                  <TableCell>{corporate.message}</TableCell>
+                  <TableCell>{corporate.created_date}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
       </div>
     </>
   );

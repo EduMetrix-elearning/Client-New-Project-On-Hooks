@@ -1,0 +1,10 @@
+.ToolTip {
+  position: absolute;
+  min-height: 50px;
+  min-width: 100px;
+  background-color: white;
+  border: 1px solid var(--color4);
+  border-radius: 5px;
+  padding: 10px;
+}
+/*# sourceMappingURL=ToolTip.css.map */

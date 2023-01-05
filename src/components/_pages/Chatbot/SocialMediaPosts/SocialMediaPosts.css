@@ -1,0 +1,49 @@
+.SocialMediaPosts {
+  min-height: 100%;
+}
+
+.SocialMediaPosts .inner_div {
+  border: 1px solid var(--color4);
+  background-color: #ebebeb;
+  border-radius: 7px;
+  padding: 5px;
+  height: 100%;
+}
+
+.SocialMediaPosts .inner_div .title {
+  text-align: center;
+  border-radius: 7px;
+  color: white;
+  padding: 4px;
+}
+
+.SocialMediaPosts .inner_div .title h6 {
+  margin-top: 3px;
+}
+
+.SocialMediaPosts .inner_div .messages {
+  overflow-y: auto;
+  height: 69%;
+}
+
+#instagram_media {
+  -ms-grid-column: 4;
+      grid-column-start: 4;
+  grid-column-end: 6;
+  -ms-grid-row: 1;
+      grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+#twitter_media {
+  -ms-grid-column: 6;
+      grid-column-start: 6;
+  grid-column-end: 8;
+}
+
+#linkedin_media {
+  -ms-grid-column: 6;
+      grid-column-start: 6;
+  grid-column-end: 8;
+}
+/*# sourceMappingURL=SocialMediaPosts.css.map */

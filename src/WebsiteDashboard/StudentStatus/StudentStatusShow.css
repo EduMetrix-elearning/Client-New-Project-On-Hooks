@@ -1,0 +1,71 @@
+.student-agent-full-details-show {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 90%;
+  margin: auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 30px;
+  gap: 20px;
+}
+
+.student-agent-full-details-show .agent-full-details {
+  width: 30%;
+}
+
+.student-agent-full-details-show .agent-picture {
+  width: 100%;
+  margin: auto;
+  background-color: white;
+  border-radius: 10px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.student-agent-full-details-show .upper-box {
+  height: 170px;
+  background: -webkit-gradient(linear, right top, left top, from(#53b4db), to(#164e64));
+  background: linear-gradient(to left, #53b4db, #164e64);
+}
+
+.student-agent-full-details-show .image-box img {
+  background: white;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  padding: 5px;
+  -webkit-transform: translate(10px, 100px);
+          transform: translate(10px, 100px);
+}
+
+.student-agent-full-details-show img {
+  border: 3px solid #164e64;
+}
+
+.student-agent-full-details-show .lower-box {
+  margin-top: 80px;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.student-agent-full-details-show .all-student-details {
+  width: 73%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.student-agent-full-details-show .one-student-card {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.student-agent-full-details-show .one-student-card:hover {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  cursor: pointer;
+}
+/*# sourceMappingURL=StudentStatusShow.css.map */

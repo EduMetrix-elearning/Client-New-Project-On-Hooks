@@ -1,0 +1,53 @@
+.navbar-whole-div {
+  overflow: hidden;
+  top: 0;
+  width: 100%;
+  position: fixed;
+  z-index: 300;
+}
+
+.navbar-whole-div .frontend-navbar {
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 0px;
+}
+
+.navbar-whole-div .navbar-items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 30px;
+}
+
+.navbar-whole-div .navbar-items .all-items:hover {
+  width: 150px;
+  text-align: center;
+  background-color: #d6dbd9;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.navbar-whole-div .edu-image {
+  width: 60px;
+  margin-right: 13px;
+}
+
+.navbar-whole-div .contact-number {
+  position: fixed;
+  background-color: black;
+  color: #d6dbd9;
+  top: 80px;
+  width: 100%;
+}
+
+.navbar-whole-div .contact-number p {
+  margin: auto;
+}
+/*# sourceMappingURL=Navbar.css.map */

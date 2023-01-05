@@ -1,0 +1,61 @@
+.EditProfile {
+  height: 100%;
+}
+
+.EditProfile .body {
+  border-top: 1px solid #e7e4e4;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 97%;
+}
+
+.EditProfile .body .navigation {
+  border-right: 1px solid #e7e4e4;
+  height: inherit;
+  padding-right: 30px;
+}
+
+.EditProfile .body .navigation ul {
+  padding: 0;
+}
+
+.EditProfile .body .navigation ul li {
+  font-weight: 400;
+  cursor: pointer;
+  margin: 10px 0;
+}
+
+.EditProfile .body .edit_area {
+  width: 100%;
+  padding: 10px 20px;
+}
+
+.EditProfile .title {
+  cursor: pointer;
+}
+
+.EditProfile .title h6 {
+  display: inline-block;
+}
+
+.EditProfile .title i {
+  float: right;
+  margin-right: 30px;
+  font-size: 21px;
+}
+
+.EditProfile .title .inputs div {
+  width: 90%;
+  margin: 10px 0;
+  margin-left: 20px;
+}
+
+.EditProfile .title .inputs div label {
+  width: 25%;
+}
+
+.EditProfile .title .inputs div input {
+  width: 74%;
+}
+/*# sourceMappingURL=EditProfile.css.map */

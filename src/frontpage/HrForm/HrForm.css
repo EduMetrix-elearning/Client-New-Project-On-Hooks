@@ -1,0 +1,162 @@
+.full-hr-page .carousel-item {
+  height: 80vh;
+}
+
+.full-hr-page .carousel-item h1 {
+  color: #164e64;
+  text-shadow: 1px 1px 2px white, 0 0 1em white, 0 0 0.2em white;
+}
+
+.full-hr-page .Hr-information {
+  width: 100%;
+  text-align: justify;
+  margin: auto;
+  margin-top: 30px;
+  background-image: url("../../asset/images/HrpageImage/hrbackground.jpeg");
+  opacity: 1;
+  background-position: unset;
+  padding: 20px 70px;
+}
+
+.full-hr-page .hr-info-title {
+  font-family: museo-sans,sans-serif;
+  font-weight: 900;
+  font-size: 35px;
+  line-height: 1.22;
+  color: #164e64;
+  margin-bottom: 10px;
+  margin-top: 30px;
+  text-shadow: 1px 1px 2px white, 0 0 1em white, 0 0 0.2em white;
+}
+
+.full-hr-page .hr-info-paragraph {
+  font-family: museo-sans,sans-serif;
+  font-weight: 100;
+  font-size: 28px;
+  line-height: 1.90;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.full-hr-page .hr-short-title {
+  margin-left: 20px;
+  font-weight: bold;
+  font-size: 23px;
+  line-height: 1.22;
+  color: #164e64;
+  margin-bottom: 10px;
+  text-shadow: 1px 1px 2px white, 0 0 1em white, 0 0 0.2em white;
+}
+
+.full-hr-page .collaborates-div {
+  margin-top: 5px;
+  background-image: url("../../asset/images/HrpageImage/longtile.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  margin-bottom: -20px;
+  height: 65vh;
+}
+
+.full-hr-page .collaborates-div img {
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.full-hr-page .collaborates-div div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.full-hr-page .collaborates-div div div h1 {
+  margin-top: 160px;
+  font-size: 60px;
+  color: #164e64;
+}
+
+.full-hr-page .collaborates-div div button {
+  padding: 20px 35px;
+  font-size: 20px;
+  color: #164e64;
+  font-weight: bold;
+  border: 0;
+  margin-top: 230px;
+  border: 1px solid;
+  -webkit-box-shadow: rgba(8, 0, 0, 0.35) 30px 35px 45px;
+          box-shadow: rgba(8, 0, 0, 0.35) 30px 35px 45px;
+}
+
+.full-hr-page .collaborate-btn:hover {
+  border: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: #164e64;
+  color: white;
+}
+
+.full-hr-page .flex-modal-inner-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 30px;
+}
+
+@media screen and (max-width: 700px) {
+  .full-hr-page .carousel-item {
+    height: 80vh;
+  }
+  .full-hr-page .carousel-item img {
+    height: 100vh;
+  }
+  .full-hr-page .modal-size {
+    width: 200px;
+  }
+  .full-hr-page .modal-size div .text-field {
+    display: block;
+  }
+  .full-hr-page .collaborates-div {
+    height: 40vh;
+  }
+  .full-hr-page .collaborates-div div {
+    display: block;
+    text-align: center;
+  }
+  .full-hr-page .collaborates-div div div h1 {
+    font-size: 30px;
+    padding-top: 20px;
+    margin-top: 3px;
+  }
+  .full-hr-page .collaborates-div div button {
+    padding: 10px 25px;
+    font-size: 15px;
+    margin-top: 30px;
+    color: #164e64;
+    font-weight: bold;
+    border: 0;
+  }
+  .full-hr-page .hr-information {
+    padding: 0px 0px;
+    text-align: left;
+    border: 5px solid;
+    padding: 10px 20px;
+  }
+  .full-hr-page .hr-info-title {
+    width: 100%;
+    text-align: left;
+  }
+  .full-hr-page .hr-info-paragraph {
+    text-align: left;
+  }
+  .full-hr-page .hr-info-paragraph {
+    font-weight: 100;
+    font-size: 20px;
+    line-height: 1.80;
+    color: white;
+    margin-bottom: 10px;
+    text-shadow: 1px 0px 5px black, 0 0 1em #0a404e, 0 0 0.2em #0a404e;
+  }
+}
+/*# sourceMappingURL=HrForm.css.map */

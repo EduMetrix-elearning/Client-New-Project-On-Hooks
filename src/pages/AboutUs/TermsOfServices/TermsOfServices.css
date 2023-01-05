@@ -1,0 +1,18 @@
+.TermsOfServices {
+  padding: 30px;
+}
+
+.TermsOfServices P {
+  padding: 20px;
+  text-align: justify;
+}
+
+.TermsOfServices ol li {
+  padding: 6px;
+  text-align: justify;
+}
+
+.TermsOfServices ul {
+  list-style: disc;
+}
+/*# sourceMappingURL=TermsOfServices.css.map */

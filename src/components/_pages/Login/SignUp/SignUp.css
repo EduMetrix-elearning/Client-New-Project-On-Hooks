@@ -1,0 +1,128 @@
+.SignUp .signIn_inputs .signIn_inputs_inner_div {
+  margin: 0 40px;
+}
+
+.SignUp .signIn_inputs .signIn_inputs_inner_div .heading p[data-content="heading"] {
+  background-color: var(--color3);
+  color: var(--color1);
+  padding: 12px;
+  border-radius: 20px 20px 0 0;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.SignUp .signIn_inputs .signIn_inputs_inner_div .inputs input {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 40px;
+  margin: 5px 0;
+  border-radius: 20px;
+  padding-left: 20px;
+  border: 1px solid var(--color4);
+}
+
+.SignUp .signIn_inputs .signIn_inputs_inner_div .inputs input::-webkit-input-placeholder {
+  color: var(--color4);
+}
+
+.SignUp .signIn_inputs .signIn_inputs_inner_div .inputs input:-ms-input-placeholder {
+  color: var(--color4);
+}
+
+.SignUp .signIn_inputs .signIn_inputs_inner_div .inputs input::-ms-input-placeholder {
+  color: var(--color4);
+}
+
+.SignUp .signIn_inputs .signIn_inputs_inner_div .inputs input::placeholder {
+  color: var(--color4);
+}
+
+.SignUp .signIn_inputs .signIn_inputs_inner_div .inputs input:focus-visible {
+  outline-color: var(--color4);
+}
+
+.SignUp .signIn_inputs .signIn_inputs_inner_div .inputs p {
+  color: red;
+  font-size: 9pt;
+  text-align: left;
+}
+
+.SignUp .signIn_inputs .signIn_inputs_inner_div .inputs .error {
+  border-color: red;
+  color: red;
+}
+
+.SignUp .signIn_inputs .signIn_inputs_inner_div .inputs .error::-webkit-input-placeholder {
+  color: rgba(255, 0, 0, 0.5);
+}
+
+.SignUp .signIn_inputs .signIn_inputs_inner_div .inputs .error:-ms-input-placeholder {
+  color: rgba(255, 0, 0, 0.5);
+}
+
+.SignUp .signIn_inputs .signIn_inputs_inner_div .inputs .error::-ms-input-placeholder {
+  color: rgba(255, 0, 0, 0.5);
+}
+
+.SignUp .signIn_inputs .signIn_inputs_inner_div .inputs .error::placeholder {
+  color: rgba(255, 0, 0, 0.5);
+}
+
+.SignUp .signIn_inputs .signIn_inputs_inner_div .checkbox_and_label input[type="checkbox"] {
+  margin: 0;
+}
+
+.SignUp .signIn_inputs .signIn_inputs_inner_div .checkbox_and_label .error {
+  -webkit-box-shadow: 0px 0px 1px 1px red;
+          box-shadow: 0px 0px 1px 1px red;
+}
+
+.SignUp .signIn_inputs .signIn_inputs_inner_div .checkbox_and_label label {
+  margin-left: 5px;
+  position: relative;
+  top: -1px;
+  font-size: 10pt;
+}
+
+.SignUp .signIn_inputs .signIn_inputs_inner_div .checkbox_and_label p {
+  position: absolute;
+  background-color: white;
+  border: .5px solid red;
+  color: red;
+  font-size: 9pt;
+  padding: 5px;
+  border-radius: 3px;
+}
+
+.SignUp .signIn_inputs .signIn_inputs_inner_div .checkbox_and_label p::before {
+  position: absolute;
+  content: "";
+  border-style: solid;
+  border-width: 5px;
+  border-color: transparent transparent red transparent;
+  top: -40%;
+  left: -2%;
+  margin-left: 5px;
+}
+
+.SignUp .signIn_inputs .signIn_inputs_inner_div .signIn_buttons button {
+  width: 100%;
+  height: 40px;
+  margin: 5px 0;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.SignUp .signIn_inputs .signIn_inputs_inner_div .signIn_buttons button:first-child {
+  background-color: var(--color3);
+  color: var(--color1);
+}
+
+.SignUp .signIn_inputs .signIn_inputs_inner_div .signIn_buttons button:last-child {
+  background: -webkit-gradient(linear, left top, left bottom, from(var(--color1)), to(var(--color4)));
+  background: linear-gradient(var(--color1), var(--color4));
+  border: 1px solid var(--color5);
+}
+/*# sourceMappingURL=SignUp.css.map */

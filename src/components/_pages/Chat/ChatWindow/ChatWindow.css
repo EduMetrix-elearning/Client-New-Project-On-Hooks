@@ -1,0 +1,232 @@
+.ChatWindow {
+  background-color: gainsboro;
+  overflow: auto;
+  height: 100%;
+}
+
+.ChatWindow .chat_window_inner_div {
+  height: 100%;
+}
+
+.ChatWindow .chat_window_inner_div div.header {
+  background-color: whitesmoke;
+  height: 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: grow;
+      -ms-flex-positive: grow;
+          flex-grow: grow;
+  gap: 15px;
+  padding-left: 20px;
+}
+
+.ChatWindow .chat_window_inner_div div.header img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.ChatWindow .chat_window_inner_div .chat_screen {
+  background-color: gainsboro;
+  height: 80%;
+  padding: 1px;
+  position: relative;
+  overflow-y: overlay;
+}
+
+.ChatWindow .chat_window_inner_div .chat_screen .chat {
+  background-color: white;
+  min-width: 25%;
+  max-width: 50%;
+  min-height: 50px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px 30px;
+  display: block;
+}
+
+.ChatWindow .chat_window_inner_div .chat_screen .chat img,
+.ChatWindow .chat_window_inner_div .chat_screen .chat video {
+  width: 100%;
+}
+
+.ChatWindow .chat_window_inner_div .chat_screen .self {
+  right: 1px;
+  margin-left: auto;
+}
+
+.ChatWindow .chat_window_inner_div .chat_screen .other {
+  left: 1px;
+}
+
+.ChatWindow .chat_window_inner_div .chat_input {
+  background-color: whitesmoke;
+  height: 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.ChatWindow .chat_window_inner_div .chat_input .message_input {
+  width: 85%;
+  border-radius: 1000px;
+  border: none;
+  padding: 0 20px;
+  background-color: gainsboro;
+  margin: 1.2% 0;
+  margin-left: 1%;
+}
+
+.ChatWindow .chat_window_inner_div .chat_input .message_input:focus {
+  outline: white;
+}
+
+.ChatWindow .chat_window_inner_div .chat_input .message_input::-webkit-input-placeholder {
+  font-style: italic;
+}
+
+.ChatWindow .chat_window_inner_div .chat_input .message_input:-ms-input-placeholder {
+  font-style: italic;
+}
+
+.ChatWindow .chat_window_inner_div .chat_input .message_input::-ms-input-placeholder {
+  font-style: italic;
+}
+
+.ChatWindow .chat_window_inner_div .chat_input .message_input::placeholder {
+  font-style: italic;
+}
+
+.ChatWindow .chat_window_inner_div .chat_input .icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 15%;
+  margin: 1% 1%;
+}
+
+.ChatWindow .chat_window_inner_div .chat_input .icons i {
+  font-size: 1.8rem;
+  margin: 1%;
+  cursor: pointer;
+  position: relative;
+}
+
+.ChatWindow .chat_window_inner_div .chat_input .icons #attach_button .Popper {
+  padding: 15px;
+  z-index: 100;
+}
+
+.ChatWindow .chat_window_inner_div .chat_input .icons #attach_button .Popper label {
+  font-size: 1.3rem;
+  white-space: nowrap;
+  margin: 1%;
+  cursor: pointer;
+}
+
+.ChatWindow .chat_window_inner_div .chat_input .icons #attach_button .Popper label i {
+  font-size: 1rem;
+}
+
+.ChatWindow .chat_window_inner_div .chat_input .icons #attach_button .Modal h4 {
+  border-bottom: 1px solid gainsboro;
+  padding-bottom: 8px;
+}
+
+.ChatWindow .chat_window_inner_div .chat_input .icons #attach_button .Modal .view {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 15px;
+}
+
+.ChatWindow .chat_window_inner_div .chat_input .icons #attach_button .Modal .view img {
+  width: 80%;
+}
+
+.ChatWindow .chat_window_inner_div .chat_input .icons #attach_button .Modal .view video {
+  width: 80%;
+}
+
+.ChatWindow .chat_window_inner_div .chat_input .icons #attach_button .Modal .file_message_input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.ChatWindow .chat_window_inner_div .chat_input .icons #attach_button .Modal .file_message_input input {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  margin: 10px;
+  border-radius: 1000px;
+  border: 1px solid grey;
+  padding-left: 15px;
+  font-size: 1rem;
+}
+
+.ChatWindow .chat_window_inner_div .chat_input .icons #attach_button .Modal .file_message_input input:focus {
+  outline: grey;
+}
+
+.ChatWindow .chat_window_inner_div .chat_input .icons #attach_button .Modal .file_message_input input::-webkit-input-placeholder {
+  font-style: italic;
+}
+
+.ChatWindow .chat_window_inner_div .chat_input .icons #attach_button .Modal .file_message_input input:-ms-input-placeholder {
+  font-style: italic;
+}
+
+.ChatWindow .chat_window_inner_div .chat_input .icons #attach_button .Modal .file_message_input input::-ms-input-placeholder {
+  font-style: italic;
+}
+
+.ChatWindow .chat_window_inner_div .chat_input .icons #attach_button .Modal .file_message_input input::placeholder {
+  font-style: italic;
+}
+
+.ChatWindow .chat_window_inner_div .chat_input .icons #attach_button .Modal .file_message_input i {
+  margin: 10px;
+}
+
+.ChatWindow .landing {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+}
+
+.ChatWindow .landing img {
+  width: 300px;
+}
+
+.ChatWindow .landing p {
+  width: 400px;
+  text-align: center;
+}
+/*# sourceMappingURL=ChatWindow.css.map */

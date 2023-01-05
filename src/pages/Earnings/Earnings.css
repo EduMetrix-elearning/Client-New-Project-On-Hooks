@@ -1,0 +1,58 @@
+.Earnings {
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.Earnings .earnings_content .topRow {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.Earnings .earnings_content .topRow .CurrencyExchange,
+.Earnings .earnings_content .topRow .SocialMarketContent,
+.Earnings .earnings_content .topRow .ReferYourFriend {
+  width: 370px;
+  height: 210px;
+  padding: 20px;
+  border-radius: 20px;
+  margin: 20px 0;
+  -webkit-box-shadow: 1px 1px 5px 0px;
+          box-shadow: 1px 1px 5px 0px;
+}
+
+.Earnings .earnings_content .downrow .tables {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.Earnings .earnings_content .downrow .tables div.header {
+  width: 100%;
+  height: 70px;
+  background-color: var(--color9);
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 25pt;
+  font-weight: bold;
+}
+
+.Earnings .earnings_content .downrow .tables .Table {
+  width: 500px;
+}
+/*# sourceMappingURL=Earnings.css.map */

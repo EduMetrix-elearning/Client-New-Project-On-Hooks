@@ -1,0 +1,204 @@
+.billing-pages-main-div {
+  border: 1px solid;
+  width: 100%;
+  margin: auto;
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
+
+.billing-pages-main-div .print-button {
+  text-align: right;
+}
+
+.billing-pages-main-div .edumetrix-heading {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: auto;
+  text-align: justify;
+  gap: 30px;
+  margin-top: 20px;
+  width: 85%;
+}
+
+.billing-pages-main-div .img-invoice {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.billing-pages-main-div .billed-by-to-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin: auto;
+  width: 85%;
+  margin-top: 20px;
+  gap: 20px;
+}
+
+.billing-pages-main-div .billed-by {
+  width: 70%;
+  padding: 10px;
+  background-color: #e6f3fa;
+}
+
+.billing-pages-main-div .billed-to {
+  width: 50%;
+  padding: 10px;
+  background-color: #e6f3fa;
+}
+
+.billing-pages-main-div .heading-edit-icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.billing-pages-main-div .edit-icon {
+  cursor: pointer;
+}
+
+.billing-pages-main-div .amount-table,
+.billing-pages-main-div .received-amount-status {
+  width: 85%;
+  margin: auto;
+  margin-top: 10px;
+}
+
+.billing-pages-main-div .received-amount-status thead {
+  background-color: #164e64;
+  color: white;
+}
+
+.billing-pages-main-div .amount-table thead {
+  background-color: #164e64;
+  color: white;
+}
+
+.billing-pages-main-div .total-amount-details-main-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.billing-pages-main-div .Terms-of-condition-full-main-div {
+  background-color: #e6f3fa;
+  width: 85%;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.billing-pages-main-div .terms-of-service-bank-acc-main-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 10px;
+}
+
+.billing-pages-main-div .terms-of-condition-div {
+  width: 40%;
+  padding: 20px;
+}
+
+.billing-pages-main-div .bank-details-div {
+  width: 60%;
+  padding: 20px;
+}
+
+.billing-pages-main-div .account-qr-code {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 20px;
+  gap: 40px;
+  padding-right: 20px;
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.billing-pages-main-div .contact-email-number {
+  width: 65%;
+  margin: auto;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.billing-pages-main-div .course-details-seal-logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.billing-pages-main-div .thanks-tag {
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 5px;
+  font-size: 20px;
+}
+
+.billing-pages-main-div .seal {
+  width: 150px;
+  margin-top: 35px;
+}
+
+.billing-pages-main-div .billing-course-details-p-tag {
+  margin: 0;
+  padding: 0;
+}
+
+@media print {
+  .billing-pages-main-div {
+    width: 100%;
+  }
+  .billing-pages-main-div .amount-table thead {
+    color: black;
+  }
+  .billing-pages-main-div .received-amount-status thead {
+    color: black;
+  }
+  .billing-pages-main-div .contact-email-number {
+    width: 85%;
+  }
+  .billing-pages-main-div .thanks-tag {
+    font-weight: bold;
+    text-align: center;
+    font-size: 15px;
+  }
+  .billing-pages-main-div .edumetrix-heading {
+    width: 90%;
+  }
+  .billing-pages-main-div .amount-table,
+  .billing-pages-main-div .received-amount-status {
+    width: 90%;
+  }
+  .billing-pages-main-div .billed-by-to-div {
+    width: 90%;
+  }
+  .billing-pages-main-div .seal {
+    width: 100px;
+    margin-top: 55px;
+  }
+  .billing-pages-main-div .Terms-of-condition-full-main-div {
+    width: 90%;
+  }
+  .billing-pages-main-div .billed-by, .billing-pages-main-div .billed-to {
+    background-color: #d7e4eb;
+  }
+}
+/*# sourceMappingURL=BillingInformation.css.map */
