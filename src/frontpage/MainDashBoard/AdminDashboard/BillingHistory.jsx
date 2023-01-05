@@ -46,8 +46,9 @@ export default function BillingHistory() {
               <TableCell>Name</TableCell>
               <TableCell>Email</TableCell>
               <TableCell>Phone</TableCell>
-              <TableCell>Amount paid</TableCell>
+
               <TableCell>Address</TableCell>
+              <TableCell>Amount paid</TableCell>
               <TableCell>Payment Mode</TableCell>
               <TableCell>Plan</TableCell>
               <TableCell>Status</TableCell>
@@ -60,8 +61,9 @@ export default function BillingHistory() {
                 <TableCell>{bill.student_id}</TableCell>
                 <TableCell>{bill.name}</TableCell>
                 <TableCell>{bill.email}</TableCell>
-                <TableCell>{bill.address}</TableCell>
+
                 <TableCell>{bill.contact_number}</TableCell>
+                <TableCell>{bill.address}</TableCell>
                 <TableCell>{bill.amount_paid}</TableCell>
                 <TableCell>{bill.payment_mode}</TableCell>
                 <TableCell>{bill.plan}</TableCell>
