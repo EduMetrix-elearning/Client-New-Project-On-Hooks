@@ -77,7 +77,9 @@ const AdminDashboard = () => {
             marginRight: "10px",
           }}
         >
-          LOGOUT
+          <Link style={{ textDecoration: "none", color: "white" }} to="/">
+            LOGOUT
+          </Link>
         </li>
       </ul>
     </>

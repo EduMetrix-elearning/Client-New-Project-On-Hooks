@@ -56,21 +56,22 @@ export default function BillingHistory() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {billingData.map((bill) => (
-              <TableRow key={bill.student_id}>
-                <TableCell>{bill.student_id}</TableCell>
-                <TableCell>{bill.name}</TableCell>
-                <TableCell>{bill.email}</TableCell>
+            {billingData &&
+              billingData.map((bill) => (
+                <TableRow key={bill.student_id}>
+                  <TableCell>{bill.student_id}</TableCell>
+                  <TableCell>{bill.name}</TableCell>
+                  <TableCell>{bill.email}</TableCell>
 
-                <TableCell>{bill.contact_number}</TableCell>
-                <TableCell>{bill.address}</TableCell>
-                <TableCell>{bill.amount_paid}</TableCell>
-                <TableCell>{bill.payment_mode}</TableCell>
-                <TableCell>{bill.plan}</TableCell>
-                <TableCell>{bill.status}</TableCell>
-                <TableCell>{bill.created_date}</TableCell>
-              </TableRow>
-            ))}
+                  <TableCell>{bill.contact_number}</TableCell>
+                  <TableCell>{bill.address}</TableCell>
+                  <TableCell>{bill.amount_paid}</TableCell>
+                  <TableCell>{bill.payment_mode}</TableCell>
+                  <TableCell>{bill.plan}</TableCell>
+                  <TableCell>{bill.status}</TableCell>
+                  <TableCell>{bill.created_date}</TableCell>
+                </TableRow>
+              ))}
           </TableBody>
         </Table>
       </TableContainer>

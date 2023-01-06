@@ -1,22 +1,12 @@
 import React from "react";
 import { Grid, Paper, TextField } from "@mui/material";
-import Accordion from "@mui/material/Accordion";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import Typography from "@mui/material/Typography";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+
 import Button from "@mui/material/Button";
 import PhotoCamera from "@mui/icons-material/PhotoCamera";
 import Stack from "@mui/material/Stack";
 import { ToastContainer, toast } from "react-toastify";
-import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
 
 import { useState, useEffect } from "react";
-import { Form, Link, useNavigate } from "react-router-dom";
 import AdminDashboard from "./AdminDashboard";
 import "./EmployeeDetails.scss";
 
@@ -31,10 +21,15 @@ const EmployeeDetails = () => {
   const [profileError, setProfileError] = useState("");
   const [name, setname] = useState("");
   const [errorName, setErrorName] = useState("");
+
   const [joiningdate, setJoiningDate] = useState("");
+  const [joiningError, setJoiningError] = useState("");
   const [employeeId, setEmployeeId] = useState("");
+  const [empIdError, setEmpIdError] = useState("");
   const [bllodgroup, setBloodGroup] = useState("");
+  const [bloodGoupError, setBloodGroupError] = useState("");
   const [dateofbirth, setdateofbirth] = useState("");
+  const [dobError, setDobError] = useState("");
 
   const [place, setplace] = useState("");
   const [errorPlace, setErrorPlace] = useState("");
@@ -74,95 +69,49 @@ const EmployeeDetails = () => {
 
   const [empPosition, setEmpPosition] = useState("");
 
-  const updateImages = async () => {
-    const formData = new FormData();
-    formData.append("employee_photo", image);
-    formData.append("employee_pan", pancard);
-    formData.append("employee_aadharfront", adharcardfront);
-    formData.append("employee_aadharback", adharcardback);
-
-    services.EmployeeuploadImages(formData);
-  };
-
-  // useEffect(() => {
-  //   services.agentInfo((error, result) => {
-  //     console.log(result);
-
-  //     if (result.bank_branch) {
-  //       setShow(!show);
-  //     }
-  //     if (result.employee_name) setname(result.employee_name);
-  //     if (result.employee_phone) setmobile(result.employee_phone);
-  //     if (result.employee_email) setemail(result.employee_email);
-  //     if (result.place) setplace(result.place);
-
-  //     if (result.bank_branch) setBranchName(result.bank_branch);
-  //     if (result.bank_account_name) setAccountname(result.bank_account_name);
-  //     if (result.bank_account_number) setAccountno(result.bank_account_number);
-  //     if (result.bank_ifsc) setIfsc(result.bank_ifsc);
-  //     if (result.agent_photo) setImage(result.agent_photo);
-  //     if (result.agent_pan) setpancard(result.agent_pan);
-  //     if (result.agent_aadharfront) setAdharCardFront(result.agent_aadharfront);
-  //     if (result.agent_aadharback) setAdharCardBack(result.agent_aadharback);
-  //   });
-  // }, []);
-
   const usernameValidate = (name) => {
-    const re = /^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$/;
+    const re = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     return re.test(name);
   };
-  const regax = /^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$/;
+  const regax = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+  const phoneNumberValidate = (mobileno) => {
+    const phoneReg = /^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/;
+    return phoneReg.test(mobileno);
+  };
 
   const inputHandle = (e) => {
     if (e.target.name === "name") {
       setname(e.target.value);
-      setErrorName("");
-    } else if (e.target.name === "place") {
-      setplace(e.target.value);
-      setErrorPlace("");
-    } else if (e.target.name === "number") {
-      setmobile(e.target.value);
-    } else if (e.target.name === "empid") {
-      setEmployeeId(e.target.value);
     } else if (e.target.name === "dob") {
       setdateofbirth(e.target.value);
+    } else if (e.target.name === "position") {
+      setEmpPosition(e.target.value);
+    } else if (e.target.name === "empid") {
+      setEmployeeId(e.target.value);
     } else if (e.target.name === "joiningdate") {
       setJoiningDate(e.target.value);
-    } else if (e.target.name === "bloodgroup") {
-      setBloodGroup(e.target.value);
+    } else if (e.target.name === "phone") {
+      setmobile(e.target.value);
     } else if (e.target.name === "email") {
       setemail(e.target.value);
-      setErrorEmail("");
+    } else if (e.target.name === "place") {
+      setplace(e.target.value);
+    } else if (e.target.name === "bloodgroup") {
+      setBloodGroup(e.target.value);
     } else if (e.target.name === "branchname") {
       setBranchName(e.target.value);
-      setErrorBname("");
     } else if (e.target.name === "accname") {
       setAccountname(e.target.value);
-      setErrorAccName("");
     } else if (e.target.name === "accnumber") {
       setAccountno(e.target.value);
-      setErrorAccNo("");
     } else if (e.target.name === "ifsc") {
       setIfsc(e.target.value);
-      setErrorIfsc("");
-    } else if (e.target.name === "profile") {
-      setImage(e.target.value);
-      setProfileError("");
-    } else if (e.target.name === "adharfront") {
-      setAdharCardFront(e.target.value);
-      setAdharError("");
-    } else if (e.target.name === "adharback") {
-      setAdharCardBack(e.target.value);
-      setAdharBackError("");
-    } else if (e.target.name === "pancard") {
-      setpancard(e.target.value);
-      setPancardError("");
     }
   };
 
   const uploadImage = (e) => {
     if (e.target.files.length !== 0) {
-      // setImage(e.target.files[0]);
       setImage(URL.createObjectURL(e.target.files[0]));
     }
   };
@@ -188,44 +137,20 @@ const EmployeeDetails = () => {
     }
   };
 
+  const updateImages = async () => {
+    const formData = new FormData();
+    formData.append("employee_id", ls.get("id"));
+    formData.append("employee_photo", image);
+    formData.append("employee_pan", pancard);
+    formData.append("employee_aadharfront", adharcardfront);
+    formData.append("employee_aadharback", adharcardback);
+
+    services.EmployeeuploadImages(formData);
+  };
+
   const handleEmployeeSubmit = (e) => {
     e.preventDefault();
     let flag = false;
-
-    if (name.indexOf("@") > -1) {
-      flag = true;
-      setErrorName("@ not allowed *");
-    } else if (place === "") {
-      flag = true;
-      setErrorPlace("Place Should Not Be Empty*");
-    } else if (place.length < 2) {
-      flag = true;
-      setErrorPlace("place name atleast 3 Charecter long*");
-    } else if (brachname === "") {
-      flag = true;
-      setErrorBname("Agent Bank name field cannot be empty *");
-    } else if (accountname === "") {
-      flag = true;
-      setErrorAccName("Agent name field cannot be empty *");
-    } else if (accountno === "") {
-      flag = true;
-      setErrorAccNo("Agent Account No field cannot be empty *");
-    } else if (Ifsc === "") {
-      flag = true;
-      setErrorIfsc("Agent Ifsc field cannot be empty *");
-    } else if (image === "") {
-      flag = true;
-      setProfileError("Required *");
-    } else if (pancard === "") {
-      flag = true;
-      setPancardError("Required*");
-    } else if (adharcardfront === "") {
-      flag = true;
-      setAdharError("Required*");
-    } else if (adharcardback === "") {
-      flag = true;
-      setAdharBackError("Required*");
-    }
 
     if (!flag) {
       var obj = {
@@ -243,12 +168,8 @@ const EmployeeDetails = () => {
         bank_account_name: accountname,
         bank_account_number: accountno,
         bank_ifsc: Ifsc,
-        employee_photo: image,
-        employee_pan: pancard,
-        employee_aadharfront: adharcardfront,
-        employee_aadharback: adharcardback,
       };
-      console.log("api obj", obj);
+
       services.submitWorkingEmployee(obj, (error, result) => {
         if (result) {
           updateImages();
@@ -308,14 +229,15 @@ const EmployeeDetails = () => {
               size="small"
               onChange={(e) => inputHandle(e)}
             />
-            {errorName ? <div className="error_div">{errorName}</div> : null}
+            {dobError ? <div className="error_div">{dobError}</div> : null}
 
             <select
               style={{ marginTop: "10px" }}
               className="empposition"
+              name="position"
               value={empPosition}
               onChange={(e) => {
-                setEmpPosition(e.target.value);
+                inputHandle(e);
               }}
             >
               <option style={{ color: "Grey" }} disabled>
@@ -329,6 +251,7 @@ const EmployeeDetails = () => {
               <option>Operation Exicutive</option>
               <option>Operation Intern</option>
             </select>
+            {/* {errorName ? <div className="error_div">{errorName}</div> : null} */}
 
             <TextField
               autoComplete="off"
@@ -341,7 +264,7 @@ const EmployeeDetails = () => {
               margin="normal"
               onChange={(e) => inputHandle(e)}
             />
-            {errorName ? <div className="error_div">{errorName}</div> : null}
+            {empIdError ? <div className="error_div">{empIdError}</div> : null}
             <label>joining date</label>
             <TextField
               autoComplete="off"
@@ -355,11 +278,13 @@ const EmployeeDetails = () => {
               // margin="normal"
               onChange={(e) => inputHandle(e)}
             />
-            {errorName ? <div className="error_div">{errorName}</div> : null}
+            {joiningError ? (
+              <div className="error_div">{joiningError}</div>
+            ) : null}
 
             <TextField
               autoComplete="off"
-              name="number"
+              name="phone"
               label="Mobile Number"
               placeholder="Mobile Number"
               type="number"
@@ -411,7 +336,9 @@ const EmployeeDetails = () => {
               margin="normal"
               onChange={(e) => inputHandle(e)}
             />
-            {errorName ? <div className="error_div">{errorName}</div> : null}
+            {bloodGoupError ? (
+              <div className="error_div">{bloodGoupError}</div>
+            ) : null}
 
             <TextField
               autoComplete="off"
@@ -489,7 +416,6 @@ const EmployeeDetails = () => {
                 Upload Profile Photo
                 <input
                   required
-                  name="profile"
                   hidden
                   accept="image/*"
                   multiple
@@ -513,7 +439,6 @@ const EmployeeDetails = () => {
                 <PhotoCamera />
                 Upload PanCard
                 <input
-                  name="pancard"
                   hidden
                   accept="image/*"
                   multiple
@@ -534,7 +459,6 @@ const EmployeeDetails = () => {
                 <PhotoCamera />
                 Upload AdhaarCard Front
                 <input
-                  name="adharfront"
                   hidden
                   accept="image/*"
                   multiple
@@ -555,7 +479,6 @@ const EmployeeDetails = () => {
                 <PhotoCamera />
                 Upload AdhaarCard Back
                 <input
-                  name="adharback"
                   hidden
                   accept="image/*"
                   multiple

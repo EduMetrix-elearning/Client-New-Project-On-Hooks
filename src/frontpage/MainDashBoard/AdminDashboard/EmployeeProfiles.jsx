@@ -29,12 +29,12 @@ const EmployeeProfiles = () => {
   return (
     <>
       <AdminDashboard />
-      <div
+      {/* <div
         style={{
           display: "flex",
           justifyContent: "space-around",
           flexDirection: "row",
-          flexWrap:"wrap"
+          flexWrap: "wrap",
         }}
       >
         {employeeCard.map((employee) => {
@@ -173,7 +173,7 @@ const EmployeeProfiles = () => {
             </div>
           );
         })}
-      </div>
+      </div> */}
     </>
   );
 };

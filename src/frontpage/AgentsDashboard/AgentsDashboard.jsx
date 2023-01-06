@@ -48,11 +48,9 @@ export const AgentsDashboard = () => {
 
   const [show, setShow] = useState(true);
 
-  const [totalAmount, setTotalAmount] = useState(0);
 
-  useEffect(() => {
-    setTotalAmount();
-  });
+
+
 
   const [adharcardfront, setAdharCardFront] = useState(
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeYAWo19XH2Z_ow2WVzhIKxQ--8pDGtWnI9Q&usqp=CAU"
@@ -472,7 +470,7 @@ export const AgentsDashboard = () => {
               </div>
               <div className="agent-profile-earning">
                 <h4>Earned Amount</h4>
-                <MonetizationOnIcon align="center" /> {totalAmount}/-
+                <MonetizationOnIcon align="center" /> /-
               </div>
             </div>
             <div className="agent-bank-details">
