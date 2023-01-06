@@ -1,22 +1,44 @@
 import Axios from "axios";
+// import { async } from "./agentRoute";
 const baseurl = require("./generalUrl");
 const ls = require("local-storage");
 
-export function agentSignup(values, callback) {
-  Axios.post(baseurl.GetUrl() + "/agent/get-started", values)
-    .then(async (response) => {
-      if (response.data) {
-        await ls.set("agent_id", response.data.agent_id);
-        return callback(null, response);
-      }
-    })
-    .catch((error) => {
-      if (error.response) {
-        alert(error.response.data.message);
-      }
-      return callback(error);
-    });
+export async function agentSignup(values) {
+  try {
+    const result = await Axios.post(
+      baseurl.GetUrl() + "/agent/get-started",
+      values
+    );
+    ls.set("agent_id", result.data.agent_id);
+    return result;
+  } catch (error) {
+    if (error.response.data) {
+      alert(error.response.data.message);
+      return error;
+    }
+    alert(error.message);
+  }
 }
+
+// export function agentSignup(values, callback) {
+//   Axios.post(baseurl.GetUrl() + "/agent/get-started", values)
+//     .then(async (response) => {
+//       console.log(response);
+
+//       if (response.data) {
+//         await ls.set("agent_id", response.data.agent_id);
+//         return callback(null, response);
+//       }
+//     })
+//     .catch((error) => {
+//       if (error.response.data) {
+//         alert(error.response.data.message);
+//         return callback(error);
+//       }
+//       alert(error.message);
+//     });
+// }
+
 export function otpVarify(values, callback) {
   Axios.post(baseurl.GetUrl() + "/agent/verifyOtp", values)
     .then(async (response) => {
@@ -25,10 +47,11 @@ export function otpVarify(values, callback) {
       }
     })
     .catch((error) => {
-      if (error.response) {
+      if (error.response.data) {
         alert(error.response.data.message);
+        return callback(error);
       }
-      return callback(error);
+      alert(error.message);
     });
 }
 export function agentLogin(values, callback) {
@@ -41,10 +64,11 @@ export function agentLogin(values, callback) {
       }
     })
     .catch((error) => {
-      if (error.response) {
+      if (error.response.data) {
         alert(error.response.data.message);
+        return callback(error);
       }
-      return callback(error);
+      alert(error.message);
     });
 }
 
@@ -56,10 +80,11 @@ export function agentKYC(values, callback) {
       }
     })
     .catch((error) => {
-      if (error.response) {
+      if (error.response.data) {
         alert(error.response.data.message);
+        return callback(error);
       }
-      return callback(error);
+      alert(error.message);
     });
 }
 
@@ -75,9 +100,11 @@ export function agentInfo(callback) {
       }
     })
     .catch((error) => {
-      if (error.response) {
+      if (error.response.data) {
+        alert(error.response.data.message);
+        return callback(error);
       }
-      return callback(error);
+      alert(error.message);
     });
 }
 
@@ -89,10 +116,11 @@ export function referralSubmit(values, callback) {
       }
     })
     .catch((error) => {
-      if (error.response) {
+      if (error.response.data) {
         alert(error.response.data.message);
+        return callback(error);
       }
-      return callback(error);
+      alert(error.message);
     });
 }
 
@@ -104,9 +132,11 @@ export function agentReferrals(callback) {
       }
     })
     .catch((error) => {
-      if (error.response) {
+      if (error.response.data) {
+        alert(error.response.data.message);
+        return callback(error);
       }
-      return callback(error);
+      alert(error.message);
     });
 }
 
@@ -114,7 +144,13 @@ export async function allAgents() {
   try {
     const agents = await Axios.get(baseurl.GetUrl() + "/agent");
     return agents.data.data;
-  } catch (error) {}
+  } catch (error) {
+    if (error.response.data) {
+      alert(error.response.data.message);
+      return;
+    }
+    alert(error.message);
+  }
 }
 
 export async function agentAllReferrals() {
@@ -123,14 +159,24 @@ export async function agentAllReferrals() {
       baseurl.GetUrl() + "/agent/students/allstudents"
     );
     return referrals.data.data;
-  } catch (error) {}
+  } catch (error) {
+    if (error.response.data) {
+      alert(error.response.data.message);
+      return;
+    }
+    alert(error.message);
+  }
 }
 
 export async function updateReferralStatus(status, id) {
   try {
     await Axios.put(baseurl.GetUrl() + `/agent/referrals/status/${id}`, status);
   } catch (error) {
-    alert(error.response.data.message);
+    if (error.response.data) {
+      alert(error.response.data.message);
+      return;
+    }
+    alert(error.message);
   }
 }
 
@@ -139,7 +185,11 @@ export async function getAgent(id) {
     const agent = await Axios.get(baseurl.GetUrl() + `/agent/${id}`);
     return agent.data.data;
   } catch (error) {
-    alert(error.response.data.message);
+    if (error.response.data) {
+      alert(error.response.data.message);
+      return;
+    }
+    alert(error.message);
   }
 }
 export async function getStudentByAgent(id) {
@@ -149,7 +199,11 @@ export async function getStudentByAgent(id) {
     );
     return students.data.data;
   } catch (error) {
-    alert(error.response.data.message);
+    if (error.response.data) {
+      alert(error.response.data.message);
+      return;
+    }
+    alert(error.message);
   }
 }
 
@@ -159,7 +213,11 @@ export async function getStudentBill(bill) {
 
     return students.data.data;
   } catch (error) {
-    alert(error.response.data.message);
+    if (error.response.data) {
+      alert(error.response.data.message);
+      return;
+    }
+    alert(error.message);
   }
 }
 
@@ -172,9 +230,11 @@ export async function submitStudentBill(bill) {
 
     return students.data;
   } catch (error) {
-    console.log(error);
+    if (error.response.data) {
+      alert(error.response.data.message);
+      return;
+    }
     alert(error.message);
-    alert(error.response.data.message);
   }
 }
 
@@ -187,8 +247,11 @@ export async function verifyOtp(obj) {
 
     return otp.data;
   } catch (error) {
+    if (error.response.data) {
+      alert(error.response.data.message);
+      return;
+    }
     alert(error.message);
-    alert(error.response.data.message);
   }
 }
 
@@ -201,8 +264,11 @@ export async function resetPassword(obj) {
 
     return result.data;
   } catch (error) {
+    if (error.response.data) {
+      alert(error.response.data.message);
+      return;
+    }
     alert(error.message);
-    alert(error.response.data.message);
   }
 }
 
@@ -215,8 +281,11 @@ export async function submitEmployee(obj) {
 
     return result.data;
   } catch (error) {
+    if (error.response.data) {
+      alert(error.response.data.message);
+      return;
+    }
     alert(error.message);
-    alert(error.response.data.message);
   }
 }
 
@@ -228,8 +297,11 @@ export async function getEmployee() {
 
     return result.data;
   } catch (error) {
+    if (error.response.data) {
+      alert(error.response.data.message);
+      return;
+    }
     alert(error.message);
-    alert(error.response.data.message);
   }
 }
 export async function getInternship() {
@@ -238,8 +310,11 @@ export async function getInternship() {
 
     return result.data;
   } catch (error) {
+    if (error.response.data) {
+      alert(error.response.data.message);
+      return;
+    }
     alert(error.message);
-    alert(error.response.data.message);
   }
 }
 
@@ -253,8 +328,11 @@ export async function submitInternship(obj) {
 
     return result.data;
   } catch (error) {
+    if (error.response.data) {
+      alert(error.response.data.message);
+      return;
+    }
     alert(error.message);
-    alert(error.response.data.message);
   }
 }
 
@@ -265,8 +343,11 @@ export async function getEnquiry() {
 
     return result.data;
   } catch (error) {
+    if (error.response.data) {
+      alert(error.response.data.message);
+      return;
+    }
     alert(error.message);
-    alert(error.response.data);
   }
 }
 
@@ -275,8 +356,11 @@ export async function submitEnquiry(obj) {
     const result = await Axios.post(baseurl.GetUrl() + "/student_enquiry", obj);
     return result.data;
   } catch (error) {
+    if (error.response.data) {
+      alert(error.response.data.message);
+      return;
+    }
     alert(error.message);
-    alert(error.response.data.message);
   }
 }
 
@@ -284,7 +368,11 @@ export async function updateStudentEnquiryStatus(status, id) {
   try {
     await Axios.put(baseurl.GetUrl() + `/student_enquiry/status/${id}`, status);
   } catch (error) {
-    alert(error.response.data.message);
+    if (error.response.data) {
+      alert(error.response.data.message);
+      return;
+    }
+    alert(error.message);
   }
 }
 
@@ -295,8 +383,11 @@ export async function getSyllabus() {
 
     return result.data;
   } catch (error) {
+    if (error.response.data) {
+      alert(error.response.data.message);
+      return;
+    }
     alert(error.message);
-    alert(error.response.data.message);
   }
 }
 
@@ -308,8 +399,11 @@ export async function submitSyllabus(obj) {
     );
     return result.data;
   } catch (error) {
+    if (error.response.data) {
+      alert(error.response.data.message);
+      return;
+    }
     alert(error.message);
-    alert(error.response.data.message);
   }
 }
 
@@ -319,8 +413,11 @@ export async function getCollaborators() {
 
     return result.data;
   } catch (error) {
+    if (error.response.data) {
+      alert(error.response.data.message);
+      return;
+    }
     alert(error.message);
-    alert(error.response.data.message);
   }
 }
 
@@ -329,8 +426,11 @@ export async function submitCollaborators(obj) {
     const result = await Axios.post(baseurl.GetUrl() + "/collaborators", obj);
     return result.data;
   } catch (error) {
+    if (error.response.data) {
+      alert(error.response.data.message);
+      return;
+    }
     alert(error.message);
-    alert(error.response.data.message);
   }
 }
 
@@ -340,8 +440,11 @@ export async function getWorkingEmployee() {
 
     return result.data;
   } catch (error) {
+    if (error.response.data) {
+      alert(error.response.data.message);
+      return;
+    }
     alert(error.message);
-    alert(error.response.data.message);
   }
 }
 
@@ -354,8 +457,11 @@ export async function submitWorkingEmployee(obj) {
 
     return result.data;
   } catch (error) {
+    if (error.response.data) {
+      alert(error.response.data.message);
+      return;
+    }
     alert(error.message);
-    alert(error.response.data.message);
   }
 }
 
@@ -367,8 +473,11 @@ export async function EmployeeuploadImages(empimg, callback) {
     );
     return result.data;
   } catch (error) {
+    if (error.response.data) {
+      alert(error.response.data.message);
+      return;
+    }
     alert(error.message);
-    alert(error.response.data.message);
   }
 }
 
@@ -379,6 +488,10 @@ export async function getWorkingEmployeeById(id) {
     );
     return result.data;
   } catch (error) {
-    alert(error.response.data.message);
+    if (error.response.data) {
+      alert(error.response.data.message);
+      return;
+    }
+    alert(error.message);
   }
 }
