@@ -166,7 +166,7 @@ const QuickData = () => {
     try {
       const getReferrals = async () => {
         const students = await services.agentAllReferrals();
-        setReferrals(students);
+        setReferrals(students.reverse());
       };
       getReferrals();
     } catch (error) {
@@ -260,7 +260,7 @@ const QuickData = () => {
                     sx={{ border: 1, borderColor: "#f5f5ef" }}
                   >
                     <TableCell component="th" scope="row">
-                      {detail.student_id}
+                      {index + 1}
                     </TableCell>
                     <TableCell>{detail.name}</TableCell>
                     <TableCell>{detail.email}</TableCell>
