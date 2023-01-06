@@ -62,31 +62,32 @@ const InternspDetails = () => {
           </thead>
 
           <tbody>
-            {internshipDetails.map((interns) => {
-              return (
-                <tr key={interns.student_id}>
-                  <td>{interns.student_id}</td>
-                  <td>{interns.name}</td>
-                  <td>{interns.email}</td>
-                  <td>{interns.contact_number}</td>
-                  <td>{interns.place}</td>
-                  <td>{interns.course}</td>
-                  <td>{interns.year_of_passing}</td>
-                  <td>{interns.about_yourself}</td>
+            {internshipDetails &&
+              internshipDetails.map((interns) => {
+                return (
+                  <tr key={interns.student_id}>
+                    <td>{interns.student_id}</td>
+                    <td>{interns.name}</td>
+                    <td>{interns.email}</td>
+                    <td>{interns.contact_number}</td>
+                    <td>{interns.place}</td>
+                    <td>{interns.course}</td>
+                    <td>{interns.year_of_passing}</td>
+                    <td>{interns.about_yourself}</td>
 
-                  <td>
-                    <button
-                      style={{
-                        padding: "5px",
-                      }}
-                    >
-                      {interns.resume}
-                    </button>
-                  </td>
-                  <td>{interns.created_date}</td>
-                </tr>
-              );
-            })}
+                    <td>
+                      <button
+                        style={{
+                          padding: "5px",
+                        }}
+                      >
+                        {interns.resume}
+                      </button>
+                    </td>
+                    <td>{interns.created_date}</td>
+                  </tr>
+                );
+              })}
           </tbody>
         </table>
       </div>

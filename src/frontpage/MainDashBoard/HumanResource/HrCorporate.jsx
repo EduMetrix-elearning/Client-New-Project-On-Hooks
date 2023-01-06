@@ -123,23 +123,24 @@ const HrCorporate = () => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {careerdetails.map((corporate) => (
-                <TableRow key={corporate.collaborator_id}>
-                  <TableCell>{corporate.collaborator_id}</TableCell>
-                  <TableCell>{corporate.name}</TableCell>
-                  <TableCell>{corporate.email}</TableCell>
-                  <TableCell>{corporate.contact_number}</TableCell>
-                  <TableCell>{corporate.location}</TableCell>
-                  <TableCell>{corporate.requirement}</TableCell>
-                  <TableCell>{corporate.skill}</TableCell>
-                  <TableCell>{corporate.experience}</TableCell>
-                  <TableCell>{corporate.salary}</TableCell>
-                  <TableCell>{corporate.company}</TableCell>
-                  <TableCell>{corporate.website}</TableCell>
-                  <TableCell>{corporate.message}</TableCell>
-                  <TableCell>{corporate.created_date}</TableCell>
-                </TableRow>
-              ))}
+              {careerdetails &&
+                careerdetails.map((corporate) => (
+                  <TableRow key={corporate.collaborator_id}>
+                    <TableCell>{corporate.collaborator_id}</TableCell>
+                    <TableCell>{corporate.name}</TableCell>
+                    <TableCell>{corporate.email}</TableCell>
+                    <TableCell>{corporate.contact_number}</TableCell>
+                    <TableCell>{corporate.location}</TableCell>
+                    <TableCell>{corporate.requirement}</TableCell>
+                    <TableCell>{corporate.skill}</TableCell>
+                    <TableCell>{corporate.experience}</TableCell>
+                    <TableCell>{corporate.salary}</TableCell>
+                    <TableCell>{corporate.company}</TableCell>
+                    <TableCell>{corporate.website}</TableCell>
+                    <TableCell>{corporate.message}</TableCell>
+                    <TableCell>{corporate.created_date}</TableCell>
+                  </TableRow>
+                ))}
             </TableBody>
           </Table>
         </TableContainer>

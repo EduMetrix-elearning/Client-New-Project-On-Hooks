@@ -59,20 +59,21 @@ const HrCareer = () => {
               </tr>
             </thead>
             <tbody>
-              {hiringdetails.map((employee) => {
-                return (
-                  <tr key={employee.employee_id}>
-                    <td>{employee.employee_id}</td>
-                    <td>{employee.name}</td>
-                    <td>{employee.email}</td>
-                    <td>{employee.contact_number}</td>
-                    <td>{employee.job}</td>
-                    <td>{employee.message}</td>
-                    <td>{employee.image}</td>
-                    <td>{employee.created_date}</td>
-                  </tr>
-                );
-              })}
+              {hiringdetails &&
+                hiringdetails.map((employee) => {
+                  return (
+                    <tr key={employee.employee_id}>
+                      <td>{employee.employee_id}</td>
+                      <td>{employee.name}</td>
+                      <td>{employee.email}</td>
+                      <td>{employee.contact_number}</td>
+                      <td>{employee.job}</td>
+                      <td>{employee.message}</td>
+                      <td>{employee.image}</td>
+                      <td>{employee.created_date}</td>
+                    </tr>
+                  );
+                })}
             </tbody>
           </table>
         </div>

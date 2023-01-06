@@ -91,34 +91,37 @@ const QuickData = () => {
           </thead>
 
           <tbody>
-            {enqiryData.map((enquiry) => {
-              return (
-                <tr key={enquiry.enquiry_id}>
-                  <td>{enquiry.enquiry_id}</td>
-                  <td>{enquiry.name}</td>
-                  <td>{enquiry.email}</td>
-                  <td>{enquiry.contact_number}</td>
+            {enqiryData &&
+              enqiryData.map((enquiry) => {
+                return (
+                  <tr key={enquiry.enquiry_id}>
+                    <td>{enquiry.enquiry_id}</td>
+                    <td>{enquiry.name}</td>
+                    <td>{enquiry.email}</td>
+                    <td>{enquiry.contact_number}</td>
 
-                  <td>
-                    <select
-                      className="student-status"
-                      onChange={(e) => submit(e, enquiry.enquiry_id)}
-                    >
-                      <option value="">{enquiry.status}</option>
-                      <option value="Waiting To Call">Waiting To Call</option>
-                      <option value="No Response">No Response</option>
-                      <option value="Decision Pending">Decision Pending</option>
-                      <option value="Not Interested">Not Interested</option>
-                      <option value="Interested">Interested </option>
-                      <option value="Waiting to Join">Waiting to Join</option>
-                      <option value="Admission">Admission</option>
-                    </select>
-                  </td>
-                  <td>{enquiry.message}</td>
-                  <td>{enquiry.created_date}</td>
-                </tr>
-              );
-            })}
+                    <td>
+                      <select
+                        className="student-status"
+                        onChange={(e) => submit(e, enquiry.enquiry_id)}
+                      >
+                        <option value="">{enquiry.status}</option>
+                        <option value="Waiting To Call">Waiting To Call</option>
+                        <option value="No Response">No Response</option>
+                        <option value="Decision Pending">
+                          Decision Pending
+                        </option>
+                        <option value="Not Interested">Not Interested</option>
+                        <option value="Interested">Interested </option>
+                        <option value="Waiting to Join">Waiting to Join</option>
+                        <option value="Admission">Admission</option>
+                      </select>
+                    </td>
+                    <td>{enquiry.message}</td>
+                    <td>{enquiry.created_date}</td>
+                  </tr>
+                );
+              })}
           </tbody>
         </table>
       </div>
