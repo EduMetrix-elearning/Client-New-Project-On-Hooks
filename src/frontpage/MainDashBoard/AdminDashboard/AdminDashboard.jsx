@@ -69,16 +69,17 @@ const AdminDashboard = () => {
         </Link>
       </li>
 
-      <li
-        style={{
-          backgroundColor: "#193942",
-          color: "white",
-          marginRight: "10px",
-        }}
-      >
-        LOGOUT
-      </li>
-    </ul>
+        <li
+          style={{
+            backgroundColor: "#193942",
+            color: "white",
+            marginRight: "10px",
+          }}
+        >
+          LOGOUT
+        </li>
+      </ul>
+  
   );
 };
 

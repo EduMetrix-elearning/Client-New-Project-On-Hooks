@@ -29,7 +29,7 @@ const EmployeeProfiles = () => {
   return (
     <>
       <AdminDashboard />
-      <div
+      {/* <div
         style={{
           display: "flex",
           justifyContent: "space-around",
@@ -88,92 +88,66 @@ const EmployeeProfiles = () => {
                         Contact:+91{employee.employee_phone}
                       </Typography>
                       <Typography sx={{ fontWeight: "bold" }}>
-                        Email:{employee.employee_email}
+                        IFSC:{employee.bank_ifsc}
                       </Typography>
-                    </CardContent>
-                  </CardActionArea>
-                  <div>
-                    <Accordion>
-                      <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
-                        aria-controls="panel1a-content"
-                        id="panel1a-header"
-                      >
-                        <Typography sx={{ fontWeight: "bold" }}>
-                          Bank Details
-                        </Typography>
-                      </AccordionSummary>
-                      <AccordionDetails>
-                        <Typography sx={{ fontWeight: "bold" }}>
-                          Branch Name:{employee.bank_branch}
-                        </Typography>
-                        <Typography sx={{ fontWeight: "bold" }}>
-                          Account Holder Name:{employee.bank_account_name}
-                        </Typography>
-                        <Typography sx={{ fontWeight: "bold" }}>
-                          Account Number:{employee.bank_account_number}
-                        </Typography>
-                        <Typography sx={{ fontWeight: "bold" }}>
-                          IFSC:{employee.bank_ifsc}
-                        </Typography>
-                      </AccordionDetails>
-                    </Accordion>
-                    <Accordion>
-                      <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
-                        aria-controls="panel1a-content"
-                        id="panel1a-header"
-                      >
-                        <Typography sx={{ fontWeight: "bold" }}>
-                          Documents
-                        </Typography>
-                      </AccordionSummary>
-                      <AccordionDetails>
-                        <CardMedia
-                          sx={{
-                            borderRadius: "10px",
-                            padding: "10px",
-                            objectFit: "cover",
-                            padding: 2,
-                          }}
-                          component="img"
-                          height="200"
-                          image={employee.employee_pan}
-                          alt="green iguana"
-                        />
-                        <CardMedia
-                          sx={{
-                            borderRadius: "10px",
-                            padding: "10px",
-                            objectFit: "cover",
-                            width: "100%",
-                            padding: 2,
-                          }}
-                          component="img"
-                          height="200"
-                          image={employee.employee_aadharfront}
-                          alt="green iguana"
-                        />
-                        <CardMedia
-                          sx={{
-                            borderRadius: "10px",
-                            padding: "10px",
-                            objectFit: "cover",
-                            width: "100%",
-                            padding: 2,
-                          }}
-                          component="img"
-                          height="200"
-                          image={employee.employee_aadharback}
-                          alt="green iguana"
-                        />
-                      </AccordionDetails>
-                    </Accordion>
-                  </div>
-                </Card>
-              </div>
-            );
-          })}
+                    </AccordionDetails>
+                  </Accordion>
+                  <Accordion>
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon />}
+                      aria-controls="panel1a-content"
+                      id="panel1a-header"
+                    >
+                      <Typography sx={{ fontWeight: "bold" }}>
+                        Documents
+                      </Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <CardMedia
+                        sx={{
+                          borderRadius: "10px",
+                          padding: "10px",
+                          objectFit: "cover",
+                          padding: 2,
+                        }}
+                        component="img"
+                        height="200"
+                        image={employee.employee_pan}
+                        alt="green iguana"
+                      />
+                      <CardMedia
+                        sx={{
+                          borderRadius: "10px",
+                          padding: "10px",
+                          objectFit: "cover",
+                          width: "100%",
+                          padding: 2,
+                        }}
+                        component="img"
+                        height="200"
+                        image={employee.employee_aadharfront}
+                        alt="green iguana"
+                      />
+                      <CardMedia
+                        sx={{
+                          borderRadius: "10px",
+                          padding: "10px",
+                          objectFit: "cover",
+                          width: "100%",
+                          padding: 2,
+                        }}
+                        component="img"
+                        height="200"
+                        image={employee.employee_aadharback}
+                        alt="green iguana"
+                      />
+                    </AccordionDetails>
+                  </Accordion>
+                </div>
+              </Card>
+            </div>
+          );
+        })}
       </div>
     </>
   );
