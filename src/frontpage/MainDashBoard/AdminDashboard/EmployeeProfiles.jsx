@@ -29,7 +29,7 @@ const EmployeeProfiles = () => {
   return (
     <>
       <AdminDashboard />
-      {/* <div
+      <div
         style={{
           display: "flex",
           justifyContent: "space-around",
@@ -37,55 +37,80 @@ const EmployeeProfiles = () => {
           flexWrap: "wrap",
         }}
       >
-        {employeeCard &&
-          employeeCard.map((employee) => {
-            return (
-              <div key={employee.registeration_id}>
-                <Card
-                  sx={{
-                    maxWidth: 330,
-                    margin: 2,
-                  }}
-                >
-                  <CardActionArea>
-                    <CardMedia
+        {employeeCard.map((employee) => {
+          return (
+            <div key={employee.registeration_id}>
+              <Card
+                sx={{
+                  maxWidth: 330,
+                  margin: 2,
+                }}
+              >
+                <CardActionArea>
+                  <CardMedia
+                    sx={{
+                      borderRadius: "40px",
+                      padding: "10px",
+                      objectFit: "contain",
+                      zIndex: "1",
+                    }}
+                    component="img"
+                    height="200"
+                    image={employee.employee_photo}
+                    alt="green iguana"
+                  />
+                  <CardContent>
+                    <Typography
                       sx={{
-                        borderRadius: "40px",
-                        padding: "10px",
-                        objectFit: "contain",
-                        zIndex: "1",
+                        textAlign: "center",
+                        backgroundColor: "#000",
+                        color: "#fff",
+                        borderRadius: "10px",
                       }}
-                      component="img"
-                      height="200"
-                      image={employee.employee_photo}
-                      alt="green iguana"
-                    />
-                    <CardContent>
-                      <Typography
-                        sx={{
-                          textAlign: "center",
-                          backgroundColor: "#000",
-                          color: "#fff",
-                          borderRadius: "10px",
-                        }}
-                        variant="h5"
-                      >
-                        {employee.employee_name}
+                      variant="h5"
+                    >
+                      {employee.employee_name}
+                    </Typography>
+                    <Typography sx={{ fontWeight: "bold" }} variant="h6">
+                      {employee.position}
+                    </Typography>
+                    <Typography sx={{ fontWeight: "bold" }}>
+                      {employee.employee_id}
+                    </Typography>
+                    <Typography sx={{ fontWeight: "bold" }}>
+                      D.O.B:{employee.agent_dob}
+                    </Typography>
+                    <Typography sx={{ fontWeight: "bold" }}>
+                      Blood Group:{employee.blood_group}
+                    </Typography>
+                    <Typography sx={{ fontWeight: "bold" }}>
+                      Contact:+91{employee.employee_phone}
+                    </Typography>
+                    <Typography sx={{ fontWeight: "bold" }}>
+                      Email:{employee.employee_email}
+                    </Typography>
+                  </CardContent>
+                </CardActionArea>
+                <div>
+                  <Accordion>
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon />}
+                      aria-controls="panel1a-content"
+                      id="panel1a-header"
+                    >
+                      <Typography sx={{ fontWeight: "bold" }}>
+                        Bank Details
                       </Typography>
-                      <Typography sx={{ fontWeight: "bold" }} variant="h6">
-                        {employee.position}
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <Typography sx={{ fontWeight: "bold" }}>
+                        Branch Name:{employee.bank_branch}
                       </Typography>
                       <Typography sx={{ fontWeight: "bold" }}>
-                        {employee.employee_id}
+                        Account Holder Name:{employee.bank_account_name}
                       </Typography>
                       <Typography sx={{ fontWeight: "bold" }}>
-                        D.O.B:{employee.agent_dob}
-                      </Typography>
-                      <Typography sx={{ fontWeight: "bold" }}>
-                        Blood Group:{employee.blood_group}
-                      </Typography>
-                      <Typography sx={{ fontWeight: "bold" }}>
-                        Contact:+91{employee.employee_phone}
+                        Account Number:{employee.bank_account_number}
                       </Typography>
                       <Typography sx={{ fontWeight: "bold" }}>
                         IFSC:{employee.bank_ifsc}
