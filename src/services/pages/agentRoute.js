@@ -124,22 +124,6 @@ export function referralSubmit(values, callback) {
     });
 }
 
-export function agentReferrals(callback) {
-  Axios.get(baseurl.GetUrl() + "/agent/referrals/" + ls.get("id"))
-    .then(async (response) => {
-      if (response.data) {
-        return callback(null, response.data.data);
-      }
-    })
-    .catch((error) => {
-      if (error.response.data) {
-        alert(error.response.data.message);
-        return callback(error);
-      }
-      alert(error.message);
-    });
-}
-
 export async function allAgents() {
   try {
     const agents = await Axios.get(baseurl.GetUrl() + "/agent");
@@ -158,6 +142,8 @@ export async function agentAllReferrals() {
     const referrals = await Axios.get(
       baseurl.GetUrl() + "/agent/students/allstudents"
     );
+    console.log(referrals);
+
     return referrals.data.data;
   } catch (error) {
     if (error.response.data) {
@@ -166,6 +152,22 @@ export async function agentAllReferrals() {
     }
     alert(error.message);
   }
+}
+
+export function agentReferrals(callback) {
+  Axios.get(baseurl.GetUrl() + "/agent/referrals/" + ls.get("id"))
+    .then(async (response) => {
+      if (response.data) {
+        return callback(null, response.data.data);
+      }
+    })
+    .catch((error) => {
+      if (error.response.data) {
+        alert(error.response.data.message);
+        return callback(error);
+      }
+      alert(error.message);
+    });
 }
 
 export async function updateReferralStatus(status, id) {
