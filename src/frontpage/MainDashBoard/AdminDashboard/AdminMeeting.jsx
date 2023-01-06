@@ -4,7 +4,7 @@ import "./AdminMeeting.css";
 
 const AdminMeeting = () => {
   return (
-    <>
+    <div className="background">
       <AdminDashboard />
       <div className="meeting-cotainer">
         <div className="meeting-cotainer-1">
@@ -18,7 +18,7 @@ const AdminMeeting = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

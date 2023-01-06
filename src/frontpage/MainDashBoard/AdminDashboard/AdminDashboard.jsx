@@ -9,66 +9,65 @@ import HomeIcon from "@mui/icons-material/Home";
 
 const AdminDashboard = () => {
   return (
-    <>
-      <ul id="mainmenu">
-        <img
-          src="https://edumetrix.io/static/media/coin.c062b2cf16bee63f2da9.png"
-          alt=""
-        />
+    <ul id="mainmenu">
+      <img
+        src="https://edumetrix.io/static/media/coin.c062b2cf16bee63f2da9.png"
+        alt=""
+      />
 
-        <li>
-          TEAM
-          <ul className="submenu">
-            <li>
-              <Link
-                style={{ textDecoration: "none", color: "black" }}
-                to="/employeedetails"
-              >
-                EmployeeDetails
-              </Link>
-            </li>
-            <li>
-              <Link
-                style={{ textDecoration: "none", color: "black" }}
-                to="/employeeprofiles"
-              >
-                Employee Profiles
-              </Link>
-            </li>
-          </ul>
-        </li>
+      <li>
+        TEAM
+        <ul className="submenu">
+          <li>
+            <Link
+              style={{ textDecoration: "none", color: "black" }}
+              to="/employeedetails"
+            >
+              EmployeeDetails
+            </Link>
+          </li>
+          <li>
+            <Link
+              style={{ textDecoration: "none", color: "black" }}
+              to="/employeeprofiles"
+            >
+              Employee Profiles
+            </Link>
+          </li>
+        </ul>
+      </li>
 
-        <li>
-          BILLING
-          <ul className="submenu">
-            <li>
-              <Link
-                style={{ textDecoration: "none", color: "black" }}
-                to="/newbilingdetails"
-              >
-                New Billing
-              </Link>
-            </li>
-            <li>
-              <Link
-                style={{ textDecoration: "none", color: "black" }}
-                to="/billinghistory"
-              >
-                Billing History
-              </Link>
-            </li>
-          </ul>
-        </li>
+      <li>
+        BILLING
+        <ul className="submenu">
+          <li>
+            <Link
+              style={{ textDecoration: "none", color: "black" }}
+              to="/newbilingdetails"
+            >
+              New Billing
+            </Link>
+          </li>
+          <li>
+            <Link
+              style={{ textDecoration: "none", color: "black" }}
+              to="/billinghistory"
+            >
+              Billing History
+            </Link>
+          </li>
+        </ul>
+      </li>
 
-        <li>EMT</li>
-        <li>
-          <Link
-            style={{ textDecoration: "none", color: "black" }}
-            to="/adminmeeting"
-          >
-            meeting
-          </Link>
-        </li>
+      <li>EMT</li>
+      <li>
+        <Link
+          style={{ textDecoration: "none", color: "black" }}
+          to="/adminmeeting"
+        >
+          meeting
+        </Link>
+      </li>
 
         <li
           style={{
@@ -77,12 +76,10 @@ const AdminDashboard = () => {
             marginRight: "10px",
           }}
         >
-          <Link style={{ textDecoration: "none", color: "white" }} to="/">
-            LOGOUT
-          </Link>
+          LOGOUT
         </li>
       </ul>
-    </>
+  
   );
 };
 

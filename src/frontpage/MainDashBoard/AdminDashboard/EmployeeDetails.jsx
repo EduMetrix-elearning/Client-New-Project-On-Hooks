@@ -186,7 +186,7 @@ const EmployeeDetails = () => {
   };
 
   return (
-    <div className="agents-dashboard">
+    <div className="background">
       <AdminDashboard />
 
       <div className="agent-profile-main-div">

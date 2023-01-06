@@ -28,7 +28,7 @@ export default function BillingHistory() {
   }, []);
 
   return (
-    <>
+    <div className="background">
       <AdminDashboard />
       {/* <Paper sx={{ width: '100%', overflow: 'hidden' }}> */}
       <TableContainer
@@ -41,7 +41,6 @@ export default function BillingHistory() {
             align="center"
           >
             <TableRow>
-              {/* <TableCell padding="checkbox"></TableCell> */}
               <TableCell>No.</TableCell>
               <TableCell>Name</TableCell>
               <TableCell>Email</TableCell>
@@ -75,6 +74,6 @@ export default function BillingHistory() {
           </TableBody>
         </Table>
       </TableContainer>
-    </>
+    </div>
   );
 }

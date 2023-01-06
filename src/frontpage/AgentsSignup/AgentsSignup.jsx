@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import LoadingScreen from "./LoadingScreen";
+import { async } from "./../../services/pages/agentRoute";
 const services = require("../../services/pages/agentRoute");
 
 export const AgentsSignup = () => {
@@ -94,15 +95,31 @@ export const AgentsSignup = () => {
       };
 
       setIsLoading(true);
-      services.agentSignup(obj, (error, result) => {
-        if (result) {
-          setIsLoading(false);
-          navigate("/agent_otp_varification");
-        } else {
-          console.log("Agent signup error", error);
-          alert("Something wrong in Agentsignup");
-        }
-      });
+      // services.agentSignup(obj, (error, result) => {
+      //   if (result) {
+      //     setIsLoading(false);
+      //     navigate("/agent_otp_varification");
+      //   } else {
+      //     console.log("Agent signup error", error);
+      //     alert("Something wrong in Agentsignup");
+      //   }
+      // });
+
+      try {
+        const signIn = async () => {
+          const response = await services.agentSignup(obj);
+          if (response.data) {
+            setIsLoading(false);
+            navigate("/agent_otp_varification");
+          } else {
+            console.log("Agent signup error", response);
+            alert("Something wrong in Agentsignup");
+          }
+        };
+        signIn();
+      } catch (error) {
+        console.log("err", error);
+      }
     }
   };
 
