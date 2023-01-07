@@ -1,5 +1,6 @@
 import React from "react";
 import "./HumanResource.css";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import HomeIcon from "@mui/icons-material/Home";
 // import { DashBoardInputs } from "../../../WebsiteDashboard/Inputs";
@@ -7,6 +8,7 @@ import HomeIcon from "@mui/icons-material/Home";
 // import { DashBoardStatus } from "../../../WebsiteDashboard/Status";
 
 const HumanResource = () => {
+  const navigate = useNavigate()
   return (
     <>
       <div className="side_bar">
@@ -41,7 +43,7 @@ const HumanResource = () => {
           </li>
         </ul>
         <div className="media_icons">
-          <button className="logout-btn">logout</button>
+          <button onClick={() => navigate("/", { replac: true })} className="logout-btn">logout</button>
         </div>
       </div>
     </>

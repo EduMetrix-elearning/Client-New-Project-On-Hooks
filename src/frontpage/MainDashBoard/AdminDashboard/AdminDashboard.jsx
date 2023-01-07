@@ -1,6 +1,7 @@
 import React from "react";
 import "./AdminNavbar.css";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import HomeIcon from "@mui/icons-material/Home";
 
 // import { DashBoardInputs } from "../../../WebsiteDashboard/Inputs";
@@ -8,6 +9,7 @@ import HomeIcon from "@mui/icons-material/Home";
 // import { DashBoardStatus } from "../../../WebsiteDashboard/Status";
 
 const AdminDashboard = () => {
+  const navigate = useNavigate();
   return (
     <ul id="mainmenu">
       <img
@@ -65,21 +67,22 @@ const AdminDashboard = () => {
           style={{ textDecoration: "none", color: "black" }}
           to="/adminmeeting"
         >
-          meeting
+          MEETING
         </Link>
       </li>
 
-        <li
-          style={{
-            backgroundColor: "#193942",
-            color: "white",
-            marginRight: "10px",
-          }}
-        >
-          LOGOUT
-        </li>
-      </ul>
-  
+      <li
+        onClick={() => navigate("/", { replac: true })}
+        style={{
+          backgroundColor: "#193942",
+          color: "white",
+          marginRight: "30px",
+          padding: "15px 10px",
+        }}
+      >
+        LOGOUT
+      </li>
+    </ul>
   );
 };
 

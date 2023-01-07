@@ -144,7 +144,8 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import "react-confirm-alert/src/react-confirm-alert.css";
 import "./QuickData.css";
-import { async } from "./../../../services/pages/agentRoute";
+import { DashBoardInputs } from "../../../WebsiteDashboard/Inputs";
+
 const services = require("../../../services/pages/agentRoute");
 
 const QuickData = () => {

@@ -1,12 +1,14 @@
 import React from "react";
 import "./MarketingNavbar.css";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import HomeIcon from "@mui/icons-material/Home";
 // import { DashBoardInputs } from "../../../WebsiteDashboard/Inputs";
 // import { DashBoardDetails } from "../../../WebsiteDashboard/Details";
 // import { DashBoardStatus } from "../../../WebsiteDashboard/Status";
 
 const MarketingNavbar = () => {
+  const navigate = useNavigate()
   return (
     <>
       <div className="side_bar">
@@ -46,7 +48,12 @@ const MarketingNavbar = () => {
           </li>
         </ul>
         <div className="media_icons">
-          <button className="logout-btn">logout</button>
+          <button
+            onClick={() => navigate("/", { replac: true })}
+            className="logout-btn"
+          >
+            logout
+          </button>
         </div>
       </div>
     </>
