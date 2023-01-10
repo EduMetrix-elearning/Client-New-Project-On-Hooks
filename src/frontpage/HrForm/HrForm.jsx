@@ -132,6 +132,9 @@ export const Hrform = () => {
       try {
         const registerInternship = async (obj) => {
           const result = await services.submitCollaborators(obj);
+          if(result.success){
+            alert("Successfully registered")
+            return handleClose()}
         };
         registerInternship(collaborator);
       } catch (error) {

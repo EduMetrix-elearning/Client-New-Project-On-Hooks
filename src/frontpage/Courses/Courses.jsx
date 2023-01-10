@@ -142,7 +142,10 @@ export const Courses = () => {
       try {
         const registerEnquiry = async (obj) => {
           const result = await services.submitEnquiry(obj);
-          console.log(result);
+          if (result.success) {
+            alert("Successfully submitted");
+            handleClose();
+          }
         };
         registerEnquiry(enquiry);
       } catch (error) {
