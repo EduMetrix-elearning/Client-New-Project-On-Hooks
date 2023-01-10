@@ -9,10 +9,12 @@ import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 import HumanResource from "./HumanResource";
 import HrDates from "./HrDates";
+import MessageModal from "./MessageModal";
 const services = require("../../../services/pages/agentRoute");
 
 const HrCorporate = () => {
   const [careerdetails, setCareerDetails] = useState([]);
+  const [openModal, setOpenModal] = useState(false);
 
   const Corporatedata = async () => {
     const result = await services.getCollaborators();
@@ -26,6 +28,7 @@ const HrCorporate = () => {
   return (
     <>
       <HumanResource />
+      {openModal && <MessageModal setOpenModal={setOpenModal} />}
       <div style={{ width: "100%", marginTop: "1%" }}>
         <div>
           <HrDates />
@@ -51,50 +54,6 @@ const HrCorporate = () => {
         </div>
       </div>
       <div>
-        {/* <table style={{ overflowX: "auto" }}>
-          <thead>
-            <tr>
-              <th>No.</th>
-              <th>NAME</th>
-              <th>EMAIL</th>
-              <th>PHONE</th>
-              <th>LOCATION</th>
-              <th>HIRING DOMAIN</th>
-              <th>SKILLS</th>
-              <th>EXPERIENCE</th>
-              <th>PACKAGE(LPA)</th>
-              <th>NAME OF COMPANY</th>
-              <th>WEBSITE</th>
-              <th>MESSAGE</th>
-              <th>STATUS</th>
-              <th>SUBMISSION DATE</th>
-            </tr>
-          </thead>
-          <tbody>
-            {careerdetails.map((corporate) => {
-              return (
-                <tr key={corporate.collaborator_id}>
-                  <td>{corporate.collaborator_id}</td>
-                  <td>{corporate.name}</td>
-                  <td>{corporate.email}</td>
-                  <td>{corporate.contact_number}</td>
-                  <td>{corporate.location}</td>
-                  <td>{corporate.requirement}</td>
-                  <td>{corporate.skill}</td>
-                  <td>{corporate.experience}</td>
-                  <td>{corporate.salary}</td>
-                  <td>{corporate.company}</td>
-                  <td>{corporate.website}</td>
-                  <td>{corporate.message}</td>
-                  <td>
-                    <input type="text" />
-                  </td>
-                  <td>{corporate.created_date}</td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table> */}
         <TableContainer
           component={Paper}
           className="website-dashboard-status-check"
@@ -105,7 +64,6 @@ const HrCorporate = () => {
           >
             <TableHead sx={{ backgroundColor: "#f5f5ef" }} align="center">
               <TableRow>
-                {/* <TableCell padding="checkbox"></TableCell> */}
                 <TableCell>No.</TableCell>
                 <TableCell>Name</TableCell>
 
@@ -120,6 +78,7 @@ const HrCorporate = () => {
                 <TableCell>WEBSITE</TableCell>
                 <TableCell>STATUS</TableCell>
                 <TableCell>SUBMISSION DATE</TableCell>
+                <TableCell>message</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -137,8 +96,39 @@ const HrCorporate = () => {
                     <TableCell>{corporate.salary}</TableCell>
                     <TableCell>{corporate.company}</TableCell>
                     <TableCell>{corporate.website}</TableCell>
-                    <TableCell>{corporate.message}</TableCell>
+                    <TableCell>
+                      <select
+                        className="student-status"
+                        // onChange={(e) => submit(e, detail.student_id)}
+                      >
+                        <option value="">yet to call</option>
+                        <option value="Waiting To Call">Waiting To Call</option>
+                        <option value="No Response">No Response</option>
+                        <option value="Decision Pending">
+                          Decision Pending
+                        </option>
+                        <option value="Not Interested">Not Interested</option>
+                        <option value="Interested">Interested </option>
+                        <option value="Waiting to Join">Waiting to Join</option>
+                        <option value="Admission">Admission</option>
+                      </select>
+                    </TableCell>
                     <TableCell>{corporate.created_date}</TableCell>
+                    <TableCell>
+                      <button
+                        style={{
+                          backgroundColor: "skyblue",
+                          color: "white",
+                          width: "100%",
+                          height: "40px",
+                          border: "none",
+                          borderRadius: "5px",
+                        }}
+                        onClick={() => setOpenModal(true)}
+                      >
+                        Update
+                      </button>
+                    </TableCell>
                   </TableRow>
                 ))}
             </TableBody>

@@ -2,10 +2,7 @@ import React from "react";
 import "./ItResource.css";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import HomeIcon from "@mui/icons-material/Home";
-// import { DashBoardInputs } from "../../../WebsiteDashboard/Inputs";
-// import { DashBoardDetails } from "../../../WebsiteDashboard/Details";
-// import { DashBoardStatus } from "../../../WebsiteDashboard/Status";
+
 
 const ItResource = () => {
   const navigate = useNavigate();
@@ -21,16 +18,7 @@ const ItResource = () => {
         </div>
 
         <ul>
-          {/* <li>
-            <Link>
-              <i className="fas fa-qrcode"></i>Hiring
-            </Link>
-          </li>
-          <li>
-            <Link>
-              <i class="fa-solid fa-user"></i>developers
-            </Link>
-          </li> */}
+        
           <li>
             <Link>
               <i className="fas fa-stream"></i>EMT

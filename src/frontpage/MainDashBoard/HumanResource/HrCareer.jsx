@@ -2,7 +2,17 @@ import React, { useEffect, useState } from "react";
 import HrDates from "./HrDates";
 import HumanResource from "./HumanResource";
 import "./HrCareer.css";
+
 import HrTable from "./HrTable";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
+import MessageModal from "./MessageModal";
+import { textAlign } from "@mui/system";
 const services = require("../../../services/pages/agentRoute");
 
 const HrCareer = () => {
@@ -18,9 +28,12 @@ const HrCareer = () => {
     HandleHiringDetails();
   }, []);
 
+  const [openModal, setOpenModal] = useState(false);
+
   return (
     <>
       <HumanResource />
+      {openModal && <MessageModal setOpenModal={setOpenModal} />}
       <div style={{ width: "100%", marginTop: "1%" }}>
         <div>
           <HrDates />
@@ -45,37 +58,93 @@ const HrCareer = () => {
           </section>
         </div>
         <div>
-          <table style={{ overflowX: "auto" }}>
-            <thead>
-              <tr>
-                <th>No.</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Phone No</th>
-                <th>Job Domain</th>
-                <th>Message</th>
-                <th>CV</th>
-                <th>Submission Date</th>
-              </tr>
-            </thead>
-            <tbody>
-              {hiringdetails &&
-                hiringdetails.map((employee) => {
-                  return (
-                    <tr key={employee.employee_id}>
-                      <td>{employee.employee_id}</td>
-                      <td>{employee.name}</td>
-                      <td>{employee.email}</td>
-                      <td>{employee.contact_number}</td>
-                      <td>{employee.job}</td>
-                      <td>{employee.message}</td>
-                      <td>{employee.image}</td>
-                      <td>{employee.created_date}</td>
-                    </tr>
-                  );
-                })}
-            </tbody>
-          </table>
+          <TableContainer component={Paper}>
+            <Table sx={{ width: "100%" }} aria-label="simple table">
+              <TableHead
+                sx={{
+                  backgroundColor: "#f5f5ef",
+                }}
+                
+              >
+                <TableRow
+                  sx={{width: "100%" }}
+                  
+                >
+                  <TableCell>No.</TableCell>
+                  <TableCell>NAME</TableCell>
+                  <TableCell>EMAIL</TableCell>
+                  <TableCell>PHONE</TableCell>
+                  <TableCell>JOB DOMAIN</TableCell>
+                  <TableCell>SELF INTRO</TableCell>
+                  <TableCell>CV</TableCell>
+                  <TableCell>STATUS</TableCell>
+                  <TableCell>SUBMISSION DATE</TableCell>
+                  <TableCell>Message</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody align="center">
+                {hiringdetails &&
+                  hiringdetails.map((employee) => (
+                    <TableRow
+                      className="tabelrow"
+                      key={employee.employee_id}
+                      sx={{ border: 1, borderColor: "#f5f5ef" }}
+                    >
+                      <TableCell>{employee.employee_id}</TableCell>
+                      <TableCell>{employee.name}</TableCell>
+                      <TableCell>{employee.email}</TableCell>
+                      <TableCell>{employee.contact_number}</TableCell>
+                      <TableCell>{employee.job}</TableCell>
+                      <TableCell>{employee.message}</TableCell>
+                      <TableCell>{employee.image}</TableCell>
+
+                      <TableCell>
+                        <select
+                          className="student-status"
+                          // onChange={(e) => submit(e, detail.student_id)}
+                        >
+                          <option value="">yet to call</option>
+                          <option value="Waiting To Call">
+                            Waiting To Call
+                          </option>
+                          <option value="No Response">No Response</option>
+                          <option value="Decision Pending">
+                            Decision Pending
+                          </option>
+                          <option value="Not Interested">Not Interested</option>
+                          <option value="Interested">Interested </option>
+                          <option value="Waiting to Join">
+                            Waiting to Join
+                          </option>
+                          <option value="Admission">Admission</option>
+                        </select>
+                      </TableCell>
+
+                      <TableCell>
+                        {new Date(employee.created_date).toLocaleString(
+                          "lookup"
+                        )}
+                      </TableCell>
+                      <TableCell>
+                        <button
+                          style={{
+                            backgroundColor: "skyblue",
+                            color: "white",
+                            width: "100%",
+                            height: "40px",
+                            border: "none",
+                            borderRadius: "5px",
+                          }}
+                          onClick={() => setOpenModal(true)}
+                        >
+                          Update
+                        </button>
+                      </TableCell>
+                    </TableRow>
+                  ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
         </div>
       </div>
     </>

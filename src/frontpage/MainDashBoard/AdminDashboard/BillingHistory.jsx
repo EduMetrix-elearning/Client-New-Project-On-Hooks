@@ -30,7 +30,7 @@ export default function BillingHistory() {
   return (
     <div className="background">
       <AdminDashboard />
-      {/* <Paper sx={{ width: '100%', overflow: 'hidden' }}> */}
+
       <TableContainer
         component={Paper}
         className="website-dashboard-status-check"

@@ -23,6 +23,7 @@ import HrCareer from "./frontpage/MainDashBoard/HumanResource/HrCareer.jsx";
 import HrMeeting from "./frontpage/MainDashBoard/HumanResource/HrMeeting.jsx";
 import HrCorporate from "./frontpage/MainDashBoard/HumanResource/HrCorporate.jsx";
 import QuickData from "./frontpage/MainDashBoard/Marketing/QuickData.jsx";
+import AgentStudents from "./frontpage/MainDashBoard/Marketing/AgentStudents.jsx";
 import InternspDetails from "./frontpage/MainDashBoard/Marketing/internsDetails.jsx";
 
 import MarketingNavbar from "./frontpage/MainDashBoard/Marketing/MarketingNavbar.jsx";
@@ -179,6 +180,8 @@ function App() {
             <Route path="/hrcorporate" element={<HrCorporate />}></Route>
             <Route path="/hrmeeting" element={<HrMeeting />}></Route>
             <Route path="/quickdata" element={<QuickData />}></Route>
+            <Route path="/agentstudents" element={<AgentStudents />}></Route>
+
             <Route path="/internsdetails" element={<InternspDetails />}></Route>
 
             <Route

@@ -3,9 +3,6 @@ import "./HumanResource.css";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import HomeIcon from "@mui/icons-material/Home";
-// import { DashBoardInputs } from "../../../WebsiteDashboard/Inputs";
-// import { DashBoardDetails } from "../../../WebsiteDashboard/Details";
-// import { DashBoardStatus } from "../../../WebsiteDashboard/Status";
 
 const HumanResource = () => {
   const navigate = useNavigate()

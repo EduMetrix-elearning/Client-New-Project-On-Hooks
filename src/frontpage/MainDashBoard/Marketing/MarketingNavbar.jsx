@@ -3,12 +3,9 @@ import "./MarketingNavbar.css";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import HomeIcon from "@mui/icons-material/Home";
-// import { DashBoardInputs } from "../../../WebsiteDashboard/Inputs";
-// import { DashBoardDetails } from "../../../WebsiteDashboard/Details";
-// import { DashBoardStatus } from "../../../WebsiteDashboard/Status";
 
 const MarketingNavbar = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   return (
     <>
       <div className="side_bar">
@@ -32,7 +29,7 @@ const MarketingNavbar = () => {
             </Link>
           </li>
           <li>
-            <Link>
+            <Link to="/agentstudents">
               <i className="fa-solid fa-user"></i>Agent
             </Link>
           </li>

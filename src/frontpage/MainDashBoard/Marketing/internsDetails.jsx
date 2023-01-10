@@ -1,11 +1,21 @@
 import React, { useEffect, useState } from "react";
 import MarketingNavbar from "./MarketingNavbar";
 import HrDates from "../HumanResource/HrDates";
+import MessageModal from "../HumanResource/MessageModal";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
 import "./internsDetails";
+
 const services = require("../../../services/pages/agentRoute");
 
 const InternspDetails = () => {
   const [internshipDetails, setInternshipDetails] = useState([]);
+  const [openModal, setOpenModal] = useState(false);
 
   const handleInternshipDetails = async () => {
     const result = await services.getInternship();
@@ -19,6 +29,7 @@ const InternspDetails = () => {
   return (
     <>
       <MarketingNavbar />
+      {openModal && <MessageModal setOpenModal={setOpenModal} />}
       <div style={{ width: "100%", marginTop: "1%" }}>
         <div>
           <HrDates />
@@ -44,52 +55,87 @@ const InternspDetails = () => {
         </div>
       </div>
       <div>
-        <table>
-          <thead>
-            <tr>
-              <th>No.</th>
-              <th>NAME</th>
-              <th>EMAIL</th>
-              <th>PHONE</th>
-              <th>LOCATION</th>
-              <th>PAST COURSE</th>
+        <TableContainer component={Paper}>
+          <Table sx={{ width: "100%" }} aria-label="simple table">
+            <TableHead
+              sx={{ backgroundColor: "#f5f5ef", border: 1 }}
+              align="center"
+            >
+              <TableRow>
+                <TableCell>No.</TableCell>
+                <TableCell>NAME</TableCell>
+                <TableCell>EMAIL</TableCell>
+                <TableCell>PHONE</TableCell>
+                <TableCell>LOCATION</TableCell>
+                <TableCell>PAST COURSE</TableCell>
+                <TableCell>YEAR OF PASSING</TableCell>
+                <TableCell>SELF INTRO</TableCell>
+                <TableCell>CV</TableCell>
+                <TableCell>STATUS</TableCell>
+                <TableCell>SUBMISSION DATE</TableCell>
+                <TableCell>Message</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody align="center">
+              {internshipDetails &&
+                internshipDetails.map((interns) => (
+                  <TableRow
+                    className="tabelrow"
+                    key={interns.student_id}
+                    sx={{ border: 1, borderColor: "#f5f5ef" }}
+                  >
+                    <TableCell component="th" scope="row">
+                      {interns.student_id}
+                    </TableCell>
+                    <TableCell>{interns.name}</TableCell>
+                    <TableCell>{interns.email}</TableCell>
+                    <TableCell>{interns.contact_number}</TableCell>
+                    <TableCell>{interns.place}</TableCell>
+                    <TableCell>{interns.course}</TableCell>
+                    <TableCell>{interns.year_of_passing}</TableCell>
+                    <TableCell>{interns.about_yourself}</TableCell>
+                    <TableCell>{interns.resume}</TableCell>
+                    <TableCell>
+                      <select
+                        className="student-status"
+                        // onChange={(e) => submit(e, detail.student_id)}
+                      >
+                        <option value="">yet to call</option>
+                        <option value="Waiting To Call">Waiting To Call</option>
+                        <option value="No Response">No Response</option>
+                        <option value="Decision Pending">
+                          Decision Pending
+                        </option>
+                        <option value="Not Interested">Not Interested</option>
+                        <option value="Interested">Interested </option>
+                        <option value="Waiting to Join">Waiting to Join</option>
+                        <option value="Admission">Admission</option>
+                      </select>
+                    </TableCell>
 
-              <th> YEAR OF PASSING</th>
-              <th>Self Intro</th>
-              <th>CV</th>
-              <th>SUBMISSION DATE</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            {internshipDetails &&
-              internshipDetails.map((interns) => {
-                return (
-                  <tr key={interns.student_id}>
-                    <td>{interns.student_id}</td>
-                    <td>{interns.name}</td>
-                    <td>{interns.email}</td>
-                    <td>{interns.contact_number}</td>
-                    <td>{interns.place}</td>
-                    <td>{interns.course}</td>
-                    <td>{interns.year_of_passing}</td>
-                    <td>{interns.about_yourself}</td>
-
-                    <td>
+                    <TableCell>
+                      {new Date(interns.created_date).toLocaleString("lookup")}
+                    </TableCell>
+                    <TableCell>
                       <button
                         style={{
-                          padding: "5px",
+                          backgroundColor: "skyblue",
+                          color: "white",
+                          width: "100%",
+                          height: "40px",
+                          border: "none",
+                          borderRadius: "5px",
                         }}
+                        onClick={() => setOpenModal(true)}
                       >
-                        {interns.resume}
+                        Update
                       </button>
-                    </td>
-                    <td>{interns.created_date}</td>
-                  </tr>
-                );
-              })}
-          </tbody>
-        </table>
+                    </TableCell>
+                  </TableRow>
+                ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
       </div>
     </>
   );

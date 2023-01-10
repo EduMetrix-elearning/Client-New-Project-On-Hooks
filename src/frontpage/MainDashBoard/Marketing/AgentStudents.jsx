@@ -3,8 +3,6 @@ import MarketingNavbar from "./MarketingNavbar";
 import HrDates from "../HumanResource/HrDates";
 import HrTable from "../HumanResource/HrTable";
 import { confirmAlert } from "react-confirm-alert";
-import "react-confirm-alert/src/react-confirm-alert.css";
-import "./QuickData.css";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -12,23 +10,30 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import QucikdataModal from "./QuickdataModel";
+import "react-confirm-alert/src/react-confirm-alert.css";
+import "./AgentStudents.css";
+import MessageModal from "../HumanResource/MessageModal";
+import { DashBoardInputs } from "../../../WebsiteDashboard/Inputs";
 
 const services = require("../../../services/pages/agentRoute");
 
-const QuickData = () => {
-  const [enqiryData, setEnquiryData] = useState([]);
+const AgentStudents = () => {
+  const [referrals, setReferrals] = useState([]);
   const [openModal, setOpenModal] = useState(false);
 
-  const handleEnquiryData = async () => {
-    const result = await services.getEnquiry();
-    console.log(result);
-    setEnquiryData(result.data);
-  };
-
   useEffect(() => {
-    handleEnquiryData();
+    try {
+      const getReferrals = async () => {
+        const students = await services.agentAllReferrals();
+        setReferrals(students.reverse());
+      };
+      getReferrals();
+    } catch (error) {
+      console.log(error);
+    }
   }, []);
+
+  console.log(referrals);
 
   const submit = (e, id) => {
     confirmAlert({
@@ -52,7 +57,7 @@ const QuickData = () => {
 
     try {
       const updateStatus = async () => {
-        await services.updateStudentEnquiryStatus(status, id);
+        await services.updateReferralStatus(status, id);
       };
       updateStatus();
     } catch (error) {
@@ -62,7 +67,7 @@ const QuickData = () => {
   return (
     <>
       <MarketingNavbar />
-      {openModal && <QucikdataModal setOpenModal={setOpenModal} />}
+      {openModal && <MessageModal setOpenModal={setOpenModal} />}
       <div style={{ width: "100%", marginTop: "1%" }}>
         <div>
           <HrDates />
@@ -91,7 +96,7 @@ const QuickData = () => {
         <TableContainer component={Paper}>
           <Table sx={{ width: "100%" }} aria-label="simple table">
             <TableHead
-              sx={{ backgroundColor: "#f5f5ef" }}
+              sx={{ backgroundColor: "#f5f5ef", border: 1 }}
               align="center"
             >
               <TableRow>
@@ -99,34 +104,37 @@ const QuickData = () => {
                 <TableCell>NAME</TableCell>
                 <TableCell>EMAIL</TableCell>
                 <TableCell>PHONE</TableCell>
+                <TableCell>LOCATION</TableCell>
+                <TableCell>PAST COURSE</TableCell>
+                <TableCell>YEAR OF PASSING</TableCell>
                 <TableCell>STATUS</TableCell>
-                <TableCell>MESSAGE</TableCell>
                 <TableCell>SUBMISSION DATE</TableCell>
-                <TableCell>UPDATE</TableCell>
+                <TableCell>Message</TableCell>
               </TableRow>
             </TableHead>
             <TableBody align="center">
-              {enqiryData &&
-                enqiryData.map((enquiry) => (
+              {referrals &&
+                referrals.map((detail, index) => (
                   <TableRow
                     className="tabelrow"
-                    key={enquiry.enquiry_id}
+                    key={index}
                     sx={{ border: 1, borderColor: "#f5f5ef" }}
                   >
                     <TableCell component="th" scope="row">
-                      {enquiry.enquiry_id}
+                      {index + 1}
                     </TableCell>
-                    <TableCell>{enquiry.name}</TableCell>
-                    <TableCell>{enquiry.email}</TableCell>
-
-                    <TableCell>{enquiry.contact_number}</TableCell>
-
+                    <TableCell>{detail.name}</TableCell>
+                    <TableCell>{detail.email}</TableCell>
+                    <TableCell>{detail.contact_number}</TableCell>
+                    <TableCell>{detail.place}</TableCell>
+                    <TableCell>{detail.course}</TableCell>
+                    <TableCell>{detail.year_of_passing}</TableCell>
                     <TableCell>
                       <select
                         className="student-status"
-                        onChange={(e) => submit(e, enquiry.enquiry_id)}
+                        onChange={(e) => submit(e, detail.student_id)}
                       >
-                        <option value="">{enquiry.status}</option>
+                        <option value="">{detail.status}</option>
                         <option value="Waiting To Call">Waiting To Call</option>
                         <option value="No Response">No Response</option>
                         <option value="Decision Pending">
@@ -138,10 +146,9 @@ const QuickData = () => {
                         <option value="Admission">Admission</option>
                       </select>
                     </TableCell>
-                    <TableCell>{enquiry.message}</TableCell>
 
                     <TableCell>
-                      {new Date(enquiry.created_date).toLocaleString("lookup")}
+                      {new Date(detail.created_date).toLocaleString("lookup")}
                     </TableCell>
                     <TableCell>
                       <button
@@ -168,4 +175,4 @@ const QuickData = () => {
   );
 };
 
-export default QuickData;
+export default AgentStudents;
