@@ -98,7 +98,9 @@ export const Carrier = (props) => {
       try {
         const registerEmployee = async (obj) => {
           const result = await services.submitEmployee(obj);
-          console.log(result);
+          if (result.success) {
+            alert("Successfully submitted");
+          }
         };
         registerEmployee(employee);
       } catch (error) {
@@ -187,13 +189,6 @@ export const Carrier = (props) => {
           >
             I'm Interested
           </Button>
-          {/* <h1>{employee.email}</h1>
-          <img
-            src={`/uploads/${employee.image}`}
-            width={"100px"}
-            height={"100px"}
-          />
-          <h1>hi</h1> */}
         </Box>
       </Modal>
     </div>
