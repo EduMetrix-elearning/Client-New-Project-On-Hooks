@@ -7,44 +7,57 @@
             color: #164e64;
             text-shadow: 1px 1px 2px white, 0 0 1em white, 0 0 0.2em white
         }
+
+        .Hr-information{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            border:1px solid black;
+        }
+
+
+        
+
+        
     
-    .Hr-information{
-        width:100%;
-        text-align:justify;
-        margin: auto;
-        margin-top: 30px;
-        background-image: url("../../asset/images/HrpageImage/hrbackground.jpeg");
-        opacity: 1;
-        background-position:unset;
-        padding:20px 70px;
-    }
-    .hr-info-title{
-        font-family: museo-sans,sans-serif;
-        font-weight: 900;
-        font-size: 35px;
-        line-height: 1.22;
-        color: #164e64;
-        margin-bottom: 10px;
-        margin-top:30px;
-        text-shadow: 1px 1px 2px white, 0 0 1em white, 0 0 0.2em white
-    }
-    .hr-info-paragraph{
-        font-family: museo-sans,sans-serif;
-        font-weight: 100;
-        font-size: 28px;
-        line-height: 1.90;
-        color: white;
-        margin-bottom: 10px;
-    }
-    .hr-short-title{
-        margin-left: 20px;
-        font-weight: bold;
-        font-size:23px;
-        line-height: 1.22;
-        color: #164e64;
-        margin-bottom: 10px;
-        text-shadow: 1px 1px 2px white, 0 0 1em white, 0 0 0.2em white
-    }
+    // .Hr-information{
+    //     width:100%;
+    //     text-align:justify;
+    //     margin: auto;
+    //     margin-top: 30px;
+    //     // background-image: url("../../asset/images/HrpageImage/hrbackground.jpeg");
+    //     opacity: 1;
+    //     background-position:unset;
+    //     padding:20px 70px;
+    // }
+    // .hr-info-title{
+    //     font-family: museo-sans,sans-serif;
+    //     font-weight: 900;
+    //     font-size: 35px;
+    //     line-height: 1.22;
+    //     color: #164e64;
+    //     margin-bottom: 10px;
+    //     margin-top:30px;
+    //     // text-shadow: 1px 1px 2px white, 0 0 1em white, 0 0 0.2em white
+    // }
+    // .hr-info-paragraph{
+    //     font-family: museo-sans,sans-serif;
+    //     font-weight: 100;
+    //     font-size: 28px;
+    //     line-height: 1.90;
+    //     // color: white;
+    //     margin-bottom: 10px;
+    // }
+    // .hr-short-title{
+    //     margin-left: 20px;
+    //     font-weight: bold;
+    //     font-size:23px;
+    //     line-height: 1.22;
+    //     color: #164e64;
+    //     margin-bottom: 10px;
+    //     // text-shadow: 1px 1px 2px white, 0 0 1em white, 0 0 0.2em white
+    // }
     .collaborates-div{
         margin-top: 5px;
         background-image: url("../../asset/images/HrpageImage/longtile.jpeg");

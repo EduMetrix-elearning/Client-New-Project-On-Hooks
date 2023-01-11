@@ -12,7 +12,7 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import "react-confirm-alert/src/react-confirm-alert.css";
 import "./AgentStudents.css";
-import MessageModal from "../HumanResource/MessageModal";
+import AgentModel from "./AgentModel";
 import { DashBoardInputs } from "../../../WebsiteDashboard/Inputs";
 
 const services = require("../../../services/pages/agentRoute");
@@ -20,6 +20,7 @@ const services = require("../../../services/pages/agentRoute");
 const AgentStudents = () => {
   const [referrals, setReferrals] = useState([]);
   const [openModal, setOpenModal] = useState(false);
+  const [studentid, setStudentId] = useState();
 
   useEffect(() => {
     try {
@@ -67,7 +68,7 @@ const AgentStudents = () => {
   return (
     <>
       <MarketingNavbar />
-      {openModal && <MessageModal setOpenModal={setOpenModal} />}
+      {openModal && <AgentModel id={studentid} setOpenModal={setOpenModal} />}
       <div style={{ width: "100%", marginTop: "1%" }}>
         <div>
           <HrDates />
@@ -160,7 +161,11 @@ const AgentStudents = () => {
                           border: "none",
                           borderRadius: "5px",
                         }}
-                        onClick={() => setOpenModal(true)}
+                        onClick={() => {
+                          setOpenModal(true);
+                          setStudentId(detail.student_id);
+                          setOpenModal(true);
+                        }}
                       >
                         Update
                       </button>

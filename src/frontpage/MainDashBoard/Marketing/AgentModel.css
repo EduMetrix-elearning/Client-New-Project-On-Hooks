@@ -1,6 +1,6 @@
 
 
-.Quick-modalBackground {
+.message-modalBackground {
     width: 100vw;
     height: 100vh;
     background-color: rgb(33, 31, 31);
@@ -19,9 +19,8 @@
     align-items: center;
   }
   
-  .Quick-modalContainer {
+  .message-modalContainer {
     width: 400px;
-    overflow:auto;
     height: 500px;
     border-radius: 12px;
     background-color: white;
@@ -45,26 +44,26 @@
     /* padding: 50px 35px; */
   }
   
-  .Quick-modalContainer .title {
+  .message-modalContainer .title {
     display: inline-block;
     text-align: center;
     margin-top: 5px 0px;
     flex:10%;
   }
   
-  .Quick-titleCloseBtn {
+  .message-titleCloseBtn {
     display: flex;
     justify-content: flex-end;
   }
   
-  .Quick-titleCloseBtn button {
+  .message-titleCloseBtn button {
     background-color: transparent;
     border: none;
     font-size: 20px;
     cursor: pointer;
   }
   
-  .Quick-modalContainer .body {
+  .message-modalContainer .body {
     flex: 60%;
     display: flex;
     /* justify-content: center;
@@ -75,43 +74,30 @@
 
 
 
-  .Quick-modalContainer .body .body-content{
+  .message-modalContainer .body .body-content{
     border:1px solid rgb(200, 194, 194);
-    margin: 5px 0px;
-    padding: 0px 5px;
+    margin: 8px 0px;
+    height: 60px;
     border-radius: 10px;
-    height:10vh;
   }
 
-  .body-content p{
-    margin: 2px 0px;
-  }
-
-  .Quick-modalContainer .body-2{
+  .message-modalContainer .body-2{
+    flex:20%;
     display: flex;
-    margin-top: 10px;
     flex-direction: column;
     text-align: justify;
   }
 
-  .Quick-modalContainer .body-2 textarea{
+  .message-modalContainer .body-2 textarea{
     border: 1px solid rgb(200, 194, 194);
     margin-bottom: 8px;
     height: 80px;
-    padding: 5px 5px;
     border-radius: 10px;
   }
 
 
-  .Quick-modalContainer .body-2 input{
-    border: 1px solid rgb(200, 194, 194);
-    margin-bottom: 8px;
-    padding: 5px 5px;
-    border-radius: 5px;
-  }
-
   
-  .Quick-modalContainer .footer {
+  .message-modalContainer .footer {
     flex: 10%;
     display: flex;
     justify-content: center;
@@ -120,7 +106,7 @@
     padding-bottom: 20px;
   }
   
-  .Quick-modalContainer .footer button {
+  .message-modalContainer .footer button {
     width: 100px;
     height: 45px;
     margin: 0px 10px;

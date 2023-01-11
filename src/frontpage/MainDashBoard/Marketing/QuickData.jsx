@@ -19,6 +19,10 @@ const services = require("../../../services/pages/agentRoute");
 const QuickData = () => {
   const [enqiryData, setEnquiryData] = useState([]);
   const [openModal, setOpenModal] = useState(false);
+  const [updateId, setUpdateId] = useState();
+  const [content, setContent] = useState(false);
+  // const [contentCourse, setContentCourse] = useState(false);
+  // const [contentYear, setContentYear] = useState(false);
 
   const handleEnquiryData = async () => {
     const result = await services.getEnquiry();
@@ -62,7 +66,15 @@ const QuickData = () => {
   return (
     <>
       <MarketingNavbar />
-      {openModal && <QucikdataModal setOpenModal={setOpenModal} />}
+      {openModal && (
+        <QucikdataModal
+          setOpenModal={setOpenModal}
+          id={updateId}
+          content={content}
+          // contentCourse={contentCourse}
+          // contentYear={contentYear}
+        />
+      )}
       <div style={{ width: "100%", marginTop: "1%" }}>
         <div>
           <HrDates />
@@ -90,10 +102,7 @@ const QuickData = () => {
       <div>
         <TableContainer component={Paper}>
           <Table sx={{ width: "100%" }} aria-label="simple table">
-            <TableHead
-              sx={{ backgroundColor: "#f5f5ef" }}
-              align="center"
-            >
+            <TableHead sx={{ backgroundColor: "#f5f5ef" }} align="center">
               <TableRow>
                 <TableCell>No.</TableCell>
                 <TableCell>NAME</TableCell>
@@ -153,7 +162,18 @@ const QuickData = () => {
                           border: "none",
                           borderRadius: "5px",
                         }}
-                        onClick={() => setOpenModal(true)}
+                        onClick={() => {
+                          if (
+                            enquiry.location &&
+                            enquiry.past_course &&
+                            enquiry.year_of_passing
+                          ) {
+                            setContent(true);
+                          }
+
+                          setUpdateId(enquiry.enquiry_id);
+                          setOpenModal(true);
+                        }}
                       >
                         Update
                       </button>
