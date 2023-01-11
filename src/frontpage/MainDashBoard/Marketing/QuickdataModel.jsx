@@ -8,6 +8,7 @@ function QucikdataModal({
   setOpenModal,
   id,
   content,
+  notes,
   // contentCourse,
   // contentYear,
 }) {
@@ -15,27 +16,30 @@ function QucikdataModal({
   const [past_course, setPastCourse] = useState("");
   const [year_of_passing, setPassingYear] = useState("");
   const [comments, setComments] = useState();
-  const [updateData, setUpdateData] = useState([]);
+  // const [messages, setMessages] = useState([]);
 
-  useEffect(() => {
-    setUpdateData();
-  }, []);
+  // useEffect(() => {
+  //   setMessages(notes);
+  // }, []);
+  // console.log(messages);
 
   const handleClick = async () => {
-    const status = {
-      // enquiry_id: ls.get("id"),
+    let status = {
       location: location,
       past_course: past_course,
       year_of_passing: year_of_passing,
       comments: comments,
     };
-    console.log(status.comments);
+    if (content) {
+      status = {
+        comments,
+      };
+    }
 
     try {
       const StudentSectionUpdating = async () => {
-        const result = await services.updateStudentEnquiryStatus(status, id);
-        console.log(result);
-        setUpdateData(result);
+        await services.updateStudentEnquiryStatus(status, id);
+        window.location.reload(true);
       };
       StudentSectionUpdating();
     } catch (error) {
@@ -43,8 +47,6 @@ function QucikdataModal({
       alert(error);
     }
   };
-
-  console.log(content);
 
   return (
     <div className="Quick-modalBackground">
@@ -99,7 +101,7 @@ function QucikdataModal({
         <div className="footer">
           <button
             onClick={() => {
-              handleClick()
+              handleClick();
               setOpenModal(false);
             }}
           >

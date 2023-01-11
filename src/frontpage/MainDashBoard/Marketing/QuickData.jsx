@@ -21,12 +21,12 @@ const QuickData = () => {
   const [openModal, setOpenModal] = useState(false);
   const [updateId, setUpdateId] = useState();
   const [content, setContent] = useState(false);
+  const [comments, setComments] = useState([]);
   // const [contentCourse, setContentCourse] = useState(false);
   // const [contentYear, setContentYear] = useState(false);
 
   const handleEnquiryData = async () => {
     const result = await services.getEnquiry();
-    console.log(result);
     setEnquiryData(result.data);
   };
 
@@ -71,6 +71,7 @@ const QuickData = () => {
           setOpenModal={setOpenModal}
           id={updateId}
           content={content}
+          notes={comments}
           // contentCourse={contentCourse}
           // contentYear={contentYear}
         />
@@ -163,14 +164,12 @@ const QuickData = () => {
                           borderRadius: "5px",
                         }}
                         onClick={() => {
-                          if (
-                            enquiry.location &&
-                            enquiry.past_course &&
-                            enquiry.year_of_passing
-                          ) {
+                          if (enquiry.location !== null) {
                             setContent(true);
+                          } else {
+                            setContent(false);
                           }
-
+                          setComments(enquiry.comments);
                           setUpdateId(enquiry.enquiry_id);
                           setOpenModal(true);
                         }}

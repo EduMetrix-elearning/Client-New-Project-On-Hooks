@@ -341,7 +341,6 @@ export async function submitInternship(obj) {
 export async function getEnquiry() {
   try {
     const result = await Axios.get(baseurl.GetUrl() + "/student_enquiry");
-    console.log(result);
 
     return result.data;
   } catch (error) {
