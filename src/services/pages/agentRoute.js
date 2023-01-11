@@ -306,6 +306,22 @@ export async function getEmployee() {
     alert(error.message);
   }
 }
+
+export async function updateEmployeeStatus(status, id) {
+  try {
+    await Axios.put(
+      baseurl.GetUrl() + `/employee_registeration/update/${id}`,
+      status
+    );
+  } catch (error) {
+    if (error.response.data) {
+      alert(error.response.data.message);
+      return;
+    }
+    alert(error.message);
+  }
+}
+
 export async function getInternship() {
   try {
     const result = await Axios.get(baseurl.GetUrl() + "/student_internship");
@@ -329,6 +345,21 @@ export async function submitInternship(obj) {
     console.log(result);
 
     return result.data;
+  } catch (error) {
+    if (error.response.data) {
+      alert(error.response.data.message);
+      return;
+    }
+    alert(error.message);
+  }
+}
+
+export async function updateIntersStatus(status, id) {
+  try {
+    await Axios.put(
+      baseurl.GetUrl() + `/student_internship/update/${id}`,
+      status
+    );
   } catch (error) {
     if (error.response.data) {
       alert(error.response.data.message);
@@ -426,6 +457,18 @@ export async function submitCollaborators(obj) {
   try {
     const result = await Axios.post(baseurl.GetUrl() + "/collaborators", obj);
     return result.data;
+  } catch (error) {
+    if (error.response.data) {
+      alert(error.response.data.message);
+      return;
+    }
+    alert(error.message);
+  }
+}
+
+export async function updateCorporateStatus(status, id) {
+  try {
+    await Axios.put(baseurl.GetUrl() + `/collaborators/update/${id}`, status);
   } catch (error) {
     if (error.response.data) {
       alert(error.response.data.message);

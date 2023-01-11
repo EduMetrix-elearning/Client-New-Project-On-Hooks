@@ -1,27 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import "./QuickdataModel.css";
 
 const services = require("../../../services/pages/agentRoute");
-const ls = require("local-storage");
 
-function QucikdataModal({
-  setOpenModal,
-  id,
-  content,
-  notes,
-  // contentCourse,
-  // contentYear,
-}) {
+
+function QucikdataModal({ setOpenModal, id, content, notes }) {
   const [location, setLocation] = useState("");
   const [past_course, setPastCourse] = useState("");
   const [year_of_passing, setPassingYear] = useState("");
-  const [comments, setComments] = useState();
-  // const [messages, setMessages] = useState([]);
-
-  // useEffect(() => {
-  //   setMessages(notes);
-  // }, []);
-  // console.log(messages);
+  const [comments, setComments] = useState("");
 
   const handleClick = async () => {
     let status = {
@@ -48,6 +35,8 @@ function QucikdataModal({
     }
   };
 
+  console.log(notes)
+
   return (
     <div className="Quick-modalBackground">
       <div className="Quick-modalContainer">
@@ -64,12 +53,13 @@ function QucikdataModal({
           <h4 style={{ textAlign: "center" }}>Message</h4>
         </div>
         <div className="body">
-          <div className="body-content">
-            <div>{location}</div>
-            <div>{past_course}</div>
-            <p>{year_of_passing}</p>
-            <p>{comments}</p>
-          </div>
+          {/* {notes && notes.map((note, index) => {
+            return (
+              <div className="body-content" key={index}>
+                <p>{note}</p>
+              </div>
+            );
+          })} */}
         </div>
         <div className="body-2">
           {!content && (
@@ -96,7 +86,7 @@ function QucikdataModal({
           <textarea
             placeholder="Enter Message"
             onChange={(e) => setComments(e.target.value)}
-          ></textarea>
+          />
         </div>
         <div className="footer">
           <button

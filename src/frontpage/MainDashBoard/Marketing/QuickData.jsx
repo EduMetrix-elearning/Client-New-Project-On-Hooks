@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import MarketingNavbar from "./MarketingNavbar";
 import HrDates from "../HumanResource/HrDates";
-import HrTable from "../HumanResource/HrTable";
+
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
 import "./QuickData.css";
@@ -111,6 +111,9 @@ const QuickData = () => {
                 <TableCell>PHONE</TableCell>
                 <TableCell>STATUS</TableCell>
                 <TableCell>MESSAGE</TableCell>
+                <TableCell>LOCATION</TableCell>
+                <TableCell>PAST COURSE</TableCell>
+                <TableCell>YEAR OF PASSING</TableCell>
                 <TableCell>SUBMISSION DATE</TableCell>
                 <TableCell>UPDATE</TableCell>
               </TableRow>
@@ -148,6 +151,9 @@ const QuickData = () => {
                         <option value="Admission">Admission</option>
                       </select>
                     </TableCell>
+                    <TableCell>{enquiry.location}</TableCell>
+                    <TableCell>{enquiry.past_course}</TableCell>
+                    <TableCell>{enquiry.year_of_passing}</TableCell>
                     <TableCell>{enquiry.message}</TableCell>
 
                     <TableCell>

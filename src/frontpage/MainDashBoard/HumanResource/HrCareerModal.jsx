@@ -1,30 +1,29 @@
 import React, { useState } from "react";
-import "./AgentModel.css";
-
+import "./HrCareerModal.css";
+import { Link } from "react-router-dom";
 
 const services = require("../../../services/pages/agentRoute");
 
-export default function AgentModel({ setOpenModal, id }) {
-  const [studentMessage, setStudentMessage] = useState("");
+function HrCareerModal({ setOpenModal, id }) {
+  const [EmployeeMessage, setEmployeeMessage] = useState([]);
 
-  const handleStudentMessage = async () => {
+  const handleEmployeeMessage = async () => {
     const status = {
-      comments: studentMessage,
+      comments: EmployeeMessage,
     };
     console.log(status.comments);
 
     try {
-      const AgentStudentSectionUpdating = async () => {
-        const result = await services.updateReferralStatus(status, id);
+      const EmployeeSectionUpdating = async () => {
+        const result = await services.updateEmployeeStatus(status, id);
         console.log(result);
       };
-      AgentStudentSectionUpdating();
+      EmployeeSectionUpdating();
     } catch (error) {
       console.log(error);
       alert(error);
     }
   };
-
   return (
     <div className="message-modalBackground">
       <div className="message-modalContainer">
@@ -42,27 +41,19 @@ export default function AgentModel({ setOpenModal, id }) {
         </div>
         <div className="body">
           <div className="body-content">
-            <p>I will call you Later</p>
-          </div>
-
-          <div className="body-content">
-            <p>I will call you Later</p>
-          </div>
-
-          <div className="body-content">
-            <p>I will call you Later</p>
+            <p>{EmployeeMessage}</p>
           </div>
         </div>
         <div className="body-2">
           <textarea
             placeholder="Enter Message"
-            onChange={(e) => setStudentMessage(e.target.value)}
+            onChange={(e) => setEmployeeMessage(e.target.value)}
           ></textarea>
         </div>
         <div className="footer">
           <button
             onClick={() => {
-              handleStudentMessage()
+              handleEmployeeMessage()
               setOpenModal(false);
             }}
           >
@@ -73,3 +64,5 @@ export default function AgentModel({ setOpenModal, id }) {
     </div>
   );
 }
+
+export default HrCareerModal;

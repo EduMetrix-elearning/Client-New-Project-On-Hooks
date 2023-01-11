@@ -1,0 +1,124 @@
+
+
+.message-modalBackground {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(33, 31, 31);
+    
+    /* background-color:grey; */
+    /* background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; */
+    /* background-attachment: fixed; */
+   
+    /* backdrop-filter: blur(20px);
+     */
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .message-modalContainer {
+    width: 400px;
+    height: 500px;
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: rgba(238, 236, 236, 0.35) 0px 5px 15px;
+    display: flex;
+    flex-direction: column;
+    padding:0px 10px;
+    margin-bottom: 30px;
+    /* width: 400px;
+    height: 500px;
+    background-color:#fff;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    padding:0px 10px;
+    top: 50%;
+    left: 50%;
+    border-radius: 10px; */
+    /* backdrop-filter: blur(10px); */
+    /* border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 40px rgba(8,7,16,0.6); */
+    /* padding: 50px 35px; */
+  }
+  
+  .message-modalContainer .title {
+    display: inline-block;
+    text-align: center;
+    margin-top: 5px 0px;
+    flex:10%;
+  }
+  
+  .message-titleCloseBtn {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .message-titleCloseBtn button {
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  .message-modalContainer .body {
+    flex: 60%;
+    display: flex;
+    /* justify-content: center;
+    align-items: center; */
+    flex-direction: column;
+    text-align: justify;
+  }
+
+
+
+  .message-modalContainer .body .body-content{
+    border:1px solid rgb(200, 194, 194);
+    margin: 8px 0px;
+    height: 60px;
+    border-radius: 10px;
+  }
+
+  .message-modalContainer .body-2{
+    flex:20%;
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+  }
+
+  .message-modalContainer .body-2 textarea{
+    border: 1px solid rgb(200, 194, 194);
+    margin-bottom: 8px;
+    height: 80px;
+    border-radius: 10px;
+  }
+
+
+  
+  .message-modalContainer .footer {
+    flex: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    padding-bottom: 20px;
+  }
+  
+  .message-modalContainer .footer button {
+    width: 100px;
+    height: 45px;
+    margin: 0px 10px;
+    border: none;
+    background-color: cornflowerblue;
+    color: white;
+    border-radius: 8px;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  /* #cancelBtn {
+    background-color: crimson;
+  }
+   */

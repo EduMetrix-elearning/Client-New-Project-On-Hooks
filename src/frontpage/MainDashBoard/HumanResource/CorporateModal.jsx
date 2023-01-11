@@ -1,24 +1,24 @@
 import React, { useState } from "react";
-import "./AgentModel.css";
-
+import "./CorporateModal.css";
+import { Link } from "react-router-dom";
 
 const services = require("../../../services/pages/agentRoute");
 
-export default function AgentModel({ setOpenModal, id }) {
-  const [studentMessage, setStudentMessage] = useState("");
+export default function CorporateModel({ setOpenModal, id }) {
+  const [CorporateMessage, setCorporateMessage] = useState([]);
 
-  const handleStudentMessage = async () => {
+  const handleCorporateMessage = async () => {
     const status = {
-      comments: studentMessage,
+      comments: CorporateMessage,
     };
     console.log(status.comments);
 
     try {
-      const AgentStudentSectionUpdating = async () => {
-        const result = await services.updateReferralStatus(status, id);
+      const CorporateSectionUpdating = async () => {
+        const result = await services.updateCorporateStatus(status, id);
         console.log(result);
       };
-      AgentStudentSectionUpdating();
+      CorporateSectionUpdating();
     } catch (error) {
       console.log(error);
       alert(error);
@@ -42,27 +42,19 @@ export default function AgentModel({ setOpenModal, id }) {
         </div>
         <div className="body">
           <div className="body-content">
-            <p>I will call you Later</p>
-          </div>
-
-          <div className="body-content">
-            <p>I will call you Later</p>
-          </div>
-
-          <div className="body-content">
-            <p>I will call you Later</p>
+            <p>{CorporateMessage}</p>
           </div>
         </div>
         <div className="body-2">
           <textarea
             placeholder="Enter Message"
-            onChange={(e) => setStudentMessage(e.target.value)}
+            onChange={(e) => setCorporateMessage(e.target.value)}
           ></textarea>
         </div>
         <div className="footer">
           <button
             onClick={() => {
-              handleStudentMessage()
+              handleCorporateMessage();
               setOpenModal(false);
             }}
           >

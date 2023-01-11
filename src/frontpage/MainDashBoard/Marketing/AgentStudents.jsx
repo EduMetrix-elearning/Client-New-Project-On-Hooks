@@ -162,7 +162,6 @@ const AgentStudents = () => {
                           borderRadius: "5px",
                         }}
                         onClick={() => {
-                          setOpenModal(true);
                           setStudentId(detail.student_id);
                           setOpenModal(true);
                         }}

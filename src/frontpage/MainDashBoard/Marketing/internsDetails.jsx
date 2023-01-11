@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import MarketingNavbar from "./MarketingNavbar";
 import HrDates from "../HumanResource/HrDates";
-import MessageModal from "../HumanResource/MessageModal";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -10,17 +9,19 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import "./internsDetails";
+import InternshipModel from "./InternshipModel";
 
 const services = require("../../../services/pages/agentRoute");
 
 const InternspDetails = () => {
   const [internshipDetails, setInternshipDetails] = useState([]);
   const [openModal, setOpenModal] = useState(false);
+  const [internsId, setInternsId] = useState();
 
   const handleInternshipDetails = async () => {
     const result = await services.getInternship();
     console.log(result);
-    setInternshipDetails(result.data);
+    setInternshipDetails(result.data.reverse());
   };
 
   useEffect(() => {
@@ -29,7 +30,9 @@ const InternspDetails = () => {
   return (
     <>
       <MarketingNavbar />
-      {openModal && <MessageModal setOpenModal={setOpenModal} />}
+      {openModal && (
+        <InternshipModel id={internsId} setOpenModal={setOpenModal} />
+      )}
       <div style={{ width: "100%", marginTop: "1%" }}>
         <div>
           <HrDates />
@@ -126,7 +129,10 @@ const InternspDetails = () => {
                           border: "none",
                           borderRadius: "5px",
                         }}
-                        onClick={() => setOpenModal(true)}
+                        onClick={() => {
+                          setInternsId(interns.student_id);
+                          setOpenModal(true);
+                        }}
                       >
                         Update
                       </button>

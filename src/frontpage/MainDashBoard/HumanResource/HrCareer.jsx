@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import HrDates from "./HrDates";
 import HumanResource from "./HumanResource";
 import "./HrCareer.css";
-
+import HrCareerModal from "./HrCareerModal";
 import HrTable from "./HrTable";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -11,7 +11,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import MessageModal from "./MessageModal";
+
 import { textAlign } from "@mui/system";
 const services = require("../../../services/pages/agentRoute");
 
@@ -21,7 +21,7 @@ const HrCareer = () => {
   const HandleHiringDetails = async () => {
     const result = await services.getEmployee();
     console.log(result);
-    setHiringDetails(result.data);
+    setHiringDetails(result.data.reverse());
   };
 
   useEffect(() => {
@@ -29,11 +29,14 @@ const HrCareer = () => {
   }, []);
 
   const [openModal, setOpenModal] = useState(false);
+  const [employeeId, setEmployeeId] = useState();
 
   return (
     <>
       <HumanResource />
-      {openModal && <MessageModal setOpenModal={setOpenModal} />}
+      {openModal && (
+        <HrCareerModal id={employeeId} setOpenModal={setOpenModal} />
+      )}
       <div style={{ width: "100%", marginTop: "1%" }}>
         <div>
           <HrDates />
@@ -64,12 +67,8 @@ const HrCareer = () => {
                 sx={{
                   backgroundColor: "#f5f5ef",
                 }}
-                
               >
-                <TableRow
-                  sx={{width: "100%" }}
-                  
-                >
+                <TableRow sx={{ width: "100%" }}>
                   <TableCell>No.</TableCell>
                   <TableCell>NAME</TableCell>
                   <TableCell>EMAIL</TableCell>
@@ -135,7 +134,10 @@ const HrCareer = () => {
                             border: "none",
                             borderRadius: "5px",
                           }}
-                          onClick={() => setOpenModal(true)}
+                          onClick={() => {
+                            setEmployeeId(employee.employee_id);
+                            setOpenModal(true);
+                          }}
                         >
                           Update
                         </button>

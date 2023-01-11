@@ -9,17 +9,18 @@ import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 import HumanResource from "./HumanResource";
 import HrDates from "./HrDates";
-import MessageModal from "./MessageModal";
+import CorporateModel from "./CorporateModal";
 const services = require("../../../services/pages/agentRoute");
 
 const HrCorporate = () => {
   const [careerdetails, setCareerDetails] = useState([]);
   const [openModal, setOpenModal] = useState(false);
+  const [corporateId, setCorporateId] = useState();
 
   const Corporatedata = async () => {
     const result = await services.getCollaborators();
     // console.log(result);
-    setCareerDetails(result.data);
+    setCareerDetails(result.data.reverse());
   };
 
   useEffect(() => {
@@ -28,7 +29,9 @@ const HrCorporate = () => {
   return (
     <>
       <HumanResource />
-      {openModal && <MessageModal setOpenModal={setOpenModal} />}
+      {openModal && (
+        <CorporateModel id={corporateId} setOpenModal={setOpenModal} />
+      )}
       <div style={{ width: "100%", marginTop: "1%" }}>
         <div>
           <HrDates />
@@ -124,7 +127,10 @@ const HrCorporate = () => {
                           border: "none",
                           borderRadius: "5px",
                         }}
-                        onClick={() => setOpenModal(true)}
+                        onClick={() => {
+                          setCorporateId(corporate.collaborator_id);
+                          setOpenModal(true);
+                        }}
                       >
                         Update
                       </button>
