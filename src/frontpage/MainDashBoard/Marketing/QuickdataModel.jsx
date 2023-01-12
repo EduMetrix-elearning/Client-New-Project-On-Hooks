@@ -1,8 +1,7 @@
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import "./QuickdataModel.css";
 
 const services = require("../../../services/pages/agentRoute");
-
 
 function QucikdataModal({ setOpenModal, id, content, notes }) {
   const [location, setLocation] = useState("");
@@ -35,7 +34,7 @@ function QucikdataModal({ setOpenModal, id, content, notes }) {
     }
   };
 
-  console.log(notes)
+  console.log(notes);
 
   return (
     <div className="Quick-modalBackground">
@@ -53,13 +52,15 @@ function QucikdataModal({ setOpenModal, id, content, notes }) {
           <h4 style={{ textAlign: "center" }}>Message</h4>
         </div>
         <div className="body">
-          {/* {notes && notes.map((note, index) => {
-            return (
-              <div className="body-content" key={index}>
-                <p>{note}</p>
-              </div>
-            );
-          })} */}
+          {notes &&
+            notes.map((note, index) => {
+              return (
+                <div className="body-content" key={index}>
+                  <p>{note}</p>
+                </div>
+              );
+            })}
+
         </div>
         <div className="body-2">
           {!content && (
