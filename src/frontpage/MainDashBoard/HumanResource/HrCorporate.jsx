@@ -16,6 +16,7 @@ const HrCorporate = () => {
   const [careerdetails, setCareerDetails] = useState([]);
   const [openModal, setOpenModal] = useState(false);
   const [corporateId, setCorporateId] = useState();
+  const [comments, setComments] = useState();
 
   const Corporatedata = async () => {
     const result = await services.getCollaborators();
@@ -30,7 +31,7 @@ const HrCorporate = () => {
     <>
       <HumanResource />
       {openModal && (
-        <CorporateModel id={corporateId} setOpenModal={setOpenModal} />
+        <CorporateModel id={corporateId} setOpenModal={setOpenModal} notes={comments} />
       )}
       <div style={{ width: "100%", marginTop: "1%" }}>
         <div>
@@ -128,6 +129,7 @@ const HrCorporate = () => {
                           borderRadius: "5px",
                         }}
                         onClick={() => {
+                          setComments(corporate.comments)
                           setCorporateId(corporate.collaborator_id);
                           setOpenModal(true);
                         }}

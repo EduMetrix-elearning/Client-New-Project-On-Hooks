@@ -17,6 +17,7 @@ const InternspDetails = () => {
   const [internshipDetails, setInternshipDetails] = useState([]);
   const [openModal, setOpenModal] = useState(false);
   const [internsId, setInternsId] = useState();
+  const [comments, setComments] = useState();
 
   const handleInternshipDetails = async () => {
     const result = await services.getInternship();
@@ -31,7 +32,11 @@ const InternspDetails = () => {
     <>
       <MarketingNavbar />
       {openModal && (
-        <InternshipModel id={internsId} setOpenModal={setOpenModal} />
+        <InternshipModel
+          id={internsId}
+          setOpenModal={setOpenModal}
+          notes={comments}
+        />
       )}
       <div style={{ width: "100%", marginTop: "1%" }}>
         <div>
@@ -130,6 +135,7 @@ const InternspDetails = () => {
                           borderRadius: "5px",
                         }}
                         onClick={() => {
+                          setComments(interns.comments);
                           setInternsId(interns.student_id);
                           setOpenModal(true);
                         }}

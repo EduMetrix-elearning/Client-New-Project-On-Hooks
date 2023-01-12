@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const services = require("../../../services/pages/agentRoute");
 
-export default function CorporateModel({ setOpenModal, id }) {
+export default function CorporateModel({ setOpenModal, id, notes }) {
   const [CorporateMessage, setCorporateMessage] = useState([]);
 
   const handleCorporateMessage = async () => {
@@ -15,8 +15,8 @@ export default function CorporateModel({ setOpenModal, id }) {
 
     try {
       const CorporateSectionUpdating = async () => {
-        const result = await services.updateCorporateStatus(status, id);
-        console.log(result);
+        await services.updateCorporateStatus(status, id);
+        window.location.reload(true);
       };
       CorporateSectionUpdating();
     } catch (error) {
@@ -41,9 +41,14 @@ export default function CorporateModel({ setOpenModal, id }) {
           <h4 style={{ textAlign: "center" }}>Message</h4>
         </div>
         <div className="body">
-          <div className="body-content">
-            <p>{CorporateMessage}</p>
-          </div>
+          {notes &&
+            notes.map((note, index) => {
+              return (
+                <div className="body-content" key={index}>
+                  <p>{note}</p>
+                </div>
+              );
+            })}
         </div>
         <div className="body-2">
           <textarea

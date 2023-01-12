@@ -17,6 +17,7 @@ const services = require("../../../services/pages/agentRoute");
 
 const HrCareer = () => {
   const [hiringdetails, setHiringDetails] = useState([]);
+  const [comments, setComments] = useState([]);
 
   const HandleHiringDetails = async () => {
     const result = await services.getEmployee();
@@ -35,7 +36,11 @@ const HrCareer = () => {
     <>
       <HumanResource />
       {openModal && (
-        <HrCareerModal id={employeeId} setOpenModal={setOpenModal} />
+        <HrCareerModal
+          id={employeeId}
+          setOpenModal={setOpenModal}
+          notes={comments}
+        />
       )}
       <div style={{ width: "100%", marginTop: "1%" }}>
         <div>
@@ -135,6 +140,7 @@ const HrCareer = () => {
                             borderRadius: "5px",
                           }}
                           onClick={() => {
+                            setComments(employee.comments);
                             setEmployeeId(employee.employee_id);
                             setOpenModal(true);
                           }}

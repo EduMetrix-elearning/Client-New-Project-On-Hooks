@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const services = require("../../../services/pages/agentRoute");
 
-export default function InternshipModel({ setOpenModal, id }) {
+export default function InternshipModel({ setOpenModal, id, notes }) {
   const [InternsMessage, setInternsMessage] = useState([]);
 
   const handleInternsMessage = async () => {
@@ -15,8 +15,8 @@ export default function InternshipModel({ setOpenModal, id }) {
 
     try {
       const InternsSectionUpdating = async () => {
-        const result = await services.updateIntersStatus(status, id);
-        console.log(result);
+        await services.updateIntersStatus(status, id);
+        window.location.reload(true);
       };
       InternsSectionUpdating();
     } catch (error) {
@@ -41,9 +41,14 @@ export default function InternshipModel({ setOpenModal, id }) {
           <h4 style={{ textAlign: "center" }}>Message</h4>
         </div>
         <div className="body">
-          <div className="body-content">
-            <p>{InternsMessage}</p>
-          </div>
+          {notes &&
+            notes.map((note, index) => {
+              return (
+                <div className="body-content" key={index}>
+                  <p>{note}</p>
+                </div>
+              );
+            })}
         </div>
         <div className="body-2">
           <textarea

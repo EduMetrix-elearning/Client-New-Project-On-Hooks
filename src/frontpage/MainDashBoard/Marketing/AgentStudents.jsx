@@ -21,6 +21,7 @@ const AgentStudents = () => {
   const [referrals, setReferrals] = useState([]);
   const [openModal, setOpenModal] = useState(false);
   const [studentid, setStudentId] = useState();
+  const [comments, setComments] = useState();
 
   useEffect(() => {
     try {
@@ -68,7 +69,13 @@ const AgentStudents = () => {
   return (
     <>
       <MarketingNavbar />
-      {openModal && <AgentModel id={studentid} setOpenModal={setOpenModal} />}
+      {openModal && (
+        <AgentModel
+          id={studentid}
+          setOpenModal={setOpenModal}
+          notes={comments}
+        />
+      )}
       <div style={{ width: "100%", marginTop: "1%" }}>
         <div>
           <HrDates />
@@ -162,6 +169,7 @@ const AgentStudents = () => {
                           borderRadius: "5px",
                         }}
                         onClick={() => {
+                          setComments(detail.comments);
                           setStudentId(detail.student_id);
                           setOpenModal(true);
                         }}

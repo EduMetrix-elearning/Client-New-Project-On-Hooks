@@ -4,7 +4,7 @@ import "./AgentModel.css";
 
 const services = require("../../../services/pages/agentRoute");
 
-export default function AgentModel({ setOpenModal, id }) {
+export default function AgentModel({ setOpenModal, id,notes }) {
   const [studentMessage, setStudentMessage] = useState("");
 
   const handleStudentMessage = async () => {
@@ -15,8 +15,8 @@ export default function AgentModel({ setOpenModal, id }) {
 
     try {
       const AgentStudentSectionUpdating = async () => {
-        const result = await services.updateReferralStatus(status, id);
-        console.log(result);
+        await services.updateReferralStatus(status, id);
+        window.location.reload(true);
       };
       AgentStudentSectionUpdating();
     } catch (error) {
@@ -41,17 +41,14 @@ export default function AgentModel({ setOpenModal, id }) {
           <h4 style={{ textAlign: "center" }}>Message</h4>
         </div>
         <div className="body">
-          <div className="body-content">
-            <p>I will call you Later</p>
-          </div>
-
-          <div className="body-content">
-            <p>I will call you Later</p>
-          </div>
-
-          <div className="body-content">
-            <p>I will call you Later</p>
-          </div>
+        {notes &&
+            notes.map((note, index) => {
+              return (
+                <div className="body-content" key={index}>
+                  <p>{note}</p>
+                </div>
+              );
+            })}
         </div>
         <div className="body-2">
           <textarea

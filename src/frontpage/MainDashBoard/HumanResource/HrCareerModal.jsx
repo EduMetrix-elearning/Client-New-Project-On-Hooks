@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const services = require("../../../services/pages/agentRoute");
 
-function HrCareerModal({ setOpenModal, id }) {
+function HrCareerModal({ setOpenModal, id, notes }) {
   const [EmployeeMessage, setEmployeeMessage] = useState([]);
 
   const handleEmployeeMessage = async () => {
@@ -15,8 +15,8 @@ function HrCareerModal({ setOpenModal, id }) {
 
     try {
       const EmployeeSectionUpdating = async () => {
-        const result = await services.updateEmployeeStatus(status, id);
-        console.log(result);
+        await services.updateEmployeeStatus(status, id);
+        window.location.reload(true);
       };
       EmployeeSectionUpdating();
     } catch (error) {
@@ -40,9 +40,14 @@ function HrCareerModal({ setOpenModal, id }) {
           <h4 style={{ textAlign: "center" }}>Message</h4>
         </div>
         <div className="body">
-          <div className="body-content">
-            <p>{EmployeeMessage}</p>
-          </div>
+          {notes &&
+            notes.map((note, index) => {
+              return (
+                <div className="body-content" key={index}>
+                  <p>{note}</p>
+                </div>
+              );
+            })}
         </div>
         <div className="body-2">
           <textarea
@@ -53,7 +58,7 @@ function HrCareerModal({ setOpenModal, id }) {
         <div className="footer">
           <button
             onClick={() => {
-              handleEmployeeMessage()
+              handleEmployeeMessage();
               setOpenModal(false);
             }}
           >
