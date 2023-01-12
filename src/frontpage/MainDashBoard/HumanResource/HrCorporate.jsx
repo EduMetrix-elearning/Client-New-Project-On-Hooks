@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Paper from "@mui/material/Paper";
+import { confirmAlert } from "react-confirm-alert";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
-import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 import HumanResource from "./HumanResource";
 import HrDates from "./HrDates";
@@ -27,11 +27,45 @@ const HrCorporate = () => {
   useEffect(() => {
     Corporatedata();
   }, []);
+
+  const submit = (e, id) => {
+    confirmAlert({
+      title: "Confirm to submit",
+      message: "Are you sure to do this.",
+      buttons: [
+        {
+          label: "Yes",
+          onClick: () => handleStatusChange(e, id),
+        },
+        {
+          label: "No",
+          onClick: () => window.location.reload(true),
+        },
+      ],
+    });
+  };
+
+  const handleStatusChange = async (e, id) => {
+    const status = { status: e.target.value };
+
+    try {
+      const updateStatus = async () => {
+        await services.updateCorporateStatus(status, id);
+      };
+      updateStatus();
+    } catch (error) {
+      alert(error.response.data.message);
+    }
+  };
   return (
     <>
       <HumanResource />
       {openModal && (
-        <CorporateModel id={corporateId} setOpenModal={setOpenModal} notes={comments} />
+        <CorporateModel
+          id={corporateId}
+          setOpenModal={setOpenModal}
+          notes={comments}
+        />
       )}
       <div style={{ width: "100%", marginTop: "1%" }}>
         <div>
@@ -103,9 +137,10 @@ const HrCorporate = () => {
                     <TableCell>
                       <select
                         className="student-status"
-                        // onChange={(e) => submit(e, detail.student_id)}
+                        onChange={(e) => submit(e, corporate.collaborator_id)}
                       >
-                        <option value="">yet to call</option>
+                        <option value="">{corporate.status}</option>
+                        <option value="Yet To Call">Yet To Call</option>
                         <option value="Waiting To Call">Waiting To Call</option>
                         <option value="No Response">No Response</option>
                         <option value="Decision Pending">
@@ -129,7 +164,7 @@ const HrCorporate = () => {
                           borderRadius: "5px",
                         }}
                         onClick={() => {
-                          setComments(corporate.comments)
+                          setComments(corporate.comments);
                           setCorporateId(corporate.collaborator_id);
                           setOpenModal(true);
                         }}

@@ -116,7 +116,8 @@
 
 @media screen and (max-width: 700px) {
   .full-hr-page .carousel-item {
-    height: 80vh;
+    height: 30vh;
+
   }
   .full-hr-page .carousel-item img {
     height: 100vh;
@@ -128,7 +129,7 @@
     display: block;
   }
   .full-hr-page .collaborates-div {
-    height: 20vh;
+    height: 10vh;
   }
   .full-hr-page .collaborates-div div {
     display: block;

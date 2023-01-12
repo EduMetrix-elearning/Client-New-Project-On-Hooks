@@ -326,13 +326,12 @@ export const Courses = () => {
                 <CardContent>
                   <Typography className="card-details">
                     Become a skilled Full-Stack developer with hands-on
-                    experience in MERN stack . Tech stack used in Fullstack{" "}
+                    experience in MERN stack . Tech stack used in Fullstack
                     <br />
                     <div>
-                      {" "}
-                      <span>Nodejs</span> <span>MongoDB</span>{" "}
+                      <span>Nodejs</span> <span>MongoDB</span>
                       <span>React</span> <span>HTML5</span>
-                      <span>CSS3</span>{" "}
+                      <span>CSS3</span>
                     </div>
                   </Typography>
                 </CardContent>

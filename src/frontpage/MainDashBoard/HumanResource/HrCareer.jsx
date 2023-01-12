@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import HrDates from "./HrDates";
 import HumanResource from "./HumanResource";
 import "./HrCareer.css";
+import { confirmAlert } from "react-confirm-alert";
 import HrCareerModal from "./HrCareerModal";
-import HrTable from "./HrTable";
+
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -12,12 +13,11 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 
-import { textAlign } from "@mui/system";
 const services = require("../../../services/pages/agentRoute");
 
 const HrCareer = () => {
   const [hiringdetails, setHiringDetails] = useState([]);
-  const [comments, setComments] = useState([]);
+  const [comments, setComments] = useState();
 
   const HandleHiringDetails = async () => {
     const result = await services.getEmployee();
@@ -31,6 +31,36 @@ const HrCareer = () => {
 
   const [openModal, setOpenModal] = useState(false);
   const [employeeId, setEmployeeId] = useState();
+
+  const submit = (e, id) => {
+    confirmAlert({
+      title: "Confirm to submit",
+      message: "Are you sure to do this.",
+      buttons: [
+        {
+          label: "Yes",
+          onClick: () => handleStatusChange(e, id),
+        },
+        {
+          label: "No",
+          onClick: () => window.location.reload(true),
+        },
+      ],
+    });
+  };
+
+  const handleStatusChange = async (e, id) => {
+    const status = { status: e.target.value };
+
+    try {
+      const updateStatus = async () => {
+        await services.updateEmployeeStatus(status, id);
+      };
+      updateStatus();
+    } catch (error) {
+      alert(error.response.data.message);
+    }
+  };
 
   return (
     <>
@@ -105,9 +135,10 @@ const HrCareer = () => {
                       <TableCell>
                         <select
                           className="student-status"
-                          // onChange={(e) => submit(e, detail.student_id)}
+                          onChange={(e) => submit(e, employee.employee_id)}
                         >
-                          <option value="">yet to call</option>
+                          <option value="">{employee.status}</option>
+                          <option value="Yet to call">yet to call</option>
                           <option value="Waiting To Call">
                             Waiting To Call
                           </option>

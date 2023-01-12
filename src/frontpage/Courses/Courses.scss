@@ -64,7 +64,7 @@
     width:80%;
     display:flex;
     overflow-x: auto;
-    gap:20px;
+    gap:80px;
     margin: auto;
     padding-bottom: 20px;
     margin-top: 20px;
@@ -73,7 +73,7 @@
 
 .all-cards .single-card{
     box-shadow: #164e64 0px 15px 10px;
-    background-color: rgb(229, 250, 250);
+    background-color: rgb(249, 255, 255);
     transition: 2s;
 }
 
@@ -106,7 +106,7 @@
    
 }
 
-@media screen and (max-width:900px) and (min-width:250px) {
+@media screen and (max-width:900px) and (min-width:250px) {\fullstack
     .below-navbar {
         flex-direction: column;
         margin: auto;

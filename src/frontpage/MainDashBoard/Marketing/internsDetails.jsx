@@ -139,7 +139,8 @@ const InternspDetails = () => {
                         className="student-status"
                         onChange={(e) => submit(e, interns.student_id)}
                       >
-                        <option value="">yet to call</option>
+                        <option value="">{interns.status}</option>
+                        <option value="yrt to call">yet to call</option>
                         <option value="Waiting To Call">Waiting To Call</option>
                         <option value="No Response">No Response</option>
                         <option value="Decision Pending">

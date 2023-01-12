@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const services = require("../../../services/pages/agentRoute");
 
 export default function InternshipModel({ setOpenModal, id, notes }) {
-  const [InternsMessage, setInternsMessage] = useState([]);
+  const [InternsMessage, setInternsMessage] = useState();
 
   const handleInternsMessage = async () => {
     const status = {
