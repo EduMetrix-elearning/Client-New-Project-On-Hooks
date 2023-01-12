@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import MarketingNavbar from "./MarketingNavbar";
 import HrDates from "../HumanResource/HrDates";
+import { confirmAlert } from "react-confirm-alert";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -27,6 +28,36 @@ const InternspDetails = () => {
   useEffect(() => {
     handleInternshipDetails();
   }, []);
+
+  const submit = (e, id) => {
+    confirmAlert({
+      title: "Confirm to submit",
+      message: "Are you sure to do this.",
+      buttons: [
+        {
+          label: "Yes",
+          onClick: () => handleStatusChange(e, id),
+        },
+        {
+          label: "No",
+          onClick: () => window.location.reload(true),
+        },
+      ],
+    });
+  };
+
+  const handleStatusChange = async (e, id) => {
+    const status = { status: e.target.value };
+
+    try {
+      const updateStatus = async () => {
+        await services.updateIntersStatus(status, id);
+      };
+      updateStatus();
+    } catch (error) {
+      alert(error.response.data.message);
+    }
+  };
   return (
     <>
       <MarketingNavbar />
@@ -101,7 +132,7 @@ const InternspDetails = () => {
                     <TableCell>
                       <select
                         className="student-status"
-                        // onChange={(e) => submit(e, detail.student_id)}
+                        onChange={(e) => submit(e, interns.student_id)}
                       >
                         <option value="">yet to call</option>
                         <option value="Waiting To Call">Waiting To Call</option>

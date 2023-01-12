@@ -7,48 +7,19 @@
   text-shadow: 1px 1px 2px white, 0 0 1em white, 0 0 0.2em white;
 }
 
-.Hr-information {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.Hr-information .hr-information-1{
-  width:700px;
-  /* border:1px solid black; */
-  /* margin-top: 10px 0px; */
-  margin: 15px 0px;
-  padding: 10px;
-}
-
-.hr-information-2{
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-direction: row;
-  width:100%;
-}
-
-.hr-information-2 .hr-information-21{
-  width:50%;
-  /* border:1px solid black; */
-  height: 980px;
-  padding: 20px;
-}
 
 
 
-/* .full-hr-page .Hr-information {
+.full-hr-page .Hr-information {
   width: 100%;
   text-align: justify;
   margin: auto;
-  margin-top: 30px;
-  background-image: url("../../asset/images/HrpageImage/hrbackground.jpeg");
+  background-color:  #f7f8fa;
+  /* background-image: url("../../asset/images/HrpageImage/hrbackground.jpeg"); */
   opacity: 1;
   background-position: unset;
   padding: 20px 70px;
-} */
+}
 
 .full-hr-page .hr-info-title {
   font-family: museo-sans,sans-serif;
@@ -66,18 +37,20 @@
   font-family: museo-sans,sans-serif;
   font-weight: 100;
   font-size: 18px;
-  line-height: 1.90;
+  line-height: 2.30;
+  font-weight: 400;
   
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
 }
 
 .full-hr-page .hr-short-title {
   /* margin-left: 20px; */
+  text-align: justify;
   font-weight: bold;
   font-size: 23px;
-  line-height: 1.22;
+  line-height: 1.90;
   color: #164e64;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
   text-shadow: 1px 1px 2px white, 0 0 1em white, 0 0 0.2em white;
 }
 
@@ -89,6 +62,8 @@
   width: 100%;
   margin-bottom: -20px;
   height: 45vh;
+  background-color: #EEF3FA;
+  margin: 0;
 
 }
 
@@ -117,6 +92,7 @@
   color: #164e64;
   font-weight: bold;
   border: 0;
+  background-color:#FFF;
   margin-top: 150px;
   border: 1px solid;
   /* -webkit-box-shadow: rgba(8, 0, 0, 0.35) 30px 35px 45px;
@@ -172,12 +148,7 @@
     border: 0;
   }
 
-  .Hr-information {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
+  
 
   .Hr-information .hr-information-1{
     width:100%;
@@ -234,4 +205,3 @@
     margin-bottom: 10px;
   }
 }
-/*# sourceMappingURL=HrForm.css.map */
