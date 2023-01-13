@@ -15,6 +15,7 @@ import "./HrForm.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Carousel from "react-bootstrap/Carousel";
 import * as services from "../../services/pages/agentRoute";
+import HrFunctions from "./HrFunctions.jsx";
 
 const style = {
   position: "absolute",
@@ -344,7 +345,7 @@ export const Hrform = () => {
                 <div style={{ color: "red" }}>{errormessage}</div>
               ) : null}
               <Button
-                sx={{ marginTop: "2px" ,marginRight:"20px"}}
+                sx={{ marginTop: "2px", marginRight: "20px" }}
                 variant="contained"
                 className="student-form-filling-btn"
                 onClick={handleClick}
@@ -356,7 +357,7 @@ export const Hrform = () => {
         </div>
       </div>
 
-      <div className="Hr-information">
+      {/* <div className="Hr-information">
         <div className="hr-info-title">Who we are!</div>
         <div className="hr-info-paragraph">
           EduMetrix Learning Solutions Pvt Ltd is a Edu-Tech and dynamic human
@@ -431,7 +432,8 @@ export const Hrform = () => {
           Our emotive effort is to bridge the gap between job seekers and job
           providers .
         </div>
-      </div>
+      </div> */}
+      <HrFunctions />
 
       <Footer />
     </div>
