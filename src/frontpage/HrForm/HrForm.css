@@ -62,7 +62,7 @@
   width: 100%;
   margin-bottom: -20px;
   height: 45vh;
-  background-color: #EEF3FA;
+  background-color: #e1f2fc;
   margin: 0;
 
 }
@@ -92,9 +92,10 @@
   color: #164e64;
   font-weight: bold;
   border: 0;
-  background-color:#FFF;
+  /* background-color:#FFF; */
   margin-top: 150px;
-  border: 1px solid;
+  /* border: 1px solid; */
+  box-shadow: inset -5px -5px 10px 0px rgba(255, 255, 255, 0.5), inset 5px 5px 10px 0px rgba(0, 0, 0, 0.3);
   /* -webkit-box-shadow: rgba(8, 0, 0, 0.35) 30px 35px 45px;
           box-shadow: rgba(8, 0, 0, 0.35) 30px 35px 45px; */
 }
