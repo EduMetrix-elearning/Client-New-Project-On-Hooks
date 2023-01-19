@@ -21,10 +21,6 @@ const ls = require("local-storage");
 export const AgentsDashboard = () => {
   const navigate = useNavigate();
 
-  const [image, setImage] = useState(
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBRdmz3LadjgP_7giopi8RU6TJQgE-9IZaYXSJYWHuFv3ty1vbrgMiiU6XqdhxXyFqJqU&usqp=CAU"
-  );
-  const [profileError, setProfileError] = useState("");
   const [name, setname] = useState("");
   const [errorName, setErrorName] = useState("");
 
@@ -48,26 +44,33 @@ export const AgentsDashboard = () => {
 
   const [show, setShow] = useState(true);
 
+  const [imageLocal, setImageLocal] = useState(
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBRdmz3LadjgP_7giopi8RU6TJQgE-9IZaYXSJYWHuFv3ty1vbrgMiiU6XqdhxXyFqJqU&usqp=CAU"
+  );
+  const [profileError, setProfileError] = useState("");
 
-
-
-
-  const [adharcardfront, setAdharCardFront] = useState(
+  const [adharcardfrontLocal, setAdharCardFrontLocal] = useState(
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeYAWo19XH2Z_ow2WVzhIKxQ--8pDGtWnI9Q&usqp=CAU"
   );
   const [adharError, setAdharError] = useState("");
 
-  const [adharcardback, setAdharCardBack] = useState(
+  const [adharcardbackLocal, setAdharCardBackLocal] = useState(
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrL9UKZ3r3lcX8uQW_0ErRKikH3ZZI4xUdVyEz2Sxqf-am-SU22xqKfOiIiel0Bs4zfk4&usqp=CAU"
   );
   const [adharBackError, setAdharBackError] = useState("");
 
-  const [pancard, setpancard] = useState(
+  const [pancardLocal, setpancardLocal] = useState(
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiynov2NK7TZhPQAjAfyup8EO4efuRqJH8Jw&usqp=CAU"
   );
   const [pancardError, setPancardError] = useState("");
 
+  const [image, setImage] = useState();
 
+  const [adharcardfront, setAdharCardFront] = useState();
+
+  const [adharcardback, setAdharCardBack] = useState();
+
+  const [pancard, setpancard] = useState();
 
   const inputHandle = (e) => {
     if (e.target.name === "place") {
@@ -103,24 +106,54 @@ export const AgentsDashboard = () => {
   const uploadImage = (e) => {
     if (e.target.files.length !== 0) {
       setImage(e.target.files[0]);
+      const file = e.target.files[0];
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        setImageLocal(event.target.result);
+      };
+      reader.readAsDataURL(file);
     }
   };
 
   const uploadPANCard = (e) => {
     if (e.target.files.length !== 0) {
       setpancard(e.target.files[0]);
+      const file = e.target.files[0];
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        console.log(event.target.result);
+
+        setpancardLocal(event.target.result);
+      };
+      reader.readAsDataURL(file);
     }
   };
 
   const uploadAdharFront = (e) => {
     if (e.target.files.length !== 0) {
       setAdharCardFront(e.target.files[0]);
+      const file = e.target.files[0];
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        console.log(event.target.result);
+
+        setAdharCardFrontLocal(event.target.result);
+      };
+      reader.readAsDataURL(file);
     }
   };
 
   const uploadAdharBack = (e) => {
     if (e.target.files.length !== 0) {
       setAdharCardBack(e.target.files[0]);
+      const file = e.target.files[0];
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        console.log(event.target.result);
+
+        setAdharCardBackLocal(event.target.result);
+      };
+      reader.readAsDataURL(file);
     }
   };
 
@@ -141,6 +174,9 @@ export const AgentsDashboard = () => {
       if (result.bank_branch) {
         setShow(!show);
       }
+
+      console.log(result);
+
       if (result.agent_name) setname(result.agent_name);
       if (result.agent_phone) setmobile(result.agent_phone);
       if (result.agent_email) setemail(result.agent_email);
@@ -456,7 +492,10 @@ export const AgentsDashboard = () => {
           <div className={"agent-card-item"}>
             <div className="agent-image">
               <div className="agent-profile-img">
-                <img src={image} alt="" />
+                <img
+                  src={image === undefined || image.name ? imageLocal : image}
+                  alt=""
+                />
               </div>
               <div className="agent-profile-details">
                 <h3>{name}</h3>
@@ -490,13 +529,34 @@ export const AgentsDashboard = () => {
 
             <div className="cards">
               <div className="cards-item">
-                <img src={pancard} alt="" />
+                <img
+                  src={
+                    pancard === undefined || pancard.name
+                      ? pancardLocal
+                      : pancard
+                  }
+                  alt=""
+                />
               </div>
               <div className="cards-item">
-                <img src={adharcardfront} alt="" />
+                <img
+                  src={
+                    adharcardfront === undefined || adharcardfront.name
+                      ? adharcardfrontLocal
+                      : adharcardfront
+                  }
+                  alt=""
+                />
               </div>
               <div className="cards-item">
-                <img src={adharcardback} alt="" />
+                <img
+                  src={
+                    adharcardback === undefined || adharcardback.name
+                      ? adharcardbackLocal
+                      : adharcardback
+                  }
+                  alt=""
+                />
               </div>
             </div>
           </div>
