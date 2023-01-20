@@ -25,13 +25,18 @@ const QuickData = () => {
   // const [contentCourse, setContentCourse] = useState(false);
   // const [contentYear, setContentYear] = useState(false);
 
-  const handleEnquiryData = async () => {
-    const result = await services.getEnquiry();
-    setEnquiryData(result.data);
-  };
+  
 
   useEffect(() => {
-    handleEnquiryData();
+    try {
+      const handleEnquiryData = async () => {
+        const result = await services.getEnquiry();
+        setEnquiryData(result.data);
+      };
+      handleEnquiryData();
+    } catch (error) {
+      console.log(error);
+    }
   }, []);
 
   const submit = (e, id) => {
@@ -63,6 +68,21 @@ const QuickData = () => {
       alert(error.response.data.message);
     }
   };
+
+  const handleSortStatus = (e) => {
+    try {
+      const status =
+        e.target.value !== "All" ? { status: e.target.value } : null;
+
+        const handleEnquiryData = async (obj) => {
+          const result = await services.getEnquiry(obj);
+          setEnquiryData(result.data);
+        };
+        handleEnquiryData(status);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <>
       <MarketingNavbar />
@@ -78,7 +98,7 @@ const QuickData = () => {
       )}
       <div style={{ width: "100%", marginTop: "1%" }}>
         <div>
-          <HrDates />
+        <HrDates sortStatus={handleSortStatus} />
           <section className="main">
             <div className="profile-card">
               <div>Total</div>

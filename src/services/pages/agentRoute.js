@@ -137,13 +137,12 @@ export async function allAgents() {
   }
 }
 
-export async function agentAllReferrals() {
+export async function agentAllReferrals(obj = null) {
   try {
     const referrals = await Axios.get(
-      baseurl.GetUrl() + "/agent/students/allstudents"
+      baseurl.GetUrl() + "/agent/students/allstudents",
+      obj && { params: { obj } }
     );
-    console.log(referrals);
-
     return referrals.data.data;
   } catch (error) {
     if (error.response.data) {
@@ -291,10 +290,11 @@ export async function submitEmployee(obj) {
   }
 }
 
-export async function getEmployee() {
+export async function getEmployee(obj = null) {
   try {
     const result = await Axios.get(
-      baseurl.GetUrl() + "/employee_registeration"
+      baseurl.GetUrl() + "/employee_registeration",
+      obj && { params: { obj } }
     );
 
     return result.data;
@@ -322,9 +322,12 @@ export async function updateEmployeeStatus(status, id) {
   }
 }
 
-export async function getInternship() {
+export async function getInternship(obj = null) {
   try {
-    const result = await Axios.get(baseurl.GetUrl() + "/student_internship");
+    const result = await Axios.get(
+      baseurl.GetUrl() + "/student_internship",
+      obj && { params: { obj } }
+    );
 
     return result.data;
   } catch (error) {
@@ -369,9 +372,12 @@ export async function updateIntersStatus(status, id) {
   }
 }
 
-export async function getEnquiry() {
+export async function getEnquiry(obj = null) {
   try {
-    const result = await Axios.get(baseurl.GetUrl() + "/student_enquiry");
+    const result = await Axios.get(
+      baseurl.GetUrl() + "/student_enquiry",
+      obj && { params: { obj } }
+    );
 
     return result.data;
   } catch (error) {
@@ -439,9 +445,12 @@ export async function submitSyllabus(obj) {
   }
 }
 
-export async function getCollaborators() {
+export async function getCollaborators(obj = null) {
   try {
-    const result = await Axios.get(baseurl.GetUrl() + "/collaborators");
+    const result = await Axios.get(
+      baseurl.GetUrl() + "/collaborators",
+      obj && { params: { obj } }
+    );
 
     return result.data;
   } catch (error) {

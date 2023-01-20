@@ -35,8 +35,6 @@ const AgentStudents = () => {
     }
   }, []);
 
-  console.log(referrals);
-
   const submit = (e, id) => {
     confirmAlert({
       title: "Confirm to submit",
@@ -66,6 +64,22 @@ const AgentStudents = () => {
       alert(error.response.data.message);
     }
   };
+
+  const handleSortStatus = (e) => {
+    try {
+      const status =
+        e.target.value !== "All" ? { status: e.target.value } : null;
+
+      const getReferrals = async (obj) => {
+        const students = await services.agentAllReferrals(obj);
+        setReferrals(students.reverse());
+      };
+      getReferrals(status);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <>
       <MarketingNavbar />
@@ -78,7 +92,7 @@ const AgentStudents = () => {
       )}
       <div style={{ width: "100%", marginTop: "1%" }}>
         <div>
-          <HrDates />
+          <HrDates sortStatus={handleSortStatus} />
           <section className="main">
             <div className="profile-card">
               <div>Total</div>
@@ -143,6 +157,7 @@ const AgentStudents = () => {
                         onChange={(e) => submit(e, detail.student_id)}
                       >
                         <option value="">{detail.status}</option>
+                        <option value="Yet To Call">Yet To Call</option>
                         <option value="Waiting To Call">Waiting To Call</option>
                         <option value="No Response">No Response</option>
                         <option value="Decision Pending">

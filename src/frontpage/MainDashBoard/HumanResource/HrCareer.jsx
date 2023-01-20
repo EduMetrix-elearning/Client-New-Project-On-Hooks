@@ -19,14 +19,16 @@ const HrCareer = () => {
   const [hiringdetails, setHiringDetails] = useState([]);
   const [comments, setComments] = useState();
 
-  const HandleHiringDetails = async () => {
-    const result = await services.getEmployee();
-    console.log(result);
-    setHiringDetails(result.data.reverse());
-  };
-
   useEffect(() => {
-    HandleHiringDetails();
+    try {
+      const HandleHiringDetails = async () => {
+        const result = await services.getEmployee();
+        setHiringDetails(result.data.reverse());
+      };
+      HandleHiringDetails();
+    } catch (error) {
+      console.log(error);
+    }
   }, []);
 
   const [openModal, setOpenModal] = useState(false);
@@ -62,6 +64,21 @@ const HrCareer = () => {
     }
   };
 
+  const handleSortStatus = (e) => {
+    try {
+      const status =
+        e.target.value !== "All" ? { status: e.target.value } : null;
+
+      const HandleHiringDetails = async (obj) => {
+        const result = await services.getEmployee(obj);
+        setHiringDetails(result.data.reverse());
+      };
+      HandleHiringDetails(status);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <>
       <HumanResource />
@@ -74,7 +91,7 @@ const HrCareer = () => {
       )}
       <div style={{ width: "100%", marginTop: "1%" }}>
         <div>
-          <HrDates />
+          <HrDates sortStatus={handleSortStatus} />
           <section className="main">
             <div className="profile-card">
               <div>Total</div>

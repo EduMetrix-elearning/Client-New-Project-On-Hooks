@@ -20,14 +20,19 @@ const InternspDetails = () => {
   const [internsId, setInternsId] = useState();
   const [comments, setComments] = useState();
 
-  const handleInternshipDetails = async () => {
-    const result = await services.getInternship();
-    console.log(result);
-    setInternshipDetails(result.data.reverse());
-  };
+ 
 
   useEffect(() => {
-    handleInternshipDetails();
+    try {
+      const handleInternshipDetails = async () => {
+        const result = await services.getInternship();
+        console.log(result);
+        setInternshipDetails(result.data.reverse());
+      };
+      handleInternshipDetails();
+    } catch (error) {
+      console.log(error);
+    }
   }, []);
 
   const submit = (e, id) => {
@@ -59,6 +64,23 @@ const InternspDetails = () => {
       alert(error.response.data.message);
     }
   };
+
+  const handleSortStatus = (e) => {
+    try {
+      const status =
+        e.target.value !== "All" ? { status: e.target.value } : null;
+
+        const handleInternshipDetails = async (obj) => {
+          const result = await services.getInternship(obj);
+          console.log(result);
+          setInternshipDetails(result.data.reverse());
+        };
+        handleInternshipDetails(status);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  
   return (
     <>
       <MarketingNavbar />
@@ -71,7 +93,7 @@ const InternspDetails = () => {
       )}
       <div style={{ width: "100%", marginTop: "1%" }}>
         <div>
-          <HrDates />
+        <HrDates sortStatus={handleSortStatus} />
           <section className="main">
             <div className="profile-card">
               <div>Total</div>
@@ -140,7 +162,7 @@ const InternspDetails = () => {
                         onChange={(e) => submit(e, interns.student_id)}
                       >
                         <option value="">{interns.status}</option>
-                        <option value="yrt to call">yet to call</option>
+                        <option value="Yet to Call">Yet to Call</option>
                         <option value="Waiting To Call">Waiting To Call</option>
                         <option value="No Response">No Response</option>
                         <option value="Decision Pending">

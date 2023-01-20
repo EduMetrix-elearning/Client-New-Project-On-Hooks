@@ -18,14 +18,16 @@ const HrCorporate = () => {
   const [corporateId, setCorporateId] = useState();
   const [comments, setComments] = useState();
 
-  const Corporatedata = async () => {
-    const result = await services.getCollaborators();
-    // console.log(result);
-    setCareerDetails(result.data.reverse());
-  };
-
   useEffect(() => {
-    Corporatedata();
+    try {
+      const Corporatedata = async () => {
+        const result = await services.getCollaborators();
+        setCareerDetails(result.data.reverse());
+      };
+      Corporatedata();
+    } catch (error) {
+      console.log(error);
+    }
   }, []);
 
   const submit = (e, id) => {
@@ -57,6 +59,21 @@ const HrCorporate = () => {
       alert(error.response.data.message);
     }
   };
+
+  const handleSortStatus = (e) => {
+    try {
+      const status =
+        e.target.value !== "All" ? { status: e.target.value } : null;
+
+        const Corporatedata = async (obj) => {
+          const result = await services.getCollaborators(obj);
+          setCareerDetails(result.data.reverse());
+        };
+        Corporatedata(status);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <>
       <HumanResource />
@@ -69,7 +86,7 @@ const HrCorporate = () => {
       )}
       <div style={{ width: "100%", marginTop: "1%" }}>
         <div>
-          <HrDates />
+          <HrDates sortStatus={handleSortStatus} />
           <section className="main">
             <div className="profile-card">
               <div>Total</div>
@@ -121,9 +138,9 @@ const HrCorporate = () => {
             </TableHead>
             <TableBody>
               {careerdetails &&
-                careerdetails.map((corporate) => (
+                careerdetails.map((corporate, index) => (
                   <TableRow key={corporate.collaborator_id}>
-                    <TableCell>{corporate.collaborator_id}</TableCell>
+                    <TableCell>{index + 1}</TableCell>
                     <TableCell>{corporate.name}</TableCell>
                     <TableCell>{corporate.email}</TableCell>
                     <TableCell>{corporate.contact_number}</TableCell>
