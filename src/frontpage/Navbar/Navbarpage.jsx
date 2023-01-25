@@ -60,7 +60,7 @@ export const Navbarpage = () => {
                 onClick={() => setOpenModal(true)}
               >
                 <Link
-                //   to="/agentssignup"
+                  //   to="/agentssignup"
                   style={{ textDecoration: "none", color: "#707071" }}
                 >
                   Affiliate Program
@@ -105,7 +105,7 @@ export const Navbarpage = () => {
         ""
       )}
 
-      {openModal && <Modal setOpenModal={setOpenModal} />}
+      {openModal ? <Modal setOpenModal={setOpenModal} /> : ""}
     </div>
   );
 };

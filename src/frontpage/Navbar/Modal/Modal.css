@@ -1,17 +1,18 @@
 
 
 .modalBackground {
+
   width: 100vw;
   height: 100vh;
   /* background-color: rgba(200, 200, 200); */
-  background-image: url("newhrpage2.jpg");
+  /* background-image: url("newhrpage2.jpg"); */
   /* background-color:grey; */
-  background-position: center;
+  /* background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
   color: whitesmoke;
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px); */
   display: flex;
 
 }
@@ -19,18 +20,21 @@
 .modalContainer {
   overflow-y: visible;
   width: 400px;
-  height: 70vh;
+  height: 520px;
   overflow-y: auto;
-  background-color: rgba(255,255,255,0.13);
+  background-color: #fff;
+  /* background-color: rgba(255,255,255,0.13); */
   position: absolute;
   transform: translate(-50%,-50%);
   padding:0px 10px;
   top: 45%;
   left: 50%;
+  color:black;
   border-radius: 10px;
-  backdrop-filter: blur(10px);
+  border: 2px solid black;
+  /* backdrop-filter: blur(10px);
   border: 2px solid rgba(255,255,255,0.1);
-  box-shadow: 0 0 40px rgba(8,7,16,0.6);
+  box-shadow: 0 0 40px rgba(8,7,16,0.6); */
 }
 
 .modalContainer .title {
@@ -88,7 +92,7 @@
 
 
 
-@media only screen and (max-width: 600px) {
+/* @media only screen and (max-width: 600px) {
   .modalContainer {
     overflow-y: visible;
     width: 400px;
@@ -103,5 +107,18 @@
     backdrop-filter: blur(10px);
     border: 2px solid rgba(255,255,255,0.1);
     box-shadow: 0 0 40px rgba(8,7,16,0.6);
+  }
+} */
+
+
+
+
+@media screen and (max-width:900px) and (min-width:300px) {
+  .modalContainer{
+      width:80%;
+      overflow-y: auto;
+      position: absolute;
+      top: 30%;
+      left: 50%;
   }
 }
