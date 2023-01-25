@@ -117,7 +117,8 @@
 
 @media screen and (max-width: 700px) {
   .full-hr-page .carousel-item {
-    height: 30vh;
+    height: 20vh;
+    margin: 0;
 
   }
   .full-hr-page .carousel-item img {
@@ -130,11 +131,13 @@
     display: block;
   }
   .full-hr-page .collaborates-div {
-    height: 10vh;
+    margin: 0;
+    height: 20vh;
   }
   .full-hr-page .collaborates-div div {
     display: block;
     text-align: center;
+    
   }
   .full-hr-page .collaborates-div div div h1 {
     font-size: 30px;

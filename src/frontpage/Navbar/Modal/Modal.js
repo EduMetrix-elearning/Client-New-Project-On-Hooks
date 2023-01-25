@@ -4,7 +4,12 @@ import { Link } from "react-router-dom";
 
 function Modal({ setOpenModal }) {
   return (
-    <div className="modalBackground">
+    <div
+      onClick={() => {
+        setOpenModal(false);
+      }}
+      className="modalBackground"
+    >
       <div className="modalContainer">
         <div className="titleCloseBtn">
           <button

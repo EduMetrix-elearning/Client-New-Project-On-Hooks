@@ -203,8 +203,8 @@ export const Courses = () => {
                 href="tel:+918310715970"
                 style={{ textDecoration: "none", color: "white" }}
               >
-                {" "}
-                Call Now +918310715970{" "}
+                
+                Call Now +918310715970
               </a>
             </button>
           </div>

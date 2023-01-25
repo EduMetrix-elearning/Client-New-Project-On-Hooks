@@ -3,7 +3,7 @@
     display: flex;
   flex-wrap: nowrap;
   flex-direction: row;
-  height: 100vh;
+  /* height: 100vh; */
   align-items: center;
   justify-content: center;
   /* border:1px solid black; */
@@ -12,7 +12,7 @@
   background-color: #EEF0F4;
 
   /* justify-content: space-between; */
-  overflow: hidden;
+  overflow: auto;
 
 }
 
@@ -75,9 +75,10 @@
 .content{
     width: 100%;
     margin: 10px;
+    margin-top: 60px;
     text-align: center;
     line-height: 75px;
-    font-size: 30px;
+    font-size: 25px;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -87,10 +88,10 @@
 
 .content .content-item-1{
     width: 30%;
-    height: 330px;
+    height: 40vh;
     /* border: 1px solid black; */
     margin: 0px 20px;
-    min-height: 300px;
+    /* min-height: 300px; */
     background: #EEF0F4;
     border-radius: 20px;
     box-shadow: inset 9.91px 9.91px 15px #D9DADE, inset -9.91px -9.91px 15px #FFFFFF;
