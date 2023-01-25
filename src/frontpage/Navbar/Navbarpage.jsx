@@ -7,7 +7,8 @@ import { InternshipContext } from "../../context/InternshipContext";
 import { Internship } from "../Internship/Internship";
 import { CareerContext } from "../../context/careerContext";
 import { Carrier } from "../Carrier/Carrier";
-import Modal from "./Modal/Modal";
+
+import AffialateModal from "./Modal/AffialateModal";
 
 export const Navbarpage = () => {
   const {
@@ -19,7 +20,11 @@ export const Navbarpage = () => {
     CareerContext
   );
 
-  const [openModal, setOpenModal] = useState(false);
+
+
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   return (
     <div className="navbar-whole-div">
@@ -57,7 +62,7 @@ export const Navbarpage = () => {
               </Nav.Link>
               <Nav.Link
                 className="all-items"
-                onClick={() => setOpenModal(true)}
+                onClick={handleOpen}
               >
                 <Link
                   //   to="/agentssignup"
@@ -105,7 +110,13 @@ export const Navbarpage = () => {
         ""
       )}
 
-      {openModal ? <Modal setOpenModal={setOpenModal} /> : ""}
+      {open && (
+        <AffialateModal
+          setOpen={setOpen}
+          open={open}
+          handleClose={handleClose}
+        />
+      )}
     </div>
   );
 };
