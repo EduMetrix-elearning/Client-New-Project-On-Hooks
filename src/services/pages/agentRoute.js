@@ -137,13 +137,20 @@ export async function allAgents() {
   }
 }
 
-export async function agentAllReferrals(obj = null) {
+export async function agentAllReferrals(pageNumber) {
   try {
     const referrals = await Axios.get(
       baseurl.GetUrl() + "/agent/students/allstudents",
-      obj && { params: { obj } }
+      {
+        params: {
+          pageNumber,
+          pageLength: 10,
+        },
+      }
     );
-    return referrals.data.data;
+    console.log(referrals.data);
+
+    return referrals.data;
   } catch (error) {
     if (error.response.data) {
       alert(error.response.data.message);

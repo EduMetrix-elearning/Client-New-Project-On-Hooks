@@ -13,7 +13,7 @@ import Paper from "@mui/material/Paper";
 import "react-confirm-alert/src/react-confirm-alert.css";
 import "./AgentStudents.css";
 import AgentModel from "./AgentModel";
-import { DashBoardInputs } from "../../../WebsiteDashboard/Inputs";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 const services = require("../../../services/pages/agentRoute");
 
@@ -22,18 +22,42 @@ const AgentStudents = () => {
   const [openModal, setOpenModal] = useState(false);
   const [studentid, setStudentId] = useState();
   const [comments, setComments] = useState();
+  const [pageNumber, setPageNumber] = useState(0);
+  const [totalReferrals, setTotalReferrals] = useState(0);
+  const [loading, setLoading] = useState(true);
+  const [status, setStatus] = useState("");
 
   useEffect(() => {
     try {
       const getReferrals = async () => {
-        const students = await services.agentAllReferrals();
-        setReferrals(students.reverse());
+        const students = await services.agentAllReferrals(pageNumber + 1);
+        setPageNumber(pageNumber + 1);
+        setTotalReferrals(students.totalReferrals);
+        setReferrals(students.data);
       };
       getReferrals();
     } catch (error) {
       console.log(error);
     }
   }, []);
+
+  const fetchReferrals = () => {
+    try {
+      setLoading(true);
+      const page = Math.ceil(totalReferrals / 10);
+
+      if (pageNumber >= page) return setLoading(false);
+
+      const getReferrals = async () => {
+        const students = await services.agentAllReferrals(pageNumber + 1);
+        setPageNumber(pageNumber + 1);
+        setReferrals([...referrals, ...students.data]);
+      };
+      getReferrals();
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const submit = (e, id) => {
     confirmAlert({
@@ -66,18 +90,8 @@ const AgentStudents = () => {
   };
 
   const handleSortStatus = (e) => {
-    try {
-      const status =
-        e.target.value !== "All" ? { status: e.target.value } : null;
-
-      const getReferrals = async (obj) => {
-        const students = await services.agentAllReferrals(obj);
-        setReferrals(students.reverse());
-      };
-      getReferrals(status);
-    } catch (error) {
-      console.log(error);
-    }
+    const status = e.target.value;
+    return status !== "All" ? setStatus(status) : setStatus("");
   };
 
   return (
@@ -116,86 +130,111 @@ const AgentStudents = () => {
       </div>
       <div>
         <TableContainer component={Paper}>
-          <Table sx={{ width: "100%" }} aria-label="simple table">
-            <TableHead
-              sx={{ backgroundColor: "#f5f5ef", border: 1 }}
-              align="center"
-            >
-              <TableRow>
-                <TableCell>No.</TableCell>
-                <TableCell>NAME</TableCell>
-                <TableCell>EMAIL</TableCell>
-                <TableCell>PHONE</TableCell>
-                <TableCell>LOCATION</TableCell>
-                <TableCell>PAST COURSE</TableCell>
-                <TableCell>YEAR OF PASSING</TableCell>
-                <TableCell>STATUS</TableCell>
-                <TableCell>SUBMISSION DATE</TableCell>
-                <TableCell>Message</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody align="center">
-              {referrals &&
-                referrals.map((detail, index) => (
-                  <TableRow
-                    className="tabelrow"
-                    key={index}
-                    sx={{ border: 1, borderColor: "#f5f5ef" }}
-                  >
-                    <TableCell component="th" scope="row">
-                      {index + 1}
-                    </TableCell>
-                    <TableCell>{detail.name}</TableCell>
-                    <TableCell>{detail.email}</TableCell>
-                    <TableCell>{detail.contact_number}</TableCell>
-                    <TableCell>{detail.place}</TableCell>
-                    <TableCell>{detail.course}</TableCell>
-                    <TableCell>{detail.year_of_passing}</TableCell>
-                    <TableCell>
-                      <select
-                        className="student-status"
-                        onChange={(e) => submit(e, detail.student_id)}
-                      >
-                        <option value="">{detail.status}</option>
-                        <option value="Yet To Call">Yet To Call</option>
-                        <option value="Waiting To Call">Waiting To Call</option>
-                        <option value="No Response">No Response</option>
-                        <option value="Decision Pending">
-                          Decision Pending
-                        </option>
-                        <option value="Not Interested">Not Interested</option>
-                        <option value="Interested">Interested </option>
-                        <option value="Waiting to Join">Waiting to Join</option>
-                        <option value="Admission">Admission</option>
-                      </select>
-                    </TableCell>
+          <InfiniteScroll
+            dataLength={referrals.length}
+            next={fetchReferrals}
+            hasMore={loading}
+            // loader={<h4>Loading...</h4>}
+            endMessage={
+              <p style={{ textAlign: "center" }}>
+                <b>Yay! You have seen it all</b>
+              </p>
+            }
+          >
+            <Table sx={{ width: "100%" }} aria-label="simple table">
+              <TableHead
+                sx={{ backgroundColor: "#f5f5ef", border: 1 }}
+                align="center"
+              >
+                <TableRow>
+                  <TableCell>No.</TableCell>
+                  <TableCell>NAME</TableCell>
+                  <TableCell>EMAIL</TableCell>
+                  <TableCell>PHONE</TableCell>
+                  <TableCell>LOCATION</TableCell>
+                  <TableCell>PAST COURSE</TableCell>
+                  <TableCell>YEAR OF PASSING</TableCell>
+                  <TableCell>STATUS</TableCell>
+                  <TableCell>SUBMISSION DATE</TableCell>
+                  <TableCell>Message</TableCell>
+                </TableRow>
+              </TableHead>
 
-                    <TableCell>
-                      {new Date(detail.created_date).toLocaleString("lookup")}
-                    </TableCell>
-                    <TableCell>
-                      <button
-                        style={{
-                          backgroundColor: "skyblue",
-                          color: "white",
-                          width: "100%",
-                          height: "40px",
-                          border: "none",
-                          borderRadius: "5px",
-                        }}
-                        onClick={() => {
-                          setComments(detail.comments);
-                          setStudentId(detail.student_id);
-                          setOpenModal(true);
-                        }}
+              <TableBody align="center">
+                {referrals &&
+                  referrals
+                    .filter((ref) =>
+                      status !== "" ? ref.status === status : ref
+                    )
+                    .map((detail, index) => (
+                      <TableRow
+                        className="tabelrow"
+                        key={index}
+                        sx={{ border: 1, borderColor: "#f5f5ef" }}
                       >
-                        Update
-                      </button>
-                    </TableCell>
-                  </TableRow>
-                ))}
-            </TableBody>
-          </Table>
+                        <TableCell component="th" scope="row">
+                          {index + 1}
+                        </TableCell>
+                        <TableCell>{detail.name}</TableCell>
+                        <TableCell>{detail.email}</TableCell>
+                        <TableCell>{detail.contact_number}</TableCell>
+                        <TableCell>{detail.place}</TableCell>
+                        <TableCell>{detail.course}</TableCell>
+                        <TableCell>{detail.year_of_passing}</TableCell>
+                        <TableCell>
+                          <select
+                            className="student-status"
+                            onChange={(e) => submit(e, detail.student_id)}
+                          >
+                            <option value="">{detail.status}</option>
+                            <option value="Yet To Call">Yet To Call</option>
+                            <option value="Waiting To Call">
+                              Waiting To Call
+                            </option>
+                            <option value="No Response">No Response</option>
+                            <option value="Decision Pending">
+                              Decision Pending
+                            </option>
+                            <option value="Not Interested">
+                              Not Interested
+                            </option>
+                            <option value="Interested">Interested </option>
+                            <option value="Waiting to Join">
+                              Waiting to Join
+                            </option>
+                            <option value="Admission">Admission</option>
+                          </select>
+                        </TableCell>
+
+                        <TableCell>
+                          {new Date(detail.created_date).toLocaleString(
+                            "lookup"
+                          )}
+                        </TableCell>
+                        <TableCell>
+                          <button
+                            style={{
+                              backgroundColor: "skyblue",
+                              color: "white",
+                              width: "100%",
+                              height: "40px",
+                              border: "none",
+                              borderRadius: "5px",
+                            }}
+                            onClick={() => {
+                              setComments(detail.comments);
+                              setStudentId(detail.student_id);
+                              setOpenModal(true);
+                            }}
+                          >
+                            Update
+                          </button>
+                        </TableCell>
+                      </TableRow>
+                    ))}
+              </TableBody>
+            </Table>
+          </InfiniteScroll>
         </TableContainer>
       </div>
     </>
