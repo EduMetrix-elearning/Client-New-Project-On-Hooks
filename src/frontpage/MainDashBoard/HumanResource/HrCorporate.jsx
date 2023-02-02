@@ -14,9 +14,13 @@ const services = require("../../../services/pages/agentRoute");
 
 const HrCorporate = () => {
   const [careerdetails, setCareerDetails] = useState([]);
-  const [openModal, setOpenModal] = useState(false);
+ 
   const [corporateId, setCorporateId] = useState();
   const [comments, setComments] = useState();
+
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   useEffect(() => {
     try {
@@ -77,10 +81,13 @@ const HrCorporate = () => {
   return (
     <>
       <HumanResource />
-      {openModal && (
+      {open && (
         <CorporateModel
+         setOpen={setOpen}
+          open={open}
+          handleClose={handleClose}
           id={corporateId}
-          setOpenModal={setOpenModal}
+          
           notes={comments}
         />
       )}
@@ -90,7 +97,7 @@ const HrCorporate = () => {
           <section className="main">
             <div className="profile-card">
               <div>Total</div>
-              <h3 style={{ marginLeft: "auto" }}>67</h3>
+              <h3 style={{ marginLeft: "auto" }}>{careerdetails.length}</h3>
             </div>
 
             <div className="profile-card2">
@@ -183,7 +190,7 @@ const HrCorporate = () => {
                         onClick={() => {
                           setComments(corporate.comments);
                           setCorporateId(corporate.collaborator_id);
-                          setOpenModal(true);
+                          setOpen(true);
                         }}
                       >
                         Update

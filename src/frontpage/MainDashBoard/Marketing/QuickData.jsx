@@ -18,14 +18,16 @@ const services = require("../../../services/pages/agentRoute");
 
 const QuickData = () => {
   const [enqiryData, setEnquiryData] = useState([]);
-  const [openModal, setOpenModal] = useState(false);
+  
   const [updateId, setUpdateId] = useState();
   const [content, setContent] = useState(false);
   const [comments, setComments] = useState([]);
   // const [contentCourse, setContentCourse] = useState(false);
   // const [contentYear, setContentYear] = useState(false);
 
-  
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   useEffect(() => {
     try {
@@ -74,11 +76,11 @@ const QuickData = () => {
       const status =
         e.target.value !== "All" ? { status: e.target.value } : null;
 
-        const handleEnquiryData = async (obj) => {
-          const result = await services.getEnquiry(obj);
-          setEnquiryData(result.data);
-        };
-        handleEnquiryData(status);
+      const handleEnquiryData = async (obj) => {
+        const result = await services.getEnquiry(obj);
+        setEnquiryData(result.data);
+      };
+      handleEnquiryData(status);
     } catch (error) {
       console.log(error);
     }
@@ -86,9 +88,11 @@ const QuickData = () => {
   return (
     <>
       <MarketingNavbar />
-      {openModal && (
+      {open && (
         <QucikdataModal
-          setOpenModal={setOpenModal}
+          setOpen={setOpen}
+          open={open}
+          handleClose={handleClose}
           id={updateId}
           content={content}
           notes={comments}
@@ -98,11 +102,11 @@ const QuickData = () => {
       )}
       <div style={{ width: "100%", marginTop: "1%" }}>
         <div>
-        <HrDates sortStatus={handleSortStatus} />
+          <HrDates sortStatus={handleSortStatus} />
           <section className="main">
             <div className="profile-card">
               <div>Total</div>
-              <h3 style={{ marginLeft: "auto" }}>67</h3>
+              <h3 style={{ marginLeft: "auto" }}>{enqiryData.length}</h3>
             </div>
 
             <div className="profile-card2">
@@ -197,7 +201,7 @@ const QuickData = () => {
                           }
                           setComments(enquiry.comments);
                           setUpdateId(enquiry.enquiry_id);
-                          setOpenModal(true);
+                          setOpen(true);
                         }}
                       >
                         Update

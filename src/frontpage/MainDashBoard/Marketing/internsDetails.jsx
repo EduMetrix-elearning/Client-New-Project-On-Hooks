@@ -16,11 +16,13 @@ const services = require("../../../services/pages/agentRoute");
 
 const InternspDetails = () => {
   const [internshipDetails, setInternshipDetails] = useState([]);
-  const [openModal, setOpenModal] = useState(false);
+ 
   const [internsId, setInternsId] = useState();
   const [comments, setComments] = useState();
 
- 
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   useEffect(() => {
     try {
@@ -70,34 +72,36 @@ const InternspDetails = () => {
       const status =
         e.target.value !== "All" ? { status: e.target.value } : null;
 
-        const handleInternshipDetails = async (obj) => {
-          const result = await services.getInternship(obj);
-          console.log(result);
-          setInternshipDetails(result.data.reverse());
-        };
-        handleInternshipDetails(status);
+      const handleInternshipDetails = async (obj) => {
+        const result = await services.getInternship(obj);
+        console.log(result);
+        setInternshipDetails(result.data.reverse());
+      };
+      handleInternshipDetails(status);
     } catch (error) {
       console.log(error);
     }
   };
-  
+
   return (
     <>
       <MarketingNavbar />
-      {openModal && (
+      {open && (
         <InternshipModel
+          setOpen={setOpen}
+          open={open}
+          handleClose={handleClose}
           id={internsId}
-          setOpenModal={setOpenModal}
           notes={comments}
         />
       )}
       <div style={{ width: "100%", marginTop: "1%" }}>
         <div>
-        <HrDates sortStatus={handleSortStatus} />
+          <HrDates sortStatus={handleSortStatus} />
           <section className="main">
             <div className="profile-card">
               <div>Total</div>
-              <h3 style={{ marginLeft: "auto" }}>67</h3>
+              <h3 style={{ marginLeft: "auto" }}>{internshipDetails.length}</h3>
             </div>
 
             <div className="profile-card2">
@@ -191,7 +195,7 @@ const InternspDetails = () => {
                         onClick={() => {
                           setComments(interns.comments);
                           setInternsId(interns.student_id);
-                          setOpenModal(true);
+                          setOpen(true);
                         }}
                       >
                         Update

@@ -19,6 +19,10 @@ const HrCareer = () => {
   const [hiringdetails, setHiringDetails] = useState([]);
   const [comments, setComments] = useState();
 
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   useEffect(() => {
     try {
       const HandleHiringDetails = async () => {
@@ -31,7 +35,6 @@ const HrCareer = () => {
     }
   }, []);
 
-  const [openModal, setOpenModal] = useState(false);
   const [employeeId, setEmployeeId] = useState();
 
   const submit = (e, id) => {
@@ -82,10 +85,13 @@ const HrCareer = () => {
   return (
     <>
       <HumanResource />
-      {openModal && (
+      {open && (
         <HrCareerModal
+          setOpen={setOpen}
+          open={open}
+          handleClose={handleClose}
           id={employeeId}
-          setOpenModal={setOpenModal}
+          // setOpenModal={setOpenModal}
           notes={comments}
         />
       )}
@@ -95,7 +101,7 @@ const HrCareer = () => {
           <section className="main">
             <div className="profile-card">
               <div>Total</div>
-              <h3 style={{ marginLeft: "auto" }}>67</h3>
+              <h3 style={{ marginLeft: "auto" }}>{hiringdetails.length}</h3>
             </div>
 
             <div className="profile-card2">
@@ -190,7 +196,7 @@ const HrCareer = () => {
                           onClick={() => {
                             setComments(employee.comments);
                             setEmployeeId(employee.employee_id);
-                            setOpenModal(true);
+                            setOpen(true);
                           }}
                         >
                           Update

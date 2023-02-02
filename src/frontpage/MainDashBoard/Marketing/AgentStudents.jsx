@@ -27,6 +27,10 @@ const AgentStudents = () => {
   const [loading, setLoading] = useState(true);
   const [status, setStatus] = useState("");
 
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   useEffect(() => {
     try {
       const getReferrals = async () => {
@@ -97,8 +101,11 @@ const AgentStudents = () => {
   return (
     <>
       <MarketingNavbar />
-      {openModal && (
+      {open && (
         <AgentModel
+          setOpen={setOpen}
+          open={open}
+          handleClose={handleClose}
           id={studentid}
           setOpenModal={setOpenModal}
           notes={comments}
@@ -110,7 +117,7 @@ const AgentStudents = () => {
           <section className="main">
             <div className="profile-card">
               <div>Total</div>
-              <h3 style={{ marginLeft: "auto" }}>67</h3>
+              <h3 style={{ marginLeft: "auto" }}>{referrals.length}</h3>
             </div>
 
             <div className="profile-card2">
@@ -224,7 +231,7 @@ const AgentStudents = () => {
                             onClick={() => {
                               setComments(detail.comments);
                               setStudentId(detail.student_id);
-                              setOpenModal(true);
+                              setOpen(true);
                             }}
                           >
                             Update

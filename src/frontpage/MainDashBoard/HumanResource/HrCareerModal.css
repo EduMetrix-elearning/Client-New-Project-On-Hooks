@@ -1,18 +1,8 @@
 
 
-.message-modalBackground {
+.career-message-modalBackground {
     width: 100vw;
     height: 100vh;
-    background-color: rgb(33, 31, 31);
-    
-    /* background-color:grey; */
-    /* background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover; */
-    /* background-attachment: fixed; */
-   
-    /* backdrop-filter: blur(20px);
-     */
     position: fixed;
     display: flex;
     justify-content: center;
@@ -20,6 +10,7 @@
   }
   
   .message-modalContainer {
+    overflow-y: auto;
     width: 400px;
     height: 500px;
     border-radius: 12px;
@@ -29,14 +20,15 @@
     flex-direction: column;
     padding:0px 10px;
     margin-bottom: 30px;
-    /* width: 400px;
-    height: 500px;
-    background-color:#fff;
     position: absolute;
     transform: translate(-50%,-50%);
     padding:0px 10px;
     top: 50%;
     left: 50%;
+    /* width: 400px;
+    height: 500px;
+    background-color:#fff;
+    
     border-radius: 10px; */
     /* backdrop-filter: blur(10px); */
     /* border: 2px solid rgba(255,255,255,0.1);
@@ -79,6 +71,7 @@
     margin: 8px 0px;
     height: 60px;
     border-radius: 10px;
+    overflow: auto;
   }
 
   .message-modalContainer .body-2{

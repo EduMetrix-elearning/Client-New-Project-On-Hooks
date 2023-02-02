@@ -40,8 +40,8 @@ export const EduMetrixHomepage = () => {
     }
     const handleChatclose=()=>setChatopen(false)
 
-    const {internshipOpen,handleinternship,handleInternshipClose}=useContext(InternshipContext)
-    const {carrierOpen,handleCarrier,handleCarrierClose}=useContext(CareerContext)
+    const {handleinternship,}=useContext(InternshipContext)
+    const {handleCarrier}=useContext(CareerContext)
     
     return (
         <div className='main-edumetrix-homepage'>
