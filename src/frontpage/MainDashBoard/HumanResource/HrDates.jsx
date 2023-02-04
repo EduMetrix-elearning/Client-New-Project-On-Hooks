@@ -1,7 +1,7 @@
 import React from "react";
 import "./HrDates.css";
 
-const HrDates = ({ sortStatus }) => {
+const HrDates = ({ sortStatus, sortNames }) => {
   return (
     <>
       <div className="form-content">
@@ -51,6 +51,31 @@ const HrDates = ({ sortStatus }) => {
               </option>
               <option className="option-container" value="Not Allow">
                 Not Allow
+              </option>
+            </select>
+          </div>
+          <div className="field-input-field">
+            <header>Called By</header>
+            <select
+              className="field-option"
+              name="cars"
+              id="cars"
+              onChange={(e) => sortNames(e)}
+            >
+              <option className="option-container" value="All">
+                All
+              </option>
+              <option className="option-container" value="Hr-1">
+                Hr-1
+              </option>
+              <option className="option-container" value="Hr-2">
+                Hr-2
+              </option>
+              <option className="option-container" value="Hr-3">
+                Hr-3
+              </option>
+              <option className="option-container" value="Hr-4">
+                Hr-4
               </option>
             </select>
           </div>

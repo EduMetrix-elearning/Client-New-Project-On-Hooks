@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+
 import MarketingNavbar from "./MarketingNavbar";
 import HrDates from "../HumanResource/HrDates";
 import { confirmAlert } from "react-confirm-alert";
@@ -16,7 +17,7 @@ const services = require("../../../services/pages/agentRoute");
 
 const InternspDetails = () => {
   const [internshipDetails, setInternshipDetails] = useState([]);
- 
+
   const [internsId, setInternsId] = useState();
   const [comments, setComments] = useState();
 
@@ -83,9 +84,11 @@ const InternspDetails = () => {
     }
   };
 
+
+
   return (
     <>
-      <MarketingNavbar />
+      <MarketingNavbar />\
       {open && (
         <InternshipModel
           setOpen={setOpen}
@@ -143,14 +146,14 @@ const InternspDetails = () => {
             </TableHead>
             <TableBody align="center">
               {internshipDetails &&
-                internshipDetails.map((interns) => (
+                internshipDetails.map((interns, index) => (
                   <TableRow
                     className="tabelrow"
                     key={interns.student_id}
                     sx={{ border: 1, borderColor: "#f5f5ef" }}
                   >
                     <TableCell component="th" scope="row">
-                      {interns.student_id}
+                      {index + 1}
                     </TableCell>
                     <TableCell>{interns.name}</TableCell>
                     <TableCell>{interns.email}</TableCell>
@@ -159,7 +162,10 @@ const InternspDetails = () => {
                     <TableCell>{interns.course}</TableCell>
                     <TableCell>{interns.year_of_passing}</TableCell>
                     <TableCell>{interns.about_yourself}</TableCell>
-                    <TableCell>{interns.resume}</TableCell>
+                    <TableCell>
+                    {interns.resume}
+                         
+                    </TableCell>
                     <TableCell>
                       <select
                         className="student-status"

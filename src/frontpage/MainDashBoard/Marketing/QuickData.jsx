@@ -18,10 +18,13 @@ const services = require("../../../services/pages/agentRoute");
 
 const QuickData = () => {
   const [enqiryData, setEnquiryData] = useState([]);
-  
+
   const [updateId, setUpdateId] = useState();
   const [content, setContent] = useState(false);
   const [comments, setComments] = useState([]);
+  const [totalData, setTotalData] = useState(0);
+
+
   // const [contentCourse, setContentCourse] = useState(false);
   // const [contentYear, setContentYear] = useState(false);
 
@@ -33,13 +36,16 @@ const QuickData = () => {
     try {
       const handleEnquiryData = async () => {
         const result = await services.getEnquiry();
-        setEnquiryData(result.data);
+        setEnquiryData(result.data.reverse());
+        setTotalData(result.data.length)
       };
       handleEnquiryData();
     } catch (error) {
       console.log(error);
     }
   }, []);
+
+  
 
   const submit = (e, id) => {
     confirmAlert({
@@ -76,15 +82,22 @@ const QuickData = () => {
       const status =
         e.target.value !== "All" ? { status: e.target.value } : null;
 
+      
+
+       
+
       const handleEnquiryData = async (obj) => {
         const result = await services.getEnquiry(obj);
         setEnquiryData(result.data);
+       
       };
       handleEnquiryData(status);
     } catch (error) {
       console.log(error);
     }
   };
+
+
   return (
     <>
       <MarketingNavbar />
@@ -106,19 +119,19 @@ const QuickData = () => {
           <section className="main">
             <div className="profile-card">
               <div>Total</div>
-              <h3 style={{ marginLeft: "auto" }}>{enqiryData.length}</h3>
+              <h3 style={{ marginLeft: "auto" }}>{totalData}</h3>
             </div>
 
             <div className="profile-card2">
-              <div>Verified</div>
+              <div>Intrested</div>
               <h3 style={{ marginLeft: "auto" }}>67</h3>
             </div>
             <div className="profile-card3">
-              Not Verified
+              Decision Pending
               <h3 style={{ marginLeft: "auto" }}>67</h3>
             </div>
             <div className="profile-card4">
-              Fake
+              Not Intrested
               <h3 style={{ marginLeft: "auto" }}>67</h3>
             </div>
           </section>
@@ -144,14 +157,14 @@ const QuickData = () => {
             </TableHead>
             <TableBody align="center">
               {enqiryData &&
-                enqiryData.map((enquiry) => (
+                enqiryData.map((enquiry, index) => (
                   <TableRow
                     className="tabelrow"
                     key={enquiry.enquiry_id}
                     sx={{ border: 1, borderColor: "#f5f5ef" }}
                   >
                     <TableCell component="th" scope="row">
-                      {enquiry.enquiry_id}
+                      {index + 1}
                     </TableCell>
                     <TableCell>{enquiry.name}</TableCell>
                     <TableCell>{enquiry.email}</TableCell>

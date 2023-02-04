@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import MarketingNavbar from "./MarketingNavbar";
 import HrDates from "../HumanResource/HrDates";
-import HrTable from "../HumanResource/HrTable";
+
+
 import { confirmAlert } from "react-confirm-alert";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -26,6 +27,11 @@ const AgentStudents = () => {
   const [totalReferrals, setTotalReferrals] = useState(0);
   const [loading, setLoading] = useState(true);
   const [status, setStatus] = useState("");
+  const [interested, setIntrested] = useState(0);
+  const [notIntrested, setNotIntrested] = useState(0);
+  const [decision, setDecision] = useState(0);
+
+  const [hrNames, setHrNames] = useState("");
 
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -36,8 +42,11 @@ const AgentStudents = () => {
       const getReferrals = async () => {
         const students = await services.agentAllReferrals(pageNumber + 1);
         setPageNumber(pageNumber + 1);
-        setTotalReferrals(students.totalReferrals);
+        setTotalReferrals(students.referralsCount.totalReferrals);
         setReferrals(students.data);
+        setIntrested(students.referralsCount.interested);
+        setNotIntrested(students.referralsCount.notInterested);
+        setDecision(students.referralsCount.decisionPending);
       };
       getReferrals();
     } catch (error) {
@@ -93,10 +102,49 @@ const AgentStudents = () => {
     }
   };
 
+  const submitName = (e, id) => {
+    confirmAlert({
+      title: "Confirm to submit",
+      message: "Are you sure to do this.",
+      buttons: [
+        {
+          label: "Yes",
+          onClick: () => handleNameChange(e, id),
+        },
+        {
+          label: "No",
+          onClick: () => window.location.reload(true),
+        },
+      ],
+    });
+  };
+
+  const handleNameChange = async (e, id) => {
+    const status = { called_by: e.target.value };
+
+    try {
+      const updateStatus = async () => {
+        await services.updateReferralStatus(status, id);
+      };
+      updateStatus();
+    } catch (error) {
+      alert(error.response.data.message);
+    }
+  };
+
   const handleSortStatus = (e) => {
     const status = e.target.value;
+
     return status !== "All" ? setStatus(status) : setStatus("");
   };
+
+  const handleSortName = (e) => {
+    const hrNames = e.target.value;
+
+    return hrNames !== "All" ? setHrNames(hrNames) : setHrNames("");
+  };
+
+  console.log(hrNames);
 
   return (
     <>
@@ -113,24 +161,25 @@ const AgentStudents = () => {
       )}
       <div style={{ width: "100%", marginTop: "1%" }}>
         <div>
-          <HrDates sortStatus={handleSortStatus} />
+          <HrDates sortStatus={handleSortStatus} sortNames={handleSortName} />
+
           <section className="main">
             <div className="profile-card">
               <div>Total</div>
-              <h3 style={{ marginLeft: "auto" }}>{referrals.length}</h3>
+              <h3 style={{ marginLeft: "auto" }}>{totalReferrals}</h3>
             </div>
 
             <div className="profile-card2">
-              <div>Verified</div>
-              <h3 style={{ marginLeft: "auto" }}>67</h3>
+              <div>Intrested</div>
+              <h3 style={{ marginLeft: "auto" }}>{interested}</h3>
             </div>
             <div className="profile-card3">
-              Not Verified
-              <h3 style={{ marginLeft: "auto" }}>67</h3>
+              Decision Pending
+              <h3 style={{ marginLeft: "auto" }}>{decision}</h3>
             </div>
             <div className="profile-card4">
-              Fake
-              <h3 style={{ marginLeft: "auto" }}>67</h3>
+              Not Intrested
+              <h3 style={{ marginLeft: "auto" }}>{notIntrested}</h3>
             </div>
           </section>
         </div>
@@ -164,6 +213,8 @@ const AgentStudents = () => {
                   <TableCell>STATUS</TableCell>
                   <TableCell>SUBMISSION DATE</TableCell>
                   <TableCell>Message</TableCell>
+                  <TableCell>Called By</TableCell>
+                  <TableCell>Called Date</TableCell>
                 </TableRow>
               </TableHead>
 
@@ -172,6 +223,9 @@ const AgentStudents = () => {
                   referrals
                     .filter((ref) =>
                       status !== "" ? ref.status === status : ref
+                    )
+                    .filter((ref) =>
+                      hrNames !== "" ? ref.hrNames === hrNames : ref
                     )
                     .map((detail, index) => (
                       <TableRow
@@ -236,6 +290,20 @@ const AgentStudents = () => {
                           >
                             Update
                           </button>
+                        </TableCell>
+                        <TableCell>
+                          <select
+                            className="student-status"
+                            onChange={(e) => submitName(e, detail.student_id)}
+                          >
+                            <option value="">{detail.called_by}</option>
+                            {/* <option value="">Choose Name</option> */}
+
+                            <option value="Hr-1">Hr-1</option>
+                            <option value="Hr-2">Hr-2</option>
+                            <option value="Hr-3">Hr-3</option>
+                            <option value="Hr-4">Hr-4</option>
+                          </select>
                         </TableCell>
                       </TableRow>
                     ))}

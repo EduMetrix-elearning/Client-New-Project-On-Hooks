@@ -18,6 +18,8 @@ import ClearIcon from "@mui/icons-material/Clear";
 import { InternshipContext } from "../../context/InternshipContext";
 import * as services from "../../services/pages/agentRoute";
 
+const ls = require("local-storage");
+
 const style = {
   position: "absolute",
   top: "50%",
@@ -45,7 +47,7 @@ export const Internship = (props) => {
   const [year, setYear] = useState("");
   const [college, setCollege] = useState("");
   const [about, setAbout] = useState("");
-  const [resume, setResume] = useState("");
+  const [resume, setResume] = useState();
 
   const [errorname, setErrorName] = useState("");
   const [errorphone, setErrorPhone] = useState("");
@@ -58,7 +60,13 @@ export const Internship = (props) => {
   const [erroryear, setErrorYear] = useState("");
   const [errorcollege, setErrorCollege] = useState("");
   const [errorabout, setErrorAbout] = useState("");
-  const [errorresume, setErrorResume] = useState("");
+  const [errorresume, setErrorResume] = useState();
+
+  const uploadResume = (e) => {
+    setResume(URL.createObjectURL(e.target.files[0]));
+  };
+
+  console.log(resume);
 
   const handleClick = (e) => {
     setErrorName("");
@@ -295,7 +303,11 @@ export const Internship = (props) => {
           />
           {errorabout ? <div style={{ color: "red" }}>{errorabout}</div> : null}
           <label htmlFor="">Upload CV Here</label>
-          <input type="file" onChange={(e) => setResume(e.target.value)} />
+          <input
+            type="file"
+            accept="document/*"
+            onChange={(e) => uploadResume(e)}
+          />
           {errorresume ? (
             <div style={{ color: "red" }}>{errorresume}</div>
           ) : null}
