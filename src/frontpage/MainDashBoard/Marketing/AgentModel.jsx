@@ -4,12 +4,14 @@ import Modal from "@mui/material/Modal";
 
 const services = require("../../../services/pages/agentRoute");
 
-export default function AgentModel({ setOpen, id, notes, open, handleClose  }) {
+export default function AgentModel({ setOpen, id, notes, open, handleClose }) {
   const [studentMessage, setStudentMessage] = useState("");
+  const [calledDate, setCalleDate] = useState();
 
   const handleStudentMessage = async () => {
     const status = {
       comments: studentMessage,
+      called_date: calledDate,
     };
     console.log(status.comments);
 
@@ -52,6 +54,7 @@ export default function AgentModel({ setOpen, id, notes, open, handleClose  }) {
               })}
           </div>
           <div className="body-2">
+            <input type="number" placeholder="Calling Date" />
             <textarea
               placeholder="Enter Message"
               onChange={(e) => setStudentMessage(e.target.value)}

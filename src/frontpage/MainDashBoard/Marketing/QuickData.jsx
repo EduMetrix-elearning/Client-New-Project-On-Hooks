@@ -24,7 +24,6 @@ const QuickData = () => {
   const [comments, setComments] = useState([]);
   const [totalData, setTotalData] = useState(0);
 
-
   // const [contentCourse, setContentCourse] = useState(false);
   // const [contentYear, setContentYear] = useState(false);
 
@@ -37,15 +36,13 @@ const QuickData = () => {
       const handleEnquiryData = async () => {
         const result = await services.getEnquiry();
         setEnquiryData(result.data.reverse());
-        setTotalData(result.data.length)
+        setTotalData(result.data.length);
       };
       handleEnquiryData();
     } catch (error) {
       console.log(error);
     }
   }, []);
-
-  
 
   const submit = (e, id) => {
     confirmAlert({
@@ -82,21 +79,15 @@ const QuickData = () => {
       const status =
         e.target.value !== "All" ? { status: e.target.value } : null;
 
-      
-
-       
-
       const handleEnquiryData = async (obj) => {
         const result = await services.getEnquiry(obj);
         setEnquiryData(result.data);
-       
       };
       handleEnquiryData(status);
     } catch (error) {
       console.log(error);
     }
   };
-
 
   return (
     <>
@@ -147,10 +138,10 @@ const QuickData = () => {
                 <TableCell>EMAIL</TableCell>
                 <TableCell>PHONE</TableCell>
                 <TableCell>STATUS</TableCell>
-                <TableCell>MESSAGE</TableCell>
+                <TableCell>YEAR OF PASSING</TableCell>
                 <TableCell>LOCATION</TableCell>
                 <TableCell>PAST COURSE</TableCell>
-                <TableCell>YEAR OF PASSING</TableCell>
+                <TableCell>MESSAGE</TableCell>
                 <TableCell>SUBMISSION DATE</TableCell>
                 <TableCell>UPDATE</TableCell>
               </TableRow>

@@ -19,6 +19,7 @@ export default function InternshipModel({
       comments: InternsMessage,
     };
     console.log(status.comments);
+    console.log(status.called_date);
 
     try {
       const InternsSectionUpdating = async () => {

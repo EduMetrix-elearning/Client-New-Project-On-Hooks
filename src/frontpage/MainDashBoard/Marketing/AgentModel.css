@@ -92,6 +92,13 @@
   border-radius: 10px;
 }
 
+.message-modalContainer .body-2 input{
+  border: 1px solid rgb(200, 194, 194);
+  margin-bottom: 10px;
+  padding: 5px 5px;
+  border-radius: 5px;
+}
+
 .message-modalContainer .footer {
   flex: 10%;
   display: flex;
