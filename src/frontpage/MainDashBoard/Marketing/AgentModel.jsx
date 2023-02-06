@@ -6,9 +6,15 @@ const services = require("../../../services/pages/agentRoute");
 
 export default function AgentModel({ setOpen, id, notes, open, handleClose }) {
   const [studentMessage, setStudentMessage] = useState("");
-  const [calledDate, setCalleDate] = useState();
+  const [calledDate, setCalledDate] = useState();
+  const [error, setError] = useState("");
 
   const handleStudentMessage = async () => {
+    if (!calledDate) return setError("Date field is required");
+    if (!studentMessage) return setError("Message field is required");
+    setError("");
+    setOpen(false);
+
     const status = {
       comments: studentMessage,
       called_date: calledDate,
@@ -54,21 +60,19 @@ export default function AgentModel({ setOpen, id, notes, open, handleClose }) {
               })}
           </div>
           <div className="body-2">
-            <input type="number" placeholder="Calling Date" />
+            <input
+              type="date"
+              placeholder="Calling Date"
+              onChange={(e) => setCalledDate(e.target.value)}
+            />
             <textarea
               placeholder="Enter Message"
               onChange={(e) => setStudentMessage(e.target.value)}
             ></textarea>
           </div>
-          <div className="footer">
-            <button
-              onClick={() => {
-                handleStudentMessage();
-                setOpen(false);
-              }}
-            >
-              Submit
-            </button>
+          <div className="footer" style={{ flexDirection: "column" }}>
+            <p style={{ color: "red" }}>{error}</p>
+            <button onClick={handleStudentMessage}>Submit</button>
           </div>
         </div>
       </Modal>
