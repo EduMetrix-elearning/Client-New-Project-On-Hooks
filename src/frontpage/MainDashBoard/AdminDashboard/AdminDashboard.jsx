@@ -68,7 +68,7 @@ const AdminDashboard = () => {
       </li>
 
       <li
-        onClick={() => navigate("/", { replac: true })}
+        onClick={() => navigate("/", { replace: true })}
         style={{
           backgroundColor: "#193942",
           color: "white",

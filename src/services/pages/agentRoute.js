@@ -148,7 +148,6 @@ export async function agentAllReferrals(pageNumber) {
         },
       }
     );
-    console.log(referrals.data);
 
     return referrals.data;
   } catch (error) {
@@ -178,7 +177,11 @@ export function agentReferrals(callback) {
 
 export async function updateReferralStatus(status, id) {
   try {
-    await Axios.put(baseurl.GetUrl() + `/agent/referrals/status/${id}`, status);
+    const res = await Axios.put(
+      baseurl.GetUrl() + `/agent/referrals/status/${id}`,
+      status
+    );
+    return res.data;
   } catch (error) {
     if (error.response.data) {
       alert(error.response.data.message);

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import MarketingNavbar from "./MarketingNavbar";
 import HrDates from "../HumanResource/HrDates";
 
-
 import { confirmAlert } from "react-confirm-alert";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -26,12 +25,12 @@ const AgentStudents = () => {
   const [pageNumber, setPageNumber] = useState(0);
   const [totalReferrals, setTotalReferrals] = useState(0);
   const [loading, setLoading] = useState(true);
-  const [status, setStatus] = useState("");
   const [interested, setIntrested] = useState(0);
   const [notIntrested, setNotIntrested] = useState(0);
   const [decision, setDecision] = useState(0);
 
-  const [hrNames, setHrNames] = useState("");
+  const [status, setStatus] = useState("All");
+  const [hrNames, setHrNames] = useState("All");
 
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -94,7 +93,8 @@ const AgentStudents = () => {
 
     try {
       const updateStatus = async () => {
-        await services.updateReferralStatus(status, id);
+        const res = await services.updateReferralStatus(status, id);
+        if (res) return window.location.reload(true);
       };
       updateStatus();
     } catch (error) {
@@ -120,11 +120,12 @@ const AgentStudents = () => {
   };
 
   const handleNameChange = async (e, id) => {
-    const status = { called_by: e.target.value };
+    const hr = { called_by: e.target.value };
 
     try {
       const updateStatus = async () => {
-        await services.updateReferralStatus(status, id);
+        const res = await services.updateReferralStatus(hr, id);
+        if (res) return window.location.reload(true);
       };
       updateStatus();
     } catch (error) {
@@ -133,18 +134,34 @@ const AgentStudents = () => {
   };
 
   const handleSortStatus = (e) => {
-    const status = e.target.value;
+    const sortStatus = e.target.value;
+    console.log(sortStatus);
 
-    return status !== "All" ? setStatus(status) : setStatus("");
+    if (sortStatus !== "All") {
+      setStatus(sortStatus);
+      setHrNames(hrNames);
+      console.log("status", status);
+
+      return;
+    } else {
+      setStatus("All");
+      setHrNames(hrNames);
+      return;
+    }
   };
 
   const handleSortName = (e) => {
-    const hrNames = e.target.value;
-
-    return hrNames !== "All" ? setHrNames(hrNames) : setHrNames("");
+    const hrName = e.target.value;
+    if (hrName !== "All") {
+      setStatus(status);
+      setHrNames(hrName);
+      return;
+    } else {
+      setStatus(status);
+      setHrNames("All");
+      return;
+    }
   };
-
-  console.log(hrNames);
 
   return (
     <>
@@ -222,10 +239,10 @@ const AgentStudents = () => {
                 {referrals &&
                   referrals
                     .filter((ref) =>
-                      status !== "" ? ref.status === status : ref
+                      status !== "All" ? ref.status === status : ref
                     )
                     .filter((ref) =>
-                      hrNames !== "" ? ref.hrNames === hrNames : ref
+                      hrNames !== "All" ? ref.called_by === hrNames : ref
                     )
                     .map((detail, index) => (
                       <TableRow
@@ -297,8 +314,6 @@ const AgentStudents = () => {
                             onChange={(e) => submitName(e, detail.student_id)}
                           >
                             <option value="">{detail.called_by}</option>
-                            {/* <option value="">Choose Name</option> */}
-
                             <option value="Hr-1">Hr-1</option>
                             <option value="Hr-2">Hr-2</option>
                             <option value="Hr-3">Hr-3</option>
