@@ -1,6 +1,6 @@
 import React from "react";
 import "./MarketingNavbar.css";
-import { Link } from "react-router-dom";
+import { Link , NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import HomeIcon from "@mui/icons-material/Home";
 
@@ -19,29 +19,29 @@ const MarketingNavbar = () => {
 
         <ul>
           <li>
-            <Link to="/quickdata">
+            <NavLink to="/quickdata">
               <i className="fas fa-qrcode"></i>Quick Data
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to="/internsdetails">
+            <NavLink to="/internsdetails">
               <i className="fas fa-qrcode"></i>Internship
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to="/agentstudents">
+            <NavLink to="/agentstudents">
               <i className="fa-solid fa-user"></i>Agent
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link>
+            <NavLink to="/emt">
               <i className="fas fa-stream"></i>EMT
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to="/marketingmeeting">
+            <NavLink to="/marketingmeeting">
               <i className="fas fa-calendar-week"></i>MEETING
-            </Link>
+            </NavLink>
           </li>
         </ul>
         <div className="media_icons">
