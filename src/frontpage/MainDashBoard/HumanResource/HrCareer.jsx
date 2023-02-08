@@ -141,13 +141,13 @@ const HrCareer = () => {
               </TableHead>
               <TableBody align="center">
                 {hiringdetails &&
-                  hiringdetails.map((employee) => (
+                  hiringdetails.map((employee, index) => (
                     <TableRow
                       className="tabelrow"
                       key={employee.employee_id}
                       sx={{ border: 1, borderColor: "#f5f5ef" }}
                     >
-                      <TableCell>{employee.employee_id}</TableCell>
+                      <TableCell>{index + 1}</TableCell>
                       <TableCell>{employee.name}</TableCell>
                       <TableCell>{employee.email}</TableCell>
                       <TableCell>{employee.contact_number}</TableCell>

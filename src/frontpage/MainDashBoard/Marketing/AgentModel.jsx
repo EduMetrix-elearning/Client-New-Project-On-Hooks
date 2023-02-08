@@ -54,7 +54,8 @@ export default function AgentModel({ setOpen, id, notes, open, handleClose }) {
               })}
           </div>
           <div className="body-2">
-            <input type="number" placeholder="Calling Date" />
+            <label>Calling Date</label>
+            <input type="date" placeholder="Calling Date" />
             <textarea
               placeholder="Enter Message"
               onChange={(e) => setStudentMessage(e.target.value)}

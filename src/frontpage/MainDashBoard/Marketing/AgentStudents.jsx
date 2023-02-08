@@ -26,7 +26,7 @@ const AgentStudents = () => {
   const [totalReferrals, setTotalReferrals] = useState(0);
   const [loading, setLoading] = useState(true);
   const [interested, setIntrested] = useState(0);
-  const [notIntrested, setNotIntrested] = useState(0);
+  const [noResponse, setNoResponse] = useState(0);
   const [decision, setDecision] = useState(0);
 
   const [status, setStatus] = useState("All");
@@ -44,9 +44,12 @@ const AgentStudents = () => {
         setTotalReferrals(students.referralsCount.totalReferrals);
         setReferrals(students.data);
         setIntrested(students.referralsCount.interested);
-        setNotIntrested(students.referralsCount.notInterested);
+
         setDecision(students.referralsCount.decisionPending);
+        setNoResponse(students.referralsCount.noResponse);
+        console.log(students);
       };
+
       getReferrals();
     } catch (error) {
       console.log(error);
@@ -195,8 +198,8 @@ const AgentStudents = () => {
               <h3 style={{ marginLeft: "auto" }}>{decision}</h3>
             </div>
             <div className="profile-card4">
-              Not Intrested
-              <h3 style={{ marginLeft: "auto" }}>{notIntrested}</h3>
+              No Response
+              <h3 style={{ marginLeft: "auto" }}>{noResponse}</h3>
             </div>
           </section>
         </div>
@@ -314,12 +317,15 @@ const AgentStudents = () => {
                             onChange={(e) => submitName(e, detail.student_id)}
                           >
                             <option value="">{detail.called_by}</option>
-                            <option value="Hr-1">Hr-1</option>
-                            <option value="Hr-2">Hr-2</option>
-                            <option value="Hr-3">Hr-3</option>
-                            <option value="Hr-4">Hr-4</option>
+                            <option value="Nadia">Nadia</option>
+                            <option value="Nurir">Nurir</option>
+                            <option value="Priyanka">Priyanka</option>
+                            <option value="Rakhi">Rakhi</option>
+                            <option value="Shahana">Shahana</option>
+                            <option value="Shrujana">Shrujana</option>
                           </select>
                         </TableCell>
+                        <TableCell>{detail.called_date}</TableCell>
                       </TableRow>
                     ))}
               </TableBody>
