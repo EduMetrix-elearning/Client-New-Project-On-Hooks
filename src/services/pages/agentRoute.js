@@ -332,12 +332,14 @@ export async function updateEmployeeStatus(status, id) {
   }
 }
 
-export async function getInternship(obj = null) {
+export async function getInternship(pageNumber) {
   try {
-    const result = await Axios.get(
-      baseurl.GetUrl() + "/student_internship",
-      obj && { params: { obj } }
-    );
+    const result = await Axios.get(baseurl.GetUrl() + "/student_internship", {
+      params: {
+        pageNumber,
+        pageLength: 10,
+      },
+    });
 
     return result.data;
   } catch (error) {
@@ -369,10 +371,11 @@ export async function submitInternship(obj) {
 
 export async function updateIntersStatus(status, id) {
   try {
-    await Axios.put(
+    const res = await Axios.put(
       baseurl.GetUrl() + `/student_internship/update/${id}`,
       status
     );
+    return res.data;
   } catch (error) {
     if (error.response.data) {
       alert(error.response.data.message);
@@ -382,11 +385,17 @@ export async function updateIntersStatus(status, id) {
   }
 }
 
-export async function getEnquiry(obj = null) {
+export async function getEnquiry(pageNumber) {
   try {
     const result = await Axios.get(
       baseurl.GetUrl() + "/student_enquiry",
-      obj && { params: { obj } }
+      // obj && { params: { obj } }
+      {
+        params: {
+          pageNumber,
+          pageLength: 10,
+        },
+      }
     );
 
     return result.data;
@@ -414,7 +423,11 @@ export async function submitEnquiry(obj) {
 
 export async function updateStudentEnquiryStatus(status, id) {
   try {
-    await Axios.put(baseurl.GetUrl() + `/student_enquiry/status/${id}`, status);
+    const res = await Axios.put(
+      baseurl.GetUrl() + `/student_enquiry/status/${id}`,
+      status
+    );
+    return res.data;
   } catch (error) {
     if (error.response.data) {
       alert(error.response.data.message);
