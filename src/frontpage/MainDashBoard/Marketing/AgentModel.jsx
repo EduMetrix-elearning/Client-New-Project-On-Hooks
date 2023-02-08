@@ -19,7 +19,6 @@ export default function AgentModel({ setOpen, id, notes, open, handleClose }) {
       comments: studentMessage,
       called_date: calledDate,
     };
-    console.log(status.comments);
 
     try {
       const AgentStudentSectionUpdating = async () => {

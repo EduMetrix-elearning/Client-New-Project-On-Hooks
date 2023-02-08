@@ -38,13 +38,13 @@ const InternNavbar = () => {
           </li>
           <li>
             <Link to="/internmeeting">
-              <i className="fas fa-calendar-week"></i>METTING
+              <i className="fas fa-calendar-week"></i>MEETING
             </Link>
           </li>
         </ul>
         <div className="media_icons">
           <button
-            onClick={() => navigate("/", { replac: true })}
+            onClick={() => navigate("/", { replace: true })}
             className="logout-btn"
           >
             logout

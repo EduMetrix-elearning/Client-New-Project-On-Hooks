@@ -13,13 +13,19 @@ export default function InternshipModel({
   handleClose,
 }) {
   const [InternsMessage, setInternsMessage] = useState();
+  const [calledDate, setCalledDate] = useState();
+  const [error, setError] = useState("");
 
   const handleInternsMessage = async () => {
+    if (!calledDate) return setError("Date field is required");
+    if (!InternsMessage) return setError("Message field is required");
+    setError("");
+    setOpen(false);
+
     const status = {
       comments: InternsMessage,
+      called_date: calledDate,
     };
-    console.log(status.comments);
-    console.log(status.called_date);
 
     try {
       const InternsSectionUpdating = async () => {
@@ -60,20 +66,19 @@ export default function InternshipModel({
               })}
           </div>
           <div className="body-2">
+            <input
+              type="date"
+              placeholder="Calling Date"
+              onChange={(e) => setCalledDate(e.target.value)}
+            />
             <textarea
               placeholder="Enter Message"
               onChange={(e) => setInternsMessage(e.target.value)}
             ></textarea>
           </div>
-          <div className="footer">
-            <button
-              onClick={() => {
-                handleInternsMessage();
-                setOpen(false);
-              }}
-            >
-              Submit
-            </button>
+          <div className="footer" style={{ flexDirection: "column" }}>
+            <p style={{ color: "red" }}>{error}</p>
+            <button onClick={handleInternsMessage}>Submit</button>
           </div>
         </div>
       </Modal>

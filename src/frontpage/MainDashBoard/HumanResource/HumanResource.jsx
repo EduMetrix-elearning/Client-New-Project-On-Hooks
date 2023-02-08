@@ -35,12 +35,12 @@ const HumanResource = () => {
           </li>
           <li>
             <Link to="/hrmeeting">
-              <i className="fas fa-calendar-week"></i>METTING
+              <i className="fas fa-calendar-week"></i>MEETING
             </Link>
           </li>
         </ul>
         <div className="media_icons">
-          <button onClick={() => navigate("/", { replac: true })} className="logout-btn">logout</button>
+          <button onClick={() => navigate("/", { replace: true })} className="logout-btn">logout</button>
         </div>
       </div>
     </>

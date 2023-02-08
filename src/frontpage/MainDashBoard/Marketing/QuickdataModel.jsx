@@ -4,22 +4,34 @@ import Modal from "@mui/material/Modal";
 
 const services = require("../../../services/pages/agentRoute");
 
-function QucikdataModal({ setOpen, id, content,notes, open, handleClose }) {
+function QucikdataModal({ setOpen, id, content, notes, open, handleClose }) {
   const [location, setLocation] = useState("");
   const [past_course, setPastCourse] = useState("");
   const [year_of_passing, setPassingYear] = useState("");
   const [comments, setComments] = useState("");
+  const [calledDate, setCalledDate] = useState();
+  const [error, setError] = useState("");
 
   const handleClick = async () => {
+    //   if (!location) return setError("Location field is required");
+    //   if (!past_course) return setError("Past Course is required");
+    //   if (!year_of_passing) return setError("Year of passing is required");
+    if (!calledDate) return setError("Date field is required");
+    if (!comments) return setError("Message field is required");
+    setError("");
+    setOpen(false);
+
     let status = {
       location: location,
       past_course: past_course,
       year_of_passing: year_of_passing,
       comments: comments,
+      called_date: calledDate,
     };
     if (content) {
       status = {
         comments,
+        called_date: calledDate,
       };
     }
 
@@ -85,20 +97,19 @@ function QucikdataModal({ setOpen, id, content,notes, open, handleClose }) {
                 onChange={(e) => setPassingYear(e.target.value)}
               />
             )}
+            <input
+              type="date"
+              placeholder="Calling Date"
+              onChange={(e) => setCalledDate(e.target.value)}
+            />
             <textarea
               placeholder="Enter Message"
               onChange={(e) => setComments(e.target.value)}
             />
           </div>
-          <div className="footer">
-            <button
-              onClick={() => {
-                handleClick();
-                setOpen(false);
-              }}
-            >
-              Submit
-            </button>
+          <div className="footer" style={{ flexDirection: "column" }}>
+            <p style={{ color: "red" }}>{error}</p>{" "}
+            <button onClick={handleClick}>Submit</button>
           </div>
         </div>
       </Modal>

@@ -50,7 +50,7 @@ export const MainDashboardHeader = () => {
                   justifyContent: "flex-end",
                   marginRight: "25px",
                 }}
-                onClick={() => navigate("/", { replac: true })}
+                onClick={() => navigate("/", { replace: true })}
               >
                 Log out
               </Button>
