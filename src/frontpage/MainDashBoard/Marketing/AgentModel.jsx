@@ -23,7 +23,7 @@ export default function AgentModel({ setOpen, id, notes, open, handleClose }) {
     try {
       const AgentStudentSectionUpdating = async () => {
         await services.updateReferralStatus(status, id);
-        window.location.reload(true);
+        // window.location.reload(true);
       };
       AgentStudentSectionUpdating();
     } catch (error) {

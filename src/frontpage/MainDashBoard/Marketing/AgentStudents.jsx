@@ -38,8 +38,9 @@ const AgentStudents = () => {
 
   useEffect(() => {
     try {
+      
       const getReferrals = async () => {
-        const students = await services.agentAllReferrals(pageNumber + 1);
+        const students = await services.agentAllReferrals(pageNumber + 1,status,hrNames);
         setPageNumber(pageNumber + 1);
         setTotalReferrals(students.referralsCount.totalReferrals);
         setReferrals(students.data);
@@ -47,14 +48,14 @@ const AgentStudents = () => {
 
         setDecision(students.referralsCount.decisionPending);
         setNoResponse(students.referralsCount.noResponse);
-        console.log(students);
+
       };
 
       getReferrals();
     } catch (error) {
       console.log(error);
     }
-  }, []);
+  }, [status,hrNames]);
 
   const fetchReferrals = () => {
     try {
@@ -64,11 +65,13 @@ const AgentStudents = () => {
       if (pageNumber >= page) return setLoading(false);
 
       const getReferrals = async () => {
-        const students = await services.agentAllReferrals(pageNumber + 1);
+        const students = await services.agentAllReferrals(pageNumber + 1,status,hrNames);        
         setPageNumber(pageNumber + 1);
         setReferrals([...referrals, ...students.data]);
+        
       };
       getReferrals();
+
     } catch (error) {
       console.log(error);
     }
@@ -92,12 +95,13 @@ const AgentStudents = () => {
   };
 
   const handleStatusChange = async (e, id) => {
+
     const status = { status: e.target.value };
 
     try {
       const updateStatus = async () => {
         const res = await services.updateReferralStatus(status, id);
-        if (res) return window.location.reload(true);
+        // if (res) return window.location.reload(true);
       };
       updateStatus();
     } catch (error) {
@@ -128,7 +132,6 @@ const AgentStudents = () => {
     try {
       const updateStatus = async () => {
         const res = await services.updateReferralStatus(hr, id);
-        if (res) return window.location.reload(true);
       };
       updateStatus();
     } catch (error) {
@@ -137,16 +140,17 @@ const AgentStudents = () => {
   };
 
   const handleSortStatus = (e) => {
+
     const sortStatus = e.target.value;
-    console.log(sortStatus);
 
     if (sortStatus !== "All") {
+      setPageNumber(0)
       setStatus(sortStatus);
       setHrNames(hrNames);
-      console.log("status", status);
 
       return;
     } else {
+      setPageNumber(0)
       setStatus("All");
       setHrNames(hrNames);
       return;
@@ -156,10 +160,12 @@ const AgentStudents = () => {
   const handleSortName = (e) => {
     const hrName = e.target.value;
     if (hrName !== "All") {
+      setPageNumber(0)
       setStatus(status);
       setHrNames(hrName);
       return;
     } else {
+      setPageNumber(0)
       setStatus(status);
       setHrNames("All");
       return;
@@ -190,7 +196,7 @@ const AgentStudents = () => {
             </div>
 
             <div className="profile-card2">
-              <div>Intrested</div>
+              <div>Interested</div>
               <h3 style={{ marginLeft: "auto" }}>{interested}</h3>
             </div>
             <div className="profile-card3">
@@ -241,12 +247,12 @@ const AgentStudents = () => {
               <TableBody align="center">
                 {referrals &&
                   referrals
-                    .filter((ref) =>
-                      status !== "All" ? ref.status === status : ref
-                    )
-                    .filter((ref) =>
-                      hrNames !== "All" ? ref.called_by === hrNames : ref
-                    )
+                    // .filter((ref) =>
+                    //   status !== "All" ? ref.status === status : ref
+                    // )
+                    // .filter((ref) =>
+                    //   hrNames !== "All" ? ref.called_by === hrNames : ref
+                    // )
                     .map((detail, index) => (
                       <TableRow
                         className="tabelrow"
@@ -265,7 +271,7 @@ const AgentStudents = () => {
                         <TableCell>
                           <select
                             className="student-status"
-                            onChange={(e) => submit(e, detail.student_id)}
+                            onChange={(e) => handleStatusChange(e, detail.student_id)}
                           >
                             <option value="">{detail.status}</option>
                             <option value="Yet To Call">Yet To Call</option>
@@ -314,7 +320,7 @@ const AgentStudents = () => {
                         <TableCell>
                           <select
                             className="student-status"
-                            onChange={(e) => submitName(e, detail.student_id)}
+                            onChange={(e) => handleNameChange(e, detail.student_id)}
                           >
                             <option value="">{detail.called_by}</option>
                             <option value="Nadia">Nadia</option>

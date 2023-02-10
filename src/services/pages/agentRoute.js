@@ -137,7 +137,7 @@ export async function allAgents() {
   }
 }
 
-export async function agentAllReferrals(pageNumber) {
+export async function agentAllReferrals(pageNumber, status, called_by) {
   try {
     const referrals = await Axios.get(
       baseurl.GetUrl() + "/agent/students/allstudents",
@@ -145,6 +145,8 @@ export async function agentAllReferrals(pageNumber) {
         params: {
           pageNumber,
           pageLength: 10,
+          status,
+          called_by,
         },
       }
     );
