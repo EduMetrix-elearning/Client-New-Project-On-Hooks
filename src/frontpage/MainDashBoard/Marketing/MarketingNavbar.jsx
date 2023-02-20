@@ -1,6 +1,6 @@
 import React from "react";
 import "./MarketingNavbar.css";
-import { Link , NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import HomeIcon from "@mui/icons-material/Home";
 
@@ -34,7 +34,7 @@ const MarketingNavbar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/emt">
+            <NavLink to="/emtform">
               <i className="fas fa-stream"></i>EMT
             </NavLink>
           </li>

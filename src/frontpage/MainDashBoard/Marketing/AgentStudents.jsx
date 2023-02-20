@@ -38,9 +38,12 @@ const AgentStudents = () => {
 
   useEffect(() => {
     try {
-      
       const getReferrals = async () => {
-        const students = await services.agentAllReferrals(pageNumber + 1,status,hrNames);
+        const students = await services.agentAllReferrals(
+          pageNumber + 1,
+          status,
+          hrNames
+        );
         setPageNumber(pageNumber + 1);
         setTotalReferrals(students.referralsCount.totalReferrals);
         setReferrals(students.data);
@@ -48,14 +51,13 @@ const AgentStudents = () => {
 
         setDecision(students.referralsCount.decisionPending);
         setNoResponse(students.referralsCount.noResponse);
-
       };
 
       getReferrals();
     } catch (error) {
       console.log(error);
     }
-  }, [status,hrNames]);
+  }, [status, hrNames]);
 
   const fetchReferrals = () => {
     try {
@@ -65,13 +67,15 @@ const AgentStudents = () => {
       if (pageNumber >= page) return setLoading(false);
 
       const getReferrals = async () => {
-        const students = await services.agentAllReferrals(pageNumber + 1,status,hrNames);        
+        const students = await services.agentAllReferrals(
+          pageNumber + 1,
+          status,
+          hrNames
+        );
         setPageNumber(pageNumber + 1);
         setReferrals([...referrals, ...students.data]);
-        
       };
       getReferrals();
-
     } catch (error) {
       console.log(error);
     }
@@ -95,7 +99,6 @@ const AgentStudents = () => {
   };
 
   const handleStatusChange = async (e, id) => {
-
     const status = { status: e.target.value };
 
     try {
@@ -140,17 +143,16 @@ const AgentStudents = () => {
   };
 
   const handleSortStatus = (e) => {
-
     const sortStatus = e.target.value;
 
     if (sortStatus !== "All") {
-      setPageNumber(0)
+      setPageNumber(0);
       setStatus(sortStatus);
       setHrNames(hrNames);
 
       return;
     } else {
-      setPageNumber(0)
+      setPageNumber(0);
       setStatus("All");
       setHrNames(hrNames);
       return;
@@ -160,12 +162,12 @@ const AgentStudents = () => {
   const handleSortName = (e) => {
     const hrName = e.target.value;
     if (hrName !== "All") {
-      setPageNumber(0)
+      setPageNumber(0);
       setStatus(status);
       setHrNames(hrName);
       return;
     } else {
-      setPageNumber(0)
+      setPageNumber(0);
       setStatus(status);
       setHrNames("All");
       return;
@@ -271,7 +273,9 @@ const AgentStudents = () => {
                         <TableCell>
                           <select
                             className="student-status"
-                            onChange={(e) => handleStatusChange(e, detail.student_id)}
+                            onChange={(e) =>
+                              handleStatusChange(e, detail.student_id)
+                            }
                           >
                             <option value="">{detail.status}</option>
                             <option value="Yet To Call">Yet To Call</option>
@@ -320,11 +324,13 @@ const AgentStudents = () => {
                         <TableCell>
                           <select
                             className="student-status"
-                            onChange={(e) => handleNameChange(e, detail.student_id)}
+                            onChange={(e) =>
+                              handleNameChange(e, detail.student_id)
+                            }
                           >
                             <option value="">{detail.called_by}</option>
                             <option value="Nadia">Nadia</option>
-                            <option value="Nurir">Nurir</option>
+                            <option value="Sthuthi">Sthuthi</option>
                             <option value="Priyanka">Priyanka</option>
                             <option value="Rakhi">Rakhi</option>
                             <option value="Shahana">Shahana</option>

@@ -68,8 +68,8 @@ const HrDates = ({ sortStatus, sortNames }) => {
               <option className="option-container" value="Nadia">
                 Nadia
               </option>
-              <option className="option-container" value="Nurir">
-                Nurir
+              <option className="option-container" value="Sthuthi">
+                Sthuthi
               </option>
               <option className="option-container" value="Priyanka">
                 Priyanka

@@ -57,7 +57,14 @@ const AdminDashboard = () => {
         </ul>
       </li>
 
-      <li>EMT</li>
+      <li>
+        <Link
+          style={{ textDecoration: "none", color: "black" }}
+          to="/emttracker"
+        >
+          EMT
+        </Link>
+      </li>
       <li>
         <Link
           style={{ textDecoration: "none", color: "black" }}

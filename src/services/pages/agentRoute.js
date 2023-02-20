@@ -512,6 +512,33 @@ export async function updateCorporateStatus(status, id) {
   }
 }
 
+export async function submitEmtTracks(obj) {
+  try {
+    const result = await Axios.post(baseurl.GetUrl() + "/emttrack", obj);
+    return result.data;
+  } catch (error) {
+    if (error.response.data) {
+      alert(error.response.data.message);
+      return;
+    }
+    alert(error.message);
+  }
+}
+
+export async function getAllTracks() {
+  try {
+    const result = await Axios.get(baseurl.GetUrl() + "/emttrack");
+
+    return result.data;
+  } catch (error) {
+    if (error.response.data) {
+      alert(error.response.data.message);
+      return;
+    }
+    alert(error.message);
+  }
+}
+
 export async function getWorkingEmployee() {
   try {
     const result = await Axios.get(baseurl.GetUrl() + "/working_employees");

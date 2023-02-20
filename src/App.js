@@ -79,7 +79,8 @@ import EmployeeProfiles from "./frontpage/MainDashBoard/AdminDashboard/EmployeeP
 import BillingHistory from "./frontpage/MainDashBoard/AdminDashboard/BillingHistory.jsx";
 import NewBillingDetails from "./frontpage/MainDashBoard/AdminDashboard/NewBillingDetails.jsx";
 import AdminMeeting from "./frontpage/MainDashBoard/AdminDashboard/AdminMeeting.jsx";
-
+import EmtTracker from "./frontpage/MainDashBoard/AdminDashboard/EmtTracker.jsx";
+import EmtForm from "./frontpage/MainDashBoard/Marketing/EmtForm.jsx";
 // =======
 // >>>>>>> d8fa9f140c596cfebe9aad8864b64ed3cc4aee98
 
@@ -161,6 +162,7 @@ function App() {
             ></Route>
             <Route path="/maindashboard" element={<MainDashboard />}></Route>
             <Route path="/admindashboard" element={<AdminDashboard />}></Route>
+            <Route path="/emttracker" element={<EmtTracker />}></Route>
             <Route
               path="/employeedetails"
               element={<EmployeeDetails />}
@@ -181,6 +183,7 @@ function App() {
             <Route path="/hrmeeting" element={<HrMeeting />}></Route>
             <Route path="/quickdata" element={<QuickData />}></Route>
             <Route path="/agentstudents" element={<AgentStudents />}></Route>
+            <Route path="/emtform" element={<EmtForm />}></Route>
 
             <Route path="/internsdetails" element={<InternspDetails />}></Route>
 

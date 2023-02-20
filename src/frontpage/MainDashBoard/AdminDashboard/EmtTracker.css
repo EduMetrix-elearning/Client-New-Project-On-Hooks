@@ -1,0 +1,15 @@
+
+
+.main-tracker{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 10px;
+    width:100%;
+    
+}
+
+.main-tracker .subtracker {
+    width:45%;
+}
+
