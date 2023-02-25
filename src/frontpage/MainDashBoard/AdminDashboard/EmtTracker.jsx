@@ -41,9 +41,6 @@ export default function EmtTracker() {
     }
   }, []);
 
-
-
-
   return (
     <div>
       <AdminDashboard />
@@ -82,11 +79,11 @@ export default function EmtTracker() {
                               " inset 0px 6px 19px 0px rgba(0,0,0,0.1)",
                           }}
                         >
-                          <img
+                          {/* <img
                             style={{ height: "80px", width: "80px" }}
                             src="https://cdn.pixabay.com/photo/2020/07/14/13/07/icon-5404125_1280.png"
                             alt="sac"
-                          />
+                          /> */}
                           <h4>{track.name}</h4>
                         </Box>
                       </TableCell>

@@ -334,6 +334,7 @@ const InternspDetails = () => {
                             }
                           >
                             <option value="">{interns.called_by}</option>
+                            <option value="Catherine">Catherine</option>
                             <option value="Nadia">Nadia</option>
                             <option value="Sthuthi">Sthuthi</option>
                             <option value="Priyanka">Priyanka</option>

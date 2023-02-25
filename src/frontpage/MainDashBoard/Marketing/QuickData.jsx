@@ -323,6 +323,7 @@ const QuickData = () => {
                             onChange={(e) => submitName(e, enquiry.enquiry_id)}
                           >
                             <option value="">{enquiry.called_by}</option>
+                            <option value="Catherine">Catherine</option>
                             <option value="Nadia">Nadia</option>
                             <option value="Sthuthi">Sthuthi</option>
                             <option value="Priyanka">Priyanka</option>
