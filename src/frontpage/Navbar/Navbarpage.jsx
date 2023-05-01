@@ -20,8 +20,6 @@ export const Navbarpage = () => {
     CareerContext
   );
 
-
-
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -60,10 +58,7 @@ export const Navbarpage = () => {
               <Nav.Link className="all-items" onClick={handleCarrier}>
                 Career
               </Nav.Link>
-              <Nav.Link
-                className="all-items"
-                onClick={handleOpen}
-              >
+              <Nav.Link className="all-items" onClick={handleOpen}>
                 <Link
                   //   to="/agentssignup"
                   style={{ textDecoration: "none", color: "#707071" }}
@@ -77,6 +72,14 @@ export const Navbarpage = () => {
                   style={{ textDecoration: "none", color: "#707071" }}
                 >
                   Corporates
+                </Link>
+              </Nav.Link>
+              <Nav.Link className="all-items">
+                <Link
+                  to="/"
+                  style={{ textDecoration: "none", color: "#707071" }}
+                >
+                  Resume Builder
                 </Link>
               </Nav.Link>
               <Nav.Link className="all-items" href="#">
