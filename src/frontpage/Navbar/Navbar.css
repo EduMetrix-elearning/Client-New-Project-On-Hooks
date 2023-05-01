@@ -14,8 +14,8 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   margin-bottom: 0px;
 }
 
@@ -50,4 +50,5 @@
 .navbar-whole-div .contact-number p {
   margin: auto;
 }
+
 /*# sourceMappingURL=Navbar.css.map */
