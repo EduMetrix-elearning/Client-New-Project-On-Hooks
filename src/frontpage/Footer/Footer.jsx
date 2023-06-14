@@ -61,14 +61,16 @@ export const Footer = () => {
                 <Link to="/TermOfservices">Terms of services</Link>
               </li>
               <li>
+                <Link to="/SubscriptionTerms">Subscription Terms</Link>
+              </li>
+              <li>
+                <Link to="/PricingPaymentsAndRefunds">Pricing, Payments and Refunds</Link>
+              </li>
+              
+              <li>
                 <Link to="/PrivacyPolicy">Privacy policy</Link>
               </li>
-              <li>
-                <Link to="/agentssignup">Affiliate program</Link>
-              </li>
-              <li>
-                <Link to="/employeeVerification">Employee Verification</Link>
-              </li>
+           
             </ul>
           </div>
           <div className="footer-col">
@@ -91,6 +93,12 @@ export const Footer = () => {
               </li>
               <li>
                 <a href="/address">Address</a>
+              </li>
+              <li>
+                <a href="/agentssignup">Affiliate program </a>
+              </li>
+              <li>
+                <a href="/employeeVerification">Employee Verification</a>
               </li>
             </ul>
           </div>
