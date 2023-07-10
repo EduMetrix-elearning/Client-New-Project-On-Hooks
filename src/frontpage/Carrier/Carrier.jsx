@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./Carrier.scss";
 import Button from "@mui/material/Button";
 import {
-  Card,
-  CardContent,
+  // Card,
+  // CardContent,
   TextField,
   Box,
-  FormControl,
-  InputLabel,
-  Input,
-  FormHelperText,
+  // FormControl,
+  // InputLabel,
+  // Input,
+  // FormHelperText,
   Typography,
-  Grid,
+  // Grid,
   Modal,
 } from "@material-ui/core";
 import ClearIcon from "@mui/icons-material/Clear";
@@ -44,7 +44,7 @@ export const Carrier = (props) => {
   const [errormessage, setErrorMessage] = useState("");
   const [errorjob, setErrorJob] = useState("");
   const [errorimage, setErrorImage] = useState("");
-  const [employee, setEmployee] = useState("");
+  // const [employee, setEmployee] = useState("");
 
   const handleClick = (e) => {
     e.preventDefault();
