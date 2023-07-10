@@ -32,6 +32,9 @@ export const EmployeLogin = () => {
             navigate("/marketingmeeting");
             break;
           case "Software Engineer":
+            navigate("/itmeeting");
+            break;
+          case "Software Engineer Intern":
             navigate("/internmeeting");
             break;
           case "Human Resource":

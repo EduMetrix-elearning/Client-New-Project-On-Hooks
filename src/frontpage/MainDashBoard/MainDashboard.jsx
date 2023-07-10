@@ -47,7 +47,7 @@ const MainDashboard = () => {
           <Link
             className="content-item-1"
             to="/employelogin"
-            state={{ role: "Marketing" }}
+            state={{ role: "Marketing Executive" }}
           >
             <div>
               <img
@@ -64,7 +64,7 @@ const MainDashboard = () => {
           <Link
             className="content-item-1"
             to="/employelogin"
-            state={{ role: "IT" }}
+            state={{ role: "Software Engineer" }}
           >
             <div>
               <img
@@ -80,7 +80,7 @@ const MainDashboard = () => {
           <Link
             className="content-item-1"
             to="/employelogin"
-            state={{ role: "Intern" }}
+            state={{ role: "Software Engineer Intern" }}
           >
             <div>
               <img
