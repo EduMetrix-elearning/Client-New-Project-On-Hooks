@@ -18,7 +18,7 @@ const EmployeeProfiles = () => {
 
   const HandleEmployeeCard = async () => {
     const result = await services.getWorkingEmployee();
-    console.log(result);
+    // console.log(result);
     setEmployeeCard(result.data);
   };
 

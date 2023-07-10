@@ -82,7 +82,7 @@ const EmployeeDetails = () => {
     const result = await services.getWorkingEmployee();
     const emnum = result.data[result.data.length - 1].employee_id;
     setEmpSerialNo(emnum);
-    console.log("emnum", emnum);
+    // console.log("emnum", emnum);
   };
 
   // useEffect(() => {
@@ -90,9 +90,9 @@ const EmployeeDetails = () => {
   // }, []);
 
   const CreatingEmpID = () => {
-    console.log("EmpSerialNo1", EmpSerialNo);
+    // console.log("EmpSerialNo1", EmpSerialNo);
     if (EmpSerialNo) {
-      console.log("EmpSerialNo", EmpSerialNo);
+      // console.log("EmpSerialNo", EmpSerialNo);
       let digits = parseInt(EmpSerialNo.substring(5));
       digits++;
       setEmployeeId("EM" + currentYear + digits);
@@ -207,7 +207,7 @@ const EmployeeDetails = () => {
         bank_account_number: accountno,
         bank_ifsc: Ifsc,
       };
-      console.log("obj", obj);
+      // console.log("obj", obj);
       services.submitWorkingEmployee(obj, (error, result) => {
         if (result) {
           updateImages();
@@ -278,7 +278,7 @@ const EmployeeDetails = () => {
                 inputHandle(e);
               }}
             >
-              {console.log("empPosition========", empPosition)}
+              {/* {console.log("empPosition========", empPosition)} */}
               <option style={{ color: "Grey" }} disabled>
                 Enter Position
               </option>

@@ -359,7 +359,7 @@ export async function submitInternship(obj) {
       baseurl.GetUrl() + "/student_internship",
       obj
     );
-    console.log(result);
+    // console.log(result);
 
     return result.data;
   } catch (error) {
@@ -442,7 +442,7 @@ export async function updateStudentEnquiryStatus(status, id) {
 export async function getSyllabus() {
   try {
     const result = await Axios.get(baseurl.GetUrl() + "/student_syllabus");
-    console.log(result);
+    // console.log(result);
 
     return result.data;
   } catch (error) {
@@ -575,10 +575,10 @@ export async function loginWorkingEmployee(obj) {
       baseurl.GetUrl() + "/login_working_employees",
       obj
     );
-    console.log("result.data", result.data);
+    // console.log("result.data", result.data);
     return result.data;
   } catch (error) {
-    console.error(error);
+    console.log(error);
     if (error.response && error.response.data) {
       throw new Error("Invalid login credentials");
     } else {

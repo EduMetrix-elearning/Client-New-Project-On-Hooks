@@ -16,7 +16,7 @@ export const EmployeLogin = () => {
     setPosition(location.state?.role);
   }, [location]);
 
-  console.log("location", location.state?.role);
+  // console.log("location", location.state?.role);
 
   const handleLogin = async (e) => {
     e.preventDefault();
