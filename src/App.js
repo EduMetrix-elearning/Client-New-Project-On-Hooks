@@ -45,6 +45,10 @@ import ContactUs from "./pages/AboutUs/ContactUs/ContactUs";
 
 import { EduMetrixHomepage } from "./frontpage/Homepage/Homepage.jsx";
 import { TermOfservices } from "./frontpage/TermOfCondition/TermOfservices.jsx";
+import { SubscriptionTerms } from "./frontpage/TermOfCondition/SubscriptionTerms.jsx";
+import { PricingPaymentsAndRefunds } from "./frontpage/TermOfCondition/PricingPaymentsAndRefunds.jsx";
+
+
 import { Privacypolicy } from "./frontpage/Privacypolicy/PrivacyPolicy.jsx";
 import { WhitePaperPage } from "./frontpage/WhitePaper/WhitePaperPage.jsx";
 import { Address } from "./frontpage/Address/Address.jsx";
@@ -146,6 +150,10 @@ function App() {
             <Route path="/Courses" element={<Fullstack />}></Route>
             <Route path="/AboutUs" element={<Aboutus />}></Route>
             <Route path="/TermOfservices" element={<TermOfservices />}></Route>
+            <Route path="/SubscriptionTerms" element={<SubscriptionTerms />}></Route>
+            <Route path="/PricingPaymentsAndRefunds" element={<PricingPaymentsAndRefunds />}></Route>
+
+            
             <Route path="/PrivacyPolicy" element={<Privacypolicy />}></Route>
             <Route path="/whitepaper" element={<WhitePaperPage />}></Route>
             <Route path="/address" element={<Address />}></Route>

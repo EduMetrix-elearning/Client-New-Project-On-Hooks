@@ -40,6 +40,9 @@ const EmployeeDetails = () => {
   const [email, setemail] = useState("");
   const [errorEmail, setErrorEmail] = useState("");
 
+  const [password, setPassword] = useState("");
+  const [errorPassword, setErrorPassword] = useState("");
+
   const [accountno, setAccountno] = useState("");
   const [errorAccNo, setErrorAccNo] = useState("");
   const [accountname, setAccountname] = useState("");
@@ -68,7 +71,38 @@ const EmployeeDetails = () => {
   const [pancardError, setPancardError] = useState("");
 
   const [empPosition, setEmpPosition] = useState("");
+  /////////////////////////////////////////////////////////////////////////
+  const currentYear = new Date()
+    .getFullYear()
+    .toString()
+    .slice(-3);
+  const [EmpSerialNo, setEmpSerialNo] = useState();
+  // GETTING THE LAST EMPLOYEE ID
+  const HandleEmployeeCard = async () => {
+    const result = await services.getWorkingEmployee();
+    const emnum = result.data[result.data.length - 1].employee_id;
+    setEmpSerialNo(emnum);
+    // console.log("emnum", emnum);
+  };
 
+  // useEffect(() => {
+  //   HandleEmployeeCard();
+  // }, []);
+
+  const CreatingEmpID = () => {
+    // console.log("EmpSerialNo1", EmpSerialNo);
+    if (EmpSerialNo) {
+      // console.log("EmpSerialNo", EmpSerialNo);
+      let digits = parseInt(EmpSerialNo.substring(5));
+      digits++;
+      setEmployeeId("EM" + currentYear + digits);
+    }
+  };
+  useEffect(() => {
+    CreatingEmpID();
+    HandleEmployeeCard();
+  }, [EmpSerialNo]);
+  ////////////////////////////////////////////////////////////////////////////////////////
   const usernameValidate = (name) => {
     const re = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     return re.test(name);
@@ -95,6 +129,8 @@ const EmployeeDetails = () => {
       setmobile(e.target.value);
     } else if (e.target.name === "email") {
       setemail(e.target.value);
+    } else if (e.target.name === "password") {
+      setPassword(e.target.value);
     } else if (e.target.name === "place") {
       setplace(e.target.value);
     } else if (e.target.name === "bloodgroup") {
@@ -154,13 +190,15 @@ const EmployeeDetails = () => {
 
     if (!flag) {
       var obj = {
-        employee_id: ls.get("id"),
+        // employee_id: ls.get("id"),
         employee_name: name,
         agent_dob: dateofbirth,
         position: empPosition,
-        employee_id: "EM02023A" + employeeId,
+        // employee_id: "EM02023A" + employeeId,
+        employee_id: employeeId,
         employee_phone: mobileno,
         employee_email: email,
+        password: password,
         blood_group: bllodgroup,
         place: place,
         joining_date: joiningdate,
@@ -169,7 +207,7 @@ const EmployeeDetails = () => {
         bank_account_number: accountno,
         bank_ifsc: Ifsc,
       };
-
+      // console.log("obj", obj);
       services.submitWorkingEmployee(obj, (error, result) => {
         if (result) {
           updateImages();
@@ -240,16 +278,17 @@ const EmployeeDetails = () => {
                 inputHandle(e);
               }}
             >
+              {/* {console.log("empPosition========", empPosition)} */}
               <option style={{ color: "Grey" }} disabled>
                 Enter Position
               </option>
               <option>Human Resource</option>
-              <option>HR Intern</option>
-              <option>Marketing Exicutive</option>
+              <option>Human Resource Intern</option>
+              <option>Marketing Executive</option>
               <option>Software Engineer</option>
               <option>Software Engineer Intern</option>
-              <option>Operation Exicutive</option>
-              <option>Operation Intern</option>
+              {/* <option>Operation Executive</option>
+              <option>Operation Intern</option> */}
             </select>
             {/* {errorName ? <div className="error_div">{errorName}</div> : null} */}
 
@@ -257,12 +296,13 @@ const EmployeeDetails = () => {
               autoComplete="off"
               name="empid"
               label="Enter Employee Id"
-              placeholder="Enter Employee Id"
+              value={employeeId}
+              // placeholder="Enter Employee Id 1001"
               fullWidth
               required
               size="small"
               margin="normal"
-              onChange={(e) => inputHandle(e)}
+              // onChange={(e) => inputHandle(e)}
             />
             {empIdError ? <div className="error_div">{empIdError}</div> : null}
             <label>joining date</label>
@@ -310,6 +350,21 @@ const EmployeeDetails = () => {
               onChange={(e) => inputHandle(e)}
             />
             {errorEmail ? <div className="error_div">{errorEmail}</div> : null}
+            <TextField
+              autoComplete="off"
+              name="password"
+              label="Password"
+              placeholder="Enter Password"
+              type="password"
+              fullWidth
+              required
+              size="small"
+              margin="normal"
+              onChange={(e) => inputHandle(e)}
+            />
+            {errorPassword ? (
+              <div className="error_div">{errorPassword}</div>
+            ) : null}
 
             <TextField
               autoComplete="off"

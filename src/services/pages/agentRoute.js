@@ -359,7 +359,7 @@ export async function submitInternship(obj) {
       baseurl.GetUrl() + "/student_internship",
       obj
     );
-    console.log(result);
+    // console.log(result);
 
     return result.data;
   } catch (error) {
@@ -442,7 +442,7 @@ export async function updateStudentEnquiryStatus(status, id) {
 export async function getSyllabus() {
   try {
     const result = await Axios.get(baseurl.GetUrl() + "/student_syllabus");
-    console.log(result);
+    // console.log(result);
 
     return result.data;
   } catch (error) {
@@ -538,7 +538,6 @@ export async function getAllTracks() {
     alert(error.message);
   }
 }
-
 export async function getWorkingEmployee() {
   try {
     const result = await Axios.get(baseurl.GetUrl() + "/working_employees");
@@ -552,7 +551,6 @@ export async function getWorkingEmployee() {
     alert(error.message);
   }
 }
-
 export async function submitWorkingEmployee(obj) {
   try {
     const result = await Axios.post(
@@ -569,6 +567,42 @@ export async function submitWorkingEmployee(obj) {
     alert(error.message);
   }
 }
+////////////////////Working employess login ---------------
+
+export async function loginWorkingEmployee(obj) {
+  try {
+    const result = await Axios.post(
+      baseurl.GetUrl() + "/login_working_employees",
+      obj
+    );
+    // console.log("result.data", result.data);
+    return result.data;
+  } catch (error) {
+    console.log(error);
+    if (error.response && error.response.data) {
+      throw new Error("Invalid login credentials");
+    } else {
+      throw new Error(error.message);
+    }
+  }
+}
+// export async function loginWorkingEmployee(obj) {
+//   try {
+//     const result = await Axios.post(
+//       baseurl.GetUrl() + "/login_working_employees",
+//       obj
+//     );
+//     console.log("result.data", result.data);
+//     return result.data;
+//   } catch (error) {
+//     if (error.response.data) {
+//       // alert(error.response.data.message);
+//       alert("Invalid login credentials");
+//       return;
+//     }
+//     alert(error.message);
+//   }
+// }
 
 export async function EmployeeuploadImages(empimg, callback) {
   try {
