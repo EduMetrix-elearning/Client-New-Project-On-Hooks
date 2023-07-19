@@ -575,7 +575,7 @@ export async function loginWorkingEmployee(obj) {
       baseurl.GetUrl() + "/login_working_employees",
       obj
     );
-    // console.log("result.data", result.data);
+    console.log("result.data", result.data);
     return result.data;
   } catch (error) {
     console.log(error);
@@ -603,6 +603,46 @@ export async function loginWorkingEmployee(obj) {
 //     alert(error.message);
 //   }
 // }
+////////////////Logged in Working Employee detail-----------///////////
+
+export async function workingEmployeeDetail(obj) {
+  console.log("obj------", obj);
+  try {
+    const result = await Axios.post(
+      baseurl.GetUrl() + "/uniqueEmployeeDetails",
+      obj
+    );
+    console.log("result.data", result.data);
+    return result.data;
+  } catch (error) {
+    console.log(error);
+    if (error.response && error.response.data) {
+      throw new Error("Invalid login credentials");
+    } else {
+      throw new Error(error.message);
+    }
+  }
+}
+/////------Changing Password Of Working Employee from profile -----------------/////////////
+
+export async function changePasswordOfWorkingEmployee(obj) {
+  try {
+    const result = await Axios.post(
+      baseurl.GetUrl() + "/changepassword_working_employees",
+      obj
+    );
+    console.log("result.data", result.data);
+    return result.data;
+  } catch (error) {
+    console.log(error);
+    if (error.response && error.response.data) {
+      throw new Error("Invalid login credentials");
+    } else {
+      throw new Error(error.message);
+    }
+  }
+}
+
 
 export async function EmployeeuploadImages(empimg, callback) {
   try {
