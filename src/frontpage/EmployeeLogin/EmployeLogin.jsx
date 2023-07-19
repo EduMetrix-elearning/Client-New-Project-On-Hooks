@@ -130,35 +130,46 @@ export const EmployeLogin = () => {
   // }
   // };
   return (
-    <div className="main-login-container">
-      <form className="main-login-form">
-        <div className="main-heading">
-          <h4>Login</h4>
-        </div>
-        <div className="text-filed">
-          <input
-            type="text"
-            placeholder="Enter Your Employee ID"
-            onChange={(e) => setEmployeeId(e.target.value)}
-          />
-        </div>
-        <div className="text-filed">
-          <input
-            type="password"
-            placeholder="Enter Your Password"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-        {position && (
-          <div className="text-filed">
-            <input type="text" value={position} disabled />
+    <div
+      style={{
+        height: "100vh",
+        width: "100%",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "#EEF0F4",
+      }}
+    >
+      <div className="main-login-container">
+        <form className="main-login-form">
+          <div className="main-heading">
+            <h4>Login</h4>
           </div>
-        )}
-        {error && <p style={{ color: "red" }}>{error}</p>}
-        <div className="login-btn">
-          <button onClick={handleLogin}>Login</button>
-        </div>
-      </form>
+          <div className="text-filed">
+            <input
+              type="text"
+              placeholder="Enter Your Employee ID"
+              onChange={(e) => setEmployeeId(e.target.value)}
+            />
+          </div>
+          <div className="text-filed">
+            <input
+              type="password"
+              placeholder="Enter Your Password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          {position && (
+            <div className="text-filed">
+              <input type="text" value={position} disabled />
+            </div>
+          )}
+          {error && <p style={{ color: "red" }}>{error}</p>}
+          <div className="login-btn">
+            <button onClick={handleLogin}>Login</button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
