@@ -145,7 +145,7 @@ export const EmployeLogin = () => {
         <div className="text-filed">
           <input
             type="password"
-            placeholder="Enter Your password"
+            placeholder="Enter Your Password"
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
