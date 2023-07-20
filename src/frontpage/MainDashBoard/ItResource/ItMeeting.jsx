@@ -1,23 +1,39 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./ItMeeting.css";
 import ItResource from "./ItResource";
 
 const ItMeeting = () => {
+  const navigate = useNavigate();
+  const authentication = localStorage.getItem("employeeid");
+
+  useEffect(() => {
+    if (!authentication) {
+      return navigate("/maindashboard");
+    }
+  }, []);
   return (
     <>
-      <ItResource />
-      <div className="meeting-cotainer">
-        <div className="meeting-cotainer-1">
-          <div className="meeting-content">
-            <h3>Join Meeting</h3>
-            <button className="meeting-btn">
-              <a href="https://meet.google.com/fwh-dsrn-wav" target="_blank">
-                Join
-              </a>
-            </button>
+      {authentication && (
+        <>
+          <ItResource />
+          <div className="meeting-cotainer">
+            <div className="meeting-cotainer-1">
+              <div className="meeting-content">
+                <h3>Join Meeting</h3>
+                <button className="meeting-btn">
+                  <a
+                    href="https://meet.google.com/fwh-dsrn-wav"
+                    target="_blank"
+                  >
+                    Join
+                  </a>
+                </button>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+        </>
+      )}
     </>
   );
 };
