@@ -23,7 +23,11 @@ export const EmployeLogin = () => {
     let obj = { employeeId, password, position };
     try {
       const result = await services.loginWorkingEmployee(obj);
+      console.log("result in employeelogin", result);
       if (result) {
+        localStorage.setItem("employeeid", result.employeeid);
+        localStorage.setItem("employeeName", result.employeeName);
+        localStorage.setItem("employeeProfilePic", result.employeeProfilePic);
         switch (position) {
           case "Admin":
             navigate("/adminmeeting");
