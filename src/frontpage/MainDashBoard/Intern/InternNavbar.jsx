@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import "./InternNavbar.css";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import HomeIcon from "@mui/icons-material/Home";
 import EmployeeProfile from "../../../components/employee_profile/EmployeeProfile";
 // import { DashBoardInputs } from "../../../WebsiteDashboard/Inputs";
 // import { DashBoardDetails } from "../../../WebsiteDashboard/Details";
@@ -39,15 +38,6 @@ const InternNavbar = () => {
           />
         </div> */}
         <div className="logo" onClick={onOpenModal}>
-          {/* <Link
-            to="employeeprofile"
-            style={{
-              textDecoration: "none",
-              display: "flex",
-              alignItems: "end",
-              gap: "10px",
-            }}
-          > */}
           <div
             style={{
               textDecoration: "none",
@@ -91,11 +81,8 @@ const InternNavbar = () => {
                 </span>
               )}
             </div>
-            {/* </Link> */}
           </div>
         </div>
-        {/* <EmployeeProfile /> */}
-
         <ul>
           {/* <li>
             <Link>
