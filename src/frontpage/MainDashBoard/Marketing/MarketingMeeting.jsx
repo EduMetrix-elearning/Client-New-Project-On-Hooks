@@ -1,22 +1,39 @@
-import React,{ useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./MarketingMeeting.css";
 import MarketingNavbar from "./MarketingNavbar";
 
-
 const MarketingMeeting = () => {
   const navigate = useNavigate();
-  const authentication = localStorage.getItem("employeeid");
+  const [authenticateUser, setAuthenticateUser] = useState(false);
+  const position = "Marketing Executive";
+  const EmployeId = localStorage.getItem("employeeid");
+  const EmployeeProfile = localStorage.getItem("employeeProfile");
+
+  // if (!EmployeId) {
+  //   return navigate("/maindashboard");
+  // }
+  console.log("type of position", position);
+  console.log("type of EmployeeProfile", EmployeeProfile);
 
   useEffect(() => {
-    if (!authentication) {
+    if (!EmployeId) {
       return navigate("/maindashboard");
+    }
+    if (EmployeId) {
+      if (EmployeeProfile === position) {
+        return setAuthenticateUser(true);
+      } else {
+        setAuthenticateUser(false);
+        alert("Invalid login credentials, Please try to login again");
+        return navigate("/maindashboard");
+      }
     }
   }, []);
 
   return (
     <>
-      {authentication && (
+      {authenticateUser && (
         <>
           <MarketingNavbar />
           <div className="meeting-cotainer">
