@@ -11,12 +11,12 @@ export const EmployeLogin = () => {
   const [password, setPassword] = useState("");
   const [position, setPosition] = useState("");
   const services = require("../../services/pages/agentRoute");
-
+  console.log("position", position);
   useEffect(() => {
     setPosition(location.state?.role);
-  }, [location]);
+  }, []);
 
-  // console.log("location", location.state?.role);
+  console.log("location", location.state?.role);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -28,6 +28,7 @@ export const EmployeLogin = () => {
         localStorage.setItem("employeeid", result.employeeid);
         localStorage.setItem("employeeName", result.employeeName);
         localStorage.setItem("employeeProfilePic", result.employeeProfilePic);
+        localStorage.setItem("employeeProfile", result.profile);
         switch (position) {
           case "Admin":
             navigate("/adminmeeting");
@@ -164,9 +165,40 @@ export const EmployeLogin = () => {
             />
           </div>
           {position && (
-            <div className="text-filed">
-              <input type="text" value={position} disabled />
-            </div>
+            <>
+              {position === "Human Resource" ||
+              position === "Human Resource Intern" ? (
+                <div className="category_container">
+                  <label>Category :</label>
+                  <div className="positionSelect">
+                    <input
+                      type="radio"
+                      name="position"
+                      value="Human Resource"
+                      style={{ width: "15px", height: "15px" }}
+                      onChange={(e) => setPosition(e.target.value)}
+                      checked={position === "Human Resource"}
+                    />
+                    <span>Human Resource</span>
+                  </div>
+                  <div className="positionSelect">
+                    <input
+                      type="radio"
+                      name="position"
+                      value="Human Resource Intern"
+                      style={{ width: "15px", height: "15px" }}
+                      onChange={(e) => setPosition(e.target.value)}
+                      checked={position === "Human Resource Intern"}
+                    />
+                    <span>Human Resource Intern</span>
+                  </div>
+                </div>
+              ) : (
+                <div className="text-filed">
+                  <input type="text" value={position} disabled />
+                </div>
+              )}
+            </>
           )}
           {error && <p style={{ color: "red" }}>{error}</p>}
           <div className="login-btn">
