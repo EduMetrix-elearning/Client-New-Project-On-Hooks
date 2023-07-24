@@ -10,6 +10,7 @@ import Typography from "@mui/material/Typography";
 import { TextField } from "@material-ui/core";
 import ClearIcon from "@mui/icons-material/Clear";
 import qrscan from "../asset/images/scan-qr-payment.jpeg";
+import back from "../asset/images/return.png";
 import { InvoiceNumber } from "invoice-number";
 import LocalPrintshopIcon from "@mui/icons-material/LocalPrintshop";
 import { WbIncandescentTwoTone } from "@mui/icons-material";
@@ -38,18 +39,19 @@ export const BillingInformationPage = () => {
   let day = date.getDate();
   let month = date.getMonth() + 1;
   let year = date.getFullYear();
-  const [name, setName] = useState("Shafan");
-  const [address, setAddress] = useState("Bangalore");
-  const [email, setEmail] = useState("Shafan@gmail.com");
-  const [phone, setPhone] = useState("9482445699");
+  const [name, setName] = useState("");
+  const [address, setAddress] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [open, setOpen] = useState(false);
-  const [coursefees, setCoursefees] = useState("45000");
-  const [mode, setMode] = useState("cash");
-  const [status, setstatus] = useState("complete");
-  const [sgst, setSgst] = useState("4050");
-  const [cgst, setCgst] = useState("4050");
+  const [coursefees, setCoursefees] = useState(150000);
+  const [mode, setMode] = useState("");
+  const [status, setstatus] = useState("");
+  const [sgst, setSgst] = useState(13500);
+  const [cgst, setCgst] = useState(13500);
   const [billingData, setBillingData] = useState([]);
   const [amountPaid, setAmountpaid] = useState(0);
+  const [discount, setDiscount] = useState(0);
   const form = useRef();
 
   const total = parseInt(coursefees) * (18 / 100) + parseInt(coursefees);
@@ -73,6 +75,7 @@ export const BillingInformationPage = () => {
           address,
           payment_mode: mode,
           amount_paid: amountPaid,
+          discount: discount,
           status,
           plan: coursefees,
         };
@@ -96,9 +99,16 @@ export const BillingInformationPage = () => {
 
   return (
     <div className="billing-pages-main-div">
-      <div className="print-button">
-        <LocalPrintshopIcon onClick={printmethod} />
+      <div className="printbuttonContainer">
+        <div className="backarrow">
+          <img src={back} style={{ width: "30px", height: "30px" }} />
+        </div>
+        
+        <div className="print-button">
+          <LocalPrintshopIcon onClick={printmethod} />
+        </div>
       </div>
+
       <div className="edumetrix-heading">
         <img src={edumetriximage} width="100px" alt="" />
         <div>
@@ -220,8 +230,21 @@ export const BillingInformationPage = () => {
                   id="standard-basic"
                   label="Amount Paid *"
                   variant="standard"
+                  value={amountPaid}
                   onChange={(e) => {
                     setAmountpaid(e.target.value);
+                  }}
+                />
+                <TextField
+                  fullWidth
+                  sx={{ m: 1 }}
+                  type="number"
+                  id="standard-basic"
+                  label="Discount *"
+                  variant="standard"
+                  value={discount}
+                  onChange={(e) => {
+                    setDiscount(e.target.value);
                   }}
                 />
                 <TextField
@@ -249,8 +272,8 @@ export const BillingInformationPage = () => {
                     style={{ marginBottom: "10px" }}
                   >
                     <option value="">MODE</option>
-                    <option value="cash">cash</option>
-                    <option value="A/c">A/c</option>
+                    <option value="cash">Cash</option>
+                    <option value="A/c">A/C</option>
                   </select>{" "}
                   <br />
                   <select
@@ -262,9 +285,10 @@ export const BillingInformationPage = () => {
                     }}
                   >
                     {/* <option value="">Courses</option> */}
-                    <option value="45000">One Time Payment</option>
-                    <option value="85000">Aggrement</option>
-                    <option value="85000">Online Course</option>
+                    <option value="150000">Admission Fees</option>
+                    <option value="150000">One Time Payment</option>
+                    <option value="150000">Partial Payment</option>
+                    <option value="150000">EMI</option>
                   </select>
                 </div>
                 <select
@@ -276,8 +300,8 @@ export const BillingInformationPage = () => {
                   }}
                 >
                   <option value="">Status</option>
-                  <option value="complete">Complete</option>
-                  <option value="pending">Pending</option>
+                  <option value="Complete">Complete</option>
+                  <option value="Pending">Pending</option>
                 </select>{" "}
                 <br />
                 <Button
@@ -311,7 +335,7 @@ export const BillingInformationPage = () => {
             <tr>
               <td>1. FullStack Javascript Course (HSN/SAC:99831) </td>
               <td>₹{coursefees}</td>
-              <td>18%</td>
+              <td> 27000</td>
               <td>₹{cgst}</td>
               <td>₹{sgst}</td>
             </tr>
@@ -320,8 +344,11 @@ export const BillingInformationPage = () => {
         <div className="total-amount-details-main-div">
           <div>
             <p style={{ fontWeight: "bold" }}>
-              Total(In Words):
-              {converter.toWords(parseInt(total) - parseInt(amountPaid))} only
+              Balance Total (In Words):
+              {converter.toWords(
+                parseInt(total) - parseInt(amountPaid) - parseInt(discount)
+              )}{" "}
+              only
             </p>
             <div className="course-details-seal-logo">
               <div>
@@ -378,6 +405,17 @@ export const BillingInformationPage = () => {
                 justifyContent: "space-between",
               }}
             >
+              <p style={{ fontWeight: "bold" }}>Discount</p>
+              <p>₹{discount}</p>
+            </div>
+
+            <div
+              style={{
+                display: "flex",
+                gap: "35px",
+                justifyContent: "space-between",
+              }}
+            >
               <p style={{ fontWeight: "bold" }}>Paid</p>
               <p>₹{amountPaid}</p>
             </div>
@@ -387,7 +425,9 @@ export const BillingInformationPage = () => {
             />
             <div style={{ display: "flex", gap: "35px" }}>
               <p style={{ fontWeight: "bold" }}>Balance</p>
-              <p>₹{parseInt(total) - parseInt(amountPaid)}</p>
+              <p>
+                ₹{parseInt(total) - parseInt(amountPaid) - parseInt(discount)}
+              </p>
             </div>
 
             <div
@@ -421,7 +461,9 @@ export const BillingInformationPage = () => {
               <td>{mode}</td>
               <td>{status}</td>
               <td>₹{amountPaid}</td>
-              <td>₹{parseInt(total) - parseInt(amountPaid)}</td>
+              <td>
+                ₹{parseInt(total) - parseInt(amountPaid) - parseInt(discount)}
+              </td>
             </tr>
           </tbody>
         </Table>
@@ -453,16 +495,17 @@ export const BillingInformationPage = () => {
           <div className="terms-of-condition-div">
             <h6 style={{ fontWeight: "bold" }}>Terms and Conditions</h6>
             <p>
-              1.Pay after placement mode students should submit all the required
-              documents within 15 days of commencement date.{" "}
+              1.EMI mode students should submit all the required documents
+              within 7 days of commencement date.{" "}
             </p>
             <p>
-              2.Pay after placement mode students should start paying EMI from
-              first month after the placement.{" "}
+              2. EMI mode students should start paying EMI from first month
+              after the document Approval.{" "}
             </p>
             <p>
-              3.Pay after placement mode students , all EMI es should be paid on
-              or before 7th of every-month.
+              3.EMI mode students , One EMI payment balance should keep in the
+              account before the desired date by the Funding Partner for
+              avoiding Bouncing charges and Penalties .
             </p>
           </div>
           <div className="bank-details-div">
@@ -485,26 +528,26 @@ export const BillingInformationPage = () => {
                   style={{ display: "flex", justifyContent: "space-between" }}
                 >
                   <p>Bank Name</p>
-                  <p style={{ fontWeight: "bold" }}>Equitas bank</p>
+                  <p style={{ fontWeight: "bold" }}>Kotak Mahindra Bank</p>
                 </div>
                 <div
                   style={{ display: "flex", justifyContent: "space-between" }}
                 >
                   <p>Account Number</p>
-                  <p style={{ fontWeight: "bold" }}>200001430045</p>
+                  <p style={{ fontWeight: "bold" }}>9847300052</p>
                 </div>
                 <div
                   style={{ display: "flex", justifyContent: "space-between" }}
                 >
                   <p>IFSC Code</p>
-                  <p style={{ fontWeight: "bold" }}>ESFB0003003</p>
+                  <p style={{ fontWeight: "bold" }}>KKBK0000433</p>
                 </div>
                 <div
                   style={{ display: "flex", justifyContent: "space-between" }}
                 >
                   <p>Branch Name</p>
                   <p style={{ fontWeight: "bold", textAlign: "right" }}>
-                    HSR Layout, Bangalore
+                    JP NAGAR, Bangalore
                   </p>
                 </div>
               </div>
@@ -517,8 +560,8 @@ export const BillingInformationPage = () => {
         </div>
         <div className="contact-email-number">
           For any enquiry,reach out via email at{" "}
-          <a href="">edumetrixlearningsolutions@gmail.com</a> call on{" "}
-          <a href="tel:+919074851744">9074851744</a>
+          <a href="">admin@edumetrix.io</a> call on{" "}
+          <a href="tel:+918310715970">+91 8310 715 970</a>
         </div>
         <div className="thanks-tag">
           Thank You for Choosing EduMetrix Learning Solutions Pvt Ltd As Your

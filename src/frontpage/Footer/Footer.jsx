@@ -3,7 +3,7 @@ import "./Footer.scss";
 import { Link } from "react-router-dom";
 import { ChatboxManager } from "../ChatboxManage/ChatboxManager";
 import Button from "@mui/material/Button";
-import Qrcode from "../../asset/images/scan-Qr.jpeg";
+import Qrcode from "../../asset/images/scan-Qr.png";
 import facebook from "../../asset/images/SocialImages/facebook.png";
 import instagram from "../../asset/images/SocialImages/instagram.png";
 import twitter from "../../asset/images/SocialImages/twitter.png";
@@ -131,7 +131,7 @@ export const Footer = () => {
               <a href="https://www.linkedin.com/company/edumetrix-io/">
                 <img src={linkedin} width="40px" alt="" />
               </a>
-              <a href="https://wa.me/message/SWBLGFPFK6SYP1">
+              <a href="https://wa.me/message/CATELY64PUGJC1">
                 <img src={whatsapp} width="40px" alt="" />
               </a>
             </div>

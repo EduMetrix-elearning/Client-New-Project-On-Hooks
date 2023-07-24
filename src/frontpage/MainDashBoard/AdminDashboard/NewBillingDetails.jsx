@@ -7,7 +7,7 @@ import AdminDashboard from "./AdminDashboard";
 const NewBillingDetails = () => {
   return (
     <div>
-      <AdminDashboard />
+      {/* <AdminDashboard /> */}
       <BillingInformationPage />
     </div>
   );

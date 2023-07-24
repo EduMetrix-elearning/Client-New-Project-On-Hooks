@@ -204,7 +204,7 @@ export const Courses = () => {
                 style={{ textDecoration: "none", color: "white" }}
               >
                 
-                Call Now +918310715970
+                Call Now +919074851744
               </a>
             </button>
           </div>

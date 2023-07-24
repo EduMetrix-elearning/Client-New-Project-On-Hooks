@@ -5,8 +5,11 @@
     margin-top: 0px;
     margin-bottom: 20px;
 
-    .print-button {
-        text-align: right;
+    .printbuttonContainer {
+        display: flex;
+        justify-content: space-between;
+        padding: 30px 40px 0;
+
     }
 
     .edumetrix-heading {
