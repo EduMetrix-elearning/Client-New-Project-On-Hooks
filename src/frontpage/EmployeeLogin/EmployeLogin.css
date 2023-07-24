@@ -40,6 +40,14 @@
 //     }
 
 // } */
+.loginContainer {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #EEF0F4;
+}
 
 .main-login-container {
     display: flex;
@@ -89,20 +97,22 @@
         inset -1px -1px 2px #ffffff73;
 }
 
-
 .category_container {
     margin-top: 20px;
     width: 290px;
 }
+
 .positionSelect {
     display: flex;
     align-items: center;
     gap: 10px;
     width: 300px;
 }
-.positionSelect span{
+
+.positionSelect span {
     font-weight: 700;
 }
+
 .category_container label {
     font-size: 17px;
     font-weight: 800;
@@ -111,7 +121,6 @@
 .login-btn button {
     padding: 5px 20px;
     margin-top: 30px;
-
     background: linear-gradient(120deg, #fff 0%, #193942 50%);
     /* background: #193942; */
     border-radius: 10px;

@@ -10,12 +10,6 @@ const ItMeeting = () => {
   const EmployeId = localStorage.getItem("employeeid");
   const EmployeeProfile = localStorage.getItem("employeeProfile");
 
-  // if (!EmployeId) {
-  //   return navigate("/maindashboard");
-  // }
-  console.log("type of position", position);
-  console.log("type of EmployeeProfile", EmployeeProfile);
-
   useEffect(() => {
     if (!EmployeId) {
       return navigate("/maindashboard");

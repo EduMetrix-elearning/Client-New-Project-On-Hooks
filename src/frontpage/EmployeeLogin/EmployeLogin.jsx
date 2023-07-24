@@ -63,88 +63,8 @@ export const EmployeLogin = () => {
     }
   };
 
-  // const handleLogin = (e) => {
-  //   e.preventDefault();
-  //   let obj = { user, password, position };
-  //   services.loginWorkingEmployee(obj, (error, result) => {
-  //     console.log("obj-----", obj);
-  //     console.log("Mridu", result);
-  //     console.log("errorrr", error);
-  //     if (result) {
-  //       console.log("result", result);
-  //     }
-  //   });
-  // const admin = {
-  //   email: "shafan@edumetrix.io",
-  //   password: "password",
-  // };
-  // const hr = {
-  //   email: "jamsheerjamshi1998@gmail.com",
-  //   password: "Jamshi@123",
-  // };
-  // const marketing = {
-  //   email: "marketing123@gmail.com",
-  //   password: "marketing@123",
-  // };
-  // const it = {
-  //   email: "itrecruit@gmail.com",
-  //   password: "it@123",
-  // };
-  // const intern = {
-  //   email: "internsdata@gmail.com",
-  //   password: "intern@123",
-  // };
-  // if (position == "Admin") {
-  //   if (user === admin.email && password === admin.password) {
-  //     setError(false);
-  //     navigate("/adminmeeting");
-  //     return;
-  //   } else setError(true);
-  // }
-  // if (position == "Human Resource") {
-  //   if (user === hr.email && password === hr.password) {
-  //     setError(false);
-  //     navigate("/hrmeeting");
-  //     return;
-  //   } else setError(true);
-  // }
-  // if (position == "Marketing") {
-  //   if (user === marketing.email && password === marketing.password) {
-  //     setError(false);
-  //     navigate("/marketingmeeting");
-  //     return;
-  //   } else setError(true);
-  // }
-  // if (position == "IT") {
-  //   if (user === it.email && password === it.password) {
-  //     setError(false);
-  //     navigate("/itmeeting");
-  //     return;
-  //   } else setError(true);
-  // }
-  // if (position == "Intern") {
-  //   if (user === intern.email && password === intern.password) {
-  //     setError(false);
-  //     navigate("/internmeeting");
-  //     return;
-  //   } else {
-  //     setError(true);
-  //   }
-  // } else {
-  //   setError(true);
-  // }
-  // };
   return (
-    <div
-      style={{
-        height: "100vh",
-        width: "100%",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: "#EEF0F4",
-      }}
-    >
+    <div className="loginContainer">
       <div className="main-login-container">
         <form className="main-login-form">
           <div className="main-heading">
