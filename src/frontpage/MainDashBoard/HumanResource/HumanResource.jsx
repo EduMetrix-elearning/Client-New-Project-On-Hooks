@@ -28,6 +28,11 @@ const HumanResource = () => {
     setProfilePic(localStorage.getItem("employeeProfilePic"));
   }, []);
 
+  const onLogoutClick = () => {
+    localStorage.clear();
+    navigate("/maindashboard", { replace: true });
+  };
+
   return (
     <>
       <div className="side_bar">
@@ -108,10 +113,7 @@ const HumanResource = () => {
           </li>
         </ul>
         <div className="media_icons">
-          <button
-            onClick={() => navigate("/", { replace: true })}
-            className="logout-btn"
-          >
+          <button onClick={onLogoutClick} className="logout-btn">
             logout
           </button>
         </div>
