@@ -6,6 +6,10 @@ import HomeIcon from "@mui/icons-material/Home";
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
+  const onLogoutClick = () => {
+    localStorage.clear();
+    navigate("/maindashboard", { replace: true });
+  };
   return (
     <ul id="mainmenu">
       <img
@@ -75,7 +79,7 @@ const AdminDashboard = () => {
       </li>
 
       <li
-        onClick={() => navigate("/", { replace: true })}
+        onClick={onLogoutClick}
         style={{
           backgroundColor: "#193942",
           color: "white",
