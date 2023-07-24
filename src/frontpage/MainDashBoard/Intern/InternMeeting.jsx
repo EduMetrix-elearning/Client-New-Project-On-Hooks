@@ -25,6 +25,8 @@ const InternMeeting = () => {
     }
   }, []);
 
+  
+
   return (
     <>
       {authenticateUser && (

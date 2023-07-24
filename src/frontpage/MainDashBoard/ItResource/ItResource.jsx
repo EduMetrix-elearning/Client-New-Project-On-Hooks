@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./ItResource.css";
-import { Link,useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import EmployeeProfile from "../../../components/employee_profile/EmployeeProfile";
 import "react-responsive-modal/styles.css";
 import { Modal } from "react-responsive-modal";
@@ -24,6 +24,11 @@ const ItResource = () => {
     setProfilePic(localStorage.getItem("employeeProfilePic"));
   }, []);
 
+  const onLogoutClick = () => {
+    localStorage.clear();
+    navigate("/maindashboard", { replace: true });
+  };
+
   return (
     <>
       <div className="side_bar">
@@ -35,7 +40,7 @@ const ItResource = () => {
           />
         </div> */}
 
-<div onClick={onOpenModal}>
+        <div onClick={onOpenModal}>
           <div
             style={{
               textDecoration: "none",
@@ -83,7 +88,6 @@ const ItResource = () => {
         </div>
 
         <ul>
-        
           <li>
             <Link>
               <i className="fas fa-stream"></i>EMT
@@ -96,10 +100,7 @@ const ItResource = () => {
           </li>
         </ul>
         <div className="media_icons">
-          <button
-            onClick={() => navigate("/", { replace: true })}
-            className="logout-btn"
-          >
+          <button onClick={onLogoutClick} className="logout-btn">
             logout
           </button>
         </div>
