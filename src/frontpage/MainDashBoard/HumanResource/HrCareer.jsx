@@ -12,10 +12,35 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import { useNavigate } from "react-router-dom";
 
 const services = require("../../../services/pages/agentRoute");
 
 const HrCareer = () => {
+  //--Protecting Router-starts---///
+  const navigate = useNavigate();
+  const [authenticateUser, setAuthenticateUser] = useState(false);
+  const position1 = "Human Resource";
+  const position2 = "Human Resource Intern";
+  const EmployeId = localStorage.getItem("employeeid");
+  const EmployeeProfile = localStorage.getItem("employeeProfile");
+
+  useEffect(() => {
+    if (!EmployeId) {
+      return navigate("/maindashboard");
+    }
+    if (EmployeId) {
+      if (EmployeeProfile === position1 || EmployeeProfile === position2) {
+        return setAuthenticateUser(true);
+      } else {
+        setAuthenticateUser(false);
+        alert("Invalid login credentials, Please try to login again");
+        return navigate("/maindashboard");
+      }
+    }
+  }, []);
+  //--Protecting Router ends----///
+
   const [hiringdetails, setHiringDetails] = useState([]);
   const [comments, setComments] = useState();
 
@@ -84,131 +109,137 @@ const HrCareer = () => {
 
   return (
     <>
-      <HumanResource />
-      {open && (
-        <HrCareerModal
-          setOpen={setOpen}
-          open={open}
-          handleClose={handleClose}
-          id={employeeId}
-          // setOpenModal={setOpenModal}
-          notes={comments}
-        />
-      )}
-      <div style={{ width: "100%", marginTop: "1%" }}>
-        <div>
-          <HrDates sortStatus={handleSortStatus} />
-          <section className="main">
-            <div className="profile-card">
-              <div>Total</div>
-              <h3 style={{ marginLeft: "auto" }}>{hiringdetails.length}</h3>
-            </div>
+      {authenticateUser && (
+        <>
+          <HumanResource />
+          {open && (
+            <HrCareerModal
+              setOpen={setOpen}
+              open={open}
+              handleClose={handleClose}
+              id={employeeId}
+              // setOpenModal={setOpenModal}
+              notes={comments}
+            />
+          )}
+          <div style={{ width: "100%", marginTop: "1%" }}>
+            <div>
+              <HrDates sortStatus={handleSortStatus} />
+              <section className="main">
+                <div className="profile-card">
+                  <div>Total</div>
+                  <h3 style={{ marginLeft: "auto" }}>{hiringdetails.length}</h3>
+                </div>
 
-            <div className="profile-card2">
-              <div>Verified</div>
-              <h3 style={{ marginLeft: "auto" }}>67</h3>
+                <div className="profile-card2">
+                  <div>Verified</div>
+                  <h3 style={{ marginLeft: "auto" }}>67</h3>
+                </div>
+                <div className="profile-card3">
+                  Not Verified
+                  <h3 style={{ marginLeft: "auto" }}>67</h3>
+                </div>
+                <div className="profile-card4">
+                  Fake
+                  <h3 style={{ marginLeft: "auto" }}>67</h3>
+                </div>
+              </section>
             </div>
-            <div className="profile-card3">
-              Not Verified
-              <h3 style={{ marginLeft: "auto" }}>67</h3>
-            </div>
-            <div className="profile-card4">
-              Fake
-              <h3 style={{ marginLeft: "auto" }}>67</h3>
-            </div>
-          </section>
-        </div>
-        <div>
-          <TableContainer component={Paper}>
-            <Table sx={{ width: "100%" }} aria-label="simple table">
-              <TableHead
-                sx={{
-                  backgroundColor: "#f5f5ef",
-                }}
-              >
-                <TableRow sx={{ width: "100%" }}>
-                  <TableCell>No.</TableCell>
-                  <TableCell>NAME</TableCell>
-                  <TableCell>EMAIL</TableCell>
-                  <TableCell>PHONE</TableCell>
-                  <TableCell>JOB DOMAIN</TableCell>
-                  <TableCell>SELF INTRO</TableCell>
-                  <TableCell>CV</TableCell>
-                  <TableCell>STATUS</TableCell>
-                  <TableCell>SUBMISSION DATE</TableCell>
-                  <TableCell>Message</TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody align="center">
-                {hiringdetails &&
-                  hiringdetails.map((employee, index) => (
-                    <TableRow
-                      className="tabelrow"
-                      key={employee.employee_id}
-                      sx={{ border: 1, borderColor: "#f5f5ef" }}
-                    >
-                      <TableCell>{index + 1}</TableCell>
-                      <TableCell>{employee.name}</TableCell>
-                      <TableCell>{employee.email}</TableCell>
-                      <TableCell>{employee.contact_number}</TableCell>
-                      <TableCell>{employee.job}</TableCell>
-                      <TableCell>{employee.message}</TableCell>
-                      <TableCell>{employee.image}</TableCell>
-
-                      <TableCell>
-                        <select
-                          className="student-status"
-                          onChange={(e) => submit(e, employee.employee_id)}
-                        >
-                          <option value="">{employee.status}</option>
-                          <option value="Yet to call">yet to call</option>
-                          <option value="Waiting To Call">
-                            Waiting To Call
-                          </option>
-                          <option value="No Response">No Response</option>
-                          <option value="Decision Pending">
-                            Decision Pending
-                          </option>
-                          <option value="Not Interested">Not Interested</option>
-                          <option value="Interested">Interested </option>
-                          <option value="Waiting to Join">
-                            Waiting to Join
-                          </option>
-                          <option value="Admission">Admission</option>
-                        </select>
-                      </TableCell>
-
-                      <TableCell>
-                        {new Date(employee.created_date).toLocaleString(
-                          "lookup"
-                        )}
-                      </TableCell>
-                      <TableCell>
-                        <button
-                          style={{
-                            backgroundColor: "skyblue",
-                            color: "white",
-                            width: "100%",
-                            height: "40px",
-                            border: "none",
-                            borderRadius: "5px",
-                          }}
-                          onClick={() => {
-                            setComments(employee.comments);
-                            setEmployeeId(employee.employee_id);
-                            setOpen(true);
-                          }}
-                        >
-                          Update
-                        </button>
-                      </TableCell>
+            <div>
+              <TableContainer component={Paper}>
+                <Table sx={{ width: "100%" }} aria-label="simple table">
+                  <TableHead
+                    sx={{
+                      backgroundColor: "#f5f5ef",
+                    }}
+                  >
+                    <TableRow sx={{ width: "100%" }}>
+                      <TableCell>No.</TableCell>
+                      <TableCell>NAME</TableCell>
+                      <TableCell>EMAIL</TableCell>
+                      <TableCell>PHONE</TableCell>
+                      <TableCell>JOB DOMAIN</TableCell>
+                      <TableCell>SELF INTRO</TableCell>
+                      <TableCell>CV</TableCell>
+                      <TableCell>STATUS</TableCell>
+                      <TableCell>SUBMISSION DATE</TableCell>
+                      <TableCell>Message</TableCell>
                     </TableRow>
-                  ))}
-              </TableBody>
-            </Table>
-          </TableContainer>
-        </div>
-      </div>
+                  </TableHead>
+                  <TableBody align="center">
+                    {hiringdetails &&
+                      hiringdetails.map((employee, index) => (
+                        <TableRow
+                          className="tabelrow"
+                          key={employee.employee_id}
+                          sx={{ border: 1, borderColor: "#f5f5ef" }}
+                        >
+                          <TableCell>{index + 1}</TableCell>
+                          <TableCell>{employee.name}</TableCell>
+                          <TableCell>{employee.email}</TableCell>
+                          <TableCell>{employee.contact_number}</TableCell>
+                          <TableCell>{employee.job}</TableCell>
+                          <TableCell>{employee.message}</TableCell>
+                          <TableCell>{employee.image}</TableCell>
+
+                          <TableCell>
+                            <select
+                              className="student-status"
+                              onChange={(e) => submit(e, employee.employee_id)}
+                            >
+                              <option value="">{employee.status}</option>
+                              <option value="Yet to call">yet to call</option>
+                              <option value="Waiting To Call">
+                                Waiting To Call
+                              </option>
+                              <option value="No Response">No Response</option>
+                              <option value="Decision Pending">
+                                Decision Pending
+                              </option>
+                              <option value="Not Interested">
+                                Not Interested
+                              </option>
+                              <option value="Interested">Interested </option>
+                              <option value="Waiting to Join">
+                                Waiting to Join
+                              </option>
+                              <option value="Admission">Admission</option>
+                            </select>
+                          </TableCell>
+
+                          <TableCell>
+                            {new Date(employee.created_date).toLocaleString(
+                              "lookup"
+                            )}
+                          </TableCell>
+                          <TableCell>
+                            <button
+                              style={{
+                                backgroundColor: "skyblue",
+                                color: "white",
+                                width: "100%",
+                                height: "40px",
+                                border: "none",
+                                borderRadius: "5px",
+                              }}
+                              onClick={() => {
+                                setComments(employee.comments);
+                                setEmployeeId(employee.employee_id);
+                                setOpen(true);
+                              }}
+                            >
+                              Update
+                            </button>
+                          </TableCell>
+                        </TableRow>
+                      ))}
+                  </TableBody>
+                </Table>
+              </TableContainer>
+            </div>
+          </div>
+        </>
+      )}
     </>
   );
 };

@@ -9,8 +9,6 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import "../../frontpage/EmployeeLogin/EmployeLogin.css";
-import { useNavigate } from "react-router-dom";
-
 import "react-responsive-modal/styles.css";
 import { Modal } from "react-responsive-modal";
 import ChangePassword from "../change_password/ChangePassword";
@@ -18,11 +16,6 @@ import ChangePassword from "../change_password/ChangePassword";
 export default function EmployeeProfile() {
   const [employeeId, setEmployeeId] = useState("");
   const [employee, setEmployee] = useState();
-  const [currentPassword, setCurrentPassword] = useState("");
-  const [newPassword, setNewPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [error, setError] = useState("");
-  const navigate = useNavigate();
 
   const [open, setOpen] = useState(false);
 
@@ -56,54 +49,9 @@ export default function EmployeeProfile() {
       }
     }
   };
-  // const onHandleSubmit = async (e) => {
-  //   setError(false);
-  //   if (
-  //     currentPassword === "" ||
-  //     newPassword === "" ||
-  //     confirmPassword === ""
-  //   ) {
-  //     setError("All fields are mandatory");
-  //   } else if (newPassword !== confirmPassword) {
-  //     setError("New Password and Confirm Password should be same");
-  //   } else if (newPassword.match(/\s/)) {
-  //     setError("*No whitespace allowed");
-  //   } else if (!newPassword.match(/[A-Z]/)) {
-  //     setError("*Password should contain atleast one Uppercase");
-  //   } else if (!newPassword.match(/[a-z]/)) {
-  //     setError("*Password should contain atleast one smallcase");
-  //   } else if (!newPassword.match(/[0-9]/)) {
-  //     setError("*Password should contain atleast one Number");
-  //   } else if (!newPassword.match(/[!@#%&]/)) {
-  //     setError(
-  //       "Password should contain atleast one of this special characters: ! @ # % & ) "
-  //     );
-  //   } else if (currentPassword === newPassword) {
-  //     setError("Current Password and New Password cannot be same");
-  //   }
-
-  //   if (newPassword.length > 10) {
-  //     setError("*Password cannot have more than 10 characters");
-  //   }
-  //   if (error === false) {
-  //     let obj = { employeeId, currentPassword, newPassword };
-  //     const result = await services.changePasswordOfWorkingEmployee(obj);
-  //     alert(result);
-  //     if (result === "Password changed successfully") {
-  //       alert(
-  //         "Redirecting you to the login page, please try to login with the new password"
-  //       );
-  //       setTimeout(() => {
-  //         navigate("/maindashboard", { replace: true });
-  //       }, 1000);
-  //     }
-  //   }
-
-  // };
 
   return (
     <>
-      {/* <AdminDashboard /> */}
       {employee && (
         <div
           style={{
@@ -208,7 +156,6 @@ export default function EmployeeProfile() {
                         borderRadius: "10px",
                         padding: "10px",
                         objectFit: "cover",
-                        padding: 2,
                       }}
                       component="img"
                       height="200"
@@ -221,7 +168,6 @@ export default function EmployeeProfile() {
                         padding: "10px",
                         objectFit: "cover",
                         width: "100%",
-                        padding: 2,
                       }}
                       component="img"
                       height="200"
@@ -234,7 +180,6 @@ export default function EmployeeProfile() {
                         padding: "10px",
                         objectFit: "cover",
                         width: "100%",
-                        padding: 2,
                       }}
                       component="img"
                       height="200"

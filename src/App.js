@@ -169,7 +169,7 @@ function App() {
               element={<EmployeeVerification />}
             ></Route>
             <Route path="/maindashboard" element={<MainDashboard />}></Route>
-            <Route path="/admindashboard" element={<AdminDashboard />}></Route>
+            {/* <Route path="/admindashboard" element={<AdminDashboard />}></Route> */}
             <Route path="/emttracker" element={<EmtTracker />}></Route>
             <Route
               path="/employeedetails"
@@ -185,7 +185,7 @@ function App() {
               element={<NewBillingDetails />}
             ></Route>
             <Route path="/adminmeeting" element={<AdminMeeting />}></Route>
-            <Route path="/humanresource" element={<HumanResource />}></Route>
+            {/* <Route path="/humanresource" element={<HumanResource />}></Route> */}
             <Route path="/hrcareer" element={<HrCareer />}></Route>
             <Route path="/hrcorporate" element={<HrCorporate />}></Route>
             <Route path="/hrmeeting" element={<HrMeeting />}></Route>
@@ -195,10 +195,10 @@ function App() {
 
             <Route path="/internsdetails" element={<InternspDetails />}></Route>
 
-            <Route
+            {/* <Route
               path="/marketingnavbar"
               element={<MarketingNavbar />}
-            ></Route>
+            ></Route> */}
 
             <Route
               path="/marketingmeeting"
@@ -221,10 +221,10 @@ function App() {
             <Route path="/student-details" element={<StudentDetails />}></Route>
             <Route path="/agent-earning" element={<AgentEarning />}></Route>
             <Route path="/te-dashboard" element={<WebsiteDashboard />}></Route>
-            <Route
+            {/* <Route
               path="/billing-information"
               element={<BillingInformationPage />}
-            ></Route>
+            ></Route> */}
             <Route
               path="/agent-card/:id"
               element={<StudentStatusShow />}

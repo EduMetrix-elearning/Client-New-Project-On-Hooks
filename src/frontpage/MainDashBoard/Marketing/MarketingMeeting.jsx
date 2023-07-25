@@ -4,6 +4,7 @@ import "./MarketingMeeting.css";
 import MarketingNavbar from "./MarketingNavbar";
 
 const MarketingMeeting = () => {
+///-----Protecting router --------------////
   const navigate = useNavigate();
   const [authenticateUser, setAuthenticateUser] = useState(false);
   const position = "Marketing Executive";
@@ -24,6 +25,7 @@ const MarketingMeeting = () => {
       }
     }
   }, []);
+///-----Protecting router  ends--------------////
 
   return (
     <>

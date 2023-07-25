@@ -14,10 +14,33 @@ import "react-confirm-alert/src/react-confirm-alert.css";
 import "./AgentStudents.css";
 import AgentModel from "./AgentModel";
 import InfiniteScroll from "react-infinite-scroll-component";
+import { useNavigate } from "react-router-dom";
 
 const services = require("../../../services/pages/agentRoute");
 
 const AgentStudents = () => {
+  ///-----Protecting router --------------////
+  const navigate = useNavigate();
+  const [authenticateUser, setAuthenticateUser] = useState(false);
+  const position = "Marketing Executive";
+  const EmployeId = localStorage.getItem("employeeid");
+  const EmployeeProfile = localStorage.getItem("employeeProfile");
+
+  useEffect(() => {
+    if (!EmployeId) {
+      return navigate("/maindashboard");
+    }
+    if (EmployeId) {
+      if (EmployeeProfile === position) {
+        return setAuthenticateUser(true);
+      } else {
+        setAuthenticateUser(false);
+        alert("Invalid login credentials, Please try to login again");
+        return navigate("/maindashboard");
+      }
+    }
+  }, []);
+  ///-----Protecting router  ends--------------////
   const [referrals, setReferrals] = useState([]);
   const [openModal, setOpenModal] = useState(false);
   const [studentid, setStudentId] = useState();
@@ -176,176 +199,183 @@ const AgentStudents = () => {
 
   return (
     <>
-      <MarketingNavbar />
-      {open && (
-        <AgentModel
-          setOpen={setOpen}
-          open={open}
-          handleClose={handleClose}
-          id={studentid}
-          setOpenModal={setOpenModal}
-          notes={comments}
-        />
-      )}
-      <div style={{ width: "100%", marginTop: "1%" }}>
-        <div>
-          <HrDates sortStatus={handleSortStatus} sortNames={handleSortName} />
+      {authenticateUser && (
+        <>
+          <MarketingNavbar />
+          {open && (
+            <AgentModel
+              setOpen={setOpen}
+              open={open}
+              handleClose={handleClose}
+              id={studentid}
+              setOpenModal={setOpenModal}
+              notes={comments}
+            />
+          )}
+          <div style={{ width: "100%", marginTop: "1%" }}>
+            <div>
+              <HrDates
+                sortStatus={handleSortStatus}
+                sortNames={handleSortName}
+              />
 
-          <section className="main">
-            <div className="profile-card">
-              <div>Total</div>
-              <h3 style={{ marginLeft: "auto" }}>{totalReferrals}</h3>
-            </div>
+              <section className="main">
+                <div className="profile-card">
+                  <div>Total</div>
+                  <h3 style={{ marginLeft: "auto" }}>{totalReferrals}</h3>
+                </div>
 
-            <div className="profile-card2">
-              <div>Interested</div>
-              <h3 style={{ marginLeft: "auto" }}>{interested}</h3>
+                <div className="profile-card2">
+                  <div>Interested</div>
+                  <h3 style={{ marginLeft: "auto" }}>{interested}</h3>
+                </div>
+                <div className="profile-card3">
+                  Decision Pending
+                  <h3 style={{ marginLeft: "auto" }}>{decision}</h3>
+                </div>
+                <div className="profile-card4">
+                  No Response
+                  <h3 style={{ marginLeft: "auto" }}>{noResponse}</h3>
+                </div>
+              </section>
             </div>
-            <div className="profile-card3">
-              Decision Pending
-              <h3 style={{ marginLeft: "auto" }}>{decision}</h3>
-            </div>
-            <div className="profile-card4">
-              No Response
-              <h3 style={{ marginLeft: "auto" }}>{noResponse}</h3>
-            </div>
-          </section>
-        </div>
-      </div>
-      <div>
-        <TableContainer component={Paper}>
-          <InfiniteScroll
-            dataLength={referrals.length}
-            next={fetchReferrals}
-            hasMore={loading}
-            // loader={<h4>Loading...</h4>}
-            endMessage={
-              <p style={{ textAlign: "center" }}>
-                <b>Yay! You have seen it all</b>
-              </p>
-            }
-          >
-            <Table sx={{ width: "100%" }} aria-label="simple table">
-              <TableHead
-                sx={{ backgroundColor: "#f5f5ef", border: 1 }}
-                align="center"
+          </div>
+          <div>
+            <TableContainer component={Paper}>
+              <InfiniteScroll
+                dataLength={referrals.length}
+                next={fetchReferrals}
+                hasMore={loading}
+                // loader={<h4>Loading...</h4>}
+                endMessage={
+                  <p style={{ textAlign: "center" }}>
+                    <b>Yay! You have seen it all</b>
+                  </p>
+                }
               >
-                <TableRow>
-                  <TableCell>No.</TableCell>
-                  <TableCell>NAME</TableCell>
-                  <TableCell>EMAIL</TableCell>
-                  <TableCell>PHONE</TableCell>
-                  <TableCell>LOCATION</TableCell>
-                  <TableCell>PAST COURSE</TableCell>
-                  <TableCell>YEAR OF PASSING</TableCell>
-                  <TableCell>STATUS</TableCell>
-                  <TableCell>SUBMISSION DATE</TableCell>
-                  <TableCell>Message</TableCell>
-                  <TableCell>Called By</TableCell>
-                  <TableCell>Called Date</TableCell>
-                </TableRow>
-              </TableHead>
+                <Table sx={{ width: "100%" }} aria-label="simple table">
+                  <TableHead
+                    sx={{ backgroundColor: "#f5f5ef", border: 1 }}
+                    align="center"
+                  >
+                    <TableRow>
+                      <TableCell>No.</TableCell>
+                      <TableCell>NAME</TableCell>
+                      <TableCell>EMAIL</TableCell>
+                      <TableCell>PHONE</TableCell>
+                      <TableCell>LOCATION</TableCell>
+                      <TableCell>PAST COURSE</TableCell>
+                      <TableCell>YEAR OF PASSING</TableCell>
+                      <TableCell>STATUS</TableCell>
+                      <TableCell>SUBMISSION DATE</TableCell>
+                      <TableCell>Message</TableCell>
+                      <TableCell>Called By</TableCell>
+                      <TableCell>Called Date</TableCell>
+                    </TableRow>
+                  </TableHead>
 
-              <TableBody align="center">
-                {referrals &&
-                  referrals
-                    // .filter((ref) =>
-                    //   status !== "All" ? ref.status === status : ref
-                    // )
-                    // .filter((ref) =>
-                    //   hrNames !== "All" ? ref.called_by === hrNames : ref
-                    // )
-                    .map((detail, index) => (
-                      <TableRow
-                        className="tabelrow"
-                        key={index}
-                        sx={{ border: 1, borderColor: "#f5f5ef" }}
-                      >
-                        <TableCell component="th" scope="row">
-                          {index + 1}
-                        </TableCell>
-                        <TableCell>{detail.name}</TableCell>
-                        <TableCell>{detail.email}</TableCell>
-                        <TableCell>{detail.contact_number}</TableCell>
-                        <TableCell>{detail.place}</TableCell>
-                        <TableCell>{detail.course}</TableCell>
-                        <TableCell>{detail.year_of_passing}</TableCell>
-                        <TableCell>
-                          <select
-                            className="student-status"
-                            onChange={(e) =>
-                              handleStatusChange(e, detail.student_id)
-                            }
+                  <TableBody align="center">
+                    {referrals &&
+                      referrals
+                        // .filter((ref) =>
+                        //   status !== "All" ? ref.status === status : ref
+                        // )
+                        // .filter((ref) =>
+                        //   hrNames !== "All" ? ref.called_by === hrNames : ref
+                        // )
+                        .map((detail, index) => (
+                          <TableRow
+                            className="tabelrow"
+                            key={index}
+                            sx={{ border: 1, borderColor: "#f5f5ef" }}
                           >
-                            <option value="">{detail.status}</option>
-                            <option value="Yet To Call">Yet To Call</option>
-                            <option value="Waiting To Call">
-                              Waiting To Call
-                            </option>
-                            <option value="No Response">No Response</option>
-                            <option value="Decision Pending">
-                              Decision Pending
-                            </option>
-                            <option value="Not Interested">
-                              Not Interested
-                            </option>
-                            <option value="Interested">Interested </option>
-                            <option value="Waiting to Join">
-                              Waiting to Join
-                            </option>
-                            <option value="Admission">Admission</option>
-                          </select>
-                        </TableCell>
+                            <TableCell component="th" scope="row">
+                              {index + 1}
+                            </TableCell>
+                            <TableCell>{detail.name}</TableCell>
+                            <TableCell>{detail.email}</TableCell>
+                            <TableCell>{detail.contact_number}</TableCell>
+                            <TableCell>{detail.place}</TableCell>
+                            <TableCell>{detail.course}</TableCell>
+                            <TableCell>{detail.year_of_passing}</TableCell>
+                            <TableCell>
+                              <select
+                                className="student-status"
+                                onChange={(e) =>
+                                  handleStatusChange(e, detail.student_id)
+                                }
+                              >
+                                <option value="">{detail.status}</option>
+                                <option value="Yet To Call">Yet To Call</option>
+                                <option value="Waiting To Call">
+                                  Waiting To Call
+                                </option>
+                                <option value="No Response">No Response</option>
+                                <option value="Decision Pending">
+                                  Decision Pending
+                                </option>
+                                <option value="Not Interested">
+                                  Not Interested
+                                </option>
+                                <option value="Interested">Interested </option>
+                                <option value="Waiting to Join">
+                                  Waiting to Join
+                                </option>
+                                <option value="Admission">Admission</option>
+                              </select>
+                            </TableCell>
 
-                        <TableCell>
-                          {new Date(detail.created_date).toLocaleString(
-                            "lookup"
-                          )}
-                        </TableCell>
-                        <TableCell>
-                          <button
-                            style={{
-                              backgroundColor: "skyblue",
-                              color: "white",
-                              width: "100%",
-                              height: "40px",
-                              border: "none",
-                              borderRadius: "5px",
-                            }}
-                            onClick={() => {
-                              setComments(detail.comments);
-                              setStudentId(detail.student_id);
-                              setOpen(true);
-                            }}
-                          >
-                            Update
-                          </button>
-                        </TableCell>
-                        <TableCell>
-                          <select
-                            className="student-status"
-                            onChange={(e) =>
-                              handleNameChange(e, detail.student_id)
-                            }
-                          >
-                            <option value="">{detail.called_by}</option>
-                            <option value="Catherine">Catherine</option>
-                            <option value="Nadia">Nadia</option>
-                            <option value="Sthuthi">Sthuthi</option>
-                            <option value="Priyanka">Priyanka</option>
-                            <option value="Rakhi">Rakhi</option>
-                            <option value="Shahana">Shahana</option>
-                            <option value="Shrujana">Shrujana</option>
-                          </select>
-                        </TableCell>
-                        <TableCell>{detail.called_date}</TableCell>
-                      </TableRow>
-                    ))}
-              </TableBody>
-            </Table>
-          </InfiniteScroll>
-        </TableContainer>
-      </div>
+                            <TableCell>
+                              {new Date(detail.created_date).toLocaleString(
+                                "lookup"
+                              )}
+                            </TableCell>
+                            <TableCell>
+                              <button
+                                style={{
+                                  backgroundColor: "skyblue",
+                                  color: "white",
+                                  width: "100%",
+                                  height: "40px",
+                                  border: "none",
+                                  borderRadius: "5px",
+                                }}
+                                onClick={() => {
+                                  setComments(detail.comments);
+                                  setStudentId(detail.student_id);
+                                  setOpen(true);
+                                }}
+                              >
+                                Update
+                              </button>
+                            </TableCell>
+                            <TableCell>
+                              <select
+                                className="student-status"
+                                onChange={(e) =>
+                                  handleNameChange(e, detail.student_id)
+                                }
+                              >
+                                <option value="">{detail.called_by}</option>
+                                <option value="Catherine">Catherine</option>
+                                <option value="Nadia">Nadia</option>
+                                <option value="Sthuthi">Sthuthi</option>
+                                <option value="Priyanka">Priyanka</option>
+                                <option value="Rakhi">Rakhi</option>
+                                <option value="Shahana">Shahana</option>
+                                <option value="Shrujana">Shrujana</option>
+                              </select>
+                            </TableCell>
+                            <TableCell>{detail.called_date}</TableCell>
+                          </TableRow>
+                        ))}
+                  </TableBody>
+                </Table>
+              </InfiniteScroll>
+            </TableContainer>
+          </div>
+        </>
+      )}
     </>
   );
 };

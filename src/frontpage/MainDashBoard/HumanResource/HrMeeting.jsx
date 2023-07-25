@@ -4,6 +4,7 @@ import "./HrMeeting.css";
 import HumanResource from "./HumanResource";
 
 const HrMeeting = () => {
+  //--Protecting Router-starts---///
   const navigate = useNavigate();
   const [authenticateUser, setAuthenticateUser] = useState(false);
   const position1 = "Human Resource";
@@ -25,6 +26,7 @@ const HrMeeting = () => {
       }
     }
   }, []);
+   //--Protecting Router ends----///
 
   return (
     <>

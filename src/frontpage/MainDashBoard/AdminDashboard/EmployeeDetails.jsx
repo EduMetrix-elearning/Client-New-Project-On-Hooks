@@ -9,11 +9,35 @@ import { ToastContainer, toast } from "react-toastify";
 import { useState, useEffect } from "react";
 import AdminDashboard from "./AdminDashboard";
 import "./EmployeeDetails.scss";
+import { useNavigate } from "react-router-dom";
 
 const services = require("../../../services/pages/agentRoute");
 const ls = require("local-storage");
 
 const EmployeeDetails = () => {
+  //--Protecting Router-starts---///
+  const navigate = useNavigate();
+  const [authenticateUser, setAuthenticateUser] = useState(false);
+  const position = "Admin";
+  const EmployeId = localStorage.getItem("employeeid");
+  const EmployeeProfile = localStorage.getItem("employeeProfile");
+
+  useEffect(() => {
+    if (!EmployeId) {
+      return navigate("/maindashboard");
+    }
+    if (EmployeId) {
+      if (EmployeeProfile === position) {
+        return setAuthenticateUser(true);
+      } else {
+        setAuthenticateUser(false);
+        alert("Invalid login credentials, Please try to login again");
+        return navigate("/maindashboard");
+      }
+    }
+  }, []);
+  //--Protecting Router ends----///
+
   const [image, setImage] = useState(
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBRdmz3LadjgP_7giopi8RU6TJQgE-9IZaYXSJYWHuFv3ty1vbrgMiiU6XqdhxXyFqJqU&usqp=CAU"
   );
@@ -82,17 +106,10 @@ const EmployeeDetails = () => {
     const result = await services.getWorkingEmployee();
     const emnum = result.data[result.data.length - 1].employee_id;
     setEmpSerialNo(emnum);
-    // console.log("emnum", emnum);
   };
 
-  // useEffect(() => {
-  //   HandleEmployeeCard();
-  // }, []);
-
   const CreatingEmpID = () => {
-    // console.log("EmpSerialNo1", EmpSerialNo);
     if (EmpSerialNo) {
-      // console.log("EmpSerialNo", EmpSerialNo);
       let digits = parseInt(EmpSerialNo.substring(5));
       digits++;
       setEmployeeId("EM" + currentYear + digits);
@@ -103,16 +120,6 @@ const EmployeeDetails = () => {
     HandleEmployeeCard();
   }, [EmpSerialNo]);
   ////////////////////////////////////////////////////////////////////////////////////////
-  const usernameValidate = (name) => {
-    const re = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-    return re.test(name);
-  };
-  const regax = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-
-  const phoneNumberValidate = (mobileno) => {
-    const phoneReg = /^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/;
-    return phoneReg.test(mobileno);
-  };
 
   const inputHandle = (e) => {
     if (e.target.name === "name") {
@@ -223,406 +230,425 @@ const EmployeeDetails = () => {
     align: "center",
   };
 
+  // return (
   return (
-    <div className="background">
-      <AdminDashboard />
+    <>
+      {authenticateUser && (
+        <div className="background">
+          <AdminDashboard />
 
-      <div className="agent-profile-main-div">
-        <ToastContainer closeOnClick={false} />
+          <div className="agent-profile-main-div">
+            <ToastContainer closeOnClick={false} />
 
-        <Grid>
-          <Paper elevation={10} style={paperStyle}>
-            <Grid
-              sx={{
-                backgroundColor: "#193942",
-                margin: 0,
-                padding: "10px 0px",
-                color: "#ffffff",
-                textAlign: "center",
-              }}
-            >
-              <h2>Employee Details</h2>
+            <Grid>
+              <Paper elevation={10} style={paperStyle}>
+                <Grid
+                  sx={{
+                    backgroundColor: "#193942",
+                    margin: 0,
+                    padding: "10px 0px",
+                    color: "#ffffff",
+                    textAlign: "center",
+                  }}
+                >
+                  <h2>Employee Details</h2>
+                </Grid>
+
+                <TextField
+                  autoComplete="off"
+                  name="name"
+                  label="Employee Name"
+                  placeholder="Enter Employee name"
+                  fullWidth
+                  required
+                  size="small"
+                  margin="normal"
+                  onChange={(e) => inputHandle(e)}
+                />
+                {errorName ? (
+                  <div className="error_div">{errorName}</div>
+                ) : null}
+
+                <label>Date Of Birth</label>
+                <TextField
+                  autoComplete="off"
+                  name="dob"
+                  type="date"
+                  fullWidth
+                  required
+                  size="small"
+                  onChange={(e) => inputHandle(e)}
+                />
+                {dobError ? <div className="error_div">{dobError}</div> : null}
+
+                <select
+                  style={{ marginTop: "10px" }}
+                  className="empposition"
+                  name="position"
+                  value={empPosition}
+                  onChange={(e) => {
+                    inputHandle(e);
+                  }}
+                >
+                  {/* {console.log("empPosition========", empPosition)} */}
+                  <option style={{ color: "Grey" }} disabled>
+                    Enter Position
+                  </option>
+                  <option>Human Resource</option>
+                  <option>Human Resource Intern</option>
+                  <option>Marketing Executive</option>
+                  <option>Software Engineer</option>
+                  <option>Software Engineer Intern</option>
+                  {/* <option>Operation Executive</option>
+              <option>Operation Intern</option> */}
+                </select>
+                {/* {errorName ? <div className="error_div">{errorName}</div> : null} */}
+
+                <TextField
+                  autoComplete="off"
+                  name="empid"
+                  label="Enter Employee Id"
+                  value={employeeId}
+                  // placeholder="Enter Employee Id 1001"
+                  fullWidth
+                  required
+                  size="small"
+                  margin="normal"
+                  // onChange={(e) => inputHandle(e)}
+                />
+                {empIdError ? (
+                  <div className="error_div">{empIdError}</div>
+                ) : null}
+                <label>joining date</label>
+                <TextField
+                  autoComplete="off"
+                  name="joiningdate"
+                  type="date"
+                  // label="Joining Date"
+                  // placeholder="YYYY-MM-DD"
+                  fullWidth
+                  required
+                  size="small"
+                  // margin="normal"
+                  onChange={(e) => inputHandle(e)}
+                />
+                {joiningError ? (
+                  <div className="error_div">{joiningError}</div>
+                ) : null}
+
+                <TextField
+                  autoComplete="off"
+                  name="phone"
+                  label="Mobile Number"
+                  placeholder="Mobile Number"
+                  type="number"
+                  fullWidth
+                  required
+                  size="small"
+                  margin="normal"
+                  onChange={(e) => inputHandle(e)}
+                />
+                {errorNumber ? (
+                  <div className="error_div">{errorNumber}</div>
+                ) : null}
+                <TextField
+                  autoComplete="off"
+                  name="email"
+                  label="Email"
+                  placeholder="Enter Email"
+                  type="email"
+                  fullWidth
+                  required
+                  size="small"
+                  margin="normal"
+                  onChange={(e) => inputHandle(e)}
+                />
+                {errorEmail ? (
+                  <div className="error_div">{errorEmail}</div>
+                ) : null}
+                <TextField
+                  autoComplete="off"
+                  name="password"
+                  label="Password"
+                  placeholder="Enter Password"
+                  type="password"
+                  fullWidth
+                  required
+                  size="small"
+                  margin="normal"
+                  onChange={(e) => inputHandle(e)}
+                />
+                {errorPassword ? (
+                  <div className="error_div">{errorPassword}</div>
+                ) : null}
+
+                <TextField
+                  autoComplete="off"
+                  name="place"
+                  label="Place"
+                  placeholder="Enter Place"
+                  type="text"
+                  fullWidth
+                  required
+                  size="small"
+                  margin="normal"
+                  onChange={(e) => inputHandle(e)}
+                />
+                {errorPlace ? (
+                  <div className="error_div">{errorPlace}</div>
+                ) : null}
+
+                <TextField
+                  autoComplete="off"
+                  name="bloodgroup"
+                  label="Blood Group"
+                  placeholder="Blood Group"
+                  fullWidth
+                  required
+                  size="small"
+                  margin="normal"
+                  onChange={(e) => inputHandle(e)}
+                />
+                {bloodGoupError ? (
+                  <div className="error_div">{bloodGoupError}</div>
+                ) : null}
+
+                <TextField
+                  autoComplete="off"
+                  name="branchname"
+                  label="Branch Name"
+                  placeholder="Branch Name"
+                  type="text"
+                  fullWidth
+                  required
+                  size="small"
+                  margin="normal"
+                  onChange={(e) => inputHandle(e)}
+                />
+                {errorBname ? (
+                  <div className="error_div">{errorBname}</div>
+                ) : null}
+                <TextField
+                  autoComplete="off"
+                  name="accname"
+                  label="Account Holder Name"
+                  placeholder="Name"
+                  type="text"
+                  fullWidth
+                  required
+                  size="small"
+                  margin="normal"
+                  onChange={(e) => inputHandle(e)}
+                />
+                {errorAccName ? (
+                  <div className="error_div">{errorAccName}</div>
+                ) : null}
+                <TextField
+                  autoComplete="off"
+                  name="accnumber"
+                  label="Account Number"
+                  placeholder="Account Number"
+                  type="number"
+                  fullWidth
+                  required
+                  size="small"
+                  margin="normal"
+                  onChange={(e) => inputHandle(e)}
+                />
+                {errorAccNo ? (
+                  <div className="error_div">{errorAccNo}</div>
+                ) : null}
+
+                <TextField
+                  autoComplete="off"
+                  name="ifsc"
+                  label="IFSC"
+                  placeholder="IFSC CODE"
+                  type="text"
+                  fullWidth
+                  required
+                  size="small"
+                  margin="normal"
+                  onChange={(e) => inputHandle(e)}
+                />
+                {errorIfsc ? (
+                  <div className="error_div">{errorIfsc}</div>
+                ) : null}
+
+                <Stack
+                  direction="column"
+                  // alignItems="center"
+                  textAlign="justify"
+                  display="flex"
+                  justifyContent="space-between"
+                  spacing={2}
+                  marginTop="10px"
+                  color="#000"
+                >
+                  <Button
+                    variant="outlined"
+                    component="label"
+                    fullWidth
+                    sx={{ color: "grey", border: "grey 1px solid" }}
+                  >
+                    <PhotoCamera />
+                    Upload Profile Photo
+                    <input
+                      required
+                      hidden
+                      accept="image/*"
+                      multiple
+                      type="file"
+                      onChange={uploadImage}
+                    />
+                  </Button>
+                  {profileError ? (
+                    <div className="error_div">{profileError}</div>
+                  ) : null}
+
+                  <Button
+                    variant="outlined"
+                    component="label"
+                    fullWidth
+                    sx={{
+                      color: "grey",
+                      border: "grey 1px solid",
+                    }}
+                  >
+                    <PhotoCamera />
+                    Upload PanCard
+                    <input
+                      hidden
+                      accept="image/*"
+                      multiple
+                      type="file"
+                      onChange={uploadPANCard}
+                    />
+                  </Button>
+                  {pancardError ? (
+                    <div className="error_div">{pancardError}</div>
+                  ) : null}
+
+                  <Button
+                    variant="outlined"
+                    component="label"
+                    fullWidth
+                    sx={{ color: "grey", border: "grey 1px solid" }}
+                  >
+                    <PhotoCamera />
+                    Upload AdhaarCard Front
+                    <input
+                      hidden
+                      accept="image/*"
+                      multiple
+                      type="file"
+                      onChange={uploadAdharFront}
+                    />
+                  </Button>
+                  {adharError ? (
+                    <div className="error_div">{adharError}</div>
+                  ) : null}
+
+                  <Button
+                    variant="outlined"
+                    component="label"
+                    fullWidth
+                    sx={{ color: "grey", border: "grey 1px solid" }}
+                  >
+                    <PhotoCamera />
+                    Upload AdhaarCard Back
+                    <input
+                      hidden
+                      accept="image/*"
+                      multiple
+                      type="file"
+                      onChange={uploadAdharBack}
+                    />
+                  </Button>
+                  {adharBackError ? (
+                    <div className="error_div">{adharBackError}</div>
+                  ) : null}
+                </Stack>
+                <Stack
+                  direction="column"
+                  // alignItems="center"
+                  textAlign="justify"
+                  display="flex"
+                  justifyContent="space-between"
+                  spacing={2}
+                  marginTop="10px"
+                  color="#000"
+                >
+                  <Button
+                    variant="outlined"
+                    color="inherit"
+                    component="label"
+                    fullWidth
+                    onClick={(e) => handleEmployeeSubmit(e)}
+                    sx={{ color: "grey", backgroundColor: "#193942" }}
+                  >
+                    Submit
+                  </Button>
+                </Stack>
+              </Paper>
             </Grid>
 
-            <TextField
-              autoComplete="off"
-              name="name"
-              label="Employee Name"
-              placeholder="Enter Employee name"
-              fullWidth
-              required
-              size="small"
-              margin="normal"
-              onChange={(e) => inputHandle(e)}
-            />
-            {errorName ? <div className="error_div">{errorName}</div> : null}
+            <div className="agent-card-container">
+              <div className={"agent-card-item"}>
+                <div className="agent-image">
+                  <div className="agent-profile-img">
+                    <img src={image} alt="" />
+                  </div>
+                  <div className="agent-profile-details">
+                    <h3>Name: {name}</h3>
 
-            <label>Date Of Birth</label>
-            <TextField
-              autoComplete="off"
-              name="dob"
-              type="date"
-              fullWidth
-              required
-              size="small"
-              onChange={(e) => inputHandle(e)}
-            />
-            {dobError ? <div className="error_div">{dobError}</div> : null}
+                    <h5>Position: {empPosition}</h5>
+                    <h5>Employee Id: {employeeId}</h5>
+                    <p>DOB: {dateofbirth}</p>
 
-            <select
-              style={{ marginTop: "10px" }}
-              className="empposition"
-              name="position"
-              value={empPosition}
-              onChange={(e) => {
-                inputHandle(e);
-              }}
-            >
-              {/* {console.log("empPosition========", empPosition)} */}
-              <option style={{ color: "Grey" }} disabled>
-                Enter Position
-              </option>
-              <option>Human Resource</option>
-              <option>Human Resource Intern</option>
-              <option>Marketing Executive</option>
-              <option>Software Engineer</option>
-              <option>Software Engineer Intern</option>
-              {/* <option>Operation Executive</option>
-              <option>Operation Intern</option> */}
-            </select>
-            {/* {errorName ? <div className="error_div">{errorName}</div> : null} */}
+                    <p>Email:{email}</p>
+                    <p>Mobile No: {mobileno}</p>
+                    <p>Joining Date:{joiningdate}</p>
+                    <p>Address: {place}</p>
+                    <p>Blood Group:{bllodgroup}</p>
+                  </div>
+                </div>
+                <div className="agent-bank-details">
+                  <div className="bank-details">
+                    <h6>Account Holder Name</h6>
+                    <p>{accountname}</p>
+                  </div>
+                  <div className="bank-account">
+                    <h6>Account Number</h6>
+                    <p>{accountno}</p>
+                  </div>
+                  <div className="bank-account">
+                    <h6>Branch Name</h6>
+                    <p>{brachname}</p>
+                  </div>
+                  <div className="bank-account">
+                    <h6>IFSC CODE</h6>
+                    <p>{Ifsc}</p>
+                  </div>
+                </div>
 
-            <TextField
-              autoComplete="off"
-              name="empid"
-              label="Enter Employee Id"
-              value={employeeId}
-              // placeholder="Enter Employee Id 1001"
-              fullWidth
-              required
-              size="small"
-              margin="normal"
-              // onChange={(e) => inputHandle(e)}
-            />
-            {empIdError ? <div className="error_div">{empIdError}</div> : null}
-            <label>joining date</label>
-            <TextField
-              autoComplete="off"
-              name="joiningdate"
-              type="date"
-              // label="Joining Date"
-              // placeholder="YYYY-MM-DD"
-              fullWidth
-              required
-              size="small"
-              // margin="normal"
-              onChange={(e) => inputHandle(e)}
-            />
-            {joiningError ? (
-              <div className="error_div">{joiningError}</div>
-            ) : null}
-
-            <TextField
-              autoComplete="off"
-              name="phone"
-              label="Mobile Number"
-              placeholder="Mobile Number"
-              type="number"
-              fullWidth
-              required
-              size="small"
-              margin="normal"
-              onChange={(e) => inputHandle(e)}
-            />
-            {errorNumber ? (
-              <div className="error_div">{errorNumber}</div>
-            ) : null}
-            <TextField
-              autoComplete="off"
-              name="email"
-              label="Email"
-              placeholder="Enter Email"
-              type="email"
-              fullWidth
-              required
-              size="small"
-              margin="normal"
-              onChange={(e) => inputHandle(e)}
-            />
-            {errorEmail ? <div className="error_div">{errorEmail}</div> : null}
-            <TextField
-              autoComplete="off"
-              name="password"
-              label="Password"
-              placeholder="Enter Password"
-              type="password"
-              fullWidth
-              required
-              size="small"
-              margin="normal"
-              onChange={(e) => inputHandle(e)}
-            />
-            {errorPassword ? (
-              <div className="error_div">{errorPassword}</div>
-            ) : null}
-
-            <TextField
-              autoComplete="off"
-              name="place"
-              label="Place"
-              placeholder="Enter Place"
-              type="text"
-              fullWidth
-              required
-              size="small"
-              margin="normal"
-              onChange={(e) => inputHandle(e)}
-            />
-            {errorPlace ? <div className="error_div">{errorPlace}</div> : null}
-
-            <TextField
-              autoComplete="off"
-              name="bloodgroup"
-              label="Blood Group"
-              placeholder="Blood Group"
-              fullWidth
-              required
-              size="small"
-              margin="normal"
-              onChange={(e) => inputHandle(e)}
-            />
-            {bloodGoupError ? (
-              <div className="error_div">{bloodGoupError}</div>
-            ) : null}
-
-            <TextField
-              autoComplete="off"
-              name="branchname"
-              label="Branch Name"
-              placeholder="Branch Name"
-              type="text"
-              fullWidth
-              required
-              size="small"
-              margin="normal"
-              onChange={(e) => inputHandle(e)}
-            />
-            {errorBname ? <div className="error_div">{errorBname}</div> : null}
-            <TextField
-              autoComplete="off"
-              name="accname"
-              label="Account Holder Name"
-              placeholder="Name"
-              type="text"
-              fullWidth
-              required
-              size="small"
-              margin="normal"
-              onChange={(e) => inputHandle(e)}
-            />
-            {errorAccName ? (
-              <div className="error_div">{errorAccName}</div>
-            ) : null}
-            <TextField
-              autoComplete="off"
-              name="accnumber"
-              label="Account Number"
-              placeholder="Account Number"
-              type="number"
-              fullWidth
-              required
-              size="small"
-              margin="normal"
-              onChange={(e) => inputHandle(e)}
-            />
-            {errorAccNo ? <div className="error_div">{errorAccNo}</div> : null}
-
-            <TextField
-              autoComplete="off"
-              name="ifsc"
-              label="IFSC"
-              placeholder="IFSC CODE"
-              type="text"
-              fullWidth
-              required
-              size="small"
-              margin="normal"
-              onChange={(e) => inputHandle(e)}
-            />
-            {errorIfsc ? <div className="error_div">{errorIfsc}</div> : null}
-
-            <Stack
-              direction="column"
-              // alignItems="center"
-              textAlign="justify"
-              display="flex"
-              justifyContent="space-between"
-              spacing={2}
-              marginTop="10px"
-              color="#000"
-            >
-              <Button
-                variant="outlined"
-                component="label"
-                fullWidth
-                sx={{ color: "grey", border: "grey 1px solid" }}
-              >
-                <PhotoCamera />
-                Upload Profile Photo
-                <input
-                  required
-                  hidden
-                  accept="image/*"
-                  multiple
-                  type="file"
-                  onChange={uploadImage}
-                />
-              </Button>
-              {profileError ? (
-                <div className="error_div">{profileError}</div>
-              ) : null}
-
-              <Button
-                variant="outlined"
-                component="label"
-                fullWidth
-                sx={{
-                  color: "grey",
-                  border: "grey 1px solid",
-                }}
-              >
-                <PhotoCamera />
-                Upload PanCard
-                <input
-                  hidden
-                  accept="image/*"
-                  multiple
-                  type="file"
-                  onChange={uploadPANCard}
-                />
-              </Button>
-              {pancardError ? (
-                <div className="error_div">{pancardError}</div>
-              ) : null}
-
-              <Button
-                variant="outlined"
-                component="label"
-                fullWidth
-                sx={{ color: "grey", border: "grey 1px solid" }}
-              >
-                <PhotoCamera />
-                Upload AdhaarCard Front
-                <input
-                  hidden
-                  accept="image/*"
-                  multiple
-                  type="file"
-                  onChange={uploadAdharFront}
-                />
-              </Button>
-              {adharError ? (
-                <div className="error_div">{adharError}</div>
-              ) : null}
-
-              <Button
-                variant="outlined"
-                component="label"
-                fullWidth
-                sx={{ color: "grey", border: "grey 1px solid" }}
-              >
-                <PhotoCamera />
-                Upload AdhaarCard Back
-                <input
-                  hidden
-                  accept="image/*"
-                  multiple
-                  type="file"
-                  onChange={uploadAdharBack}
-                />
-              </Button>
-              {adharBackError ? (
-                <div className="error_div">{adharBackError}</div>
-              ) : null}
-            </Stack>
-            <Stack
-              direction="column"
-              // alignItems="center"
-              textAlign="justify"
-              display="flex"
-              justifyContent="space-between"
-              spacing={2}
-              marginTop="10px"
-              color="#000"
-            >
-              <Button
-                variant="outlined"
-                color="inherit"
-                component="label"
-                fullWidth
-                onClick={(e) => handleEmployeeSubmit(e)}
-                sx={{ color: "grey", backgroundColor: "#193942" }}
-              >
-                Submit
-              </Button>
-            </Stack>
-          </Paper>
-        </Grid>
-
-        <div className="agent-card-container">
-          <div className={"agent-card-item"}>
-            <div className="agent-image">
-              <div className="agent-profile-img">
-                <img src={image} alt="" />
-              </div>
-              <div className="agent-profile-details">
-                <h3>Name: {name}</h3>
-
-                <h5>Position: {empPosition}</h5>
-                <h5>Employee Id: {employeeId}</h5>
-                <p>DOB: {dateofbirth}</p>
-
-                <p>Email:{email}</p>
-                <p>Mobile No: {mobileno}</p>
-                <p>Joining Date:{joiningdate}</p>
-                <p>Address: {place}</p>
-                <p>Blood Group:{bllodgroup}</p>
-              </div>
-            </div>
-            <div className="agent-bank-details">
-              <div className="bank-details">
-                <h6>Account Holder Name</h6>
-                <p>{accountname}</p>
-              </div>
-              <div className="bank-account">
-                <h6>Account Number</h6>
-                <p>{accountno}</p>
-              </div>
-              <div className="bank-account">
-                <h6>Branch Name</h6>
-                <p>{brachname}</p>
-              </div>
-              <div className="bank-account">
-                <h6>IFSC CODE</h6>
-                <p>{Ifsc}</p>
-              </div>
-            </div>
-
-            <div className="cards">
-              <div className="cards-item">
-                <img src={pancard} alt="" />
-              </div>
-              <div className="cards-item">
-                <img src={adharcardfront} alt="" />
-              </div>
-              <div className="cards-item">
-                <img src={adharcardback} alt="" />
+                <div className="cards">
+                  <div className="cards-item">
+                    <img src={pancard} alt="" />
+                  </div>
+                  <div className="cards-item">
+                    <img src={adharcardfront} alt="" />
+                  </div>
+                  <div className="cards-item">
+                    <img src={adharcardback} alt="" />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 };
 
