@@ -1,0 +1,136 @@
+@media (max-width: 500px) {
+  * {
+    overflow-x: hidden;
+  }
+  .section4-gurl-img,
+  .section4catandtaildiv {
+    display: none;
+  }
+  .section4-main {
+    width: 100% !important;
+    height: 115vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden !important;
+    /* background-color: green ; */
+  }
+  .section4-paramain {
+    width: 100% !important;
+    height: 520px !important;
+    margin-top: 0 !important;
+    margin-left: 0 !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    overflow: hidden !important;
+  }
+  .section4-paragraphs{
+    overflow: hidden !important;
+  }
+  .section4-heading1 {
+    text-align: center;
+    height: 65px !important;
+    width: 100%;
+    overflow: hidden !important;
+    margin-bottom: 0px !important;
+  }
+
+  .section4wholepara {
+    margin-top: -33px !important;
+    display: flex;
+    height: 380px !important;
+    overflow: hidden !important;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 15px;
+  }
+  .section-4handp {
+    width: 340px;
+    overflow: hidden !important;
+  }
+.section4-heading2{
+  overflow: hidden !important;
+}
+.section4-heading3{
+  overflow: hidden !important;
+}
+  .section4-h2,
+  .section4-h3-child,
+  .section4-h3,
+  .section4-h2-child {
+    font-size: 25px !important;
+
+    overflow: hidden !important;
+  }
+  .section4-heangin2para {
+    width: 330px !important;
+    overflow: hidden !important;
+  }
+  .formediadiv {
+    width: 90% !important;
+    overflow: hidden !important;
+  }
+
+  .kidimgandsquaresdiv {
+    width: 100% !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 0px !important;
+    right: 0px !important;
+    height: 50vh !important ;
+    /* background-color: blue; */
+    overflow: hidden !important;
+  }
+  .setion4kidimgdiv {
+    margin-bottom: 50px;
+    width: 200px !important;
+    height: 150px;
+    overflow: hidden !important;
+  }
+  .setion4kidimg {
+    width: 180px !important;
+    height: 190px;
+    top: 50px !important;
+    left: 10px !important;
+    margin-top: -50px !important;
+    overflow: hidden !important;
+  }
+  .squaremaindiv {
+    margin-top: -65px !important;
+    overflow: hidden !important;
+  }
+
+  .section4-square1 {
+    height: 100px !important;
+    width: 280px !important;
+    border-radius: 10px !important;
+    overflow: hidden !important;
+  }
+  .section4-square1-child {
+    font-size: 24px !important;
+    overflow: hidden !important;
+  }
+  .section4-square2 {
+    height: 100px !important;
+    overflow: hidden !important;
+    width: 280px !important;
+    border-radius: 10px !important;
+  }
+  .section4-square2-child {
+    font-size: 24px !important;
+    overflow: hidden !important;
+  }
+  .section4-square3 {
+    height: 80px !important;
+    width: 280px !important;
+    border-radius: 10px !important;
+    overflow: hidden !important;
+  }
+  .section4-square3-child {
+    font-size: 24px !important;
+    overflow: hidden !important;
+  }
+}

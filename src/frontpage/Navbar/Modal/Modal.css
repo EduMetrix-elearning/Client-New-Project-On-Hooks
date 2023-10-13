@@ -19,7 +19,7 @@
 
 .modalContainer {
   overflow-y: visible;
-  width: 400px;
+  width: 420px;
   height: 520px;
   overflow-y: auto;
   background-color: #fff;
@@ -31,10 +31,23 @@
   left: 50%;
   color:black;
   border-radius: 10px;
-  border: 2px solid black;
+  border: 1px solid grey;
   /* backdrop-filter: blur(10px);
   border: 2px solid rgba(255,255,255,0.1);
   box-shadow: 0 0 40px rgba(8,7,16,0.6); */
+
+  background: rgb(248, 248, 248);
+  box-shadow: 0 8px 32px 0 rgba(123, 123, 133, 0.37);
+  backdrop-filter: blur( 20px );
+  -webkit-backdrop-filter: blur( 20px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+
+
+
+
+
+
 }
 
 .modalContainer .title {

@@ -90,6 +90,15 @@
     .scancode-div img{
         margin-top: 20px;
     }
+    .footer-cources-career{
+      background-color: #e91e63;
+      width: 120px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      // align-items: center;
+      // text-align: center;
+    }
 }
 
 @media screen and (max-width: 767px) {

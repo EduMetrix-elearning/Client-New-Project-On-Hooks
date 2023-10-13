@@ -1,0 +1,185 @@
+
+/* ============================ maindiv is down =============================== */
+*{
+    margin: 0;
+    padding: 0;
+
+
+}
+@import url('https://fonts.googleapis.com/css2?family=K2D:wght@700&family=Poppins:wght@300&display=swap');
+
+.section-5-maincontainer{
+height: 100vh;
+width: 100%;
+/* background-color: #d10606; */
+display: flex;
+
+}
+.section-5-maincontainer-1{
+    width: 50%;
+    height: 100vh;
+ 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.section-5-maincontainer-2{
+    /* background-color:  #1681ac; */
+width: 100%;
+height: 87%;
+display: flex;
+align-items: center;
+justify-content: space-around;
+flex-direction: column;
+
+
+}
+
+.section-5-maincontainer-3{
+width: 100%;
+height: 100vh;
+/* background-color:  #1681ac; */
+display: flex;
+align-items: flex-start;
+justify-content: space-around;
+flex-direction: column;
+}
+.section-5-technology{
+    font-family: 'K2D', sans-serif;
+    font-size: 70px;
+    color: white;
+  
+}
+.Section-5-container-1-para-div{
+    height: 240px;
+    width: 80%;
+    /* background-color: #9e0202; */
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+
+}
+.section-5-image-container{
+    width: 80%;
+    height: 390px;
+    /* background-color: cadetblue; */
+    display: flex;
+    flex-direction: column;
+}
+.section-5-image1{
+    width: 70px;
+    height: 70px;
+    
+}
+
+
+
+
+
+
+
+/* ============================================================================== */
+/* =======================margin left down here================================== */
+.section-5-image2{
+    width: 120px;
+    height: 120px;
+    margin-left: 100px;
+
+}
+
+
+
+
+
+
+/* ========================================================================================= */
+/* ============================== margin apply down here==================================== */
+
+.section-5-image3 {
+    width: 250px;
+    height: 250px;
+   margin-bottom: 40px;
+   margin-left: 200px;
+    transform: scaleX(-1); /* Flip horizontally */
+  }
+.section-5-first-image-div{
+    width: 100%;
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.section-5-sec-image-div{
+    width: 100%;
+    height: 120px;
+    /* background-color: rgb(21, 8, 204); */
+    align-items: center;
+    justify-content: center;
+}
+.section-5-third-image-div{
+    width: 100%;
+    height: 190px;
+    /* background-color: rgb(204, 8, 178); */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Poppins:wght@300&display=swap');
+.section-5-paratech{
+    font-family: 'Inter', sans-serif;
+color: white;
+  
+}
+.section-5-maincontainer-2-sub{
+    width: 70%;
+    height: 70px;
+    background-color: rgb(222, 231, 231);
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.section-5-2-subcontainer{
+    font-family: 'K2D', sans-serif;
+    color: #164E64;
+}
+.section-5-container-3-sub{
+    width: 100%;
+    height: 80px;
+    /* background-color: #1681ac; */
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    flex-direction: column;
+}
+.section-3-container-details{
+    font-family: 'K2D', sans-serif;
+    color: white;
+    font-size: 23.277px;
+}
+.lindiv-section-5{
+    border-left: 1px solid white;
+    height: 120px;
+}
+.section-5-maincontainer2-big{
+    width: 100%;
+height: 100vh;
+display: flex;
+align-items: center;
+/* background-color: #1681ac; */
+}
+.section-5-combined-2and3{
+    display: flex;
+    width: 55%;
+    /* background-color: blue; */
+}
+
+
+.mainbody-section-5{
+    background-image: linear-gradient(to left,#5C9AA5,#164E64);
+}

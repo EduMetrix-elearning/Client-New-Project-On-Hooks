@@ -1,0 +1,436 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+*::-webkit-scrollbar {
+  display: none;
+}
+
+/* fonts==================================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=K2D&family=Lora:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap");
+
+/* fulldiv ====================================================================================*/
+
+.Section3-FullDiv {
+  width: 100%;
+  /* height: 100vh; */
+  background-color: #5c9aa5;
+  margin-top: 50px;
+}
+
+/* backgroundimages=============================================================================== */
+.section3-backgroundpng {
+  width: 250px;
+  height: 550px;
+  object-fit: cover;
+  margin-left: 70%;
+  margin-top: 10px;
+}
+.section3-backgroundroundpng {
+  width: 45px;
+  margin-bottom: 200px;
+  position: fixed;
+  display: none;
+
+  /* background-color: greenyellow; */
+}
+.Section3-Mainbackgroundpng {
+  width: 100%;
+  height: 100vh;
+  background-color: #5c9aa5;
+  position: absolute;
+  position: fixed;
+}
+.Section3-Mainbackgroundroundpng {
+  position: relative;
+  /* background-color: blanchedalmond; */
+  width: 100px;
+  height: 100px;
+  margin-left: 83%;
+  top: 17%;
+}
+.Section3-Mainbackgroundnoodlepng {
+  position: relative;
+  /* background-color: blue; */
+  width: 220px;
+  bottom: 20%;
+  left: 52%;
+}
+.section3-backgroundnoodlepng {
+  transform: rotate(312deg);
+  margin-top: -85px;
+  position: fixed;
+}
+
+/* maindhead=================================================================================== */
+
+.Section3-Ourtext {
+  width: 450px;
+  height: 50px;
+  position: relative;
+
+  bottom: 22px;
+  left: 6%;
+}
+.Section3-ourstyle {
+  font-family: "K2D", sans-serif;
+  font-size: 58px;
+  color: white;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+}
+
+.Section3-Meettext {
+  position: relative;
+  width: 400px;
+  height: 30px;
+  /* background-color: blue; */
+  bottom: 4%;
+  left: 7.5%;
+}
+.Section3-Meetstyle {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+
+  letter-spacing: 1px;
+  color: white;
+}
+
+/* cardstart====================================================================================== */
+
+.section3-fullcardin1 {
+  width: 100%;
+  height: 900px;
+  /* background-color: aqua; */
+  position: relative;
+}
+
+.Section3-card1 {
+  width: 290px;
+  background-color: #d0d1d1;
+  height: 250px;
+  border-radius: 15px;
+  margin-left: 32px;
+  margin-top: 23px;
+}
+.Section3-cardimage {
+  width: 80px;
+  height: 80px;
+  /* background-color: black; */
+  border-radius: 50%;
+  margin-left: 20px;
+}
+.Section3-cardname {
+  width: 190px;
+  height: 50px;
+  /* background-color: brown; */
+  margin-top: 25px;
+  margin-left: 22px;
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  line-height: 21px;
+}
+.Section3-cardposition {
+  width: 150px;
+  height: 20px;
+  /* background-color: yellow; */
+  margin-top: 3px;
+  margin-left: 22px;
+  text-align: start;
+}
+.section3-imagediv {
+  width: 180px;
+  height: 130px;
+  /* background-color: chocolate; */
+  display: flex;
+
+  align-items: center;
+}
+.Section3-personimage {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+.Section3-cardpersonName {
+  font-family: "K2D", sans-serif;
+  font-size: 20px;
+}
+.Section3-cardpersonposition {
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+}
+
+.section3-firstrowccard {
+  width: 100%;
+  height: 300px;
+  /* background-color: aqua; */
+  position: relative;
+  bottom: 10px;
+  display: flex;
+  justify-content: center;
+}
+.section3-firstrowcardfirstbox {
+  width: 400px;
+  height: 300px;
+  /* background-color: chartreuse; */
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+.section3-cardsecondbox {
+  width: 850px;
+  height: 300px;
+  /* background-color: blueviolet; */
+  display: flex;
+  flex-direction: column;
+  margin-right: 30px;
+  justify-content: space-between;
+  align-items: center;
+}
+.section3-cardsecondbox1strow {
+  /* background-color: red; */
+  width: 810px;
+  height: 150px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.section3-cardsecondbox2strow {
+  /* background-color: blue; */
+  width: 810px;
+  height: 150px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.section3-cardsecondboxfirstcard {
+  width: 380px;
+  height: 120px;
+  background-color: #d0d1d1;
+  margin-top: 18px;
+  border-radius: 15px;
+  display: flex;
+}
+
+.section3-cardsecondboxfirstcardupdate {
+  width: 380px;
+  height: 120px;
+  background-color: #d0d1d1;
+  margin-top: 18px;
+  border-radius: 15px;
+  display: flex;
+  margin-left: 5px;
+}
+
+.section3-cardsecondboxsecondcard {
+  width: 360px;
+  height: 120px;
+  /* background-color: aqua; */
+  margin-top: 18px;
+}
+.section3-cardsecondboximagediv {
+  width: 120px;
+  height: 120px;
+  /* background-color: brown; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.section3-cardsecondboximageround {
+  width: 80px;
+  height: 80px;
+  /* background-color: green; */
+  border-radius: 50%;
+}
+.section3-cardsecondboximage {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: fill;
+}
+.section3-cardsection2boxfirstrole {
+  width: 230px;
+  height: 120px;
+  /* background-color: burlywood; */
+}
+.section3-cardsecondboxfirstname {
+  width: 200px;
+  height: 60px;
+  /* background-color: yellow; */
+  display: flex;
+  justify-content: start;
+  align-items: end;
+  margin-left: 8px;
+}
+.section3-cardsecondboxfirstrole {
+  width: 200px;
+  height: 60px;
+  /* background-color: orangered; */
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  margin-left: 8px;
+}
+.section3-cardsecondname {
+  font-family: "K2D", sans-serif;
+  font-size: 20px;
+}
+.section3-cardsecondrole {
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  margin-right: 50px;
+}
+
+/* smallcard================================================================== */
+.section3-cardsecondboxfirstcardsmall {
+  width: 340px;
+  height: 120px;
+  background-color: #d0d1d1;
+  margin-top: 18px;
+  border-radius: 15px;
+  display: flex;
+  margin-right: 28px;
+}
+
+.section3-cardsecondboxfirstcardsmallupdate {
+  width: 340px;
+  height: 120px;
+  background-color: #d0d1d1;
+  margin-top: 18px;
+  border-radius: 15px;
+  display: flex;
+  margin-left: -16px;
+}
+
+.section3-cardsecondboxsecondcardsmall {
+  width: 320px;
+  height: 120px;
+  /* background-color: aqua; */
+  margin-top: 18px;
+}
+.section3-cardsecondboximagedivsmall {
+  width: 120px;
+  height: 120px;
+  /* background-color: brown; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.section3-cardsecondboximageroundsmall {
+  width: 80px;
+  height: 80px;
+  /* background-color: green; */
+  border-radius: 50%;
+}
+.section3-cardsecondboximagesmall {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: fill;
+}
+.section3-cardsection2boxfirstrolesmall {
+  width: 230px;
+  height: 120px;
+  /* background-color: burlywood; */
+}
+.section3-cardsecondboxfirstnamesmall {
+  width: 200px;
+  height: 60px;
+  /* background-color: yellow; */
+  display: flex;
+  justify-content: start;
+  align-items: end;
+}
+.section3-cardsecondboxfirstrolesmall {
+  width: 200px;
+  height: 60px;
+  /* background-color: orangered; */
+  display: flex;
+  justify-content: start;
+  align-items: start;
+}
+.section3-cardsecondnamesmall {
+  font-family: "K2D", sans-serif;
+  font-size: 20px;
+  margin-right: 95px;
+}
+.section3-cardsecondrolesmall {
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  margin-right: 50px;
+}
+.section3-cardsecondnamesmall2 {
+  font-family: "K2D", sans-serif;
+  font-size: 20px;
+  margin-right: 105px;
+}
+.section3-cardsecondrolesmallleft {
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  margin-right: 84px;
+}
+
+/* ajithcard===================================================================== */
+.section3-thirdrowstart {
+  width: 100%;
+  height: 580px;
+  /* background-color: blue; */
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+.section3-thirdrow1 {
+  width: 95%;
+  height: 150px;
+  /* background-color: brown; */
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.section3-thirdrow2 {
+  width: 95%;
+  height: 150px;
+  /* background-color: red; */
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.section3-thirdrow3 {
+  width: 95%;
+  height: 150px;
+  /* background-color: green; */
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.section3-cardsecondboxfirstcardpatch {
+  width: 380px;
+  height: 120px;
+  background-color: #d0d1d1;
+  margin-top: 18px;
+  border-radius: 15px;
+  display: flex;
+  margin-left: -5px;
+}
+
+.section3-cardsecondboxfirstcardsmallpatch {
+  width: 340px;
+  height: 120px;
+  background-color: #d0d1d1;
+  margin-top: 18px;
+  border-radius: 15px;
+  display: flex;
+  /* margin-left: -30px; */
+  margin-right: 28px;
+}
+
+/* ================================mediaqueryddiv================================================================== */
+.section3-mediaqueryonlycard {
+  display: none;
+}

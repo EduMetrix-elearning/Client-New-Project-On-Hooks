@@ -62,6 +62,6 @@ export const EduMetrixHomepage = () => {
         </div>
     );      
 }
-
+export default Navbarpage
 
 

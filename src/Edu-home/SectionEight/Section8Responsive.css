@@ -1,0 +1,157 @@
+@media (max-width: 500px) {
+  * {
+    overflow-x: hidden;
+  }
+  .section8-container{
+    height: 50vh;
+    width: 100%;
+    max-width: 500px;
+    max-height: 390px;
+    /* background-color: yellow; */
+    overflow: hidden;
+  }
+  .section8-sub1-cntr {
+    /* background-color: yellow; */
+    width: 100%;
+    max-width: 500px;
+    overflow: hidden;
+    justify-content: flex-start;
+    height: 60vh;
+  }
+  .section8-services-main-div {
+    /* background-color: red; */
+    width: 85%;
+    max-width: 500px;
+    margin-left: 30px;
+    height: 120px;
+    overflow: hidden;
+  }
+  .section8-services-h1 {
+    overflow: hidden;
+    font-size: 40px;
+  }
+  .section8-fastest-p {
+    overflow: hidden;
+    font-size: 16px;
+  }
+
+  .section8-prjects-main-div {
+    /* background-color: aliceblue; */
+    width: 100%;
+    max-width: 500px;
+    height: 70px;
+    margin-left: 0px;
+    margin-top: 10px;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .section8-website-box {
+    width: 35%;
+    max-width: 500px;
+    height: 50px;
+    border-radius: 5px;
+    margin: 25px;
+    overflow: hidden;
+  }
+  .section8-website-p {
+    font-size: 13px;
+    overflow: hidden;
+  }
+  .section8-mobile-box {
+    width: 35%;
+    max-width: 500px;
+    height: 50px;
+    border-radius: 5px;
+    margin: 25px;
+    overflow: hidden;
+  }
+  .section8-prjects2-main-div {
+    /* background-color: rgb(145, 190, 230); */
+    width: 100%;
+    max-width: 500px;
+    height: 70px;
+    margin-left: 0px;
+    margin-top: 5px;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .section8-gift-main-div {
+    width: 100%;
+    max-width: 500px;
+    height: 70px;
+    overflow: hidden;
+    /* background-color: rgb(28, 129, 129); */
+    margin-left: 0px;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+  }
+  .section8-gift-box-div {
+    /* background-color: red; */
+    display: none;
+    width: 100%;
+    max-width: 500px;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    height: 190px;
+  }
+  .section8-gift-img {
+    width: 65%;
+    max-width: 500px;
+    height: 90%;
+    overflow: hidden;
+  }
+  .section8-Partnership-container {
+    /* background-color: green; */
+    overflow: hidden;
+    width: 100%;
+    max-width: 500px;
+    height: 70px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .section8-Partnership-box {
+    margin-left: 0;
+    width: 55%;
+    max-width: 500px;
+    height: 50px;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+
+  .section8-section8-sub2-cntr {
+    width: 40%;
+    max-width: 500px;
+    display: none;
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 390px) {
+  * {
+    overflow-x: hidden;
+  }
+  .section8-services-main-div {
+    /* background-color: red;   */
+    margin-left: 10px;
+    overflow: hidden;
+  }
+  .section8-Partnership-box {
+    width: 65%;
+    max-width: 500px;
+    overflow: hidden;
+  }
+  .section8-container{
+    height: 63vh;
+    width: 100%;
+    max-width: 500px;
+    max-height: 390px;
+    overflow: hidden;
+  }
+  .section8-website-p {
+    font-size: 13px;
+    overflow: hidden;
+  }
+}

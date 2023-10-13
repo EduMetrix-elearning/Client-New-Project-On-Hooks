@@ -1,0 +1,141 @@
+/* ===========================================Media Query width 390px=================================== */
+/* ===================================================================================================== */
+
+@media(max-width : 390px){
+    *{
+        overflow-x: hidden;
+    }
+    .section-9{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 500px;
+        overflow-x: hidden;
+    }
+    .section-9-1{
+        width: 100%;
+        max-width: 500px;
+        height: 45vh;
+        gap: 15px;
+        display: flex;overflow-x: hidden;
+        align-items: center;
+    }
+    .section-9-2{
+        width: 250px;
+        height: 30%;
+        font-size: 25px;
+        line-height: 64px;
+        /* overflow-x: hidden; */
+        overflow: hidden;
+        /* background: brown; */
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+
+    }
+    .section-9-3{
+        width: 90%;
+        height: 70%;
+        font-size: 16px;
+        padding-bottom: 15px;
+        overflow: hidden;
+        /* background: aqua; */
+    }
+    .section-9-left-text{
+        width: 100%;
+        height: 100%;
+        font-size: 14.5px;
+    }
+    .section-9-4{
+        width: 100%;
+        max-width: 500px;
+        height: 55vh;
+        overflow-x: hidden;
+    }
+    .section-9-5{
+       
+        width: 90% ;
+        max-width: 500px;
+        height: 55vh;
+        overflow-y: hidden;
+        padding: 0;
+        overflow-x: hidden;
+    }
+    .section-9-6,
+    .section-9-7,
+    .section-9-8,
+    .section-9-9{
+        width: 150px;
+        max-width: 500px;
+        height: 65px !important;
+        font-size: 15px;overflow-x: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        line-height: 19px;
+        overflow: hidden;
+  
+   
+
+    }
+    .section-9-6-spans{
+        overflow: hidden;
+        font-size: 15px;
+    }
+}
+
+/* ===========================================Media Query width 500px=================================== */
+/* ===================================================================================================== */
+
+@media (max-width:500px){
+    *{
+        overflow-x: hidden;
+    }
+    .section-9{
+        display: flex;
+        flex-direction: column;
+        width: 100%;overflow-x: hidden;
+        max-width: 500px;
+    }
+    .section-9-1{
+        width: 100%;
+        max-width: 500px;
+        height: 35vh;
+        gap: 15px;
+        overflow-x: hidden;
+        display: flex;
+        align-items: center;
+    }
+    .section-9-2{
+        font-size: 25px;
+        line-height: 64px;
+        overflow-x: hidden;
+        overflow: hidden;
+    }
+    .section-9-3{
+        font-size: 14px;overflow-x: hidden;
+    }
+    .section-9-4{
+        width: 100%;
+        max-width: 500px;overflow-x: hidden;
+        height: 55vh;
+    }
+    .section-9-5{
+        width: 90% ;
+        max-width: 500px;overflow-x: hidden;
+        height: 13vh;
+        gap: 20px;
+        padding: 0;
+    }
+    .section-9-6,
+    .section-9-7,
+    .section-9-8,
+    .section-9-9{
+        width: 150px;
+        max-width: 500px;
+        height: 45px;overflow-x: hidden;
+        font-size: 15px;
+       
+    }
+}

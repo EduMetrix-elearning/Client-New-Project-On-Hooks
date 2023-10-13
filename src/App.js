@@ -26,6 +26,8 @@ import QuickData from "./frontpage/MainDashBoard/Marketing/QuickData.jsx";
 import AgentStudents from "./frontpage/MainDashBoard/Marketing/AgentStudents.jsx";
 import InternspDetails from "./frontpage/MainDashBoard/Marketing/internsDetails.jsx";
 
+                ///marketing..................../////
+
 import MarketingNavbar from "./frontpage/MainDashBoard/Marketing/MarketingNavbar.jsx";
 import ItResource from "./frontpage/MainDashBoard/ItResource/ItResource.jsx";
 import InternNavbar from "./frontpage/MainDashBoard/Intern/InternNavbar.jsx";
@@ -43,11 +45,11 @@ import TermsOfServices from "./pages/AboutUs/TermsOfServices/TermsOfServices.jsx
 import WhitePaper from "./pages/AboutUs/WhitePaper/WhitePaper.jsx";
 import ContactUs from "./pages/AboutUs/ContactUs/ContactUs";
 
+import EduHome from "./pages/EduHome/EduHome.jsx";
 import { EduMetrixHomepage } from "./frontpage/Homepage/Homepage.jsx";
 import { TermOfservices } from "./frontpage/TermOfCondition/TermOfservices.jsx";
 import { SubscriptionTerms } from "./frontpage/TermOfCondition/SubscriptionTerms.jsx";
 import { PricingPaymentsAndRefunds } from "./frontpage/TermOfCondition/PricingPaymentsAndRefunds.jsx";
-
 
 import { Privacypolicy } from "./frontpage/Privacypolicy/PrivacyPolicy.jsx";
 import { WhitePaperPage } from "./frontpage/WhitePaper/WhitePaperPage.jsx";
@@ -85,6 +87,7 @@ import NewBillingDetails from "./frontpage/MainDashBoard/AdminDashboard/NewBilli
 import AdminMeeting from "./frontpage/MainDashBoard/AdminDashboard/AdminMeeting.jsx";
 import EmtTracker from "./frontpage/MainDashBoard/AdminDashboard/EmtTracker.jsx";
 import EmtForm from "./frontpage/MainDashBoard/Marketing/EmtForm.jsx";
+import Team from "./pages/Team/Team.jsx";
 // =======
 // >>>>>>> d8fa9f140c596cfebe9aad8864b64ed3cc4aee98
 
@@ -95,7 +98,7 @@ function App() {
         <Router>
           <ScrollToTop />
           <Routes>
-            <Route index element={<ProtectedRouter children={<Home />} />} />
+            <Route index element={<ProtectedRouter children={<EduHome />} />} />
             <Route
               path="login"
               element={<ProtectedRouter children={<Login />} />}
@@ -146,14 +149,25 @@ function App() {
 
             {/* Edumetrix Front Courses Page */}
 
+            <Route path="/eduhome" element={<EduHome />}></Route>
+            
             <Route path="/homepage" element={<EduMetrixHomepage />}></Route>
+            <Route path="/team" element={<Team />}></Route>
+
             <Route path="/Courses" element={<Fullstack />}></Route>
+
+            {/* /footer....... */}
+
             <Route path="/AboutUs" element={<Aboutus />}></Route>
             <Route path="/TermOfservices" element={<TermOfservices />}></Route>
-            <Route path="/SubscriptionTerms" element={<SubscriptionTerms />}></Route>
-            <Route path="/PricingPaymentsAndRefunds" element={<PricingPaymentsAndRefunds />}></Route>
-
-            
+            <Route
+              path="/SubscriptionTerms"
+              element={<SubscriptionTerms />}
+            ></Route>
+            <Route
+              path="/PricingPaymentsAndRefunds"
+              element={<PricingPaymentsAndRefunds />}
+            ></Route>
             <Route path="/PrivacyPolicy" element={<Privacypolicy />}></Route>
             <Route path="/whitepaper" element={<WhitePaperPage />}></Route>
             <Route path="/address" element={<Address />}></Route>
@@ -162,6 +176,7 @@ function App() {
             <Route path="/fullstack" element={<Fullstack />}></Route>
             <Route path="/Hrform" element={<Hrform />}></Route>
             <Route path="/employelogin" element={<EmployeLogin />}></Route>
+
             <Route path="/agentssignup" element={<AgentsSignup />}></Route>
             <Route path="/agentslogin" element={<AgentsLogin />}></Route>
             <Route

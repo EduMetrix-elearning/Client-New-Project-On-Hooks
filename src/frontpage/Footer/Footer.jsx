@@ -10,6 +10,7 @@ import twitter from "../../asset/images/SocialImages/twitter.png";
 import linkedin from "../../asset/images/SocialImages/linkedin.png";
 import whatsapp from "../../asset/images/SocialImages/whatsapp.png";
 import ClearIcon from "@mui/icons-material/Clear";
+import { useContext, } from "react";
 import {
   Card,
   CardContent,
@@ -23,6 +24,8 @@ import {
   Grid,
   Modal,
 } from "@material-ui/core";
+import { InternshipContext } from "../../context/InternshipContext";
+import { CareerContext } from "../../context/careerContext";
 
 const style = {
   position: "absolute",
@@ -43,7 +46,11 @@ export const Footer = () => {
     setFAQopen(true);
   };
   const handleFAQclose = () => setFAQopen(false);
-
+  // const {handleinternship}=useContext()
+  const {handleinternship,}=useContext(InternshipContext)
+  const { handleCarrier, carrierOpen, handleCarrierClose } = useContext(
+    CareerContext
+  );
   return (
     <div className="footer-main-div">
       <div className="container">
@@ -64,13 +71,14 @@ export const Footer = () => {
                 <Link to="/SubscriptionTerms">Subscription Terms</Link>
               </li>
               <li>
-                <Link to="/PricingPaymentsAndRefunds">Pricing, Payments and Refunds</Link>
+                <Link to="/PricingPaymentsAndRefunds">
+                  Pricing, Payments and Refunds
+                </Link>
               </li>
-              
+
               <li>
                 <Link to="/PrivacyPolicy">Privacy policy</Link>
               </li>
-           
             </ul>
           </div>
           <div className="footer-col">
@@ -114,8 +122,22 @@ export const Footer = () => {
               <li>
                 <a href="/backend">Backend</a>
               </li>
+              <li>
+              <a style={{cursor:"pointer"}} onClick={handleCarrier} >Internsip</a>
+              
+              </li>
+              <li>
+              <a style={{cursor:"pointer"}} onClick={handleinternship} >Career</a>
+              </li>
             </ul>
+            {/* <div className="career" style={{marginTop:10}}>
+              <div style={{width:70}}>
+              <h4>Career</h4>
+             <span  style={{color:"white"}}>Internship</span> 
+              </div>
+            </div> */}
           </div>
+
           <div className="footer-col">
             <h4>follow us</h4>
             <div className="social-links">
@@ -144,3 +166,4 @@ export const Footer = () => {
     </div>
   );
 };
+export default Footer

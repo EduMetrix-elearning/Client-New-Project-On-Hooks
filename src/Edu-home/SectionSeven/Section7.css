@@ -1,0 +1,294 @@
+@import url("https://fonts.googleapis.com/css2?family=K2D:wght@500&family=Urbanist:wght@100&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=K2D:wght@500&family=Urbanist:wght@100&display=swap");
+
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+*::-webkit-scrollbar{
+  display: none;
+}
+
+.section7main1 {
+  width: 100%;
+  /* height: 100vh; */
+}
+
+
+.section7main {
+  display: flex;
+  height: auto;
+}
+.Section7left {
+  background-color: #d3d3d3;
+  /* max-height: 105vh; */
+  /* min-height: 105vh; */
+  /* height: 100%; */
+  width: 60%;
+  /* padding-top: 150px;
+  padding-left: 70px;
+  padding-right: 70px; */
+  /* flex: 6; */
+  color: #164e64;
+  /* margin: 15px; */
+}
+.list{
+  list-style: none;
+  font-family: "Inter", sans-serif;
+  /* background-color: yellow; */
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-left: 55px;
+  width: 620px;
+}
+.Section7Text{
+  font-weight: 600;
+  font-size: 22px;
+}
+.Section7img {
+  float: right;
+  width: 20%;
+  position: absolute;
+  left: 35%;
+  margin-top: 10px;
+}
+.Section7img img {
+  position: absolute;
+  float: right;
+  width: 85%;
+}
+
+.Section7right {
+  /* flex: 5; */
+  display: flex;
+  flex-direction: column;
+  height: 105vh;
+  background-image: linear-gradient(#164e64, #5c9aa5);
+  /* width: 60%; */
+  color: #fff3e6;
+  /* padding-top: 150px; */
+  text-align: center;
+  width: 40%;
+}
+.section7TextRight h1 {
+  font-family: "K2D", sans-serif;
+  word-spacing: 5px;
+  font-size: 60px;
+}
+.section7TextRight h3 {
+  font-family: "K2D", sans-serif;
+
+  font-size: 20px;
+}
+.section7TextRight{
+  margin-top: 25px;
+}
+
+.Section7button {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  /* align-items: center;
+  justify-content: center; */
+  /* flex-wrap: wrap; */
+  margin: 70px 2%;
+  /* flex-direction: row; */
+}
+.section7button1, .section7button2, .section7button3, .section7button4, .section7button5, .section7button6 {
+  /* padding: 25px 45px; */
+  border-radius: 14px;
+  width: 205px;
+  height: 70px;
+  font-family: "K2D", sans-serif;
+  font-weight: 900;
+  font-size: 40px;
+display: flex;
+justify-content: center;
+align-items: center; 
+  
+}
+.Section7button  {
+  padding: 25px 45px;
+  border-radius: 14px;
+  width: 220px;
+  font-family: "K2D", sans-serif;
+  font-weight: 900;
+  font-size: 0px;
+}
+.section7button1,
+.section7button4,
+.section7button5 {
+  background-color: #d3d3d3;
+  color: black;
+  font-weight: 900;
+  font-size: medium;
+  border: none;
+  margin: 10px;
+  text-align: center;
+  /* box-shadow: 2px 4px #164e64; */
+}
+.section7button2,
+.section7button3,
+.section7button6 {
+  background-color: #5c9aa5;
+  color: white;
+  font-weight: 900;
+  font-size: medium;
+  border: none;
+  margin: 10px;
+  /* box-shadow: 2px 4px #164e64; */
+}
+
+
+
+
+.section7spantag{
+  width: 300px ;
+  height: 40px;
+  /* background-color: aqua; */
+  text-align: center;
+  display: flex;
+justify-content: center;
+align-items: center; 
+}
+@media(max-width: 500px) {
+  .section7main {
+    height: 100vh;
+    width: 100%;
+    max-width: 500px;
+    max-height: 670px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    /* background-color: blue; */
+  }
+  .Section7left {
+    /* font-size: 10px; */
+    width: 100%;
+    overflow: hidden;
+    /* max-height: 120vh;
+    min-height: 45vh; */
+    padding-top: 10px;
+    height: 40vh;
+    /* display: none; */
+    /* padding-left: 8px;
+    padding-right: 8px; */
+    /* text-align: center; */
+    /* background-color: yellowgreen; */
+    /* display: none; */
+  }
+
+  .list {
+    /* padding: 15px; */
+    height: 200px;
+    overflow: hidden;
+    /* background-color: rgb(30, 255, 0); */
+    margin-left: 0;
+    /* font-size: 15px; */
+    width: 80%; 
+    margin-left: 35px;
+  }
+  .Section7Text{
+    font-size: 12px;
+    overflow: hidden;
+    height: 45px;
+    width: 400px;
+
+  }
+
+  .Section7right {
+    /* padding-top: 20px; */
+    height: 80vh;
+    overflow: hidden;
+    width: 100%;
+  }
+  .section7TextRight{
+    /* background-color: violet; */
+    height: 80px;
+    overflow: hidden;
+  }
+  .section7TextRight h1{
+    font-size: 30px;
+    overflow: hidden;
+  }
+  .section7TextRight h3 {
+    font-size: 10px;
+    overflow: hidden;
+  }
+  .Section7button {
+    /* display: flex; */
+display: grid;
+padding: 0;
+overflow: hidden;
+
+    align-items: center;
+    width:100%;
+    /* background-color: violet;  */
+   
+ 
+    height: 350px;
+    margin: 0;
+    /* width: 100%; */
+  }
+  
+  .section7button1,
+  .section7button3,
+  .section7button5 {
+    background-color: #d3d3d3;
+    color: #164e64;
+    overflow: hidden;
+    width:80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 25px;
+    /* box-shadow: 2px 4px #5c9aa5; */
+    
+  }
+  .section7button2,
+  .section7button4,
+  .section7button6 {
+    background-color: #164e64;
+    color: #d3d3d3;
+    width:80%;overflow: hidden;
+
+    
+    /* box-shadow: 2px 4px #5c9aa5; */
+  }
+
+  .Section7img img {
+    display: none;
+  }
+  .Section7button button {
+    /* padding: 25px 45px; */
+    /* border-radius: 14px; */
+    width: 168px;
+    /* height: 40px; */
+    font-size: 16px;overflow: hidden;
+    /* text-align: center; */
+  }
+  .section7spantag{
+    width: 100px;
+    height: 50px;
+    overflow: hidden;
+    /* background-color: rgb(35, 230, 57); */
+    font-size: 16px;overflow: hidden;
+  }
+
+  
+}
+@media(max-width: 1200px) {
+
+  .section7button2,
+  .section7button3,
+  .section7button6,
+  .section7button1,
+  .section7button4,
+  .section7button5{
+    width: 150px;
+  }
+
+}

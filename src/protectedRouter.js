@@ -2,6 +2,7 @@ import React from "react"
 import { useDispatch } from "react-redux"
 import { Navigate, useLocation } from "react-router-dom"
 import { loginUser } from "./slices/authSlice"
+import EduHome from "./pages/EduHome/EduHome"
 
 export default function ProtectedRouter({ children }) {
     
@@ -25,7 +26,7 @@ export default function ProtectedRouter({ children }) {
             return children
         }
         else {
-            return <Navigate to="/homepage" />
+            return <Navigate to="/eduhome" />
         }
     }
 }

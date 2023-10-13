@@ -1,0 +1,185 @@
+@import url("https://fonts.googleapis.com/css2?family=K2D:wght@100;200;400&display=swap");
+
+* {
+  margin: 0%;
+  padding: 0%;
+}
+@font-face {
+  font-family: section4aboutfont;
+  src: url(./SectionFourFonts/K2D-Bold.ttf);
+}
+@font-face {
+  font-family: section4edumetrixfont;
+  src: url(./SectionFourFonts/Quicksand-SemiBold.ttf);
+}
+
+.section4-gurl-img {
+  height: 590px;
+  background-color: #d3d3d3;
+}
+.section4-main {
+  display: flex;
+  /* height: 100vh; */
+  width: 100%;
+  background-color: #d3d3d3;
+
+  /* background-color: #a6a6a6; */
+}
+
+.section4-heading1 {
+  height: 125px;
+  color: rgb(22, 72, 100);
+
+}
+.section4-h1 {
+  font-size: 50px;
+  /* background-color: gold; */
+  font-family: section4edumetrixfont;
+  color: rgb(22, 72, 100);
+
+}
+.section-4handp {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 220px;
+  /* background-color: chartreuse; */
+}
+.section4-handp2 {
+  height: 210px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  /* background-color: yellow; */
+}
+.section4-h2 {
+  font-size: 28px;
+}
+.section4-h2-child {
+  font-size: 28px;
+  bottom: 10px;
+}
+.section4-heangin2para {
+  font-size: 16.5px;
+  width: 295px;
+  color: rgb(22, 72, 100);
+  font-family: section4edumetrixfont;
+  /* background-color: blue; */
+}
+.section4-headin3 {
+  font-size: 15.5px;
+  width: 295px;
+  color: rgb(22, 72, 100);
+  font-family: section4edumetrixfont;
+  /* background-color: brown; */
+}
+.section4-h3 {
+  font-size: 28px;
+}
+.section4-h3-child {
+  font-size: 28px;
+}
+.section4-paramain {
+  margin-top: 30px;
+  width: 400px;
+  height: 520px;
+  color: white;
+  text-align: left;
+  margin-left: 20px;
+  font-family: section4edumetrixfont;
+  /* background-color: red; */
+}
+.section4wholepara {
+  margin-top: -33px;
+}
+/* ======================================= */
+
+.section4tailimg {
+  width: 70px;
+  height: 70px;
+  bottom: 30px;
+  right: 40px;
+  position: relative;
+  display: none;
+}
+.section4ballimg {
+  width: 60px;
+  height: 60px;
+  position: relative;
+  left: 390px;
+  top: 10px;
+}
+
+.setion4kidimg {
+  width: 190px;
+  width: 190px;
+  position: relative;
+  left: 75px;
+  top: 60px;
+}
+.squaremaindiv {
+  height: auto;
+  width: auto;
+  position: relative;
+  text-align: center;
+}
+.section4-square1 {
+  height: 130px;
+  width: 340px;
+  background-color: #164e64;
+  text-align: center;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+}
+.section4-square2 {
+  height: 120px;
+  width: 340px;
+    background-color: white;
+  /* background-color: #d3d3d3; */
+  border-radius: 20px;
+  margin-top: -33px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.section4-square3 {
+  height: 110px;
+  margin-top: -33px;
+  width: 340px;
+  border-radius: 20px 20px 20px 20px;
+  text-align: center;
+  background-color: #164e64;
+
+  /* background-color: #5c9aa5; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.section4-square1-child {
+  font-size: 28px;
+  color: white;
+  margin-top: 25px;
+  font-family: section4aboutfont;
+
+}
+.section4-square2-child {
+  font-size: 28px;
+  color: rgb(22, 72, 100);
+  margin-bottom: 25px;
+  font-family: section4aboutfont;
+
+}
+.section4-square3-child {
+  font-size: 28px;
+  color: white;
+  font-family: section4aboutfont;
+
+}
+.kidimgandsquaresdiv {
+  height: fit-content;
+  width: fit-content;
+  margin-right: 85px;
+  /* background-color: black; */
+}

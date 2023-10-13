@@ -1,0 +1,128 @@
+@media (max-width:500px){
+*{
+    overflow-x: hidden;
+}
+
+.section-5-maincontainer-1{
+    width: 100%;
+    max-width: 500px;
+    height: 120px;
+    overflow: hidden;
+}
+.section-5-maincontainer{
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+.section-5-technology{
+    font-size: 37px;
+    /* background-color: chocolate; */
+    height: 50px;
+    overflow: hidden;
+}
+
+.section-5-paratech{
+    font-size: small;
+    /* background-color: aqua; */
+    height: 40px;
+    padding: 5px;
+    overflow: hidden;
+}
+.section-5-image1{
+    /* width: 50px;
+    height: 50px; */
+    display: none;
+    overflow: hidden;
+}
+.section-5-image2{
+    /* width: 70px;
+    height: 70px;
+    margin-left: 0; */
+    display: none;
+
+}
+.section-5-image3{
+    /* width: 120px;
+    height: 120px; */
+    display: none;
+}
+.Section-5-container-1-para-div{
+    /* background-color: aqua; */
+    width: 80%;
+    height: 160px;
+    overflow: hidden;
+}
+.section-5-third-image-div{
+    /* background-color: cadetblue; */
+    overflow: hidden;
+    height:145px;
+}
+.section-5-sec-image-div{
+    /* background-color: chartreuse; */
+    height: 95px;overflow: hidden;
+}
+
+/* ===============================second main div ========================================= */
+/* ======================================================================================== */
+
+.section-5-maincontainer2{
+    width: 100%; 
+    max-width: 500px;overflow: hidden;
+    height: auto;
+    background-color: brown;
+}
+.section-5-combined-2and3{
+    width: 100%;overflow: hidden;
+    max-width: 500px;
+    display: flex;
+    flex-direction: row;
+    background-image: linear-gradient(to left,#5C9AA5,#164E64);
+}
+.section-5-maincontainer2-big{
+    width: 50%;overflow: hidden;
+    max-width: 500px;
+}
+.section-5-maincontainer-3{
+    width: 50%;
+    max-width: 500px;overflow: hidden;
+}
+.lindiv-section-5{
+    height: 50px;overflow: hidden;
+}
+.section-5-maincontainer2-big{
+    height: 500px;overflow: hidden;
+    
+}
+.section-5-maincontainer-3{
+    height: 500px;overflow: hidden;
+}
+.Section-5-container-1-para-div{
+    overflow: hidden;
+}
+.section-5-first-image-div{
+    display: none;
+}
+.section-5-sec-image-div{
+display: none;
+}
+.section-5-third-image-div{
+    display: none;
+}
+.section-5-image-container{
+    display: none;
+}
+.section-5-2-subcontainer{
+    font-size: large;overflow: hidden;
+}
+.section-3-container-details{
+    overflow: hidden;
+    font-size: 17px;
+}
+.section-5-container-3-sub{
+    overflow: hidden;
+    height: 80px;
+}
+}

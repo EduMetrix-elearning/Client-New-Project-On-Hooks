@@ -1,0 +1,314 @@
+@media(max-width:500px){
+*{
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+/* fonts==================================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=K2D&family=Lora:wght@500&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
+
+
+.section3-fullcardin1{
+    display: none; overflow: hidden;
+}
+.Section3-Ourtext{
+    /* background-color: blue; */
+    width: 65%;
+    left: 2%;
+    bottom: -4%;
+    overflow: hidden;
+}
+.Section3-ourstyle{
+font-size: 32px;
+overflow: hidden;
+}
+.Section3-Meettext{
+   /* background-color: blue; */
+   bottom: -3%;
+   left: 30px;
+   width: 50%;
+   height: 70px;
+   overflow: hidden;
+   text-align: center;
+
+}
+
+.section3-backgroundpng{
+    margin-top: 60px;
+    margin-left: 40%;
+    overflow: hidden;
+}
+.Section3-Mainbackgroundroundpng{
+    /* background-color: blue; */
+    margin-left: 82%;
+    top: 24%;
+    width: 60px;
+    overflow: hidden;
+
+}
+.Section3-Mainbackgroundpng{
+    overflow: hidden;
+  position: fixed;
+  height: 667px;
+
+}
+.Section3-Mainbackgroundnoodlepng{
+    /* background-color: brown; */
+    bottom: 11%;
+    left: 35%;
+    overflow: hidden;
+}
+.section3-backgroundnoodlepng{
+    /* background-color: blueviolet; */
+    width: 130px;
+    overflow: hidden;
+}
+
+
+ /* cardstartshere============================================================================================ */
+
+ .section3-mediaqueryonlycard{
+    width: 100%;
+    height: 900px;
+    background-color: blue;
+    position: relative;
+    display: inline;
+    top: 5%;
+    overflow: hidden;
+ }
+ .section3-mediafirst3cards{
+    width: 100%;
+    height: 200px;
+    /* background-color: red; */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    overflow: hidden;
+    
+ 
+
+ }
+ .section3-mediafirstbigcard{
+    width: 160px;
+    height: 180px;
+    background-color: #D0D1D1;
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    overflow: hidden;
+ }
+ .section3-mediaimagediv{
+    width: 180px;
+    height: 90px;
+    /* background-color: aqua; */
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    overflow: hidden;
+ }
+ .section3-mediaimageround{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    /* background-color: brown; */
+    margin-left: 10px;
+    overflow: hidden;
+ }
+ .section3-mediaimage{
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+ }
+ .section3-mediafirstcardname{
+    font-family: "K2D", sans-serif;
+    width: 120px;
+    font-size: 20px;
+    /* background-color: brown; */
+    height: 24px;
+    margin-left: 6%;
+    overflow: hidden;
+    
+
+ }
+ .section3-mediafirstcardlastname{
+    font-family: "K2D", sans-serif;
+    width: 120px;
+    font-size: 20px;
+    /* background-color: blue; */
+    overflow: hidden;
+    height: 24px;
+    margin-left: 6%;
+    
+
+
+ }
+ .section3-mediafirstcardposition{
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    /* background-color: red; */
+   margin-left: 12px;
+    overflow: hidden;
+
+
+ }
+ .section3-medianamediv{
+    width: 180px;
+    height: 52px;
+    /* background-color: chartreuse; */
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    overflow: hidden;
+    
+
+ }
+ .sectiono3-mediaothercard{
+    width: 160px;
+    height: 200px;
+    /* background-color: aqua; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    overflow: hidden;
+ }
+ .sectiono3-mediapersonalcard{
+    width: 160px;
+    height: 80px;
+    background-color: #D0D1D1;
+    display: flex;
+    border-radius: 14px;
+    overflow: hidden;
+
+ }
+ .sectiono3-mediapersonalcardimagediv{
+    width: 70px;
+    height: 80px;
+    /* background-color: blueviolet; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+ }
+ .section3-mediaeachimage{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    /* background-color: aqua; */
+    overflow: hidden;
+ }
+.section3-mediaimageeach{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+
+}
+.section3-medianamecommondiv{
+    width: 110px;
+    height: 80px;
+    /* background-color: brown; */
+    text-align: start;
+    overflow: hidden;
+    
+    
+
+}
+.section3-mediaeachrole{
+    width: 110px;
+    height: 40px;
+    /* background-color: green; */
+    text-align: start;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    overflow: hidden;
+
+}
+.section3-medianameeachperson{
+  
+    /* background-color: aqua; */
+    font-size: 12px;
+    font-family: "K2D", sans-serif;
+    font-weight: bold;
+    margin-right: 1px;
+    overflow: hidden;
+
+    
+}
+.section3-mediaeachname{
+    width: 110px;
+    height: 40px;
+    display: flex;
+    justify-content: start;
+    align-items: end;
+    overflow: hidden;
+ 
+  
+   
+}
+.section3-mediaeachpersonrole{
+    /* background-color: red; */
+    font-size: 12px;  
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+
+}
+
+
+
+/* otherallcards===================================================================================== */
+.section3-mediaallothercardfulldiv{
+    width: 100%;
+    height: 640px;
+    /* background-color: brown; */
+    overflow: hidden;
+}
+
+.section3-media2in1{
+    width: 100%;
+    height: 90px;
+    /* background-color: aqua; */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    overflow: hidden;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+

@@ -1,0 +1,168 @@
+*::-webkit-scrollbar {
+  display: none;
+}
+@font-face {
+  font-family: section2aboutfont;
+  src: url(./Section2font/Quicksand-SemiBold.ttf);
+}
+@font-face {
+  font-family: section2edumetrixfont;
+  src: url(./Section2font/K2D-Bold.ttf);
+}
+/* body {
+  overflow: hidden;
+} */
+* {
+  margin: 0%;
+  padding: 0%;
+  border: 0;
+}
+.section2maincontainer {
+  width: 100vw;
+  height: 100%;
+  background-color: #d3d3d3;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  top: 0%;
+}
+
+/* ========================leftpart================== */
+/* =================================================== */
+
+.section2logo {
+  width: 100px;
+  height: 100px;
+}
+.section2logowithtext {
+  display: flex;
+  width: 180px;
+  height: 80px;
+  align-items: center;
+  justify-content: space-evenly;
+  font-size: 15px;
+  font-weight: bold;
+  margin-right: 70px;
+  display: none;
+}
+.sectiontwoedumetrix {
+  font-family: section2edumetrixfont;
+  font-size: 20px;
+}
+
+.sectiontwocompanyandtext {
+  width: 250px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-left: 30px;
+
+}
+.section2leftsidepart {
+  width: 430px;
+  height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+}
+.sectiontwofountedparagraph {
+  width:400px;
+  height: 224px;
+  font-size: 19px;
+  font-weight: 500;
+  
+  letter-spacing: 2px;
+  font-style: normal;
+  font-family: section2edumetrixfont;
+  color: rgb(22, 72, 100);
+}
+.Section2About {
+  color: rgb(22, 72, 100);
+  font-size: 44px;
+  font-style: normal;
+  font-family: section2edumetrixfont;
+  width: 400px;
+  height: 65px;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 45px;
+
+}
+.section2aboutcompany {
+  width: 300px;
+  height: 150px;
+}
+
+/* ========================centerimage part================== */
+/* =================================================== */
+
+.section2centerpart {
+  width: 130px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  left: 470px;
+}
+.section2round {
+  width: 140px;
+  margin-top: -50px;
+  /* position: absolute; */
+
+}
+
+.section2smallround {
+  width: 55px;
+  height: 50px;
+  /* position: absolute; */
+}
+
+/*=================rightpart=================*/
+/* ========================================= */
+
+.section2rightpart {
+  width: 700px;
+  height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  /* position: relative; */
+  /* left: 155px; */
+}
+.section2reviewimg {
+  width: 709px;
+  height: 100%;
+  border-radius: 260px 0px 0px 260px;
+  position: absolute;
+  margin-left: 70px;
+}
+.section2triangleimg {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  /* top: 30px; */
+  left: 120px;
+}
+.section2lastquotes {
+  position: relative;
+  width: 400px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #d3d3d3;
+  color: rgb(22, 72, 100);
+  text-align: center;
+  border-radius: 30px;
+  font-weight: bold;
+  top: -40px;
+  font-family: section2edumetrixfont;
+  font-size: 14px;
+}
+

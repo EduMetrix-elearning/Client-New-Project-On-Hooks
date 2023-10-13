@@ -20,7 +20,7 @@ export default function AffialateModal({ open, handleClose }) {
           <div className="title">
             <h4>EduMetrix Affiliate Program</h4>
           </div>
-          <div className="body">
+          <div className="body" >
             <p>1. Signup Your Agent Profile</p>
             <p>2. Verify Email & Phone Number</p>
             <p>3. Finish Agent KYC form</p>

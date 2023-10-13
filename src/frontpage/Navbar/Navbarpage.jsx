@@ -29,7 +29,7 @@ export const Navbarpage = () => {
       <Navbar className="frontend-navbar" bg="light" expand="lg">
         <Container>
           <Navbar.Brand href="" style={{ fontSize: "30px" }}>
-            <Link to="/homepage" style={{ textDecoration: "none" }}>
+            <Link to="/eduhome" style={{ textDecoration: "none" }}>
               <img src={EdumetrixImage} className="edu-image" alt="" />{" "}
               <span style={{ color: "#636567" }}>Edu</span>
               <span style={{ color: "#164e64" }}>M</span>
@@ -52,12 +52,22 @@ export const Navbarpage = () => {
                   Courses
                 </Link>
               </Nav.Link>
-              <Nav.Link className="all-items" onClick={handleinternship}>
+
+              <Nav.Link className="all-items" >
+                <Link to="/team" 
+                  style={{ textDecoration: "none", color: "#707071" }}
+                  >
+               Team
+               </Link>
+              </Nav.Link>
+
+
+              {/* <Nav.Link className="all-items" onClick={handleinternship}>
                 Internship
-              </Nav.Link>
-              <Nav.Link className="all-items" onClick={handleCarrier}>
+              </Nav.Link> */}
+              {/* <Nav.Link className="all-items" onClick={handleCarrier}>
                 Career
-              </Nav.Link>
+              </Nav.Link> */}
               <Nav.Link className="all-items" onClick={handleOpen}>
                 <Link
                   //   to="/agentssignup"
@@ -74,14 +84,14 @@ export const Navbarpage = () => {
                   Corporates
                 </Link>
               </Nav.Link>
-              <Nav.Link className="all-items">
+              {/* <Nav.Link className="all-items">
                 <Link
                   to="/"
                   style={{ textDecoration: "none", color: "#707071" }}
                 >
                   Resume Builder
                 </Link>
-              </Nav.Link>
+              </Nav.Link> */}
               <Nav.Link className="all-items" href="#">
                 <Link
                   to="/login"
